@@ -29,8 +29,12 @@ Descargamos el proyecto de RStudio jsPsychMaker:
 # Se asegura que el paquete {usethis} está instalado
 if (!require('usethis')) install.packages('usethis'); library('usethis')
 
-# Descargamos jsPsychMaker a la carpeta Downloads
+# Descargamos la última versión de jsPsychMaker a la carpeta Downloads
 usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
+
+# Alternativamente, podemos descargar una versión específica (en la siguiente linea, la versión v0.0.1):
+# usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.0.1.zip", destdir = "~/Downloads/")
+
 
 # En la consola aparecerá la pregunta: 'Shall we delete the ZIP file ('gorkang-jsPsychMaker-123fa42.zip')?
   # Puedes decirle que SI
@@ -39,12 +43,14 @@ usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
 
 #### 2) Editar configuración {-}  
 
+**NOTA: En este momento estamos en transición a la v0.0.2. Recomendamos esperar a esta para usar el sistema en producción.**  
+
 En a la carpeta `canonical_protocols` editamos `config.js` para dejar en la variable `not_ordered_experiments` solo aquellas tareas que queremos conservar.  
 
 ![](img/jsPsychmaker_config.png)
 
 
-> Si estás usando la version jsPsychMaker v0.0.1, deberás editar `index.html` en lugar de `config.js`.  
+> Si estás usando la version jsPsychMaker v0.0.1, deberás editar `index.html` en lugar de `config.js`. Si NO tienes un archivo `config.js` es que estás en la v0.0.1.   
 
 
 
