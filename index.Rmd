@@ -1,0 +1,32 @@
+--- 
+title: "jsPsychR manual"
+author: "Gorka Navarrete"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+# What is jsPsychR?
+
+`jsPsychR` is a group of tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis.
+
+We have three main tools:
+
+- [jsPsychMaker](#jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+
+- [jsPsychMonkeys](#jsPsychMonkeys): Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
+
+- [jsPsychHelpeR](#jsPsychHelpeR): Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

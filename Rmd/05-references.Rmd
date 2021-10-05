@@ -1,0 +1,8 @@
+`r if (knitr::is_html_output()) '
+# References {-}
+
+- [jsPsych](https://www.jspsych.org/)  
+
+- [targets](https://books.ropensci.org/targets)
+
+'`

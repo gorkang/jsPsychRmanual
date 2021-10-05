@@ -1,0 +1,89 @@
+# jsPsychMaker {#jsPsychMaker}
+
+[jsPsychMaker](https://github.com/gorkang/jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+
+
+## Como crear un protocolo experimental
+
+Para crear un protocolo experimental, lo único que tendrás que hacer es:
+
+1. Descargar jsPsychMaker
+
+2. Ir a la carpeta `canonical_protocols` y editar un archivo para seleccionar las tareas que necesitas
+
+3. Abrir `index.html` en tu navegador  
+
+
+
+Dentro de la carpeta `canonical_protocol/` del repositorio de [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) tenemos un [listado exhaustivo de tareas](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv) disponibles para ser usadas. 
+
+
+---  
+
+#### 1) Descargar jsPsychMaker {-}  
+
+Descargamos el proyecto de RStudio jsPsychMaker:
+
+```{r, eval=FALSE}
+
+# Se asegura que el paquete {usethis} está instalado
+if (!require('usethis')) install.packages('usethis'); library('usethis')
+
+# Descargamos jsPsychMaker a la carpeta Downloads
+usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
+
+# En la consola aparecerá la pregunta: 'Shall we delete the ZIP file ('gorkang-jsPsychMaker-123fa42.zip')?
+  # Puedes decirle que SI
+```
+
+
+#### 2) Editar configuración {-}  
+
+En a la carpeta `canonical_protocols` editamos `config.js` para dejar en la variable `not_ordered_experiments` solo aquellas tareas que queremos conservar.  
+
+![](img/jsPsychmaker_config.png)
+
+
+> Si estás usando la version jsPsychMaker v0.0.1, deberás editar `index.html` en lugar de `config.js`.  
+
+
+
+#### 3) Correr experimento {-}  
+
+El experimento esta listo para ser utilizado localmente. Podemos hacerlo abriendo `index.html` en Google Chrome o tu navegador preferido
+
+
+---  
+
+
+## Configuración del experimento
+
+
+En el archivo `config.js` encontrarás algunos parámetros para definir como funciona tu experimento. Los principales son:
+
+
+### Main parameters
+
+- `pid = 999999;`:  Número del protocolo
+
+- `online = true;`: true si el protocolo corre en un servidor, false si corre localmente
+
+- `max_participants = 3;`: Si tienes condiciones `between participants`, número máximo de participantes por condición
+
+- `random_id = false;`: true si se asigna un numero de participante aleatorio, false si el participante tiene que indicar su número
+
+- `max_time = "24:00:00";`:  Tiempo máximo para completar el protocolo desde que se inicia (HH:MM:SS; Horas:Minutos:Segundos)
+
+- `accept_discarded = true;`: Si un usuario es descartado (supera max_time), se le debería permitir continuar (si aun quedan cupos)
+
+
+
+### Orden de tareas
+
+- `first_tasks = ['Consent'];`:  Conjunto de tareas iniciales. Se presentan en el orden que aparecen aquí
+
+- `randomly_ordered_tasks = [];`:  Tareas ordenadas aleatoriamente que se presentan después de las `first_tasks`
+
+- `last_tasks = ['Goodbye'];`:  Tareas presentadas secuencialmente después de `randomly_ordered_tasks`
+
+

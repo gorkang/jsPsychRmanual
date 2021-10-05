@@ -1,0 +1,21 @@
+# Experimentos reproducibles {#intro}
+
+En el CSCN usamos distintas tecnologías para desarrollar experimentos. Algunos ejemplos son [Psychopy](https://www.psychopy.org/), [Qualtrics](https://www.qualtrics.com/), [Limesurvey](https://www.limesurvey.org/), [jsPsych](https://www.jspsych.org/plugins/jspsych-preload/), [Gorilla](https://gorilla.sc/), etc. Cada una de estas tiene ventajas y desventajas, y en general es importante tener en cuenta aspectos pragmáticos a la hora de adoptar una u otra tecnología (coste económico, tipo de experimento [EEG/conductual, laboratorio/online]).  
+
+Algunos de nosotros hemos optado principalmente por [jsPsych](https://www.jspsych.org/) para experimentos conductuales por tratarse de una librería javascript de código abierto, basada en tecnologías web standard, y que puede ser usada online y offline. Dado que en el CSCN disponemos de servidor propio, los costos habituales de hosting no se aplican.    
+
+En los últimos años, hemos empezado a trabajar en un conjunto de herramientas para crear experimentos usando la librería [jsPsych](https://www.jspsych.org/) con [jsPsychMaker](https://github.com/gorkang/jsPsychMaker), simular participantes con [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) y estandarizar y automatizar la preparación de datos con [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR).  
+
+Nuestro objetivo final es tener un gran número de tareas disponibles para ser usadas en el repositorio de [jsPsychMaker](https://github.com/gorkang/jsPsychMaker). Cada una de estas tareas funcionará en [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) para crear participantes virtuales. Cada tarea tendrá un script hermano en [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) para automatizar la preparación de datos.  
+
+
+## Pipeline experimental abierto y reproducible
+
+Replicar el experimento a partir de una publicación no es trivial. Una de las fortalezas fundamentales de este sistema es que compartir y reproducir un experimento y los análisis asociados se convierte en algo muy sencillo.    
+
+Además, todos los componentes del proceso son código abierto, lo que permite que revisores, colaboradores, etc. puedan verificar que no hay errores en el código.  
+
+Con este sistema podremos crear fácilmente el código del experimento, simular datos y preparar datos de manera casi automática (incluyendo anonimizacion).
+
+El output del sistema es estandarizado, lo que implica que los nombres de las variables y la estructura de datos son predecibles. Finalmente, la generación de gráficas, tablas, reportes y los análisis son reproducibles.  
+

@@ -1,0 +1,15 @@
+what-is-jspsychr
+intro
+pipeline-experimental-abierto-y-reproducible
+jsPsychMaker
+como-crear-un-protocolo-experimental
+configuración-del-experimento
+main-parameters
+orden-de-tareas
+jsPsychMonkeys
+como-simular-datos
+jsPsychHelpeR
+como-preparar-datos
+errores-comunes
+si-estas-en-linux-ubuntu
+si-estas-en-windows-o-mac
