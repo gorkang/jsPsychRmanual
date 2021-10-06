@@ -10,3 +10,5 @@ We have three main tools:
 
 - [jsPsychHelpeR](https://gorkang.github.io/jsPsychR-manual/#jsPsychHelpeR): Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.
 
+
+![](img/jsPsych-trinity.png)
