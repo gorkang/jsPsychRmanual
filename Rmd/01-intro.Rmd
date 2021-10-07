@@ -1,21 +1,36 @@
-# Experimentos reproducibles {#intro}
+# Reproducible experiments {#intro}
 
-En el CSCN usamos distintas tecnologías para desarrollar experimentos. Algunos ejemplos son [Psychopy](https://www.psychopy.org/), [Qualtrics](https://www.qualtrics.com/), [Limesurvey](https://www.limesurvey.org/), [jsPsych](https://www.jspsych.org/plugins/jspsych-preload/), [Gorilla](https://gorilla.sc/), etc. Cada una de estas tiene ventajas y desventajas, y en general es importante tener en cuenta aspectos pragmáticos a la hora de adoptar una u otra tecnología (coste económico, tipo de experimento [EEG/conductual, laboratorio/online]).  
+We use different technologies to develop experiments. Some examples are [Psychopy](https://www.psychopy.org/), [Qualtrics](https://www.qualtrics.com/), [Limesurvey](https://www.limesurvey.org/), [jsPsych](https://www.jspsych.org/plugins/jspsych-preload/), [Gorilla](https://gorilla.sc/), etc. Each of these has advantages and disadvantages and, in general, there are pragmatic aspects to take into account when adopting one or the other (cost, type of experiment - EEG/behavioral, lab/online -, lab history and available resources, ...).  
 
-Algunos de nosotros hemos optado principalmente por [jsPsych](https://www.jspsych.org/) para experimentos conductuales por tratarse de una librería javascript de código abierto, basada en tecnologías web standard, y que puede ser usada online y offline. Dado que en el CSCN disponemos de servidor propio, los costos habituales de hosting no se aplican.    
+We opted mainly for [jsPsych](https://www.jspsych.org/) to run behavioral experiments because it is an open source javascript library, based on standard web technologies, and can be used online and offline.  
 
-En los últimos años, hemos empezado a trabajar en un conjunto de herramientas para crear experimentos usando la librería [jsPsych](https://www.jspsych.org/) con [jsPsychMaker](https://github.com/gorkang/jsPsychMaker), simular participantes con [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) y estandarizar y automatizar la preparación de datos con [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR).  
+In the last years, we started working on a set of tools to create [jsPsych](https://www.jspsych.org/) experiments ([jsPsychMaker](https://github.com/gorkang/jsPsychMaker)), simulate participants ([jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys)) and standardize and automatize the data preparation and analyis ([jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR)).  
 
-Nuestro objetivo final es tener un gran número de tareas disponibles para ser usadas en el repositorio de [jsPsychMaker](https://github.com/gorkang/jsPsychMaker). Cada una de estas tareas funcionará en [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) para crear participantes virtuales. Cada tarea tendrá un script hermano en [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) para automatizar la preparación de datos.  
+Our final goal is to have a big catalog of tasks available to use in the [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) repo. Each of the tasks should run with [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) to create virtual participants. And each task will have a sister script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to fully automate data preparation.  
 
 
-## Pipeline experimental abierto y reproducible
+## Open and reproducible experimental pipeline
 
-Replicar el experimento a partir de una publicación no es trivial. Una de las fortalezas fundamentales de este sistema es que compartir y reproducir un experimento y los análisis asociados se convierte en algo muy sencillo.    
+To replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.  
 
-Además, todos los componentes del proceso son código abierto, lo que permite que revisores, colaboradores, etc. puedan verificar que no hay errores en el código.  
+Furthermore, all the components of the pipeline should be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.  
 
-Con este sistema podremos crear fácilmente el código del experimento, simular datos y preparar datos de manera casi automática (incluyendo anonimizacion).
+With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically (including anonimization).  
 
-El output del sistema es estandarizado, lo que implica que los nombres de las variables y la estructura de datos son predecibles. Finalmente, la generación de gráficas, tablas, reportes y los análisis son reproducibles.  
+The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a [registered report](https://www.cos.io/initiatives/registered-reports) and just relaunch the data preparation and analysis when the participant's data arrive with a single command.  
+`
 
+
+## Automatization
+
+We tried to make a few basic things right, but this is an evolving project, and some things are more complex than one would want. Please do report the issues you find:
+
+- [jsPsychMaker issues](https://github.com/gorkang/jsPsychMaker)
+- [jsPsychMonkeys issues](https://github.com/gorkang/jsPsychMonkeys/issues)
+- [jsPsychHelpeR issues](https://github.com/gorkang/jsPsychHelpeR/issues)
+
+
+![SOURCE: https://xkcd.com/1425/](img/xkcd-tasks.png)
+
+
+We use the {[targets](https://github.com/wlandau/targets)} package.

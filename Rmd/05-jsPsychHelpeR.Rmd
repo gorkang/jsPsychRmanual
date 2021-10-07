@@ -1,0 +1,103 @@
+# jsPsychHelpeR {#jsPsychHelpeR}
+
+[jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR): Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.
+
+---  
+
+**See [QuickGuide](#QuickGuidejsPsychHelpeR) for basic instructions.**
+
+---  
+
+
+## How to prepare data
+
+Every [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. `run_initial_setup()` will try to make sure you have all the dependencies, folders, etc., and a customized `_targets.R` file adapted to your protocol, so data preparation can run automagically.  
+
+---   
+
+We use the {targets} (<https://github.com/wlandau/targets>) package.
+
+**The whole process can be reproduced running `targets::tar_make()`**  
+
+A nice visualization of all the pre-processing steps can be seen with `targets::tar_visnetwork(targets_only = TRUE)`  
+
+The file `_targets.R` contains the important parameters and calls to all the functions used when running `targets::tar_make()`  
+
+
+To see more detail about any specific step, you can:
+
+1.  Go to the relevant function
+2.  Load the input parameters of the function with `debug_function(NAME_OF FUNCTION)`. Alternatively, manually use `targets::tar_load(NAME_OF_TARGET)`
+3.  Run the code step by step as you would normally do
+
+
+### Output tables and plots
+
+-   **Raw data** (anonymized) are in `data/raw_data_anonymized.csv`
+
+-   **Plots**, **tables** and **reports** are in `outputs/plots`, `outputs/tables`and `outputs/reports` respectively.
+
+-   **Dataframes** for different stages of data processing can be seen in `outputs/data`
+
+
+
+## Create your own reports
+
+You can use any of the template reports in the `_targets.R` file, or create your own reports.  
+
+We will start opening one of the template reports: `rstudioapi::navigateToFile("doc/report_analysis.Rmd")`.
+
+- Edit the RMarkdown file to adapt it to your needs. 
+
+- If you already did `targets::tar_make()`, when running `targets::tar_load(DF_analysis)` the dataframe `DF_analysis` will load in your Environment.
+
+
+Go back to the `_targets.R` file:
+
+- Look for `# Analysis report` and uncomment the following lines:
+
+```
+  # tar_render(report_analysis, "doc/report_analysis.Rmd",
+  #            output_file = paste0("../outputs/reports/report_analysis.html")),
+```
+
+When you finished editing and uncomented the tar_render command, go back to the `run.R` file:
+
+- `targets::tar_make()`
+
+
+
+## Common ERRORS
+
+### `run_initial_setup()`:  
+
+```
+x Can find server credentials in '.vault/.credentials'
+x 0 tasks found for protocol 'TU NUMERO DE PROYECTO'. NOT creating _targets.R file
+```
+
+#### On Linux (Ubuntu):
+
+- IF you have the server credentials: 
+
+  + Open .credentials_TEMPLATE `rstudioapi::navigateToFile(".vault/.credentials_TEMPLATE")`
+  
+  + Edit the file with your server credentials
+  
+  + Rename the file  to `.credentials`
+  
+---  
+
+  
+- IF you DON'T have the credentials but you have the .csv results files:
+
+  + Copy the csv files to the folder `data/YOUR_PROJECT_NUMBER`
+  
+  + Run again `run_initial_setup()`
+
+
+### On Mac or Windows:
+
+  + Copy the csv files to the folder `data/YOUR_PROJECT_NUMBER`
+  
+  + Run again `run_initial_setup()`

@@ -1,0 +1,103 @@
+# jsPsychMaker {#jsPsychMaker}
+
+[jsPsychMaker](https://github.com/gorkang/jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+
+
+---  
+
+**See [QuickGuide](#QuickGuidejsPsychMaker) for basic instructions.**
+
+---  
+
+
+## Experiment configuration
+
+In the `config.js` file you can find the main parameters to control how your experiment works.
+
+
+### Main parameters
+
+- `pid = 999999;`:  Number of protocol
+
+- `online = true;`: true if the protocol run in a server, false if runs locally
+
+- `max_participants = 3;`: If you have `between participants` conditions (participants are assign to only one of a number of conditions), this is the max number of participants per condition
+
+- `random_id = false;`: true if you want to assign a random id to participants, false if the participant needs to input an id
+
+- `max_time = "24:00:00";`:  Max time to complete the protocol (HH:MM:SS; Hours:Minutes:Seconds)
+
+- `accept_discarded = true;`: If an user is discarded (over max_time), shall be allowed to continue given there are available slots?
+
+
+
+### Order of tasks
+
+- `first_tasks = ['Consent'];`:  The protocol will start with these tasks in the specified order
+
+- `randomly_ordered_tasks = [];`:  Randomly ordered tasks presented after `first_tasks`
+
+- `last_tasks = ['Goodbye'];`:  These tasks will be presented in the specified order after `randomly_ordered_tasks`
+
+
+
+
+## online-offline protocols
+
+jsPsych uses standard web technologies (HTML, CSS y Javascript), so that protocols should run in any modern browser (updated, please). We recommend Google Chrome just because our test suite runs with Google Chrome, so we will catch its specific issues earlier.  
+
+### Offline 
+
+If you want to run a protocol locally (on your computer, on a lab computer), you need to set `online = false;` in the `config.js` file. After that, just double click index.html. The 
+
+
+### Online 
+
+TODO: If I want to run on a server but dont have/want mysql?
+EXPLAIN: what controllers do: be able to continue where you left it, randomize to conditions and balance conditions...
+
+Tu run a protocol online, set `online = true;`. You will need a couple more things:
+
+- Install MySQL
+- A file `.secrets_mysql.php` with the contend below
+- Define a route to `.secrets_mysql.php` in `controllers/php/mysql.php` 
+  + `require_once '../../.secrets_mysql.php';`
+  + THIS FILE **SHOULD NOT** BE PUBLICLY VISIBLE FROM THE BROWSER
+
+
+```
+<?php
+
+/* DO NOT UPLOAD TO PUBLIC REPO */
+
+  $servername = "127.0.0.1";
+  $username = "USERNAME OF THE DATABASE";
+  $password = "PASSWORD OF THE DATABASE";
+  $dbname = "NAME OF THE DB";
+  
+?>
+```
+
+
+## Technical aspects
+
+
+When index.html is launched:
+
+- Check if there are available slots
+
+
+When an uid is assigned:
+
+- `questions` array is created
+
+- `between-participants` conditions are assigned and stored in the DB (mysql if online, IndexedDB if offline)
+
+
+Each question, timeline or conditional question needs to have a:
+
+`data: {trialid: 'NameTask_001', procedure: 'NameTask'}`
+
+The `trialid` identifies the trial, and the `procedure` makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc.
+mysql and indexeddb...
+

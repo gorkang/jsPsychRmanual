@@ -1,0 +1,209 @@
+# Quick Guide {#QuickGuide}
+
+
+## jsPsychMaker: How to create an experimental protocol {#QuickGuidejsPsychMaker}
+
+---  
+
+**See the [jsPsychMaker chapter](#jsPsychMaker) for more detailed instructions.**
+
+---  
+
+**Outline**
+
+1) Download jsPsychMaker
+
+2) Go to the folder `canonical_protocols` and edit the `config.js` file to select the tasks you need
+
+3) Open `index.html` in your folder
+
+
+---  
+
+#### 1) Download jsPsychMaker {-}  
+
+Open RStudio and run the following two lines in the console. This will download the last stable jsPsychMaker version `v0.0.2`. When you finish, a new RStudio project named jsPsychMaker-0.0.2 will open.  
+
+```{r, eval=FALSE}
+
+# Make sure you have {usethis} installed
+if (!require('usethis')) install.packages('usethis'); library('usethis')
+
+# Download last stable jsPsychMaker version to the Downloads folder
+usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.0.2.zip", destdir = "~/Downloads/")
+
+# Alternatively, download the dev version version:
+# usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
+
+```
+
+
+#### 2) Edit configuration {-}  
+
+Go to folder `canonical_protocols` and edit `config.js`.
+
+The variable `not_ordered_experiments` should contain only the tasks we want to run. See a [list of tasks](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv) available in the repo.  
+  
+
+![](img/jsPsychmaker_config.png)
+
+
+#### 3) Run experiment {-}  
+
+The experiment is ready to run on your computer. Open `index.html` in Google Chrome or your favourite (and up to date) browser.
+
+
+
+## jsPsychMonkeys: Simulate participants {#QuickGuidejsPsychMonkeys}
+
+---  
+
+**See the [jsPsychMonkeys chapter](#jsPsychMonkeys) for more detailed instructions.**
+
+---  
+
+jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](https://www.docker.com/) container to guarantee each session is a clean session. On Linux it's use and configuration is trivial, but on Windows it can be trickier.  
+
+
+**Outline**
+
+1) Download jsPsychMonkeys
+
+2) Setup
+
+3) Run Monkeys
+
+
+---  
+
+
+#### 1) Download jsPsychMonkeys
+
+  
+```{r, eval=FALSE}
+
+if (!require('usethis')) install.packages('usethis'); library('usethis')
+
+usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
+
+```
+
+
+#### 2) Setup {-}
+
+Run setup: `source("setup.R")`. This will install the packages needed.  
+
+
+**Ubuntu**
+
+You may need to install some system libraries first: 
+
+- `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev`  
+
+
+**Mac**
+
+- (?)
+
+
+**Windows**  
+
+Download and install docker:  
+
+- https://docs.docker.com/docker-for-windows/install/  (~ 500MB)  
+
+
+
+#### 3) Run Monkeys {-}
+
+Open `run.R` and follow the instructions. Mainly:
+
+- Open `_targets.R`  file: `rstudioapi::navigateToFile("_targets.R")`
+
+- Edit `parameters_monkeys_minimal`. For example, launch participants 1 to 5 to the 999 protocol locally:
+
+  + `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "Downloads/999")`
+
+- Run Monkeys!: `targets::tar_make()`
+
+
+
+
+## jsPsychHelpeR: Prepare data {#QuickGuidejsPsychHelpeR}
+
+---  
+
+**See the [jsPsychHelpeR chapter](#jsPsychHelpeR) for more detailed instructions.**
+
+---  
+
+
+**Outline**
+
+1) Download jsPsychHelpeR
+
+2) Run setup
+
+3) Run data preparation
+
+
+---  
+
+
+#### 1) Download jsPsychHelpeR {-}
+
+- Run the following two lines in a RStudio console. A new RStudio session will appear. You should see something similar to ![](img/jsPsychHelpeR-project.png) on the top right corner of your RStudio.  
+
+```{r, eval=FALSE}
+
+# Make sure you have {usethis} installed
+if (!require('usethis')) install.packages('usethis'); library('usethis')
+
+# Download jsPsychHelpeR version to the Downloads folder
+usethis::use_course(url = "gorkang/jsPsychHelpeR", destdir = "~/Downloads/")
+
+```
+
+
+#### 2) Run setup {-}
+
+Open the file `run.R` and run initial setup:  
+
+![](img/files-pane_run.png)
+
+
+```{r, eval=FALSE}
+
+# Load functions
+invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
+
+# Run initial setup [REMEMBER to replace `999` with your project number]
+run_initial_setup(pid = 999)
+
+```
+
+`run_initial_setup()` will:
+
+- Delete old files 
+- Install dependencies
+- Create necessary folders
+- Download results files for the project `only on Ubuntu`
+- Create a `_targets.R` file for your project
+
+
+**IMPORTANT**: You may need to manually copy the results files to the folder `data/PROJECT ID`
+
+
+#### 3) Run data preparation {-}
+
+```{r, eval=FALSE}
+
+# Run data preparation
+targets::tar_make()
+
+```
+
+If you are curious, running `targets::tar_visnetwork(targets_only = TRUE)` will show the whole data preparation targets tree.  
+
+
+---  
