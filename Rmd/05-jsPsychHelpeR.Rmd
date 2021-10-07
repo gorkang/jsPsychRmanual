@@ -26,8 +26,10 @@ The file `_targets.R` contains the important parameters and calls to all the fun
 
 To see more detail about any specific step, you can:
 
-1.  Go to the relevant function
-2.  Load the input parameters of the function with `debug_function(NAME_OF FUNCTION)`. Alternatively, manually use `targets::tar_load(NAME_OF_TARGET)`
+1.  Go to the relevant function  
+
+2.  Load the input parameters of the function with `debug_function(NAME_OF FUNCTION)`. Alternatively, manually use `targets::tar_load(NAME_OF_TARGET)`  
+
 3.  Run the code step by step as you would normally do
 
 
@@ -64,6 +66,35 @@ Go back to the `_targets.R` file:
 When you finished editing and uncomented the tar_render command, go back to the `run.R` file:
 
 - `targets::tar_make()`
+
+
+## Create new tasks
+
+To create the correction script for a new task, you should do:
+
+- `create_new_task(short_name_task = "NAMETASK")`
+
+This will create a new file from a template correction script (`R_tasks/prepare_TEMPLATE.R`) and adapt it to your `short_name_task` to make everything as standardized as possible.  
+
+All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created using the same template.  
+
+
+## DEBUG tasks
+
+At the begining of each of the `R_tasks/prepare_NAMETASK.R` scripts you will find a commented `debug_function(prepare_NAMETASK)` line.
+
+When running it, it will load the input parameters for the task. From there, you can work inside of the preparation scipt as you would normally do in a R script.
+
+If you get the error "Error in debug_function(prepare_NAMETASK) : could not find function 'debug_function' `debug_function()` does nor work" you will need to load all the functions in the `R/` folder first.
+
+You can do this in one of three ways:
+
+  - `CONTROL + P` shortcut will work if the `run_initial_setup()` completed correctly (at least on Ubuntu systems).
+  
+  - Run `targets::tar_load_globals()`
+  
+  - Or directly, source all the scripts in the `R/` folder: `invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))`
+
 
 
 

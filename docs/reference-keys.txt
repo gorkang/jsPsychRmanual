@@ -25,6 +25,8 @@ jsPsychHelpeR
 how-to-prepare-data
 output-tables-and-plots
 create-your-own-reports
+create-new-tasks
+debug-tasks
 common-errors
 run_initial_setup
 on-linux-ubuntu

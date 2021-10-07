@@ -191,13 +191,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-tables-and-plots"><i class="fa fa-check"></i><b>6.1.1</b> Output tables and plots</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-your-own-reports"><i class="fa fa-check"></i><b>6.2</b> Create your own reports</a></li>
-<li class="chapter" data-level="6.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#common-errors"><i class="fa fa-check"></i><b>6.3</b> Common ERRORS</a>
+<li class="chapter" data-level="6.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-new-tasks"><i class="fa fa-check"></i><b>6.3</b> Create new tasks</a></li>
+<li class="chapter" data-level="6.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#debug-tasks"><i class="fa fa-check"></i><b>6.4</b> DEBUG tasks</a></li>
+<li class="chapter" data-level="6.5" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#common-errors"><i class="fa fa-check"></i><b>6.5</b> Common ERRORS</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#run_initial_setup"><i class="fa fa-check"></i><b>6.3.1</b> <code>run_initial_setup()</code>:</a>
+<li class="chapter" data-level="6.5.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#run_initial_setup"><i class="fa fa-check"></i><b>6.5.1</b> <code>run_initial_setup()</code>:</a>
 <ul>
-<li class="chapter" data-level="6.3.1.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#on-linux-ubuntu"><i class="fa fa-check"></i><b>6.3.1.1</b> On Linux (Ubuntu):</a></li>
+<li class="chapter" data-level="6.5.1.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#on-linux-ubuntu"><i class="fa fa-check"></i><b>6.5.1.1</b> On Linux (Ubuntu):</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#on-mac-or-windows"><i class="fa fa-check"></i><b>6.3.2</b> On Mac or Windows:</a></li>
+<li class="chapter" data-level="6.5.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#on-mac-or-windows"><i class="fa fa-check"></i><b>6.5.2</b> On Mac or Windows:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -234,9 +236,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The file <code>_targets.R</code> contains the important parameters and calls to all the functions used when running <code>targets::tar_make()</code></p>
 <p>To see more detail about any specific step, you can:</p>
 <ol style="list-style-type: decimal">
-<li>Go to the relevant function</li>
-<li>Load the input parameters of the function with <code>debug_function(NAME_OF FUNCTION)</code>. Alternatively, manually use <code>targets::tar_load(NAME_OF_TARGET)</code></li>
-<li>Run the code step by step as you would normally do</li>
+<li><p>Go to the relevant function</p></li>
+<li><p>Load the input parameters of the function with <code>debug_function(NAME_OF FUNCTION)</code>. Alternatively, manually use <code>targets::tar_load(NAME_OF_TARGET)</code></p></li>
+<li><p>Run the code step by step as you would normally do</p></li>
 </ol>
 <div id="output-tables-and-plots" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Output tables and plots</h3>
@@ -266,14 +268,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>targets::tar_make()</code></li>
 </ul>
 </div>
-<div id="common-errors" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Common ERRORS</h2>
-<div id="run_initial_setup" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> <code>run_initial_setup()</code>:</h3>
+<div id="create-new-tasks" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Create new tasks</h2>
+<p>To create the correction script for a new task, you should do:</p>
+<ul>
+<li><code>create_new_task(short_name_task = "NAMETASK")</code></li>
+</ul>
+<p>This will create a new file from a template correction script (<code>R_tasks/prepare_TEMPLATE.R</code>) and adapt it to your <code>short_name_task</code> to make everything as standardized as possible.</p>
+<p>All the <code>prepare_NAMEOFTASK.R</code> scripts on the <code>R_tasks/</code> folder have been created using the same template.</p>
+</div>
+<div id="debug-tasks" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> DEBUG tasks</h2>
+<p>At the begining of each of the <code>R_tasks/prepare_NAMETASK.R</code> scripts you will find a commented <code>debug_function(prepare_NAMETASK)</code> line.</p>
+<p>When running it, it will load the input parameters for the task. From there, you can work inside of the preparation scipt as you would normally do in a R script.</p>
+<p>If you get the error “Error in debug_function(prepare_NAMETASK) : could not find function ‘debug_function’ <code>debug_function()</code> does nor work” you will need to load all the functions in the <code>R/</code> folder first.</p>
+<p>You can do this in one of three ways:</p>
+<ul>
+<li><p><code>CONTROL + P</code> shortcut will work if the <code>run_initial_setup()</code> completed correctly (at least on Ubuntu systems).</p></li>
+<li><p>Run <code>targets::tar_load_globals()</code></p></li>
+<li><p>Or directly, source all the scripts in the <code>R/</code> folder: <code>invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))</code></p></li>
+</ul>
+</div>
+<div id="common-errors" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Common ERRORS</h2>
+<div id="run_initial_setup" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> <code>run_initial_setup()</code>:</h3>
 <pre><code>x Can find server credentials in &#39;.vault/.credentials&#39;
 x 0 tasks found for protocol &#39;TU NUMERO DE PROYECTO&#39;. NOT creating _targets.R file</code></pre>
-<div id="on-linux-ubuntu" class="section level4" number="6.3.1.1">
-<h4><span class="header-section-number">6.3.1.1</span> On Linux (Ubuntu):</h4>
+<div id="on-linux-ubuntu" class="section level4" number="6.5.1.1">
+<h4><span class="header-section-number">6.5.1.1</span> On Linux (Ubuntu):</h4>
 <ul>
 <li><p>IF you have the server credentials:</p>
 <ul>
@@ -292,8 +315,8 @@ x 0 tasks found for protocol &#39;TU NUMERO DE PROYECTO&#39;. NOT creating _targ
 </ul>
 </div>
 </div>
-<div id="on-mac-or-windows" class="section level3" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> On Mac or Windows:</h3>
+<div id="on-mac-or-windows" class="section level3" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> On Mac or Windows:</h3>
 <ul>
 <li><p>Copy the csv files to the folder <code>data/YOUR_PROJECT_NUMBER</code></p></li>
 <li><p>Run again <code>run_initial_setup()</code></p></li>
