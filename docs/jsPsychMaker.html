@@ -243,9 +243,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="order-of-tasks" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Order of tasks</h3>
 <ul>
-<li><p><code>first_tasks = ['Consent'];</code>: The protocol will start with these tasks in the specified order</p></li>
-<li><p><code>randomly_ordered_tasks = [];</code>: Randomly ordered tasks presented after <code>first_tasks</code></p></li>
-<li><p><code>last_tasks = ['Goodbye'];</code>: These tasks will be presented in the specified order after <code>randomly_ordered_tasks</code></p></li>
+<li><code>first_tasks = ['Consent'];</code>: The protocol will start with these tasks in the specified order</li>
+<li><code>last_tasks = ['Goodbye'];</code>: These tasks will be presented in the specified order after <code>randomly_ordered_tasks</code></li>
+</ul>
+<p>Create as many blocks as needed:</p>
+<ul>
+<li><code>randomly_ordered_tasks_1 = ['TASK1', 'TASK2'];</code>: Block of tasks in random order</li>
+<li><code>randomly_ordered_tasks_2 = ['TASK3'];</code>: Block of tasks in random order</li>
+<li><code>secuentially_ordered_tasks_1 = ['TASK5', 'TASK4'];</code> // Block of tasks in sequential order</li>
+</ul>
+<p>The final array of tasks can be build combining the above blocks. The order of the tasks in the arrays starting with “random” will be randomized.</p>
+<ul>
+<li><code>tasks = ['first_tasks', 'randomly_ordered_tasks_1', 'secuentially_ordered_tasks_1', 'randomly_ordered_tasks_2', 'last_tasks']</code></li>
 </ul>
 </div>
 </div>
@@ -254,7 +263,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>jsPsych uses standard web technologies (HTML, CSS y Javascript), so that protocols should run in any modern browser (updated, please). We recommend Google Chrome just because our test suite runs with Google Chrome, so we will catch its specific issues earlier.</p>
 <div id="offline" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Offline</h3>
-<p>If you want to run a protocol locally (on your computer, on a lab computer), you need to set <code>online = false;</code> in the <code>config.js</code> file. After that, just double click index.html. The</p>
+<p>If you want to run a protocol locally (on your computer, on a lab computer), you need to:</p>
+<ul>
+<li><p>set <code>online = false;</code> in the <code>config.js</code> file</p></li>
+<li><p>double click index.html</p></li>
+</ul>
+<p><code>jsPsychR</code> will use <code>IndexedDB</code> to store the participants’ progress and balance between conditions. The output csv files will be Downloaded to the Download folder of the computer where the protocol runs.</p>
 </div>
 <div id="online" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Online</h3>
@@ -269,6 +283,7 @@ EXPLAIN: what controllers do: be able to continue where you left it, randomize t
 <li><code>require_once '../../.secrets_mysql.php';</code></li>
 <li>THIS FILE <strong>SHOULD NOT</strong> BE PUBLICLY VISIBLE FROM THE BROWSER</li>
 </ul></li>
+<li>Upload the files to a server :)</li>
 </ul>
 <pre><code>&lt;?php
 
@@ -280,6 +295,7 @@ EXPLAIN: what controllers do: be able to continue where you left it, randomize t
   $dbname = &quot;NAME OF THE DB&quot;;
   
 ?&gt;</code></pre>
+<p><code>jsPsychR</code> will use <code>MySQL</code> to store the participants’ progress and balance between conditions. The output csv files will be Downloaded in the <code>.data/</code> folder inside the protocol folder in the server.</p>
 </div>
 </div>
 <div id="technical-aspects" class="section level2" number="4.3">
@@ -295,8 +311,7 @@ EXPLAIN: what controllers do: be able to continue where you left it, randomize t
 </ul>
 <p>Each question, timeline or conditional question needs to have a:</p>
 <p><code>data: {trialid: 'NameTask_001', procedure: 'NameTask'}</code></p>
-<p>The <code>trialid</code> identifies the trial, and the <code>procedure</code> makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc.
-mysql and indexeddb…</p>
+<p>The <code>trialid</code> identifies the trial, and the <code>procedure</code> makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.</p>
 
 </div>
 </div>

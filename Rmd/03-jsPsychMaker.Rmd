@@ -34,12 +34,17 @@ In the `config.js` file you can find the main parameters to control how your exp
 ### Order of tasks
 
 - `first_tasks = ['Consent'];`:  The protocol will start with these tasks in the specified order
-
-- `randomly_ordered_tasks = [];`:  Randomly ordered tasks presented after `first_tasks`
-
 - `last_tasks = ['Goodbye'];`:  These tasks will be presented in the specified order after `randomly_ordered_tasks`
 
+Create as many blocks as needed: 
 
+- `randomly_ordered_tasks_1 = ['TASK1', 'TASK2'];`:  Block of tasks in random order
+- `randomly_ordered_tasks_2 = ['TASK3'];`:  Block of tasks in random order
+- `secuentially_ordered_tasks_1 = ['TASK5', 'TASK4'];` // Block of tasks in sequential order
+
+The final array of tasks can be build combining the above blocks. The order of the tasks in the arrays starting with "random" will be randomized.
+
+- `tasks = ['first_tasks', 'randomly_ordered_tasks_1', 'secuentially_ordered_tasks_1', 'randomly_ordered_tasks_2', 'last_tasks']`
 
 
 ## online-offline protocols
@@ -48,7 +53,13 @@ jsPsych uses standard web technologies (HTML, CSS y Javascript), so that protoco
 
 ### Offline 
 
-If you want to run a protocol locally (on your computer, on a lab computer), you need to set `online = false;` in the `config.js` file. After that, just double click index.html. The 
+If you want to run a protocol locally (on your computer, on a lab computer), you need to:
+
+- set `online = false;` in the `config.js` file
+
+- double click index.html
+
+`jsPsychR` will use `IndexedDB` to store the participants' progress and balance between conditions. The output csv files will be Downloaded to the Download folder of the computer where the protocol runs.
 
 
 ### Online 
@@ -63,6 +74,7 @@ Tu run a protocol online, set `online = true;`. You will need a couple more thin
 - Define a route to `.secrets_mysql.php` in `controllers/php/mysql.php` 
   + `require_once '../../.secrets_mysql.php';`
   + THIS FILE **SHOULD NOT** BE PUBLICLY VISIBLE FROM THE BROWSER
+- Upload the files to a server :)
 
 
 ```
@@ -77,6 +89,9 @@ Tu run a protocol online, set `online = true;`. You will need a couple more thin
   
 ?>
 ```
+
+`jsPsychR` will use `MySQL` to store the participants' progress and balance between conditions. The output csv files will be Downloaded in the `.data/` folder inside the protocol folder in the server.
+
 
 
 ## Technical aspects
@@ -98,6 +113,4 @@ Each question, timeline or conditional question needs to have a:
 
 `data: {trialid: 'NameTask_001', procedure: 'NameTask'}`
 
-The `trialid` identifies the trial, and the `procedure` makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc.
-mysql and indexeddb...
-
+The `trialid` identifies the trial, and the `procedure` makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.  
