@@ -12,7 +12,10 @@ description: ""
 
 # What is jsPsychR?
 
-`jsPsychR` is a group of tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis.
+`jsPsychR` is a group of tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis.  
+
+---  
+
 
 We have three main tools:
 
@@ -24,6 +27,18 @@ We have three main tools:
 
 
 ![](img/jsPsych-trinity.png)
+
+
+--- 
+
+**Contributors**
+
+- [Gorka Navarrete](https://github.com/gorkang)
+
+- [Herman Valencia](https://github.com/HeRm4nV)
+
+---  
+
 
 
 ```{r include=FALSE}

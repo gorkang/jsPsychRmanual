@@ -1,7 +1,7 @@
 # Quick Guide {#QuickGuide}
 
 
-## jsPsychMaker: How to create an experimental protocol {#QuickGuidejsPsychMaker}
+## jsPsychMaker: Create an experimental protocol {#QuickGuidejsPsychMaker}
 
 ---  
 
