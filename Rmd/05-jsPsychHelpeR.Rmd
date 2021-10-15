@@ -98,6 +98,18 @@ You can do this in one of three ways:
 
 
 
+## Technical aspects
+
+### How trialid's are processed
+
+See `PRFBM`:
+
+- If more than one response per screen
+    + Item: `PRFBM_04`
+    + Responses: `{"daño":"Parcialmente en desacuerdo","beneficio":"Parcialmente en desacuerdo"}`
+    + final trialids: `PRFBM_04_beneficio` and `PRFBM_04_daño`
+
+
 ## Common ERRORS
 
 ### `run_initial_setup()`:  

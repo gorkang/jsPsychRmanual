@@ -96,3 +96,8 @@ There are a few parameters that can be useful:
 - `disable_web_security = TRUE` If you are running a local protocol that loads external files (e.g. consent form in a html file), you may need this. Only works with Google Chrome.
 
 - `console_logs = TRUE` Store the browser's console logs. Only works with Google Chrome
+
+
+#### Parameters details
+
+- `local_folder_tasks`: If the folder is not accessible to Docker (anything outside the Download folder), jsPsychMonkeys will create a copy of the protocol in `Downloads/JSPSYCH/`

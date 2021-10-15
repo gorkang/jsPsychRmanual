@@ -29,6 +29,8 @@ In the `config.js` file you can find the main parameters to control how your exp
 
 - `accept_discarded = true;`: If an user is discarded (over max_time), shall be allowed to continue given there are available slots?
 
+- `debug_mode = false;`: When testing the protocol it shows DEBUG messages, creates the DB tables if they don't exist... It also forces the tasks with random order of items to avoid the randomization so the `jsPsychMonkeys` can have a reproducible behaviour.
+
 
 
 ### Order of tasks
@@ -60,6 +62,8 @@ If you want to run a protocol locally (on your computer, on a lab computer), you
 - double click index.html
 
 `jsPsychR` will use `IndexedDB` to store the participants' progress and balance between conditions. The output csv files will be Downloaded to the Download folder of the computer where the protocol runs.
+
+If any of the tasks imports an html file, the Offline protocol will give a CORS error.  
 
 
 ### Online 
@@ -93,6 +97,12 @@ Tu run a protocol online, set `online = true;`. You will need a couple more thin
 `jsPsychR` will use `MySQL` to store the participants' progress and balance between conditions. The output csv files will be Downloaded in the `.data/` folder inside the protocol folder in the server.
 
 
+## Developing tasks
+
+Remember to place an `if (debug_mode == 'false')` before the randomization of the item order so when running in debug_mode, the items are not randomized. This is important so the behaviour of the jsPsychMonkeys is reproducible:
+
+`if (debug_mode == 'false') NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);`
+
 
 ## Technical aspects
 
@@ -114,3 +124,22 @@ Each question, timeline or conditional question needs to have a:
 `data: {trialid: 'NameTask_001', procedure: 'NameTask'}`
 
 The `trialid` identifies the trial, and the `procedure` makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.  
+
+
+## Common ERRORS
+
+If you get the following error in the console: `Uncaught TypeError: Cannot read properties of undefined (reading 'procedure')`
+
+Run this in the console:  
+
+```
+for (var i = 0; i < questions.length; i++) {
+  console.log(i + questions[i].data["procedure"])
+}
+```
+
+It will stop in one of the items. Go to the console, check the array `questions` and go to the number that failed.
+
+When you know the task and item that fails, you probably need to add:
+
+- `data: {trialid: 'TASKNAME_ITEMNUMBER', procedure: 'TASKNAME'}`
