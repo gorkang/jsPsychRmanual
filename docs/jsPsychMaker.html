@@ -24,7 +24,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2021-10-15" />
+<meta name="date" content="2021-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="QuickGuide.html"><a href="QuickGuide.html#QuickGuidejsPsychMonkeys"><i class="fa fa-check"></i><b>3.2</b> jsPsychMonkeys: Simulate participants</a>
 <ul>
-<li class="chapter" data-level="3.2.0.1" data-path="QuickGuide.html"><a href="QuickGuide.html#download-jspsychmonkeys"><i class="fa fa-check"></i><b>3.2.0.1</b> 1) Download jsPsychMonkeys</a></li>
+<li class="chapter" data-level="" data-path="QuickGuide.html"><a href="QuickGuide.html#download-jspsychmonkeys"><i class="fa fa-check"></i>1) Download jsPsychMonkeys</a></li>
 <li class="chapter" data-level="" data-path="QuickGuide.html"><a href="QuickGuide.html#setup"><i class="fa fa-check"></i>2) Setup</a></li>
 <li class="chapter" data-level="" data-path="QuickGuide.html"><a href="QuickGuide.html#run-monkeys"><i class="fa fa-check"></i>3) Run Monkeys</a></li>
 </ul></li>
@@ -173,7 +173,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.2.2</b> Online</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.3</b> Developing tasks</a></li>
-<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.4</b> Technical aspects</a></li>
+<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.4</b> Technical aspects</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.4.1</b> jsPsychMaker main changes on a task</a></li>
+<li class="chapter" data-level="4.4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.4.2</b> Conditional questions</a></li>
+</ul></li>
 <li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common ERRORS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="jsPsychMonkeys.html"><a href="jsPsychMonkeys.html"><i class="fa fa-check"></i><b>5</b> jsPsychMonkeys</a>
@@ -231,7 +235,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="jsPsychMaker" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> jsPsychMaker</h1>
-<p><a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a>: Create experiments with jsPsych, randomize participants, etc.</p>
+<hr />
+<p><a href="https://github.com/gorkang/jsPsychMaker"><img src="img/GitHub32.png" /> jsPsychMaker</a>: Create experiments with jsPsych, randomize participants, etc.</p>
+<hr />
+<p>Using jsPsychMaker to build experimental protocols helps you with a few things:</p>
+<ul>
+<li><p>Create full protocols using tasks already implemented by just editing a config.js file</p></li>
+<li><p>Select order of tasks, randomize subsets of tasks, etc.</p></li>
+<li><p>Randomize participants to groups making sure the balance between the groups is maintained</p></li>
+<li><p>Allow participants to continue in the task where they left in the protocol</p></li>
+<li><p>Set time limits to complete the protocol</p>
+<ul>
+<li>Automatically discard participants over the time limit, freeing the slots for new participants</li>
+</ul></li>
+<li><p>Seamlessly select between online and offline protocols</p></li>
+<li><p>Simulate participants with <a href="jsPsychMonkeys.html#jsPsychMonkeys">jsPsychMonkeys</a></p></li>
+<li><p><em>Automagically</em> get your data prepared with <a href="jsPsychHelpeR.html#jsPsychHelpeR">jsPsychHelpeR</a></p></li>
+</ul>
 <hr />
 <p><strong>See <a href="QuickGuide.html#QuickGuidejsPsychMaker">QuickGuide</a> for basic instructions.</strong></p>
 <hr />
@@ -247,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>random_id = false;</code>: true if you want to assign a random id to participants, false if the participant needs to input an id</p></li>
 <li><p><code>max_time = "24:00:00";</code>: Max time to complete the protocol (HH:MM:SS; Hours:Minutes:Seconds)</p></li>
 <li><p><code>accept_discarded = true;</code>: If an user is discarded (over max_time), shall be allowed to continue given there are available slots?</p></li>
-<li><p><code>debug_mode = false;</code>: When testing the protocol it shows DEBUG messages, creates the DB tables if they don’t exist… It also forces the tasks with random order of items to avoid the randomization so the <code>jsPsychMonkeys</code> can have a reproducible behaviour.</p></li>
+<li><p><code>debug_mode = false;</code>: When testing the protocol it shows DEBUG messages, creates the DB tables if they don’t exist… It also forces the tasks with random order of items to avoid the randomization so the <code>jsPsychMonkeys</code> can have a reproducible behavior.</p></li>
 </ul>
 </div>
 <div id="order-of-tasks" class="section level3" number="4.1.2">
@@ -283,8 +303,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="online" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Online</h3>
-<p>TODO: If I want to run on a server but dont have/want mysql?
-EXPLAIN: what controllers do: be able to continue where you left it, randomize to conditions and balance conditions…</p>
 <p>Tu run a protocol online, set <code>online = true;</code>. You will need a couple more things:</p>
 <ul>
 <li>Install MySQL</li>
@@ -328,6 +346,67 @@ EXPLAIN: what controllers do: be able to continue where you left it, randomize t
 <p>Each question, timeline or conditional question needs to have a:</p>
 <p><code>data: {trialid: 'NameTask_001', procedure: 'NameTask'}</code></p>
 <p>The <code>trialid</code> identifies the trial, and the <code>procedure</code> makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.</p>
+<div id="jspsychmaker-main-changes-on-a-task" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> jsPsychMaker main changes on a task</h3>
+<ol style="list-style-type: decimal">
+<li>Start of a task</li>
+</ol>
+<pre><code>questions = ( typeof questions != &#39;undefined&#39; &amp;&amp; questions instanceof Array ) ? questions : [];
+questions.push( check_fullscreen(&#39;NameOfTask&#39;) );
+NameOfTask = [];</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Each item</li>
+</ol>
+<p><code>data: {trialid: 'NameOfTask_01', procedure: 'NameOfTask'}</code></p>
+<ol start="3" style="list-style-type: decimal">
+<li>End of experiment</li>
+</ol>
+<pre><code>if (debug_mode == &#39;false&#39;) NameOfTask = jsPsych.randomization.repeat(NameOfTask, 1);
+NameOfTask.unshift(instruction_screen_experiment);
+questions.push.apply(questions, NameOfTask)
+
+questions.push({
+    type: &#39;call-function&#39;,
+    data: {trialid: &#39;NameOfTask_000&#39;, procedure: &#39;NameOfTask&#39;},
+    func: function(){
+      if (online) {
+        var data = jsPsych.data.get().filter({procedure: &#39;NameOfTask&#39;}).csv();
+      } else {
+        var data = jsPsych.data.get().filter({procedure: &#39;NameOfTask&#39;}).json();
+      }
+      saveData(data, online, &#39;NameOfTask&#39;);
+    }
+});</code></pre>
+</div>
+<div id="conditional-questions" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Conditional questions</h3>
+<pre><code>var question001 = {
+  type: &#39;survey-multi-choice-vertical&#39;,
+  questions: [{prompt: &#39;&lt;div class=&quot;justified&quot;&gt;¿Usted se ha vacunado contra el coronavirus / covid-19?&lt;/div&gt;&#39;, options: [&#39;&amp;nbsp;Si&#39;, &#39;&amp;nbsp;No&#39;], required: true,  random_options: false, horizontal: false}],
+  data: {trialid: &#39;PVC_001&#39;, procedure: &#39;PVC&#39;}
+};
+PVC.push(question001);
+
+var question001_1 = {
+  type: &#39;survey-multi-choice-vertical&#39;,
+  questions: [{prompt: &#39;&lt;div class=&quot;justified&quot;&gt;¿Usted se va a vacunar contra el coronavirus covid-19?&lt;/div&gt;&#39;, options: [&#39;&amp;nbsp;Si&#39;, &#39;&amp;nbsp;No&#39;, &#39;&amp;nbsp;No estoy seguro&#39;], required: true,  random_options: false, horizontal: false}],
+  data: {trialid: &#39;PVC_001_1&#39;, procedure: &#39;PVC&#39;}
+};
+
+var if_question001_1 = {
+  timeline: [question001_1],
+  data: {trialid: &#39;PVC_001_1_if&#39;, procedure: &#39;PVC&#39;},
+  conditional_function: function(){
+    let data = (JSON.parse((jsPsych.data.get().values().find(x =&gt; x.trialid === &#39;PVC_001&#39;))[&#39;response&#39;])[&#39;Q0&#39;]).trim();
+    if((data) ==  &#39;No&#39;){
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+PVC.push(if_question001_1);</code></pre>
+</div>
 </div>
 <div id="common-errors" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Common ERRORS</h2>

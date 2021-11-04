@@ -1,6 +1,25 @@
 # jsPsychMonkeys {#jsPsychMonkeys}
 
-[jsPsychMonkeys](https://github.com/gorkang/jsPsychMonkeys): Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
+---  
+
+[![](img/GitHub32.png) jsPsychMonkeys](https://github.com/gorkang/jsPsychMonkeys): Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
+
+---  
+
+With jsPsychMonkeys you can simulate participants and easily do the following:
+
+- Simulate participants online and offline
+
+- Simulate participants sequentially and in parallel
+
+- Ask your Monkeys to take pictures of each screen
+
+- Make the behavior of the Monkeys reproducible setting a random seed associated with their unique id
+
+- Store logs of the process, including console logs with errors
+
+- Watch your participants randomly click things in VNC 
+
 
 ---  
 
@@ -96,6 +115,13 @@ There are a few parameters that can be useful:
 - `disable_web_security = TRUE` If you are running a local protocol that loads external files (e.g. consent form in a html file), you may need this. Only works with Google Chrome.
 
 - `console_logs = TRUE` Store the browser's console logs. Only works with Google Chrome
+
+- `forced_random_wait = TRUE` Will wait a randomly sampled number of seconds on page 4
+
+- `forced_seed = 11` Set a random seed so the Monkeys' behavior will be fully reproducible
+
+- `forced_refresh = 20` Refresh browser in page 20 (if TRUE is given, it will refresh in a randomly sampled page)
+
 
 
 #### Parameters details

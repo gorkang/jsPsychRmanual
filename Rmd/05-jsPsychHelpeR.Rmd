@@ -1,6 +1,22 @@
 # jsPsychHelpeR {#jsPsychHelpeR}
 
-[jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR): Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.
+---  
+
+[![](img/GitHub32.png) jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR): Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.
+
+---  
+
+jsPsychHelpeR will lend you a hand automatizing and standardizing your data preparation and analysis.
+
+- Use a completely open, reproducible and automatic process to prepare your data
+
+- Data preparation ready for > 50 tasks (see [here the list of tasks](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv))
+
+- Get tidy output dataframes for each task, and tidy general dataframes for the whole protocol
+
+- Include tests for common issues
+
+- Automatic reports with progress, descriptives, codebook, etc.
 
 ---  
 

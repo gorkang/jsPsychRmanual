@@ -1,6 +1,30 @@
 # jsPsychMaker {#jsPsychMaker}
 
-[jsPsychMaker](https://github.com/gorkang/jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+--- 
+
+[![](img/GitHub32.png) jsPsychMaker](https://github.com/gorkang/jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+
+---  
+
+Using jsPsychMaker to build experimental protocols helps you with a few things:
+
+- Create full protocols using tasks already implemented by just editing a config.js file
+
+- Select order of tasks, randomize subsets of tasks, etc.
+
+- Randomize participants to groups making sure the balance between the groups is maintained
+
+- Allow participants to continue in the task where they left in the protocol 
+
+- Set time limits to complete the protocol
+
+  + Automatically discard participants over the time limit, freeing the slots for new participants
+
+- Seamlessly select between online and offline protocols
+
+- Simulate participants with [jsPsychMonkeys](#jsPsychMonkeys)
+
+- *Automagically* get your data prepared with [jsPsychHelpeR](#jsPsychHelpeR)
 
 
 ---  
@@ -29,7 +53,7 @@ In the `config.js` file you can find the main parameters to control how your exp
 
 - `accept_discarded = true;`: If an user is discarded (over max_time), shall be allowed to continue given there are available slots?
 
-- `debug_mode = false;`: When testing the protocol it shows DEBUG messages, creates the DB tables if they don't exist... It also forces the tasks with random order of items to avoid the randomization so the `jsPsychMonkeys` can have a reproducible behaviour.
+- `debug_mode = false;`: When testing the protocol it shows DEBUG messages, creates the DB tables if they don't exist... It also forces the tasks with random order of items to avoid the randomization so the `jsPsychMonkeys` can have a reproducible behavior.
 
 
 
@@ -67,9 +91,6 @@ If any of the tasks imports an html file, the Offline protocol will give a CORS 
 
 
 ### Online 
-
-TODO: If I want to run on a server but dont have/want mysql?
-EXPLAIN: what controllers do: be able to continue where you left it, randomize to conditions and balance conditions...
 
 Tu run a protocol online, set `online = true;`. You will need a couple more things:
 
@@ -124,6 +145,75 @@ Each question, timeline or conditional question needs to have a:
 `data: {trialid: 'NameTask_001', procedure: 'NameTask'}`
 
 The `trialid` identifies the trial, and the `procedure` makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.  
+
+
+### jsPsychMaker main changes on a task
+
+1. Start of a task
+
+```
+questions = ( typeof questions != 'undefined' && questions instanceof Array ) ? questions : [];
+questions.push( check_fullscreen('NameOfTask') );
+NameOfTask = [];
+```
+
+2. Each item
+
+`data: {trialid: 'NameOfTask_01', procedure: 'NameOfTask'}`
+
+
+3. End of experiment
+
+```
+if (debug_mode == 'false') NameOfTask = jsPsych.randomization.repeat(NameOfTask, 1);
+NameOfTask.unshift(instruction_screen_experiment);
+questions.push.apply(questions, NameOfTask)
+
+questions.push({
+    type: 'call-function',
+    data: {trialid: 'NameOfTask_000', procedure: 'NameOfTask'},
+    func: function(){
+      if (online) {
+        var data = jsPsych.data.get().filter({procedure: 'NameOfTask'}).csv();
+      } else {
+        var data = jsPsych.data.get().filter({procedure: 'NameOfTask'}).json();
+      }
+      saveData(data, online, 'NameOfTask');
+    }
+});
+```
+
+### Conditional questions
+
+```
+var question001 = {
+  type: 'survey-multi-choice-vertical',
+  questions: [{prompt: '<div class="justified">¿Usted se ha vacunado contra el coronavirus / covid-19?</div>', options: ['&nbsp;Si', '&nbsp;No'], required: true,  random_options: false, horizontal: false}],
+  data: {trialid: 'PVC_001', procedure: 'PVC'}
+};
+PVC.push(question001);
+
+var question001_1 = {
+  type: 'survey-multi-choice-vertical',
+  questions: [{prompt: '<div class="justified">¿Usted se va a vacunar contra el coronavirus covid-19?</div>', options: ['&nbsp;Si', '&nbsp;No', '&nbsp;No estoy seguro'], required: true,  random_options: false, horizontal: false}],
+  data: {trialid: 'PVC_001_1', procedure: 'PVC'}
+};
+
+var if_question001_1 = {
+  timeline: [question001_1],
+  data: {trialid: 'PVC_001_1_if', procedure: 'PVC'},
+  conditional_function: function(){
+    let data = (JSON.parse((jsPsych.data.get().values().find(x => x.trialid === 'PVC_001'))['response'])['Q0']).trim();
+    if((data) ==  'No'){
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+PVC.push(if_question001_1);
+```
+
 
 
 ## Common ERRORS

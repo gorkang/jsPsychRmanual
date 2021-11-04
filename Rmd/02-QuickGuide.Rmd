@@ -15,14 +15,14 @@
 
 2) Go to the folder `canonical_protocols` and edit the `config.js` file to select the tasks you need
 
-3) Open `index.html` in your folder
+3) Open `index.html` in your browser
 
 
 ---  
 
 #### 1) Download jsPsychMaker {-}  
 
-Open RStudio and run the following two lines in the console. This will download the last stable jsPsychMaker version `v0.0.2`. When you finish, a new RStudio project named jsPsychMaker-0.0.2 will open.  
+Open RStudio and run the following two lines in the console. This will download the last stable jsPsychMaker version `v0.2.0`. When you finish, a new RStudio project named jsPsychMaker-0.0.2 will open.  
 
 ```{r, eval=FALSE}
 
@@ -30,7 +30,7 @@ Open RStudio and run the following two lines in the console. This will download 
 if (!require('usethis')) install.packages('usethis'); library('usethis')
 
 # Download last stable jsPsychMaker version to the Downloads folder
-usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.0.2.zip", destdir = "~/Downloads/")
+usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.2.0.zip", destdir = "~/Downloads/")
 
 # Alternatively, download the dev version version:
 # usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
@@ -42,7 +42,7 @@ usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/
 
 Go to folder `canonical_protocols` and edit `config.js`.
 
-The variable `not_ordered_experiments` should contain only the tasks we want to run. See a [list of tasks](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv) available in the repo.  
+The variable `tasks` should contain the name of an array of the tasks we want to run. See a [list of tasks](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv) available in the repo.  
   
 
 ![](img/jsPsychmaker_config.png)
@@ -77,7 +77,7 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 ---  
 
 
-#### 1) Download jsPsychMonkeys
+#### 1) Download jsPsychMonkeys {-}
 
   
 ```{r, eval=FALSE}

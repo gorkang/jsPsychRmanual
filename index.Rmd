@@ -19,7 +19,7 @@ description: ""
 
 We have three main tools:
 
-- [jsPsychMaker](#jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+- [jsPsychMaker](#jsPsychMaker): Create experiments with jsPsych, randomize participants balance between conditions, etc.
 
 - [jsPsychMonkeys](#jsPsychMonkeys): Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
 

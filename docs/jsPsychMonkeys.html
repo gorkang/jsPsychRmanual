@@ -24,7 +24,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2021-10-15" />
+<meta name="date" content="2021-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="QuickGuide.html"><a href="QuickGuide.html#QuickGuidejsPsychMonkeys"><i class="fa fa-check"></i><b>3.2</b> jsPsychMonkeys: Simulate participants</a>
 <ul>
-<li class="chapter" data-level="3.2.0.1" data-path="QuickGuide.html"><a href="QuickGuide.html#download-jspsychmonkeys"><i class="fa fa-check"></i><b>3.2.0.1</b> 1) Download jsPsychMonkeys</a></li>
+<li class="chapter" data-level="" data-path="QuickGuide.html"><a href="QuickGuide.html#download-jspsychmonkeys"><i class="fa fa-check"></i>1) Download jsPsychMonkeys</a></li>
 <li class="chapter" data-level="" data-path="QuickGuide.html"><a href="QuickGuide.html#setup"><i class="fa fa-check"></i>2) Setup</a></li>
 <li class="chapter" data-level="" data-path="QuickGuide.html"><a href="QuickGuide.html#run-monkeys"><i class="fa fa-check"></i>3) Run Monkeys</a></li>
 </ul></li>
@@ -173,7 +173,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.2.2</b> Online</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.3</b> Developing tasks</a></li>
-<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.4</b> Technical aspects</a></li>
+<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.4</b> Technical aspects</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.4.1</b> jsPsychMaker main changes on a task</a></li>
+<li class="chapter" data-level="4.4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.4.2</b> Conditional questions</a></li>
+</ul></li>
 <li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common ERRORS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="jsPsychMonkeys.html"><a href="jsPsychMonkeys.html"><i class="fa fa-check"></i><b>5</b> jsPsychMonkeys</a>
@@ -231,7 +235,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="jsPsychMonkeys" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> jsPsychMonkeys</h1>
-<p><a href="https://github.com/gorkang/jsPsychMonkeys">jsPsychMonkeys</a>: Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.</p>
+<hr />
+<p><a href="https://github.com/gorkang/jsPsychMonkeys"><img src="img/GitHub32.png" /> jsPsychMonkeys</a>: Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.</p>
+<hr />
+<p>With jsPsychMonkeys you can simulate participants and easily do the following:</p>
+<ul>
+<li><p>Simulate participants online and offline</p></li>
+<li><p>Simulate participants sequentially and in parallel</p></li>
+<li><p>Ask your Monkeys to take pictures of each screen</p></li>
+<li><p>Make the behavior of the Monkeys reproducible setting a random seed associated with their unique id</p></li>
+<li><p>Store logs of the process, including console logs with errors</p></li>
+<li><p>Watch your participants randomly click things in VNC</p></li>
+</ul>
 <hr />
 <p><strong>See <a href="QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> for basic instructions.</strong></p>
 <hr />
@@ -292,6 +307,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>big_container = TRUE</code> Sets the Shared memory size (/dev/shm) to 2 gigabytes. This is useful to avoid long/complex protocols to crash</p></li>
 <li><p><code>disable_web_security = TRUE</code> If you are running a local protocol that loads external files (e.g. consent form in a html file), you may need this. Only works with Google Chrome.</p></li>
 <li><p><code>console_logs = TRUE</code> Store the browser’s console logs. Only works with Google Chrome</p></li>
+<li><p><code>forced_random_wait = TRUE</code> Will wait a randomly sampled number of seconds on page 4</p></li>
+<li><p><code>forced_seed = 11</code> Set a random seed so the Monkeys’ behavior will be fully reproducible</p></li>
+<li><p><code>forced_refresh = 20</code> Refresh browser in page 20 (if TRUE is given, it will refresh in a randomly sampled page)</p></li>
 </ul>
 <div id="parameters-details" class="section level4" number="5.2.3.1">
 <h4><span class="header-section-number">5.2.3.1</span> Parameters details</h4>
