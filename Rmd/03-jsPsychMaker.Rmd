@@ -57,7 +57,7 @@ In the `config.js` file you can find the main parameters to control how your exp
 
 
 
-### Order of tasks
+## Order of tasks
 
 - `first_tasks = ['Consent'];`:  The protocol will start with these tasks in the specified order
 - `last_tasks = ['Goodbye'];`:  These tasks will be presented in the specified order after `randomly_ordered_tasks`
@@ -116,6 +116,20 @@ Tu run a protocol online, set `online = true;`. You will need a couple more thin
 ```
 
 `jsPsychR` will use `MySQL` to store the participants' progress and balance between conditions. The output csv files will be Downloaded in the `.data/` folder inside the protocol folder in the server.
+
+
+## Between-subject tasks
+
+The variable `all_conditions` in `config.js` let's you define the Independent Variables (IV) and levels for the between-subject tasks:
+
+- If there is no between-subject task:  
+`all_conditions = {"protocol": {"type": ["survey"]}};`
+
+- If there are between-subject tasks:
+`all_conditions = {"NAMETASK": {"name_IV": ["name_level1", "name_level2"]}};`
+
+
+`jsPsychR` will randomize participants to the different conditions keeping the unbalance between conditions to the minimum possible.  
 
 
 ## Developing tasks

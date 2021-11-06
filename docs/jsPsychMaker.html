@@ -24,7 +24,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2021-11-04" />
+<meta name="date" content="2021-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -165,20 +165,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.1</b> Experiment configuration</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.1.1</b> Main parameters</a></li>
-<li class="chapter" data-level="4.1.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.1.2</b> Order of tasks</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.2</b> online-offline protocols</a>
+<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.2</b> Order of tasks</a></li>
+<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.3</b> online-offline protocols</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.2.1</b> Offline</a></li>
-<li class="chapter" data-level="4.2.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.2.2</b> Online</a></li>
+<li class="chapter" data-level="4.3.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.3.1</b> Offline</a></li>
+<li class="chapter" data-level="4.3.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.3.2</b> Online</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.3</b> Developing tasks</a></li>
-<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.4</b> Technical aspects</a>
+<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.4</b> Between-subject tasks</a></li>
+<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.5</b> Developing tasks</a></li>
+<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.6</b> Technical aspects</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.4.1</b> jsPsychMaker main changes on a task</a></li>
-<li class="chapter" data-level="4.4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.4.2</b> Conditional questions</a></li>
+<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.6.1</b> jsPsychMaker main changes on a task</a></li>
+<li class="chapter" data-level="4.6.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.6.2</b> Conditional questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common ERRORS</a></li>
+<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.7</b> Common ERRORS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="jsPsychMonkeys.html"><a href="jsPsychMonkeys.html"><i class="fa fa-check"></i><b>5</b> jsPsychMonkeys</a>
 <ul>
@@ -270,8 +271,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>debug_mode = false;</code>: When testing the protocol it shows DEBUG messages, creates the DB tables if they don’t exist… It also forces the tasks with random order of items to avoid the randomization so the <code>jsPsychMonkeys</code> can have a reproducible behavior.</p></li>
 </ul>
 </div>
-<div id="order-of-tasks" class="section level3" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Order of tasks</h3>
+</div>
+<div id="order-of-tasks" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Order of tasks</h2>
 <ul>
 <li><code>first_tasks = ['Consent'];</code>: The protocol will start with these tasks in the specified order</li>
 <li><code>last_tasks = ['Goodbye'];</code>: These tasks will be presented in the specified order after <code>randomly_ordered_tasks</code></li>
@@ -287,12 +289,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>tasks = ['first_tasks', 'randomly_ordered_tasks_1', 'secuentially_ordered_tasks_1', 'randomly_ordered_tasks_2', 'last_tasks']</code></li>
 </ul>
 </div>
-</div>
-<div id="online-offline-protocols" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> online-offline protocols</h2>
+<div id="online-offline-protocols" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> online-offline protocols</h2>
 <p>jsPsych uses standard web technologies (HTML, CSS y Javascript), so that protocols should run in any modern browser (updated, please). We recommend Google Chrome just because our test suite runs with Google Chrome, so we will catch its specific issues earlier.</p>
-<div id="offline" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Offline</h3>
+<div id="offline" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Offline</h3>
 <p>If you want to run a protocol locally (on your computer, on a lab computer), you need to:</p>
 <ul>
 <li><p>set <code>online = false;</code> in the <code>config.js</code> file</p></li>
@@ -301,8 +302,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>jsPsychR</code> will use <code>IndexedDB</code> to store the participants’ progress and balance between conditions. The output csv files will be Downloaded to the Download folder of the computer where the protocol runs.</p>
 <p>If any of the tasks imports an html file, the Offline protocol will give a CORS error.</p>
 </div>
-<div id="online" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Online</h3>
+<div id="online" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Online</h3>
 <p>Tu run a protocol online, set <code>online = true;</code>. You will need a couple more things:</p>
 <ul>
 <li>Install MySQL</li>
@@ -327,13 +328,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>jsPsychR</code> will use <code>MySQL</code> to store the participants’ progress and balance between conditions. The output csv files will be Downloaded in the <code>.data/</code> folder inside the protocol folder in the server.</p>
 </div>
 </div>
-<div id="developing-tasks" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Developing tasks</h2>
+<div id="between-subject-tasks" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Between-subject tasks</h2>
+<p>The variable <code>all_conditions</code> in <code>config.js</code> let’s you define the Independent Variables (IV) and levels for the between-subject tasks:</p>
+<ul>
+<li><p>If there is no between-subject task:<br />
+<code>all_conditions = {"protocol": {"type": ["survey"]}};</code></p></li>
+<li><p>If there are between-subject tasks:
+<code>all_conditions = {"NAMETASK": {"name_IV": ["name_level1", "name_level2"]}};</code></p></li>
+</ul>
+<p><code>jsPsychR</code> will randomize participants to the different conditions keeping the unbalance between conditions to the minimum possible.</p>
+</div>
+<div id="developing-tasks" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Developing tasks</h2>
 <p>Remember to place an <code>if (debug_mode == 'false')</code> before the randomization of the item order so when running in debug_mode, the items are not randomized. This is important so the behaviour of the jsPsychMonkeys is reproducible:</p>
 <p><code>if (debug_mode == 'false') NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);</code></p>
 </div>
-<div id="technical-aspects" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Technical aspects</h2>
+<div id="technical-aspects" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Technical aspects</h2>
 <p>When index.html is launched:</p>
 <ul>
 <li>Check if there are available slots</li>
@@ -346,8 +358,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Each question, timeline or conditional question needs to have a:</p>
 <p><code>data: {trialid: 'NameTask_001', procedure: 'NameTask'}</code></p>
 <p>The <code>trialid</code> identifies the trial, and the <code>procedure</code> makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.</p>
-<div id="jspsychmaker-main-changes-on-a-task" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> jsPsychMaker main changes on a task</h3>
+<div id="jspsychmaker-main-changes-on-a-task" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> jsPsychMaker main changes on a task</h3>
 <ol style="list-style-type: decimal">
 <li>Start of a task</li>
 </ol>
@@ -378,8 +390,8 @@ questions.push({
     }
 });</code></pre>
 </div>
-<div id="conditional-questions" class="section level3" number="4.4.2">
-<h3><span class="header-section-number">4.4.2</span> Conditional questions</h3>
+<div id="conditional-questions" class="section level3" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Conditional questions</h3>
 <pre><code>var question001 = {
   type: &#39;survey-multi-choice-vertical&#39;,
   questions: [{prompt: &#39;&lt;div class=&quot;justified&quot;&gt;¿Usted se ha vacunado contra el coronavirus / covid-19?&lt;/div&gt;&#39;, options: [&#39;&amp;nbsp;Si&#39;, &#39;&amp;nbsp;No&#39;], required: true,  random_options: false, horizontal: false}],
@@ -408,8 +420,8 @@ var if_question001_1 = {
 PVC.push(if_question001_1);</code></pre>
 </div>
 </div>
-<div id="common-errors" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Common ERRORS</h2>
+<div id="common-errors" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Common ERRORS</h2>
 <p>If you get the following error in the console: <code>Uncaught TypeError: Cannot read properties of undefined (reading 'procedure')</code></p>
 <p>Run this in the console:</p>
 <pre><code>for (var i = 0; i &lt; questions.length; i++) {
