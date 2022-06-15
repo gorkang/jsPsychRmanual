@@ -32,7 +32,7 @@ if (!require('usethis')) install.packages('usethis'); library('usethis')
 # Download last stable jsPsychMaker version to the Downloads folder
 usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.2.0.zip", destdir = "~/Downloads/")
 
-# Alternatively, download the dev version version:
+# Alternatively, download the dev version:
 # usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
 
 ```

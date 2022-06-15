@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 jsPsychMonkeys | jsPsychR manual</title>
   <meta name="description" content="Chapter 5 jsPsychMonkeys | jsPsychR manual" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 jsPsychMonkeys | jsPsychR manual" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2021-11-06" />
+<meta name="date" content="2022-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="jsPsychMaker.html"/>
 <link rel="next" href="jsPsychHelpeR.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,21 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -162,24 +173,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html"><i class="fa fa-check"></i><b>4</b> jsPsychMaker</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.1</b> Experiment configuration</a>
+<li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#available-tasks"><i class="fa fa-check"></i><b>4.1</b> Available tasks</a></li>
+<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.2</b> Experiment configuration</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.1.1</b> Main parameters</a></li>
+<li class="chapter" data-level="4.2.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.2.1</b> Main parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.2</b> Order of tasks</a></li>
-<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.3</b> online-offline protocols</a>
+<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.3</b> Order of tasks</a></li>
+<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.4</b> online-offline protocols</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.3.1</b> Offline</a></li>
-<li class="chapter" data-level="4.3.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.3.2</b> Online</a></li>
+<li class="chapter" data-level="4.4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.4.1</b> Offline</a></li>
+<li class="chapter" data-level="4.4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.4.2</b> Online</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.4</b> Between-subject tasks</a></li>
-<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.5</b> Developing tasks</a></li>
-<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.6</b> Technical aspects</a>
+<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.5</b> Between-subject tasks</a></li>
+<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.6</b> Developing tasks</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.6.1</b> jsPsychMaker main changes on a task</a></li>
-<li class="chapter" data-level="4.6.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.6.2</b> Conditional questions</a></li>
+<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#need-help-implementing-a-task"><i class="fa fa-check"></i><b>4.6.1</b> Need help implementing a task!</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.7</b> Common ERRORS</a></li>
+<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.7</b> Technical aspects</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.7.1</b> jsPsychMaker main changes on a task</a></li>
+<li class="chapter" data-level="4.7.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.7.2</b> Conditional questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.8</b> Common ERRORS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="jsPsychMonkeys.html"><a href="jsPsychMonkeys.html"><i class="fa fa-check"></i><b>5</b> jsPsychMonkeys</a>
 <ul>
@@ -234,8 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="jsPsychMonkeys" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> jsPsychMonkeys</h1>
+<div id="jsPsychMonkeys" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> jsPsychMonkeys<a href="jsPsychMonkeys.html#jsPsychMonkeys" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
 <p><a href="https://github.com/gorkang/jsPsychMonkeys"><img src="img/GitHub32.png" /> jsPsychMonkeys</a>: Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.</p>
 <hr />
@@ -251,8 +266,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p><strong>See <a href="QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> for basic instructions.</strong></p>
 <hr />
-<div id="how-to-simulate-participants" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> How to simulate participants</h2>
+<div id="how-to-simulate-participants" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> How to simulate participants<a href="jsPsychMonkeys.html#how-to-simulate-participants" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If the <a href="QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> configuration steps didn’t work… You may need to do one of the things below:</p>
 <ul>
 <li><p>Run participants manually</p></li>
@@ -261,16 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <!-- sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev  -->
 </div>
-<div id="parameters" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Parameters</h2>
+<div id="parameters" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Parameters<a href="jsPsychMonkeys.html#parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Edit the <code>Parameters</code> section of the <code>_targets.R</code> file. The minimal set of parameters needed are:</p>
 <pre><code>parameters_monkeys_minimal = list(
   uid = 1:10, # User id&#39;s for the participants. 
   local_folder_tasks = &quot;Downloads/tests/2&quot; # Location of your jsPsych protocol
 )</code></pre>
 <hr />
-<div id="release-the-monkeys" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Release the Monkeys!</h3>
+<div id="release-the-monkeys" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Release the Monkeys!<a href="jsPsychMonkeys.html#release-the-monkeys" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want a sequential process:</p>
 <ul>
 <li><code>targets::tar_make()</code></li>
@@ -285,8 +300,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>10 Monkeys completing a protocol in parallel. You can use <code>targets::tar_watch(seconds = 10, outdated = FALSE, targets_only = TRUE)</code> to see the live progress:</p>
 <p><img src="img/jsMonkeys_parallel.gif" /></p>
 </div>
-<div id="launch-monkeys-on-a-server" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Launch monkeys on a server</h3>
+<div id="launch-monkeys-on-a-server" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Launch monkeys on a server<a href="jsPsychMonkeys.html#launch-monkeys-on-a-server" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will need a <code>.vault/SERVER_PATH.R</code> file that contains the path where the protocols are located in your server: <code>server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"</code></p>
 <p>With the <code>server_folder_tasks</code> you will set the subfolder where the protocol is located. In the example below the monkeys would go to, <code>http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/1</code></p>
 <pre><code>parameters_monkeys_minimal = list(
@@ -294,8 +309,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   server_folder_tasks = &quot;1&quot; # Location of your jsPsych protocol
 )</code></pre>
 </div>
-<div id="parameters-for-parameters_monkeys_minimal" class="section level3" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Parameters for parameters_monkeys_minimal</h3>
+<div id="parameters-for-parameters_monkeys_minimal" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Parameters for parameters_monkeys_minimal<a href="jsPsychMonkeys.html#parameters-for-parameters_monkeys_minimal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are a few parameters that can be useful:</p>
 <ul>
 <li><p><code>uid_URL = TRUE</code>: The uid is passed in the URL (e.g. <code>&amp;uid=1</code>)</p></li>
@@ -312,8 +327,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>forced_seed = 11</code> Set a random seed so the Monkeys’ behavior will be fully reproducible</p></li>
 <li><p><code>forced_refresh = 20</code> Refresh browser in page 20 (if TRUE is given, it will refresh in a randomly sampled page)</p></li>
 </ul>
-<div id="parameters-details" class="section level4" number="5.2.3.1">
-<h4><span class="header-section-number">5.2.3.1</span> Parameters details</h4>
+<div id="parameters-details" class="section level4 hasAnchor" number="5.2.3.1">
+<h4><span class="header-section-number">5.2.3.1</span> Parameters details<a href="jsPsychMonkeys.html#parameters-details" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><code>local_folder_tasks</code>: If the folder is not accessible to Docker (anything outside the Download folder), jsPsychMonkeys will create a copy of the protocol in <code>Downloads/JSPSYCH/</code></li>
 </ul>

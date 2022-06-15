@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # jsPsychMaker {#jsPsychMaker}
 
 --- 
@@ -32,6 +37,28 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 **See [QuickGuide](#QuickGuidejsPsychMaker) for basic instructions.**
 
 ---  
+
+
+## Available tasks
+
+In June 2022 we have more than 60 tasks implemented. The full details about the available tasks can be checked in [this document](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0). 
+
+We are in the process of filling all the tasks details to the document, but in the meantime, you can check [the full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks).
+
+Below, a table with an overview of the available tasks:  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+googlesheets4::gs4_auth("gorkang@gmail.com")
+DF_raw = googlesheets4::read_sheet("1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA", sheet = 2, skip = 1) %>% 
+  arrange(short_name) %>% 
+  select(short_name, long_name, `Descripción test`) %>% 
+  tidyr::drop_na(short_name)
+
+DT::datatable(DF_raw, filter = 'top', options = list(pageLength = 50, dom = 't'))
+
+```
+
 
 
 ## Experiment configuration
@@ -137,6 +164,16 @@ The variable `all_conditions` in `config.js` let's you define the Independent Va
 Remember to place an `if (debug_mode == 'false')` before the randomization of the item order so when running in debug_mode, the items are not randomized. This is important so the behaviour of the jsPsychMonkeys is reproducible:
 
 `if (debug_mode == 'false') NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);`
+
+
+### Need help implementing a task!
+
+If you need help developing new tasks, you can [open a new Issue in the jsPsychMaker Github](https://github.com/gorkang/jsPsychMaker/issues).
+
+We will ask you to add the details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
+
+Once the task is implemented, our goal is to always end up having a sister task preparation script in [![](img/GitHub32.png) jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR). You can try [to create the preparation script](#create-new-tasks) and do a Pull request, or ask for help [opening a new Issue in the jsPsychHelpeR Github](https://github.com/gorkang/jsPsychHelpeR/issues).
+
 
 
 ## Technical aspects

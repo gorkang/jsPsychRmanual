@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Reproducible experiments | jsPsychR manual</title>
   <meta name="description" content="Chapter 2 Reproducible experiments | jsPsychR manual" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Reproducible experiments | jsPsychR manual" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2021-11-06" />
+<meta name="date" content="2022-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="QuickGuide.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,21 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -162,24 +173,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html"><i class="fa fa-check"></i><b>4</b> jsPsychMaker</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.1</b> Experiment configuration</a>
+<li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#available-tasks"><i class="fa fa-check"></i><b>4.1</b> Available tasks</a></li>
+<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.2</b> Experiment configuration</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.1.1</b> Main parameters</a></li>
+<li class="chapter" data-level="4.2.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.2.1</b> Main parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.2</b> Order of tasks</a></li>
-<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.3</b> online-offline protocols</a>
+<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.3</b> Order of tasks</a></li>
+<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.4</b> online-offline protocols</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.3.1</b> Offline</a></li>
-<li class="chapter" data-level="4.3.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.3.2</b> Online</a></li>
+<li class="chapter" data-level="4.4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.4.1</b> Offline</a></li>
+<li class="chapter" data-level="4.4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.4.2</b> Online</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.4</b> Between-subject tasks</a></li>
-<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.5</b> Developing tasks</a></li>
-<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.6</b> Technical aspects</a>
+<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.5</b> Between-subject tasks</a></li>
+<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.6</b> Developing tasks</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.6.1</b> jsPsychMaker main changes on a task</a></li>
-<li class="chapter" data-level="4.6.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.6.2</b> Conditional questions</a></li>
+<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#need-help-implementing-a-task"><i class="fa fa-check"></i><b>4.6.1</b> Need help implementing a task!</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.7</b> Common ERRORS</a></li>
+<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.7</b> Technical aspects</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.7.1</b> jsPsychMaker main changes on a task</a></li>
+<li class="chapter" data-level="4.7.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.7.2</b> Conditional questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.8</b> Common ERRORS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="jsPsychMonkeys.html"><a href="jsPsychMonkeys.html"><i class="fa fa-check"></i><b>5</b> jsPsychMonkeys</a>
 <ul>
@@ -234,22 +249,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Reproducible experiments</h1>
+<div id="intro" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Reproducible experiments<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We use different technologies to develop experiments. Some examples are <a href="https://www.psychopy.org/">Psychopy</a>, <a href="https://www.qualtrics.com/">Qualtrics</a>, <a href="https://www.limesurvey.org/">Limesurvey</a>, <a href="https://www.jspsych.org/plugins/jspsych-preload/">jsPsych</a>, <a href="https://gorilla.sc/">Gorilla</a>, etc. Each of these has advantages and disadvantages and, in general, there are pragmatic aspects to take into account when adopting one or the other (cost, type of experiment - EEG/behavioral, lab/online -, lab history and available resources, …).</p>
 <p>We opted mainly for <a href="https://www.jspsych.org/">jsPsych</a> to run behavioral experiments because it is an open source javascript library, based on standard web technologies, and can be used online and offline.</p>
 <p>In the last years, we started working on a set of tools to create <a href="https://www.jspsych.org/">jsPsych</a> experiments (<a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a>), simulate participants (<a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a>) and standardize and automatize the data preparation and analyis (<a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a>).</p>
 <p>Our final goal is to have a big catalog of tasks available to use in the <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> repo. Each of the tasks should run with <a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a> to create virtual participants. And each task will have a sister script in <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to fully automate data preparation.</p>
-<div id="open-and-reproducible-experimental-pipeline" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Open and reproducible experimental pipeline</h2>
+<div id="open-and-reproducible-experimental-pipeline" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Open and reproducible experimental pipeline<a href="intro.html#open-and-reproducible-experimental-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.</p>
 <p>Furthermore, all the components of the pipeline should be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.</p>
 <p>With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically (including anonimization).</p>
-<p>The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a <a href="https://www.cos.io/initiatives/registered-reports">registered report</a> and just relaunch the data preparation and analysis when the participant’s data arrive with a single command.<br />
-`</p>
+<p>The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a <a href="https://www.cos.io/initiatives/registered-reports">registered report</a> and just relaunch the data preparation and analysis when the participant’s data arrive with a single command.</p>
 </div>
-<div id="automatization" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Automatization</h2>
+<div id="automatization" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Automatization<a href="intro.html#automatization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We tried to make a few basic things right, but this is an evolving project, and some things are more complex than one would want. Please do report the issues you find:</p>
 <ul>
 <li><a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker issues</a></li>
@@ -260,7 +274,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="img/xkcd-tasks.png" alt="" />
 <p class="caption">SOURCE: <a href="https://xkcd.com/1425/" class="uri">https://xkcd.com/1425/</a></p>
 </div>
-<p>We use the {<a href="https://github.com/wlandau/targets">targets</a>} package.</p>
 
 </div>
 </div>

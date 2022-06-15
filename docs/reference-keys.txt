@@ -7,6 +7,7 @@ QuickGuidejsPsychMaker
 QuickGuidejsPsychMonkeys
 QuickGuidejsPsychHelpeR
 jsPsychMaker
+available-tasks
 experiment-configuration
 main-parameters
 order-of-tasks
@@ -15,6 +16,7 @@ offline
 online
 between-subject-tasks
 developing-tasks
+need-help-implementing-a-task
 technical-aspects
 jspsychmaker-main-changes-on-a-task
 conditional-questions

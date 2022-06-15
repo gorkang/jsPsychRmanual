@@ -95,6 +95,10 @@ This will create a new file from a template correction script (`R_tasks/prepare_
 All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created using the same template.  
 
 
+When you finish implementing the correction script, please do a [Pull request](https://github.com/gorkang/jsPsychHelpeR/pulls) so we can add you script to the pool, and help us filling up details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
+
+
+
 ## DEBUG tasks
 
 At the begining of each of the `R_tasks/prepare_NAMETASK.R` scripts you will find a commented `debug_function(prepare_NAMETASK)` line.

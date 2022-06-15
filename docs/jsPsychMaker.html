@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 jsPsychMaker | jsPsychR manual</title>
   <meta name="description" content="Chapter 4 jsPsychMaker | jsPsychR manual" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 jsPsychMaker | jsPsychR manual" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2021-11-06" />
+<meta name="date" content="2022-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="QuickGuide.html"/>
 <link rel="next" href="jsPsychMonkeys.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,21 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -162,24 +173,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html"><i class="fa fa-check"></i><b>4</b> jsPsychMaker</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.1</b> Experiment configuration</a>
+<li class="chapter" data-level="4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#available-tasks"><i class="fa fa-check"></i><b>4.1</b> Available tasks</a></li>
+<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#experiment-configuration"><i class="fa fa-check"></i><b>4.2</b> Experiment configuration</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.1.1</b> Main parameters</a></li>
+<li class="chapter" data-level="4.2.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#main-parameters"><i class="fa fa-check"></i><b>4.2.1</b> Main parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.2</b> Order of tasks</a></li>
-<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.3</b> online-offline protocols</a>
+<li class="chapter" data-level="4.3" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#order-of-tasks"><i class="fa fa-check"></i><b>4.3</b> Order of tasks</a></li>
+<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online-offline-protocols"><i class="fa fa-check"></i><b>4.4</b> online-offline protocols</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.3.1</b> Offline</a></li>
-<li class="chapter" data-level="4.3.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.3.2</b> Online</a></li>
+<li class="chapter" data-level="4.4.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#offline"><i class="fa fa-check"></i><b>4.4.1</b> Offline</a></li>
+<li class="chapter" data-level="4.4.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#online"><i class="fa fa-check"></i><b>4.4.2</b> Online</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.4</b> Between-subject tasks</a></li>
-<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.5</b> Developing tasks</a></li>
-<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.6</b> Technical aspects</a>
+<li class="chapter" data-level="4.5" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#between-subject-tasks"><i class="fa fa-check"></i><b>4.5</b> Between-subject tasks</a></li>
+<li class="chapter" data-level="4.6" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#developing-tasks"><i class="fa fa-check"></i><b>4.6</b> Developing tasks</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.6.1</b> jsPsychMaker main changes on a task</a></li>
-<li class="chapter" data-level="4.6.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.6.2</b> Conditional questions</a></li>
+<li class="chapter" data-level="4.6.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#need-help-implementing-a-task"><i class="fa fa-check"></i><b>4.6.1</b> Need help implementing a task!</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.7</b> Common ERRORS</a></li>
+<li class="chapter" data-level="4.7" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#technical-aspects"><i class="fa fa-check"></i><b>4.7</b> Technical aspects</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task"><i class="fa fa-check"></i><b>4.7.1</b> jsPsychMaker main changes on a task</a></li>
+<li class="chapter" data-level="4.7.2" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#conditional-questions"><i class="fa fa-check"></i><b>4.7.2</b> Conditional questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="jsPsychMaker.html"><a href="jsPsychMaker.html#common-errors"><i class="fa fa-check"></i><b>4.8</b> Common ERRORS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="jsPsychMonkeys.html"><a href="jsPsychMonkeys.html"><i class="fa fa-check"></i><b>5</b> jsPsychMonkeys</a>
 <ul>
@@ -234,8 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="jsPsychMaker" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> jsPsychMaker</h1>
+<div id="jsPsychMaker" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> jsPsychMaker<a href="jsPsychMaker.html#jsPsychMaker" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <hr />
 <p><a href="https://github.com/gorkang/jsPsychMaker"><img src="img/GitHub32.png" /> jsPsychMaker</a>: Create experiments with jsPsych, randomize participants, etc.</p>
 <hr />
@@ -256,11 +271,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p><strong>See <a href="QuickGuide.html#QuickGuidejsPsychMaker">QuickGuide</a> for basic instructions.</strong></p>
 <hr />
-<div id="experiment-configuration" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Experiment configuration</h2>
+<div id="available-tasks" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Available tasks<a href="jsPsychMaker.html#available-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In June 2022 we have more than 60 tasks implemented. The full details about the available tasks can be checked in <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">this document</a>.</p>
+<p>We are in the process of filling all the tasks details to the document, but in the meantime, you can check <a href="https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks">the full list of tasks in the Github repo</a>.</p>
+<p>Below, a table with an overview of the available tasks:</p>
+<div id="htmlwidget-DT-8aab0fdb3c291e30d1f2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-DT-8aab0fdb3c291e30d1f2">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33"],["AIM","BART","BNT","bRCOPE","CAS","Consent","Cov19Q","COVIDCONTROL","CRS","CRT7","CRTMCQ4","CRTv","DASS21","DEBRIEF","DEMOGR","EAR","EmpaTom","ERQ","ESM","FONDECYT21","GHQ12","Goodbye","HRPVB","HRPVBpost","IBT","IDQ","IEC","INFCONS","IRI","IRS","MDMQ","MIS","REI40"],["Grupos Socieeconómicos (AIM)",null,"Berlin Numeracy test","Escala de afrontamiento religioso Brief-RCOPE","COVID-19 anxiety scale","Consentimiento Informado de Participación","Cuestionario Covid 19","Covid related Questions","The Centrality of Religiosity Scale","Cognitive reflection test","Cognitive reflection test - 4 alternatives","Verbal Cognitive Reflection Test","Escalas de depresión ansiedad y estrés","Debrief at end of experiment","Demographic scale","Escala de Autoestima de Rosenberg","Empatia, Teoria de la mente y Compasión","Emotion Regulation Questionnaire","Escala Subjetiva de Memoria",null,"12-item General health questionnaire","Goodbye task","High risk perception of vaginal birth","High risk perception of vaginal birth (POST)","Impulsive buying Tendency","Cuestionario de Identificación","Rotters internal-External control scale","Cesarean information brochures","Interpersonal reactivity index","Importance of Rationality Scale","Melbourne Decision Making Questionnaire","Magical ideation scale","Rational-Experiential intentory-40"],["Modelo que permite segmentar y clasificar socioeconómicamente a los individuos.",null,"Breve, flexible y de fácil aplicación. Mide habilidades numéricas","Evalúa dos patrones de afrontamiento religioso en población adolescente y adulta","Evalúa las fluctuaciones en los niveles de ansiedad causados ​​​​por COVID-19","Se presenta el consentimiento informado","Evalúa dimensiones relacionadas al covid-19","Busca conocer los cambios que han ocurrido en la vida del entrevistado desde la aparición del COVID-19.","Mide la intensidad general de cinco dimensiones básicas de la religiosidad.",null,null,null,"Mide escala de ansiedad, estrés y depresión (autoinforme)","Informe presentado al final del experimento","Información demográfica del encuestado","Instrumento unidimensional que mida la autoestima.","Tarea de video social que permite la manipulación y evaluación independiente de la empatía y compasión","Evalua dos estrategias de regulación emocional (autoinforme)","Evalúa la memoria del paciente directamente con él/ella",null,"Detecta personas con trastorno psiquiátrico diagnosticable","Despedida del experimento. Entrega el código al participante",null,null,null,"Cuestionario que permite identificar a los individuos y además contiene preguntas sobre diagnósticos psiquiatricos.","Mide el grado en que las personas creen que ejercen control sobre sus vidas (controladas internamente) o el grado a los que sienten que sus destinos están más allá de su propio control y están determinados por el destino (controladas externamente)","Entrega información sobre las cesáreas (consentimiento informado)","Es una medida de empatía de diferencia individual con un enfoque multidimensional. (Medida de autoinforme)",null,"Mide patrones de afrontamiento de decisiones","Mide el nivel de pensamiento mágico del individuo","Mide las diferencias individuales de dos dimensiones independientes del procesamiento humano: racional y experiencial."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>short_name<\/th>\n      <th>long_name<\/th>\n      <th>Descripción test<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":50,"dom":"t","columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="experiment-configuration" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Experiment configuration<a href="jsPsychMaker.html#experiment-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the <code>config.js</code> file you can find the main parameters to control how your experiment works.</p>
-<div id="main-parameters" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Main parameters</h3>
+<div id="main-parameters" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Main parameters<a href="jsPsychMaker.html#main-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><code>pid = 999999;</code>: Number of protocol</p></li>
 <li><p><code>online = true;</code>: true if the protocol run in a server, false if runs locally</p></li>
@@ -272,8 +295,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="order-of-tasks" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Order of tasks</h2>
+<div id="order-of-tasks" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Order of tasks<a href="jsPsychMaker.html#order-of-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><code>first_tasks = ['Consent'];</code>: The protocol will start with these tasks in the specified order</li>
 <li><code>last_tasks = ['Goodbye'];</code>: These tasks will be presented in the specified order after <code>randomly_ordered_tasks</code></li>
@@ -289,11 +312,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>tasks = ['first_tasks', 'randomly_ordered_tasks_1', 'secuentially_ordered_tasks_1', 'randomly_ordered_tasks_2', 'last_tasks']</code></li>
 </ul>
 </div>
-<div id="online-offline-protocols" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> online-offline protocols</h2>
+<div id="online-offline-protocols" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> online-offline protocols<a href="jsPsychMaker.html#online-offline-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>jsPsych uses standard web technologies (HTML, CSS y Javascript), so that protocols should run in any modern browser (updated, please). We recommend Google Chrome just because our test suite runs with Google Chrome, so we will catch its specific issues earlier.</p>
-<div id="offline" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Offline</h3>
+<div id="offline" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Offline<a href="jsPsychMaker.html#offline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to run a protocol locally (on your computer, on a lab computer), you need to:</p>
 <ul>
 <li><p>set <code>online = false;</code> in the <code>config.js</code> file</p></li>
@@ -302,8 +325,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>jsPsychR</code> will use <code>IndexedDB</code> to store the participants’ progress and balance between conditions. The output csv files will be Downloaded to the Download folder of the computer where the protocol runs.</p>
 <p>If any of the tasks imports an html file, the Offline protocol will give a CORS error.</p>
 </div>
-<div id="online" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Online</h3>
+<div id="online" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Online<a href="jsPsychMaker.html#online" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Tu run a protocol online, set <code>online = true;</code>. You will need a couple more things:</p>
 <ul>
 <li>Install MySQL</li>
@@ -328,8 +351,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>jsPsychR</code> will use <code>MySQL</code> to store the participants’ progress and balance between conditions. The output csv files will be Downloaded in the <code>.data/</code> folder inside the protocol folder in the server.</p>
 </div>
 </div>
-<div id="between-subject-tasks" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Between-subject tasks</h2>
+<div id="between-subject-tasks" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Between-subject tasks<a href="jsPsychMaker.html#between-subject-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The variable <code>all_conditions</code> in <code>config.js</code> let’s you define the Independent Variables (IV) and levels for the between-subject tasks:</p>
 <ul>
 <li><p>If there is no between-subject task:<br />
@@ -339,13 +362,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><code>jsPsychR</code> will randomize participants to the different conditions keeping the unbalance between conditions to the minimum possible.</p>
 </div>
-<div id="developing-tasks" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Developing tasks</h2>
+<div id="developing-tasks" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Developing tasks<a href="jsPsychMaker.html#developing-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Remember to place an <code>if (debug_mode == 'false')</code> before the randomization of the item order so when running in debug_mode, the items are not randomized. This is important so the behaviour of the jsPsychMonkeys is reproducible:</p>
 <p><code>if (debug_mode == 'false') NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);</code></p>
+<div id="need-help-implementing-a-task" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Need help implementing a task!<a href="jsPsychMaker.html#need-help-implementing-a-task" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you need help developing new tasks, you can <a href="https://github.com/gorkang/jsPsychMaker/issues">open a new Issue in the jsPsychMaker Github</a>.</p>
+<p>We will ask you to add the details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
+<p>Once the task is implemented, our goal is to always end up having a sister task preparation script in <a href="https://github.com/gorkang/jsPsychHelpeR"><img src="img/GitHub32.png" /> jsPsychHelpeR</a>. You can try <a href="jsPsychHelpeR.html#create-new-tasks">to create the preparation script</a> and do a Pull request, or ask for help <a href="https://github.com/gorkang/jsPsychHelpeR/issues">opening a new Issue in the jsPsychHelpeR Github</a>.</p>
 </div>
-<div id="technical-aspects" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Technical aspects</h2>
+</div>
+<div id="technical-aspects" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Technical aspects<a href="jsPsychMaker.html#technical-aspects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When index.html is launched:</p>
 <ul>
 <li>Check if there are available slots</li>
@@ -358,8 +387,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Each question, timeline or conditional question needs to have a:</p>
 <p><code>data: {trialid: 'NameTask_001', procedure: 'NameTask'}</code></p>
 <p>The <code>trialid</code> identifies the trial, and the <code>procedure</code> makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in Mysql if online, IndexedDB if offline.</p>
-<div id="jspsychmaker-main-changes-on-a-task" class="section level3" number="4.6.1">
-<h3><span class="header-section-number">4.6.1</span> jsPsychMaker main changes on a task</h3>
+<div id="jspsychmaker-main-changes-on-a-task" class="section level3 hasAnchor" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> jsPsychMaker main changes on a task<a href="jsPsychMaker.html#jspsychmaker-main-changes-on-a-task" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Start of a task</li>
 </ol>
@@ -390,8 +419,8 @@ questions.push({
     }
 });</code></pre>
 </div>
-<div id="conditional-questions" class="section level3" number="4.6.2">
-<h3><span class="header-section-number">4.6.2</span> Conditional questions</h3>
+<div id="conditional-questions" class="section level3 hasAnchor" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Conditional questions<a href="jsPsychMaker.html#conditional-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>var question001 = {
   type: &#39;survey-multi-choice-vertical&#39;,
   questions: [{prompt: &#39;&lt;div class=&quot;justified&quot;&gt;¿Usted se ha vacunado contra el coronavirus / covid-19?&lt;/div&gt;&#39;, options: [&#39;&amp;nbsp;Si&#39;, &#39;&amp;nbsp;No&#39;], required: true,  random_options: false, horizontal: false}],
@@ -420,8 +449,8 @@ var if_question001_1 = {
 PVC.push(if_question001_1);</code></pre>
 </div>
 </div>
-<div id="common-errors" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Common ERRORS</h2>
+<div id="common-errors" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Common ERRORS<a href="jsPsychMaker.html#common-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you get the following error in the console: <code>Uncaught TypeError: Cannot read properties of undefined (reading 'procedure')</code></p>
 <p>Run this in the console:</p>
 <pre><code>for (var i = 0; i &lt; questions.length; i++) {
