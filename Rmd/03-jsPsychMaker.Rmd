@@ -50,10 +50,13 @@ Below, a table with an overview of the available tasks:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
 googlesheets4::gs4_auth("gorkang@gmail.com")
-DF_raw = googlesheets4::read_sheet("1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA", sheet = 2, skip = 1) %>% 
-  arrange(short_name) %>% 
-  select(short_name, long_name, `Descripción test`) %>% 
-  tidyr::drop_na(short_name)
+
+DF_raw = googlesheets4::read_sheet("1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA", sheet = 2, skip = 0) %>% 
+    rename(short_name = `Código Test`) %>% 
+    filter(short_name != "short_name") %>% 
+    arrange(short_name) %>% 
+    select(short_name, Nombre, Descripcion) %>% 
+    tidyr::drop_na(short_name)
 
 DT::datatable(DF_raw, filter = 'top', options = list(pageLength = 50, dom = 't'))
 
