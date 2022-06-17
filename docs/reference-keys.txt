@@ -30,7 +30,12 @@ parameters-for-parameters_monkeys_minimal
 parameters-details
 jsPsychHelpeR
 how-to-prepare-data
-output-tables-and-plots
+basics
+inputs
+outputs
+output-folders
+output-files
+output-files-standards
 create-your-own-reports
 create-new-tasks
 debug-tasks

@@ -49,13 +49,80 @@ To see more detail about any specific step, you can:
 3.  Run the code step by step as you would normally do
 
 
-### Output tables and plots
+## Basics
 
--   **Raw data** (anonymized) are in `data/raw_data_anonymized.csv`
+[jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) uses as input a data created with a [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) experimental protocol.   
 
--   **Plots**, **tables** and **reports** are in `outputs/plots`, `outputs/tables`and `outputs/reports` respectively.
 
--   **Dataframes** for different stages of data processing can be seen in `outputs/data`
+### Inputs  
+
+The input data folder will be named after the protocol_id, for example `999/` and needs to be placed in the `data/` folder of the jsPsychHelpeR project:    
+
+- The data folder can contain either multiple .csv files, or a single .zip file
+
+There will be a single .csv file for each participant and task of the protocol. For example:  
+
+- 999_Consent_original_2022-04-02T205622_1.csv: [project: 999]_[experimento: Consent]_[version: original]_[datetime: 2022-04-02T205622]_[participant id: 1]
+
+
+### Outputs
+
+When the pipeline successfully runs with  `targets::tar_make()`, a number of outputs will be created.
+
+All the outputs can be found in the `/outputs` folder. The only exception is the sensitive data and reports, which can be found in `.vault/outputs`.  
+
+
+#### Output folders
+
+The outputs will be organized in different folders:
+
+- **Dataframes** for different stages of data processing can be found in `outputs/data`  
+
+- **Files for manual correction** are in `outputs/data/manual_correction`
+
+- **Plots**, **tables** and **reports** are in `outputs/plots`, `outputs/tables`and `outputs/reports` respectively.
+
+- **Test outputs** are in `outputs/tests_outputs`
+
+- **Anonymized Raw data**  will be moved to `.vault/data_vault/`  
+
+
+#### Output dataframes
+
+There will be a single data frame (df) for each of the tasks in `outputs/data`, plus a data frame (DF) for each of the steps of the data preparation, and a diccionary file listing all the available tasks. We store the files in two formats, csv and rds:  
+
+- **DF_raw.csv**: All the `data/project_id/` csv files combined on a single file. We only add the columns  "project", "experimento", "version", "datetime", "id" by parsing the filenames  
+
+- **DF_clean.csv**: Clean version of the raw file ready to process the individual tasks  
+
+- **df_ShortNameOfTask.csv**: One df for each of the tasks of the protocol after being processed with the `prepare_ShortNameOfTask()` functions
+
+- **DF_joined.csv**: all the processed tasks joined in a single DF
+
+- **DF_analysis**: only the total scores and dimensions from `DF_joined` (columns ending in `_DIRt` `_STDt` `_DIRd` `STDd`)  
+
+- **DICCIONARY_tasks.csv**: list of all tasks in the protocol  
+
+
+#### Output files standards
+
+All the output processed files columns are named in a standardized way:  
+
+- **ShortNameOfTask_ItemNumber_RAW**: raw responses of participants for individual items  
+
+- **ShortNameOfTask_ItemNumber_DIR**: processed raw responses following the task correction instructions (e.g. inverting certain items, converting strings to numbers, computing accuracy...)   
+
+- **ShortNameOfTask_RAW_NA**:  number of missing data (NA) in the RAW responses  
+
+- **ShortNameOfTask_DIR_NA**:  number of missing data (NA) in the DIR responses. If it is not equal to `ShortNameOfTask_RAW_NA` there is something wrong in the items correction.  
+
+- **ShortNameOfTask_NameDimension_DIRd**: scores for a specific dimension (`d`) in a task, calculated following task correction instructions (e.g. summing or averaging certain items)  
+
+- **ShortNameOfTask_NameDimension_STDd**: standardized score for a dimension (`d`)  
+
+- **ShortNameOfTask_DIRt**: total (`t`) score for a task calculated following task correction instructions (e.g. summing or averaging all items)  
+
+- **ShortNameOfTask_STDt**: standardized (`t`) score for a task  
 
 
 
