@@ -45,6 +45,9 @@ In June 2022 we have more than 60 tasks implemented. The full details about the 
 
 We are in the process of filling all the tasks details to the document, but in the meantime, you can check [the full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks).
 
+If you need help implementing a NEW task [fill this form](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).  
+
+
 Below, a table with an overview of the available tasks:  
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}

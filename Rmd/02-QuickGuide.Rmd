@@ -40,12 +40,18 @@ usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/
 
 #### 2) Edit configuration {-}  
 
-Go to folder `canonical_protocols` and edit `config.js`.
+Go to folder `canonical_protocols` and edit `config.js`.  
 
-The variable `tasks` should contain the name of an array of the tasks we want to run. See a [list of tasks](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv) available in the repo.  
-  
+![](img/jsPsychmaker_config.png)  
 
-![](img/jsPsychmaker_config.png)
+The variable `tasks` should contain the name of an array of the tasks we want to run.  
+
+Available tasks:  
+- [full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks)  
+- [details of available tasks](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0) (Spanish)   
+- If you need a NEW task [fill this form](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)  
+
+
 
 
 #### 3) Run experiment {-}  
