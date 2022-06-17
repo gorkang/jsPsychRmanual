@@ -105,9 +105,9 @@ There will be a single data frame (df) for each of the tasks in `outputs/data`, 
 - **DICCIONARY_tasks.csv**: list of all tasks in the protocol  
 
 
-#### Output files standards
+#### Output dataframes column names
 
-All the output processed files columns are named in a standardized way:  
+All the output processed dataframes columns are named in a standardized way:  
 
 - **ShortNameOfTask_ItemNumber_RAW**: raw responses of participants for individual items  
 
@@ -117,9 +117,9 @@ All the output processed files columns are named in a standardized way:
 
 - **ShortNameOfTask_DIR_NA**:  number of missing data (NA) in the DIR responses. If it is not equal to `ShortNameOfTask_RAW_NA` there is something wrong in the items correction.  
 
-- **ShortNameOfTask_NameDimension_DIRd**: scores for a specific dimension (`d`) in a task, calculated following task correction instructions (e.g. summing or averaging certain items)  
+- **ShortNameOfTask_DimensionName_DIRd**: scores for a specific dimension (`d`) in a task, calculated following task correction instructions (e.g. summing or averaging certain items)  
 
-- **ShortNameOfTask_NameDimension_STDd**: standardized score for a dimension (`d`)  
+- **ShortNameOfTask_DimensionName_STDd**: standardized score for a dimension (`d`)  
 
 - **ShortNameOfTask_DIRt**: total (`t`) score for a task calculated following task correction instructions (e.g. summing or averaging all items)  
 

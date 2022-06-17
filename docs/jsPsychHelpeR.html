@@ -219,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.2.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-folders"><i class="fa fa-check"></i><b>6.2.2.1</b> Output folders</a></li>
 <li class="chapter" data-level="6.2.2.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-dataframes"><i class="fa fa-check"></i><b>6.2.2.2</b> Output dataframes</a></li>
-<li class="chapter" data-level="6.2.2.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-files-standards"><i class="fa fa-check"></i><b>6.2.2.3</b> Output files standards</a></li>
+<li class="chapter" data-level="6.2.2.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-dataframes-column-names"><i class="fa fa-check"></i><b>6.2.2.3</b> Output dataframes column names</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-your-own-reports"><i class="fa fa-check"></i><b>6.3</b> Create your own reports</a></li>
@@ -331,16 +331,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>DICCIONARY_tasks.csv</strong>: list of all tasks in the protocol</p></li>
 </ul>
 </div>
-<div id="output-files-standards" class="section level4 hasAnchor" number="6.2.2.3">
-<h4><span class="header-section-number">6.2.2.3</span> Output files standards<a href="jsPsychHelpeR.html#output-files-standards" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>All the output processed files columns are named in a standardized way:</p>
+<div id="output-dataframes-column-names" class="section level4 hasAnchor" number="6.2.2.3">
+<h4><span class="header-section-number">6.2.2.3</span> Output dataframes column names<a href="jsPsychHelpeR.html#output-dataframes-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All the output processed dataframes columns are named in a standardized way:</p>
 <ul>
 <li><p><strong>ShortNameOfTask_ItemNumber_RAW</strong>: raw responses of participants for individual items</p></li>
 <li><p><strong>ShortNameOfTask_ItemNumber_DIR</strong>: processed raw responses following the task correction instructions (e.g. inverting certain items, converting strings to numbers, computing accuracy…)</p></li>
 <li><p><strong>ShortNameOfTask_RAW_NA</strong>: number of missing data (NA) in the RAW responses</p></li>
 <li><p><strong>ShortNameOfTask_DIR_NA</strong>: number of missing data (NA) in the DIR responses. If it is not equal to <code>ShortNameOfTask_RAW_NA</code> there is something wrong in the items correction.</p></li>
-<li><p><strong>ShortNameOfTask_NameDimension_DIRd</strong>: scores for a specific dimension (<code>d</code>) in a task, calculated following task correction instructions (e.g. summing or averaging certain items)</p></li>
-<li><p><strong>ShortNameOfTask_NameDimension_STDd</strong>: standardized score for a dimension (<code>d</code>)</p></li>
+<li><p><strong>ShortNameOfTask_DimensionName_DIRd</strong>: scores for a specific dimension (<code>d</code>) in a task, calculated following task correction instructions (e.g. summing or averaging certain items)</p></li>
+<li><p><strong>ShortNameOfTask_DimensionName_STDd</strong>: standardized score for a dimension (<code>d</code>)</p></li>
 <li><p><strong>ShortNameOfTask_DIRt</strong>: total (<code>t</code>) score for a task calculated following task correction instructions (e.g. summing or averaging all items)</p></li>
 <li><p><strong>ShortNameOfTask_STDt</strong>: standardized (<code>t</code>) score for a task</p></li>
 </ul>
