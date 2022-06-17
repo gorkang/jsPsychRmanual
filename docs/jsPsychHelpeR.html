@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#outputs"><i class="fa fa-check"></i><b>6.2.2</b> Outputs</a>
 <ul>
 <li class="chapter" data-level="6.2.2.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-folders"><i class="fa fa-check"></i><b>6.2.2.1</b> Output folders</a></li>
-<li class="chapter" data-level="6.2.2.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-files"><i class="fa fa-check"></i><b>6.2.2.2</b> Output files</a></li>
+<li class="chapter" data-level="6.2.2.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-dataframes"><i class="fa fa-check"></i><b>6.2.2.2</b> Output dataframes</a></li>
 <li class="chapter" data-level="6.2.2.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#output-files-standards"><i class="fa fa-check"></i><b>6.2.2.3</b> Output files standards</a></li>
 </ul></li>
 </ul></li>
@@ -292,32 +292,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> uses as input a data created with a <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> experimental protocol.</p>
 <div id="inputs" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Inputs<a href="jsPsychHelpeR.html#inputs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The input data folder will be named after the protocol_id, for example <code>999/</code> and needs to be placed in the <code>data/</code> folder of the jsPsychHelpeR project:</p>
+<p>The input data folder will be named after the protocol_id, for example <code>999/</code> and needs to be placed in the <code>data/</code> folder of the jsPsychHelpeR project <code>data/YOUR_PROJECT_NUMBER</code>:</p>
 <ul>
 <li>The data folder can contain either multiple .csv files, or a single .zip file</li>
 </ul>
 <p>There will be a single .csv file for each participant and task of the protocol. For example:</p>
 <ul>
-<li>999_Consent_original_2022-04-02T205622_1.csv: [project: 999]<em>[experimento: Consent]</em>[version: original]<em>[datetime: 2022-04-02T205622]</em>[participant id: 1]</li>
+<li>999_Consent_original_2022-04-02T205622_1.csv:
+<ul>
+<li>[project: 999]_[experimento: Consent]_[version: original]_[datetime: 2022-04-02T205622]_[participant id: 1]</li>
+</ul></li>
 </ul>
 </div>
 <div id="outputs" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Outputs<a href="jsPsychHelpeR.html#outputs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When the pipeline successfully runs with <code>targets::tar_make()</code>, a number of outputs will be created.</p>
-<p>All the outputs can be found in the <code>/outputs</code> folder. The only exception is the sensitive data and reports, which can be found in <code>.vault/outputs</code>.</p>
+<p>All the outputs can be found in the <code>/outputs</code> folder. The only exception is the sensitive data and reports, which can be found in <code>.vault/outputs</code>. <span style="     color: red !important;">WARNING: The ‘.vault/’ folder <strong>MUST NOT</strong> be made public.</span></p>
 <div id="output-folders" class="section level4 hasAnchor" number="6.2.2.1">
 <h4><span class="header-section-number">6.2.2.1</span> Output folders<a href="jsPsychHelpeR.html#output-folders" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The outputs will be organized in different folders:</p>
 <ul>
 <li><p><strong>Dataframes</strong> for different stages of data processing can be found in <code>outputs/data</code></p></li>
-<li><p><strong>Files for manual correction</strong> are in <code>outputs/data/manual_correction</code></p></li>
+<li><p><strong>Temporary files for manual correction</strong> are in <code>outputs/data/manual_correction</code> (the final manual correction files must be place by the user in <code>data/manual_correction</code>). <span style="     color: red !important;">WARNING: These will be overwritten each time the pipeline runs</span></p></li>
 <li><p><strong>Plots</strong>, <strong>tables</strong> and <strong>reports</strong> are in <code>outputs/plots</code>, <code>outputs/tables</code>and <code>outputs/reports</code> respectively.</p></li>
 <li><p><strong>Test outputs</strong> are in <code>outputs/tests_outputs</code></p></li>
-<li><p>Anonymized <strong>Raw data</strong> will be moved to `.vault/data_vault/</p></li>
+<li><p><strong>Anonymized Raw data</strong> will be moved to <code>.vault/data_vault/</code></p></li>
 </ul>
 </div>
-<div id="output-files" class="section level4 hasAnchor" number="6.2.2.2">
-<h4><span class="header-section-number">6.2.2.2</span> Output files<a href="jsPsychHelpeR.html#output-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="output-dataframes" class="section level4 hasAnchor" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> Output dataframes<a href="jsPsychHelpeR.html#output-dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There will be a single data frame (df) for each of the tasks in <code>outputs/data</code>, plus a data frame (DF) for each of the steps of the data preparation, and a diccionary file listing all the available tasks. We store the files in two formats, csv and rds:</p>
 <ul>
 <li><p><strong>DF_raw.csv</strong>: All the <code>data/project_id/</code> csv files combined on a single file. We only add the columns “project”, “experimento”, “version”, “datetime”, “id” by parsing the filenames</p></li>

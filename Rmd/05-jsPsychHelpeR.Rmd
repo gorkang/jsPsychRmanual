@@ -56,20 +56,21 @@ To see more detail about any specific step, you can:
 
 ### Inputs  
 
-The input data folder will be named after the protocol_id, for example `999/` and needs to be placed in the `data/` folder of the jsPsychHelpeR project:    
+The input data folder will be named after the protocol_id, for example `999/` and needs to be placed in the `data/` folder of the jsPsychHelpeR project `data/YOUR_PROJECT_NUMBER`:    
 
-- The data folder can contain either multiple .csv files, or a single .zip file
+- The data folder can contain either multiple .csv files, or a single .zip file  
 
 There will be a single .csv file for each participant and task of the protocol. For example:  
 
-- 999_Consent_original_2022-04-02T205622_1.csv: [project: 999]_[experimento: Consent]_[version: original]_[datetime: 2022-04-02T205622]_[participant id: 1]
+- 999_Consent_original_2022-04-02T205622_1.csv: 
+  + [project: 999]\_[experimento: Consent]\_[version: original]\_[datetime: 2022-04-02T205622]\_[participant id: 1]
 
 
 ### Outputs
 
 When the pipeline successfully runs with  `targets::tar_make()`, a number of outputs will be created.
 
-All the outputs can be found in the `/outputs` folder. The only exception is the sensitive data and reports, which can be found in `.vault/outputs`.  
+All the outputs can be found in the `/outputs` folder. The only exception is the sensitive data and reports, which can be found in `.vault/outputs`. `r kableExtra::text_spec("WARNING: The '.vault/' folder **MUST NOT** be made public.", color = "red")`    
 
 
 #### Output folders
@@ -78,7 +79,7 @@ The outputs will be organized in different folders:
 
 - **Dataframes** for different stages of data processing can be found in `outputs/data`  
 
-- **Files for manual correction** are in `outputs/data/manual_correction`
+- **Temporary files for manual correction** are in `outputs/data/manual_correction` (the final manual correction files must be place by the user in `data/manual_correction`). `r kableExtra::text_spec("WARNING: These will be overwritten each time the pipeline runs", color = "red")`
 
 - **Plots**, **tables** and **reports** are in `outputs/plots`, `outputs/tables`and `outputs/reports` respectively.
 
