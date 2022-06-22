@@ -23,7 +23,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2022-06-17" />
+<meta name="date" content="2022-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -368,19 +368,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-new-tasks" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Create new tasks<a href="jsPsychHelpeR.html#create-new-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To create the correction script for a new task, you should do:</p>
+<p>To create the correction script for a new task, you start with:</p>
 <ul>
 <li><code>create_new_task(short_name_task = "NAMETASK")</code></li>
 </ul>
-<p>This will create a new file from a template correction script (<code>R_tasks/prepare_TEMPLATE.R</code>) and adapt it to your <code>short_name_task</code> to make everything as standardized as possible.</p>
-<p>All the <code>prepare_NAMEOFTASK.R</code> scripts on the <code>R_tasks/</code> folder have been created using the same template.</p>
-<p>When you finish implementing the correction script, please do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">Pull request</a> so we can add you script to the pool, and help us filling up details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
+<p>This will:</p>
+<ul>
+<li><p>create a new file from a template correction script (<code>R_tasks/prepare_TEMPLATE.R</code>)</p></li>
+<li><p>adapt it to your <code>short_name_task</code> to make everything as standardized as possible</p></li>
+<li><p>open the new <code>prepare_NAMETASK.R</code> file</p></li>
+</ul>
+<p>If the parameter <code>get_dimensions_googledoc = TRUE</code>:</p>
+<ul>
+<li><p>The <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a> is checked.</p></li>
+<li><p>If the document has been filled properly, it will show in the console standardized strings (ready to be copy/pasted to the new <code>prepare_NAMETASK.R</code> file) about:</p>
+<ul>
+<li><p>dimension names</p></li>
+<li><p>items corresponding to each dimension</p></li>
+<li><p>dimension calculation</p></li>
+<li><p>inverse items</p></li>
+</ul></li>
+</ul>
+<p>All the <code>prepare_NAMEOFTASK.R</code> scripts on the <code>R_tasks/</code> folder have been created starting from the same template. The only exception are the experimental tasks and some surveys with particularities that require more complex adaptations.</p>
+<p>When you finish implementing the correction script, please do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">Pull request</a> so we can add you script to the pool. If you have not already, please help us filling up details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
 </div>
 <div id="debug-tasks" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> DEBUG tasks<a href="jsPsychHelpeR.html#debug-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At the begining of each of the <code>R_tasks/prepare_NAMETASK.R</code> scripts you will find a commented <code>debug_function(prepare_NAMETASK)</code> line.</p>
 <p>When running it, it will load the input parameters for the task. From there, you can work inside of the preparation scipt as you would normally do in a R script.</p>
-<p>If you get the error “Error in debug_function(prepare_NAMETASK) : could not find function ‘debug_function’ <code>debug_function()</code> does nor work” you will need to load all the functions in the <code>R/</code> folder first.</p>
+<p>If you get the error <code>"Error in debug_function(prepare_NAMETASK) : could not find function 'debug_function'</code>debug_function()<code>does nor work"</code> you will need to load all the functions in the <code>R/</code> folder first.</p>
 <p>You can do this in one of three ways:</p>
 <ul>
 <li><p><code>CONTROL + P</code> shortcut will work if the <code>run_initial_setup()</code> completed correctly (at least on Ubuntu systems).</p></li>

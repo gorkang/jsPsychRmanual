@@ -154,28 +154,39 @@ When you finished editing and uncomented the tar_render command, go back to the 
 
 ## Create new tasks
 
-To create the correction script for a new task, you should do:
+To create the correction script for a new task, you start with:
 
 - `create_new_task(short_name_task = "NAMETASK")`
 
-This will:  
-  - create a new file from a template correction script (`R_tasks/prepare_TEMPLATE.R`)  
-  - adapt it to your `short_name_task` to make everything as standardized as possible  
-  - open the new `prepare_NAMETASK.R` file
+This will:   
 
-If the parameter `get_dimensions_googledoc = TRUE`:  
-  - The [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) is checked. 
-  - If the document has been filled properly, it will show in the console standardized strings ready to be copy/pasted to the new `prepare_NAMETASK.R` file about:
-    + dimension names
-    + items corresponding to each dimension
-    + dimension calculation
-    + inverse items
+  - create a new file from a template correction script (`R_tasks/prepare_TEMPLATE.R`)  
+  
+  - adapt it to your `short_name_task` to make everything as standardized as possible  
+  
+  - open the new `prepare_NAMETASK.R` file  
+  
+
+If the parameter `get_dimensions_googledoc = TRUE`:   
+
+  - The [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) is checked.  
+  
+  - If the document has been filled properly, it will show in the console standardized strings (ready to be copy/pasted to the new `prepare_NAMETASK.R` file) about:  
+  
+    + dimension names  
+    
+    + items corresponding to each dimension  
+    
+    + dimension calculation  
+    
+    + inverse items  
+    
 
   
-All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created starting from the same template. The experimental tasks and some surveys have particularities that require more complex adaptations.    
+All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created starting from the same template. The only exception are the experimental tasks and some surveys with particularities that require more complex adaptations.    
 
 
-When you finish implementing the correction script, please do a [Pull request](https://github.com/gorkang/jsPsychHelpeR/pulls) so we can add you script to the pool, and help us filling up details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
+When you finish implementing the correction script, please do a [Pull request](https://github.com/gorkang/jsPsychHelpeR/pulls) so we can add you script to the pool. If you have not already, please help us filling up details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).  
 
 
 
@@ -185,7 +196,7 @@ At the begining of each of the `R_tasks/prepare_NAMETASK.R` scripts you will fin
 
 When running it, it will load the input parameters for the task. From there, you can work inside of the preparation scipt as you would normally do in a R script.
 
-If you get the error "Error in debug_function(prepare_NAMETASK) : could not find function 'debug_function' `debug_function()` does nor work" you will need to load all the functions in the `R/` folder first.
+If you get the error `"Error in debug_function(prepare_NAMETASK) : could not find function 'debug_function' `debug_function()` does nor work"` you will need to load all the functions in the `R/` folder first.
 
 You can do this in one of three ways:
 
