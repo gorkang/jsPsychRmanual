@@ -158,9 +158,21 @@ To create the correction script for a new task, you should do:
 
 - `create_new_task(short_name_task = "NAMETASK")`
 
-This will create a new file from a template correction script (`R_tasks/prepare_TEMPLATE.R`) and adapt it to your `short_name_task` to make everything as standardized as possible.  
+This will:  
+  - create a new file from a template correction script (`R_tasks/prepare_TEMPLATE.R`)  
+  - adapt it to your `short_name_task` to make everything as standardized as possible  
+  - open the new `prepare_NAMETASK.R` file
 
-All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created using the same template.  
+If the parameter `get_dimensions_googledoc = TRUE`:  
+  - The [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) is checked. 
+  - If the document has been filled properly, it will show in the console standardized strings ready to be copy/pasted to the new `prepare_NAMETASK.R` file about:
+    + dimension names
+    + items corresponding to each dimension
+    + dimension calculation
+    + inverse items
+
+  
+All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created starting from the same template. The experimental tasks and some surveys have particularities that require more complex adaptations.    
 
 
 When you finish implementing the correction script, please do a [Pull request](https://github.com/gorkang/jsPsychHelpeR/pulls) so we can add you script to the pool, and help us filling up details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
