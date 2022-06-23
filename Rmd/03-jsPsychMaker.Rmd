@@ -75,6 +75,8 @@ DT::datatable(DF_raw, filter = 'top', options = list(pageLength = 25, dom = 'tlp
 
 In the `config.js` file you can find the main parameters to control how your experiment works.
 
+There is a shiny app in `jsPsychMaker/app/` to edit the main parameters of the `config.js` using a visual interface.  
+
 
 ### Main parameters
 
