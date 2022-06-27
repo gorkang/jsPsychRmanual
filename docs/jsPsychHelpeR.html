@@ -23,7 +23,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2022-06-23" />
+<meta name="date" content="2022-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -223,7 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-your-own-reports"><i class="fa fa-check"></i><b>6.3</b> Create your own reports</a></li>
-<li class="chapter" data-level="6.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-new-tasks"><i class="fa fa-check"></i><b>6.4</b> Create new tasks</a></li>
+<li class="chapter" data-level="6.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-new-tasks"><i class="fa fa-check"></i><b>6.4</b> Create new tasks</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document"><i class="fa fa-check"></i><b>6.4.1</b> How to fill the <span>NEW tasks document</span></a></li>
+</ul></li>
 <li class="chapter" data-level="6.5" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#debug-tasks"><i class="fa fa-check"></i><b>6.5</b> DEBUG tasks</a></li>
 <li class="chapter" data-level="6.6" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#technical-aspects-1"><i class="fa fa-check"></i><b>6.6</b> Technical aspects</a>
 <ul>
@@ -387,10 +390,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>items corresponding to each dimension</p></li>
 <li><p>dimension calculation</p></li>
 <li><p>inverse items</p></li>
+<li><p>numeric conversion of items</p></li>
 </ul></li>
 </ul>
 <p>All the <code>prepare_NAMEOFTASK.R</code> scripts on the <code>R_tasks/</code> folder have been created starting from the same template. The only exception are the experimental tasks and some surveys with particularities that require more complex adaptations.</p>
 <p>When you finish implementing the correction script, please do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">Pull request</a> so we can add you script to the pool. If you have not already, please help us filling up details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
+<div id="how-to-fill-the-new-tasks-document" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> How to fill the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The best way is to check the main document with information about all the tasks (<a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">Tareas jsPsychR</a>) and find a similar task to copy/paste and adapt it in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
+<p>The main suggestion is to be very consistent. For example, when entering the informacion about numeric conversion in the Puntajes_items tab:</p>
+<p>All the cells must be:<br />
+1 = Mucho<br />
+2 = Poco<br />
+…</p>
+<p>DO NOT do things like:<br />
+1: Mucho<br />
+1 Mucho<br />
+1 pto = Mucho<br />
+Mucho 1</p>
+<p>Please, make sure you fill out all the details in all the tabs.</p>
+</div>
 </div>
 <div id="debug-tasks" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> DEBUG tasks<a href="jsPsychHelpeR.html#debug-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h2>

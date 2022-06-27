@@ -38,6 +38,7 @@ output-dataframes
 output-dataframes-column-names
 create-your-own-reports
 create-new-tasks
+how-to-fill-the-new-tasks-document
 debug-tasks
 technical-aspects-1
 how-trialids-are-processed

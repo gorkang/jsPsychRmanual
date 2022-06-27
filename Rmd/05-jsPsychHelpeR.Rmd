@@ -181,12 +181,37 @@ If the parameter `get_dimensions_googledoc = TRUE`:
     
     + inverse items  
     
+    + numeric conversion of items
+    
 
   
 All the `prepare_NAMEOFTASK.R` scripts on the `R_tasks/` folder have been created starting from the same template. The only exception are the experimental tasks and some surveys with particularities that require more complex adaptations.    
 
 
 When you finish implementing the correction script, please do a [Pull request](https://github.com/gorkang/jsPsychHelpeR/pulls) so we can add you script to the pool. If you have not already, please help us filling up details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).  
+
+
+### How to fill the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)
+
+The best way is to check the main document with information about all the tasks ([Tareas jsPsychR](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0)) and find a similar task to copy/paste and adapt it in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).  
+
+The main suggestion is to be very consistent. For example, when entering the informacion about numeric conversion in the Puntajes_items tab:  
+
+
+All the cells must be:  
+1 = Mucho  
+2 = Poco  
+...
+  
+  
+DO NOT do things like:  
+1: Mucho  
+1 Mucho  
+1 pto = Mucho  
+Mucho 1  
+
+
+Please, make sure you fill out all the details in all the tabs.   
 
 
 
