@@ -11,25 +11,29 @@ editor_options:
 
 ---  
 
-Using jsPsychMaker to build experimental protocols helps you with a few things:
+Using jsPsychMaker to build experimental protocols helps you with a few things:  
 
-- Create full protocols using tasks already implemented by just editing a config.js file
+- Create full protocols using tasks already implemented by just editing a config.js file  
 
-- Select order of tasks, randomize subsets of tasks, etc.
+  + You can also use the [jsPsychMaker Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) to create your config.js file  
+  
 
-- Randomize participants to groups making sure the balance between the groups is maintained
+- Select order of tasks, randomize subsets of tasks, etc.  
 
-- Allow participants to continue in the task where they left in the protocol 
+- Randomize participants to groups making sure the balance between the groups is maintained  
 
-- Set time limits to complete the protocol
+- Allow participants to continue in the task where they left in the protocol  
 
-  + Automatically discard participants over the time limit, freeing the slots for new participants
+- Set time limits to complete the protocol  
 
-- Seamlessly select between online and offline protocols
+  + Automatically discard participants over the time limit, freeing the slots for new participants  
+  
 
-- Simulate participants with [jsPsychMonkeys](#jsPsychMonkeys)
+- Seamlessly select between online and offline protocols  
 
-- *Automagically* get your data prepared with [jsPsychHelpeR](#jsPsychHelpeR)
+- Simulate participants with [jsPsychMonkeys](#jsPsychMonkeys)  
+
+- *Automagically* get your data prepared with [jsPsychHelpeR](#jsPsychHelpeR)  
 
 
 ---  
@@ -75,7 +79,7 @@ DT::datatable(DF_raw, filter = 'top', options = list(pageLength = 25, dom = 'tlp
 
 In the `config.js` file you can find the main parameters to control how your experiment works.
 
-There is a shiny app in `jsPsychMaker/app/` to edit the main parameters of the `config.js` using a visual interface.  
+There is a shiny app in `jsPsychMaker/app/` to help you create a `config.js` with the main parameters for your protocol using a visual interface. You can run the app locally or go to [jsPsychMaker_config Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/). You will need to copy the generated config.js file to your protocol folder.  
 
 
 ### Main parameters
