@@ -27,11 +27,43 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 ## How to prepare data
 
-Every [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. `run_initial_setup()` will try to make sure you have all the dependencies, folders, etc., and a customized `_targets.R` file adapted to your protocol, so data preparation can run automagically.  
+Our goal is that [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](https://gorkang.github.io/jsPsychR-manual/jsPsychHelpeR.html#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or fill the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) with the details to help us create the correction script.  
+ 
+
+If you already ran a pilot experiment, simply:  
+
+1. Download `jsPsychHelpeR`: 
+
+```
+if (!require('usethis')) install.packages('usethis'); library('usethis')
+usethis::use_course("gorkang/jsPsychHelpeR")
+```
+
+2. `run_initial_setup()`: go to the file `run.R` and run the following two lines. They will:  
+
+- Try to make sure you have all the dependencies, folders, etc.  
+- Download all the data from your protocol (you will need the FTP credentials)  
+- Download and zip a copy of the full protocol without the data (you will need the FTP credentials)  
+- Create a customized `_targets.R` file adapted to the data of your protocol, so data preparation can run automagically  
+
+```
+    invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
+    run_initial_setup(pid = "999", download_files = TRUE, download_task_script = TRUE)
+```
+
+This should work on [Ubuntu](https://ubuntu.com/), if you have the [FTP credentials](jsPsychHelpeR.html#run_initial_setup), and `sshpass` and `rsync` installed.  
+
+If you don't have the credentials, or some of the requirements to download the files, you can manually copy the .csv files to the `data/PROJECT ID` folder, and then run the `offline` version of `run_initial_setup()`:  
+
+```
+    invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
+    run_initial_setup(pid = "999", download_files = FALSE, download_task_script = FALSE)
+```
+
 
 ---   
 
-We use the {targets} (<https://github.com/wlandau/targets>) package.
+We use the [targets](https://github.com/wlandau/targets) package.  
 
 **The whole process can be reproduced running `targets::tar_make()`**  
 
@@ -68,7 +100,7 @@ There will be a single .csv file for each participant and task of the protocol. 
 
 ### Outputs
 
-When the pipeline successfully runs with  `targets::tar_make()`, a number of outputs will be created.
+When the pipeline successfully runs with  `targets::tar_make()`, a number of outputs will be created.  
 
 All the outputs can be found in the `/outputs` folder. The only exception is the sensitive data and reports, which can be found in `.vault/outputs`. `r kableExtra::text_spec("WARNING: The '.vault/' folder **MUST NOT** be made public.", color = "red")`    
 

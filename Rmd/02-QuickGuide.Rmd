@@ -190,11 +190,12 @@ run_initial_setup(pid = 999)
 
 `run_initial_setup()` will:
 
-- Delete old files 
-- Install dependencies
-- Create necessary folders
-- Download results files for the project `only on Ubuntu`
-- Create a `_targets.R` file for your project
+- Delete old files  
+- Install dependencies  
+- Create necessary folders  
+- Download results files for the project (you will need the FTP credentials)  
+- Download and zip a copy of the full protocol without the data (you will need the FTP credentials)  
+- Create a `_targets.R` file for your project  
 
 
 **IMPORTANT**: You may need to manually copy the results files to the folder `data/PROJECT ID`

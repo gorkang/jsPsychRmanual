@@ -13,5 +13,6 @@ rmd_files: [
 "Rmd/03-jsPsychMaker.Rmd",
 "Rmd/04-jsPsychMonkeys.Rmd",
 "Rmd/05-jsPsychHelpeR.Rmd",
+"Rmd/06-jsPsychRadmins.Rmd",
 "Rmd/10-references.Rmd"
   ]
