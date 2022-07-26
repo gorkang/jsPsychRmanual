@@ -37,10 +37,13 @@ outputs
 output-folders
 output-dataframes
 output-dataframes-column-names
+advanced
 create-your-own-reports
 create-new-tasks
 how-to-fill-the-new-tasks-document
 debug-tasks
+helper-functions
+reliability
 technical-aspects-1
 how-trialids-are-processed
 common-errors-1

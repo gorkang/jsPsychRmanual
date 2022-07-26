@@ -122,7 +122,7 @@ The outputs will be organized in different folders:
 
 #### Output dataframes
 
-There will be a single data frame (df) for each of the tasks in `outputs/data`, plus a data frame (DF) for each of the steps of the data preparation, and a diccionary file listing all the available tasks. We store the files in two formats, csv and rds:  
+There will be a single data frame (df) for each of the tasks in `outputs/data`, plus a data frame (DF) for each of the steps of the data preparation, and a dictionary file listing all the available tasks. We store the files in two formats, csv and rds:  
 
 - **DF_raw.csv**: All the `data/project_id/` csv files combined on a single file. We only add the columns  "project", "experimento", "version", "datetime", "id" by parsing the filenames  
 
@@ -132,9 +132,12 @@ There will be a single data frame (df) for each of the tasks in `outputs/data`, 
 
 - **DF_joined.csv**: all the processed tasks joined in a single DF
 
-- **DF_analysis**: only the total scores and dimensions from `DF_joined` (columns ending in `_DIRt` `_STDt` `_DIRd` `STDd`)  
+- **DF_analysis**: only the total scores and dimensions from `DF_joined` (columns ending in `_DIRt`, `_STDt`, `_DIRd`, `_RELd`, `STDd`). Can be visually explored using the shiny app in `Rmd/app.R`    
 
 - **DICCIONARY_tasks.csv**: list of all tasks in the protocol  
+
+
+
 
 
 #### Output dataframes column names
@@ -151,6 +154,9 @@ All the output processed dataframes columns are named in a standardized way:
 
 - **ShortNameOfTask_DimensionName_DIRd**: scores for a specific dimension (`d`) in a task, calculated following task correction instructions (e.g. summing or averaging certain items)  
 
+- **ShortNameOfTask_DimensionName_RELd**: scores for a specific dimension (`d`) in a task, calculated following task correction instructions AND after filtering items with low reliability. See [Reliability section](jsPsychHelpeR.html#reliability) for more information.  
+
+
 - **ShortNameOfTask_DimensionName_STDd**: standardized score for a dimension (`d`)  
 
 - **ShortNameOfTask_DIRt**: total (`t`) score for a task calculated following task correction instructions (e.g. summing or averaging all items)  
@@ -158,8 +164,9 @@ All the output processed dataframes columns are named in a standardized way:
 - **ShortNameOfTask_STDt**: standardized (`t`) score for a task  
 
 
+## Advanced
 
-## Create your own reports
+### Create your own reports
 
 You can use any of the template reports in the `_targets.R` file, or create your own reports.  
 
@@ -184,7 +191,7 @@ When you finished editing and uncomented the tar_render command, go back to the 
 - `targets::tar_make()`
 
 
-## Create new tasks
+### Create new tasks
 
 To create the correction script for a new task, you start with:
 
@@ -247,7 +254,7 @@ Please, make sure you fill out all the details in all the tabs.
 
 
 
-## DEBUG tasks
+### DEBUG tasks
 
 At the begining of each of the `R_tasks/prepare_NAMETASK.R` scripts you will find a commented `debug_function(prepare_NAMETASK)` line.
 
@@ -264,7 +271,35 @@ You can do this in one of three ways:
   - Or directly, source all the scripts in the `R/` folder: `invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))`
 
 
+## Helper functions
 
+### Reliability
+
+You can use the `auto_reliability()` function to help you automatically filter items with low reliability (although doing this automatically is probably a bad idea). The function uses `psych::alpha()` and filters by default items with an r.drop <= 0.2. See `psych::alpha()` help for more details. **IMPORTANT**: Using `psych::omega()` is generally a better idea, see [the alpha help page](https://search.r-project.org/CRAN/refmans/psych/html/alpha.html).  
+
+An example can be found in [prepare_REI40()](https://github.com/gorkang/jsPsychHelpeR/blob/master/R_tasks/prepare_REI40.R).  
+
+The basic logic would be:  
+
+```
+# Define items for a specific dimension
+items_DIRd1 = c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10")
+
+# Calculate reliability
+REL1 = auto_reliability(DF_wide_RAW, short_name_scale = short_name_scale_str, items = items_DIRd1, min_rdrop = 0.2)
+
+# Store item selection in a variable
+items_RELd1 = REL1$item_selection_string
+
+# In the final Dimension calculation, use the item selection including only the items with a reliability over the defined threshold   
+## See `items_RELd1` below
+!!names_list$name_RELd[1] := rowMeans(select(., paste0(short_name_scale_str, "_", items_RELd1, "_DIR")), na.rm = TRUE), 
+
+# Compare it with the calculation including the original items
+## See `items_DIRd1` below
+!!names_list$name_DIRd[1] := rowMeans(select(., paste0(short_name_scale_str, "_", items_DIRd1, "_DIR")), na.rm = TRUE), 
+
+```
 
 ## Technical aspects
 
@@ -276,6 +311,8 @@ See `PRFBM`:
     + Item: `PRFBM_04`
     + Responses: `{"daño":"Parcialmente en desacuerdo","beneficio":"Parcialmente en desacuerdo"}`
     + final trialids: `PRFBM_04_beneficio` and `PRFBM_04_daño`
+
+
 
 
 ## Common ERRORS
