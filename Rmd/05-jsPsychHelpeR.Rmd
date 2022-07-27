@@ -42,8 +42,8 @@ usethis::use_course("gorkang/jsPsychHelpeR")
 2. `run_initial_setup()`: go to the file `run.R` and run the following two lines. They will:  
 
 - Try to make sure you have all the dependencies, folders, etc.  
-- Download all the data from your protocol (you will need the FTP credentials)  
-- Download and zip a copy of the full protocol without the data (you will need the FTP credentials)  
+- Download all the data from your protocol (you will need the FTP credentials and set `download_files = TRUE`)  
+- Download and zip a copy of the full protocol without the data (you will need the FTP credentials and set `download_task_script = TRUE`)  
 - Create a customized `_targets.R` file adapted to the data of your protocol, so data preparation can run automagically  
 
 ```
