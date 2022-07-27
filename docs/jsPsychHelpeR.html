@@ -229,8 +229,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-your-own-reports"><i class="fa fa-check"></i><b>6.3.1</b> Create your own reports</a></li>
 <li class="chapter" data-level="6.3.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-new-tasks"><i class="fa fa-check"></i><b>6.3.2</b> Create new tasks</a></li>
-<li class="chapter" data-level="6.3.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document"><i class="fa fa-check"></i><b>6.3.3</b> How to fill the <span>NEW tasks document</span></a></li>
-<li class="chapter" data-level="6.3.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#debug-tasks"><i class="fa fa-check"></i><b>6.3.4</b> DEBUG tasks</a></li>
+<li class="chapter" data-level="6.3.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#adapting-new-tasks"><i class="fa fa-check"></i><b>6.3.3</b> Adapting new tasks</a>
+<ul>
+<li class="chapter" data-level="6.3.3.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#items-to-ignore-and-reverse-dimensions"><i class="fa fa-check"></i><b>6.3.3.1</b> Items to ignore and reverse, dimensions</a></li>
+<li class="chapter" data-level="6.3.3.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#raw-to-dir-for-individual-items"><i class="fa fa-check"></i><b>6.3.3.2</b> RAW to DIR for individual items</a></li>
+<li class="chapter" data-level="6.3.3.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#scales-and-dimensions-calculations"><i class="fa fa-check"></i><b>6.3.3.3</b> Scales and dimensions calculations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document"><i class="fa fa-check"></i><b>6.3.4</b> How to fill the <span>NEW tasks document</span></a></li>
+<li class="chapter" data-level="6.3.5" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#debug-tasks"><i class="fa fa-check"></i><b>6.3.5</b> DEBUG tasks</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#helper-functions"><i class="fa fa-check"></i><b>6.4</b> Helper functions</a>
 <ul>
@@ -348,7 +354,7 @@ usethis::use_course(&quot;gorkang/jsPsychHelpeR&quot;)</code></pre>
 <h4><span class="header-section-number">6.2.2.1</span> Output folders<a href="jsPsychHelpeR.html#output-folders" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The outputs will be organized in different folders:</p>
 <ul>
-<li><p><strong>Dataframes</strong> for different stages of data processing can be found in <code>outputs/data</code></p></li>
+<li><p><strong>Data frames</strong> for different stages of data processing can be found in <code>outputs/data</code></p></li>
 <li><p><strong>Temporary files for manual correction</strong> are in <code>outputs/data/manual_correction</code> (the final manual correction files must be place by the user in <code>data/manual_correction</code>). <span style="     color: red !important;">WARNING: These will be overwritten each time the pipeline runs</span></p></li>
 <li><p><strong>Plots</strong>, <strong>tables</strong> and <strong>reports</strong> are in <code>outputs/plots</code>, <code>outputs/tables</code>and <code>outputs/reports</code> respectively.</p></li>
 <li><p><strong>Test outputs</strong> are in <code>outputs/tests_outputs</code></p></li>
@@ -369,7 +375,7 @@ usethis::use_course(&quot;gorkang/jsPsychHelpeR&quot;)</code></pre>
 </div>
 <div id="output-dataframes-column-names" class="section level4 hasAnchor" number="6.2.2.3">
 <h4><span class="header-section-number">6.2.2.3</span> Output dataframes column names<a href="jsPsychHelpeR.html#output-dataframes-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>All the output processed dataframes columns are named in a standardized way:</p>
+<p>All the output processed data frames columns are named in a standardized way:</p>
 <ul>
 <li><p><strong>ShortNameOfTask_ItemNumber_RAW</strong>: raw responses of participants for individual items</p></li>
 <li><p><strong>ShortNameOfTask_ItemNumber_DIR</strong>: processed raw responses following the task correction instructions (e.g. inverting certain items, converting strings to numbers, computing accuracy…)</p></li>
@@ -429,11 +435,122 @@ usethis::use_course(&quot;gorkang/jsPsychHelpeR&quot;)</code></pre>
 <li><p>numeric conversion of items</p></li>
 </ul></li>
 </ul>
+<p>You can also use <code>get_dimensions_googledoc()</code> as a standalone function:</p>
+<p><code>get_dimensions_googledoc(short_name_text = "MLQ")</code></p>
 <p>All the <code>prepare_NAMEOFTASK.R</code> scripts on the <code>R_tasks/</code> folder have been created starting from the same template. The only exception are the experimental tasks and some surveys with particularities that require more complex adaptations.</p>
 <p>When you finish implementing the correction script, please do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">Pull request</a> so we can add you script to the pool. If you have not already, please help us filling up details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
 </div>
-<div id="how-to-fill-the-new-tasks-document" class="section level3 hasAnchor" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> How to fill the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="adapting-new-tasks" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Adapting new tasks<a href="jsPsychHelpeR.html#adapting-new-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>get_dimensions_googledoc</code> will show you how to adapt the <code>prepare_TASK()</code> script, but you will need to know how it works to be able to edit the relevant bits. Also, sometimes <code>get_dimensions_googledoc</code> won’t get all the details of the task right, or there could be non-standard elements to it. Here, we will describe some of the elements of the template to help understand how it works.</p>
+<p>Remember you should <strong>ALWAYS</strong> start with <code>create_new_task(short_name_task = "NAMETASK")</code> so your task template works well with <code>jsPsychHelpeR</code>.</p>
+<p>There are three chunks you will need to adapt to have a fully working preparation script.</p>
+<ul>
+<li><code>[ADAPT 1/3]: Items to ignore and reverse, dimensions</code></li>
+<li><code>[ADAPT 2/3]: RAW to DIR for individual items</code></li>
+<li><code>[ADAPT 3/3]: Scales and dimensions calculations</code></li>
+</ul>
+<div id="items-to-ignore-and-reverse-dimensions" class="section level4 hasAnchor" number="6.3.3.1">
+<h4><span class="header-section-number">6.3.3.1</span> Items to ignore and reverse, dimensions<a href="jsPsychHelpeR.html#items-to-ignore-and-reverse-dimensions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>  # [ADAPT 1/3]: Items to ignore and reverse, dimensions -----------------------
+  # ****************************************************************************
+  
+  description_task = &quot;&quot; # Brief description here
+  
+  items_to_ignore = c(&quot;000&quot;) # Ignore these items: If nothing to ignore, keep as is
+  items_to_reverse = c(&quot;000&quot;) # Reverse these items: If nothing to reverse, keep as is
+  
+  ## NameDimension1, NameDimension2 should be the names of the dimensions
+  ## Inside each c() create a vector of the item numbers for the dimension
+  ## Add lines as needed. If there are no dimensions, keep as is
+  items_dimensions = list(
+    NameDimension1 = c(&quot;000&quot;),
+    NameDimension2 = c(&quot;000&quot;)
+  )
+  
+  # [END ADAPT 1/3]: ***********************************************************
+  # ****************************************************************************
+  </code></pre>
+</div>
+<div id="raw-to-dir-for-individual-items" class="section level4 hasAnchor" number="6.3.3.2">
+<h4><span class="header-section-number">6.3.3.2</span> RAW to DIR for individual items<a href="jsPsychHelpeR.html#raw-to-dir-for-individual-items" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code> DF_long_DIR = 
+    DF_long_RAW %&gt;% 
+    select(id, trialid, RAW) %&gt;%
+    
+    
+    
+  # [ADAPT 2/3]: RAW to DIR for individual items -------------------------------
+  # ****************************************************************************
+  
+    # Transformations
+    mutate(
+      DIR =
+        case_when(
+          RAW == &quot;Nunca&quot; ~ 1,
+          RAW == &quot;Poco&quot; ~ 2,
+          RAW == &quot;Medianamente&quot; ~ 3,
+          RAW == &quot;Bastante&quot; ~ 4,
+          RAW == &quot;Mucho&quot; ~ 5,
+          is.na(RAW) ~ NA_real_,
+          grepl(items_to_ignore, trialid) ~ NA_real_,
+          TRUE ~ 9999
+        )
+    ) %&gt;% 
+    
+    # Invert items
+    mutate(
+      DIR = 
+        case_when(
+          DIR == 9999 ~ DIR, # To keep the missing values unchanged
+          trialid %in% paste0(short_name_scale_str, &quot;_&quot;, items_to_reverse) ~ (6 - DIR),
+          TRUE ~ DIR
+        )
+    )
+    
+  # [END ADAPT 2/3]: ***********************************************************
+  # ****************************************************************************
+    
+</code></pre>
+</div>
+<div id="scales-and-dimensions-calculations" class="section level4 hasAnchor" number="6.3.3.3">
+<h4><span class="header-section-number">6.3.3.3</span> Scales and dimensions calculations<a href="jsPsychHelpeR.html#scales-and-dimensions-calculations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>  # [ADAPT 3/3]: Scales and dimensions calculations ----------------------------
+  # ****************************************************************************
+  
+  # Reliability -------------------------------------------------------------
+  # REL1 = auto_reliability(DF_wide_RAW, short_name_scale = short_name_scale_str, items = items_DIRd1)
+  # items_RELd1 = REL1$item_selection_string
+    
+  
+  # [USE STANDARD NAMES FOR Scales and dimensions: names_list$name_DIRd[1], names_list$name_DIRt,...] 
+  # CHECK with: create_formulas(type = &quot;dimensions_DIR&quot;, functions = &quot;sum&quot;, names_dimensions)
+  DF_wide_RAW_DIR =
+    DF_wide_RAW %&gt;% 
+    mutate(
+
+      # [CHECK] Using correct formula? rowMeans() / rowSums()
+      
+      # Score Dimensions (see standardized_names(help_names = TRUE) for instructions)
+      !!names_list$name_DIRd[1] := rowMeans(select(., paste0(short_name_scale_str, &quot;_&quot;, items_dimensions[[1]], &quot;_DIR&quot;)), na.rm = TRUE), 
+      !!names_list$name_DIRd[2] := rowSums(select(., paste0(short_name_scale_str, &quot;_&quot;, items_dimensions[[2]], &quot;_DIR&quot;)), na.rm = TRUE),
+      
+      # Reliability Dimensions (see standardized_names(help_names = TRUE) for instructions)
+      # !!names_list$name_RELd[1] := rowMeans(select(., paste0(short_name_scale_str, &quot;_&quot;, items_RELd1, &quot;_DIR&quot;)), na.rm = TRUE), 
+
+      # Score Scale
+      !!names_list$name_DIRt := rowSums(select(., matches(&quot;_DIR$&quot;)), na.rm = TRUE)
+      
+    )
+    
+  # [END ADAPT 3/3]: ***********************************************************
+  # ****************************************************************************
+
+</code></pre>
+</div>
+</div>
+<div id="how-to-fill-the-new-tasks-document" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> How to fill the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The best way is to check the main document with information about all the tasks (<a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">Tareas jsPsychR</a>) and find a similar task to copy/paste and adapt it in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
 <p>The main suggestion is to be very consistent. For example, when entering the informacion about numeric conversion in the Puntajes_items tab:</p>
 <p>All the cells must be:<br />
@@ -447,8 +564,8 @@ usethis::use_course(&quot;gorkang/jsPsychHelpeR&quot;)</code></pre>
 Mucho 1</p>
 <p>Please, make sure you fill out all the details in all the tabs.</p>
 </div>
-<div id="debug-tasks" class="section level3 hasAnchor" number="6.3.4">
-<h3><span class="header-section-number">6.3.4</span> DEBUG tasks<a href="jsPsychHelpeR.html#debug-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="debug-tasks" class="section level3 hasAnchor" number="6.3.5">
+<h3><span class="header-section-number">6.3.5</span> DEBUG tasks<a href="jsPsychHelpeR.html#debug-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>At the begining of each of the <code>R_tasks/prepare_NAMETASK.R</code> scripts you will find a commented <code>debug_function(prepare_NAMETASK)</code> line.</p>
 <p>When running it, it will load the input parameters for the task. From there, you can work inside of the preparation scipt as you would normally do in a R script.</p>
 <p>If you get the error <code>"Error in debug_function(prepare_NAMETASK) : could not find function 'debug_function'</code>debug_function()<code>does nor work"</code> you will need to load all the functions in the <code>R/</code> folder first.</p>

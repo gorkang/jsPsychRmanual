@@ -40,6 +40,10 @@ output-dataframes-column-names
 advanced
 create-your-own-reports
 create-new-tasks
+adapting-new-tasks
+items-to-ignore-and-reverse-dimensions
+raw-to-dir-for-individual-items
+scales-and-dimensions-calculations
 how-to-fill-the-new-tasks-document
 debug-tasks
 helper-functions

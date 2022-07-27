@@ -229,8 +229,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-your-own-reports"><i class="fa fa-check"></i><b>6.3.1</b> Create your own reports</a></li>
 <li class="chapter" data-level="6.3.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#create-new-tasks"><i class="fa fa-check"></i><b>6.3.2</b> Create new tasks</a></li>
-<li class="chapter" data-level="6.3.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document"><i class="fa fa-check"></i><b>6.3.3</b> How to fill the <span>NEW tasks document</span></a></li>
-<li class="chapter" data-level="6.3.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#debug-tasks"><i class="fa fa-check"></i><b>6.3.4</b> DEBUG tasks</a></li>
+<li class="chapter" data-level="6.3.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#adapting-new-tasks"><i class="fa fa-check"></i><b>6.3.3</b> Adapting new tasks</a>
+<ul>
+<li class="chapter" data-level="6.3.3.1" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#items-to-ignore-and-reverse-dimensions"><i class="fa fa-check"></i><b>6.3.3.1</b> Items to ignore and reverse, dimensions</a></li>
+<li class="chapter" data-level="6.3.3.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#raw-to-dir-for-individual-items"><i class="fa fa-check"></i><b>6.3.3.2</b> RAW to DIR for individual items</a></li>
+<li class="chapter" data-level="6.3.3.3" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#scales-and-dimensions-calculations"><i class="fa fa-check"></i><b>6.3.3.3</b> Scales and dimensions calculations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#how-to-fill-the-new-tasks-document"><i class="fa fa-check"></i><b>6.3.4</b> How to fill the <span>NEW tasks document</span></a></li>
+<li class="chapter" data-level="6.3.5" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#debug-tasks"><i class="fa fa-check"></i><b>6.3.5</b> DEBUG tasks</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#helper-functions"><i class="fa fa-check"></i><b>6.4</b> Helper functions</a>
 <ul>
@@ -277,14 +283,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Check the trialid’s of all the tests are OK (<code>check_trialids = TRUE</code>)</p></li>
 <li><p>Check there are no duplicate short_name of tasks in the <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">tareas jsPsychR</a> and <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NUEVAS tareas</a>:</p></li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="jsPsychRAdmins.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
-<span id="cb21-2"><a href="jsPsychRAdmins.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="jsPsychRAdmins.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
-<span id="cb21-4"><a href="jsPsychRAdmins.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># invisible(lapply(list.files(&quot;./R&quot;, full.names = TRUE, pattern = &quot;.R$&quot;), source))</span></span>
-<span id="cb21-5"><a href="jsPsychRAdmins.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;../jsPsychHelpeR/R/check_missing_prepare_TASK.R&quot;</span>))</span>
-<span id="cb21-6"><a href="jsPsychRAdmins.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="jsPsychRAdmins.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check_missing_prepare_TASK() will download to ../CSCN-server/protocols all the protocols from the server</span></span>
-<span id="cb21-8"><a href="jsPsychRAdmins.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>, <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="jsPsychRAdmins.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
+<span id="cb24-2"><a href="jsPsychRAdmins.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="jsPsychRAdmins.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
+<span id="cb24-4"><a href="jsPsychRAdmins.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># invisible(lapply(list.files(&quot;./R&quot;, full.names = TRUE, pattern = &quot;.R$&quot;), source))</span></span>
+<span id="cb24-5"><a href="jsPsychRAdmins.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;../jsPsychHelpeR/R/check_missing_prepare_TASK.R&quot;</span>))</span>
+<span id="cb24-6"><a href="jsPsychRAdmins.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="jsPsychRAdmins.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check_missing_prepare_TASK() will download to ../CSCN-server/protocols all the protocols from the server</span></span>
+<span id="cb24-8"><a href="jsPsychRAdmins.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>, <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## New names:
 ## 
 ## ── FOLDER: protocols/
@@ -348,10 +354,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## 
 ## ── CHECK duplicates ────────────────────────────────────────────────────────────
 ## ✔ No duplicated short_name in the Google docs</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="jsPsychRAdmins.html#cb43-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb43-2"><a href="jsPsychRAdmins.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb43-3"><a href="jsPsychRAdmins.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid&#39;s are OK</span></span>
-<span id="cb43-4"><a href="jsPsychRAdmins.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="jsPsychRAdmins.html#cb46-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb46-2"><a href="jsPsychRAdmins.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb46-3"><a href="jsPsychRAdmins.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid&#39;s are OK</span></span>
+<span id="cb46-4"><a href="jsPsychRAdmins.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code></pre></div>
 <pre><code>## $DF_FINAL
 ## # A tibble: 95 × 9
 ##    task    missing_script missi…¹ missi…² proto…³ EMAIL.x Nombre Descr…⁴ EMAIL.y
@@ -376,7 +382,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ Use `colnames()` to see all variable names
 ## 
 ## $DF_missing_script
-## # A tibble: 25 × 2
+## # A tibble: 24 × 2
 ##    task                 protocols                                           
 ##    &lt;chr&gt;                &lt;chr&gt;                                               
 ##  1 BDI                  19                                                  
@@ -389,7 +395,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 faux_pas             13                                                  
 ##  9 HC                   test/tasks_DEV                                      
 ## 10 ICvsID               23, 28, test/protocols_DEV/23, test/protocols_DEV/28
-## # … with 15 more rows
+## # … with 14 more rows
 ## # ℹ Use `print(n = ...)` to see more rows
 ## 
 ## $DF_missing_googledoc
@@ -404,9 +410,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## $MISSING_tabs
 ## NULL</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="jsPsychRAdmins.html#cb45-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb45-2"><a href="jsPsychRAdmins.html#cb45-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb45-3"><a href="jsPsychRAdmins.html#cb45-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="jsPsychRAdmins.html#cb48-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb48-2"><a href="jsPsychRAdmins.html#cb48-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb48-3"><a href="jsPsychRAdmins.html#cb48-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 95 × 9
 ##    task    missing_script missi…¹ missi…² proto…³ EMAIL.x Nombre Descr…⁴ EMAIL.y
 ##    &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  
@@ -423,9 +429,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 85 more rows, and abbreviated variable names ¹​missing_googledoc,
 ## #   ²​missing_task, ³​protocols, ⁴​Descripcion
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="jsPsychRAdmins.html#cb47-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script   </span></span>
-<span id="cb47-2"><a href="jsPsychRAdmins.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_googledoc))</span></code></pre></div>
-<pre><code>## # A tibble: 22 × 9
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="jsPsychRAdmins.html#cb50-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script   </span></span>
+<span id="cb50-2"><a href="jsPsychRAdmins.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_googledoc))</span></code></pre></div>
+<pre><code>## # A tibble: 21 × 9
 ##    task   missing_script missin…¹ missi…² proto…³ EMAIL.x Nombre Descr…⁴ EMAIL.y
 ##    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  
 ##  1 BDI    BDI            &lt;NA&gt;     &lt;NA&gt;    19      &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaqui…
@@ -438,13 +444,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 ITC    ITC            &lt;NA&gt;     &lt;NA&gt;    15, 99… &lt;NA&gt;    Inter… &lt;NA&gt;    &lt;NA&gt;   
 ##  9 LOT    LOT            &lt;NA&gt;     &lt;NA&gt;    19      &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaqui…
 ## 10 LSNS   LSNS           &lt;NA&gt;     &lt;NA&gt;    23, te… &lt;NA&gt;    Escal… &lt;NA&gt;    buitra…
-## # … with 12 more rows, and abbreviated variable names ¹​missing_googledoc,
+## # … with 11 more rows, and abbreviated variable names ¹​missing_googledoc,
 ## #   ²​missing_task, ³​protocols, ⁴​Descripcion
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="jsPsychRAdmins.html#cb49-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_googledoc)) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-2"><a href="jsPsychRAdmins.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DEMOGR24&quot;</span>, <span class="st">&quot;DEMOGRfondecyt2022E1&quot;</span>, <span class="st">&quot;ITC&quot;</span>, <span class="st">&quot;fauxPasEv&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># &quot;MDDF_respaldo&quot;, &quot;mic_test&quot;, &quot;faux_pas&quot;,</span></span>
-<span id="cb49-3"><a href="jsPsychRAdmins.html#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">&quot;missing&quot;</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion) </span></code></pre></div>
-<pre><code>## # A tibble: 24 × 4
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="jsPsychRAdmins.html#cb52-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_googledoc)) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="jsPsychRAdmins.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DEMOGR24&quot;</span>, <span class="st">&quot;DEMOGRfondecyt2022E1&quot;</span>, <span class="st">&quot;ITC&quot;</span>, <span class="st">&quot;fauxPasEv&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># &quot;MDDF_respaldo&quot;, &quot;mic_test&quot;, &quot;faux_pas&quot;,</span></span>
+<span id="cb52-3"><a href="jsPsychRAdmins.html#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">&quot;missing&quot;</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion) </span></code></pre></div>
+<pre><code>## # A tibble: 23 × 4
 ##    task     protocols                                            EMAIL.x EMAIL.y
 ##    &lt;chr&gt;    &lt;chr&gt;                                                &lt;chr&gt;   &lt;chr&gt;  
 ##  1 BDI      19                                                   &lt;NA&gt;    joaqui…
@@ -457,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 HC       test/tasks_DEV                                       &lt;NA&gt;    &lt;NA&gt;   
 ##  9 ICvsID   23, 28, test/protocols_DEV/23, test/protocols_DEV/28 &lt;NA&gt;    buitra…
 ## 10 LOT      19                                                   &lt;NA&gt;    joaqui…
-## # … with 14 more rows
+## # … with 13 more rows
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 
 </div>
