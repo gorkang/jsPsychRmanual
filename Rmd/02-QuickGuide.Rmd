@@ -160,7 +160,10 @@ Open `run.R` and follow the instructions. Mainly:
 
 #### 1) Download jsPsychHelpeR {-}
 
-- Run the following two lines in a RStudio console. A new RStudio session will appear. You should see something similar to ![](img/jsPsychHelpeR-project.png) on the top right corner of your RStudio.  
+- Run the following two lines in a RStudio console. A new RStudio session will appear. On the top right corner of your RStudio you should see something similar to:  
+![](img/jsPsychHelpeR-project.png)  
+
+
 
 ```{r, eval=FALSE}
 

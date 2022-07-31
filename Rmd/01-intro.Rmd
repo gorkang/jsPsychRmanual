@@ -17,7 +17,7 @@ Furthermore, all the components of the pipeline should be Open Source, which all
 
 With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically (including anonimization).  
 
-The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a [registered report](https://www.cos.io/initiatives/registered-reports) and just relaunch the data preparation and analysis when the participant's data arrive with a single command.  
+The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a [registered report](https://www.cos.io/initiatives/registered-reports) and just relaunch the data preparation and analysis when the participant's data arrive, with a single command.  
 
 
 ## Automatization
