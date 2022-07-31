@@ -40,7 +40,9 @@ usethis::use_course(url = "https://github.com/gorkang/jsPsychMaker/archive/refs/
 
 #### 2) Edit configuration {-}  
 
-Go to folder `canonical_protocols` and edit `config.js`.  
+Go to folder `canonical_protocols` and edit `config.js`. You can also use the [jsPsychMaker_config Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) and copy the generated config.js file to your protocol folder.  
+
+
 
 ![](img/jsPsychmaker_config.png)  
 
@@ -56,7 +58,7 @@ Available tasks:
 
 #### 3) Run experiment {-}  
 
-The experiment is ready to run on your computer. Open `index.html` in Google Chrome or your favourite (and up to date) browser.
+The experiment is ready to run on your computer. Open `index.html` in Google Chrome or your favorite (and up to date) browser.  
 
 
 

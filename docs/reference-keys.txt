@@ -55,3 +55,9 @@ run_initial_setup
 on-linux-ubuntu
 on-mac-or-windows
 jsPsychRAdmins
+google-docs
+folders-and-how-to-work
+helper-functions-1
+check-all-protocols
+create-protocol-with-new-tasks
+check-canonical-protocol-dev

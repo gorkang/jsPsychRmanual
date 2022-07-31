@@ -23,7 +23,7 @@
 <meta name="author" content="Gorka Navarrete" />
 
 
-<meta name="date" content="2022-07-27" />
+<meta name="date" content="2022-07-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,7 +255,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6.2" data-path="jsPsychHelpeR.html"><a href="jsPsychHelpeR.html#on-mac-or-windows"><i class="fa fa-check"></i><b>6.6.2</b> On Mac or Windows:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html"><i class="fa fa-check"></i><b>7</b> jsPsychR Admins</a></li>
+<li class="chapter" data-level="7" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html"><i class="fa fa-check"></i><b>7</b> jsPsychR Admins</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html#google-docs"><i class="fa fa-check"></i><b>7.1</b> Google Docs</a></li>
+<li class="chapter" data-level="7.2" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html#folders-and-how-to-work"><i class="fa fa-check"></i><b>7.2</b> Folders and how to work</a></li>
+<li class="chapter" data-level="7.3" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html#helper-functions-1"><i class="fa fa-check"></i><b>7.3</b> Helper functions</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html#check-all-protocols"><i class="fa fa-check"></i><b>7.3.1</b> Check all protocols</a></li>
+<li class="chapter" data-level="7.3.2" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html#create-protocol-with-new-tasks"><i class="fa fa-check"></i><b>7.3.2</b> Create protocol with NEW tasks</a></li>
+<li class="chapter" data-level="7.3.3" data-path="jsPsychRAdmins.html"><a href="jsPsychRAdmins.html#check-canonical-protocol-dev"><i class="fa fa-check"></i><b>7.3.3</b> Check canonical protocol DEV</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -276,21 +286,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="jsPsychRAdmins" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> jsPsychR Admins<a href="jsPsychRAdmins.html#jsPsychRAdmins" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- TODO: create protocol to test new tasks in 999 with all available tasks... (extending canonical protocol with new tasks) -->
+<p>Instructions and protocols for jsPsychR admins. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.</p>
+<div id="google-docs" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Google Docs<a href="jsPsychRAdmins.html#google-docs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">All tasks</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheets/d/13xX8aGhKmfz8zVvNuCMDnS6L6Dy6T1NlA6nTOqZuErA/edit#gid=0">List of protocols</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks</a></p></li>
+<li><p><a href="https://docs.google.com/spreadsheets/d/1fM_T-u-77DHEGTOV5A8BrMyXZfN-rt-MaKsfQV1v3u0/edit#gid=1315185109">Checks specific tasks</a></p></li>
+</ul>
+</div>
+<div id="folders-and-how-to-work" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Folders and how to work<a href="jsPsychRAdmins.html#folders-and-how-to-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have two main locations, the <a href="https://github.com/gorkang/jsPsychMaker/">Github jsPsychMaker project</a> and the server.</p>
+<p><strong><a href="https://github.com/gorkang/jsPsychMaker/">Github jsPsychMaker project</a></strong></p>
+<ul>
+<li>canonical_protocol:
+<ul>
+<li>machinery: last stable version</li>
+<li>tasks: all available tasks</li>
+<li>server: <code>protocols/999/</code></li>
+</ul></li>
+<li>canonical_protocol_DEV
+<ul>
+<li>machinery: development version</li>
+<li>tasks: all available tasks</li>
+<li>server: <code>protocols/test/canonical_protocol_DEV/</code></li>
+</ul></li>
+<li>canonical_protocol_clean
+<ul>
+<li>machinery: last stable version</li>
+<li>tasks: Consent and Goodbye</li>
+<li>server: <code>protocols/test/canonical_protocol_clean/</code></li>
+</ul></li>
+<li>protocols_DEV
+<ul>
+<li>machinery: last stable version</li>
+<li>should only contain tasks in development</li>
+<li>server: <code>protocols/test/protocols_DEV/</code></li>
+</ul></li>
+</ul>
+<p>In <code>protocols_DEV</code> we prepare the new <strong>protocolos</strong>:</p>
+<ul>
+<li><p>Create a copy in <code>test/protocols_DEV</code> of <code>canonical_protocol_clean</code> and rename to the number of the new protocol, <code>test/protocols_DEV/NumberOfProtocol</code></p></li>
+<li><p>Once the protocol is ready:</p>
+<ul>
+<li>Copy protocol to root folder: <code>protocols/NumberOfProtocol</code></li>
+<li>ZIP subfolder and move zip to <code>protocols/test/protocols_DEV/OLD_TESTS/</code></li>
+<li>Delete folder <code>test/protocols_DEV/NumberOfProtocol</code><br />
+</li>
+<li>If there are new tasks:
+<ul>
+<li>CHECK with: check_missing_prepare_TASK()</li>
+<li>TEST with create_protocol_with_NEW_tasks.R</li>
+<li>Copy tasks, images, videos, specific plugins, etc. to <code>protocols/999/</code></li>
+<li>TEST in canonical protocol <code>protocols/999/</code> just in case there is a weird interaction</li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- test/tasks_DEV/ -->
+<!-- - Maquinaria: ultima version estable -->
+<!-- - Directorio para trabajar en las NUEVAS **tareas individuales** -->
+<!-- - Una vez implementadas, copiar tareas (y sus imagenes, videos, ...) a 999/ -->
+<!-- test/protocols_DEV/NEW_TASKS  -->
+</div>
+<div id="helper-functions-1" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Helper functions<a href="jsPsychRAdmins.html#helper-functions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are a number of helper functions to make some of the jsPsychR admins tasks easier.</p>
+<div id="check-all-protocols" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Check all protocols<a href="jsPsychRAdmins.html#check-all-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For example, we can use <code>check_missing_prepare_TASK()</code> to:</p>
 <ul>
 <li><p>Download all the protocols (without data) to a local folder (<code>sync_protocols = TRUE</code>)</p></li>
 <li><p>Check the trialid’s of all the tests are OK (<code>check_trialids = TRUE</code>)</p></li>
-<li><p>Check there are no duplicate short_name of tasks in the <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">tareas jsPsychR</a> and <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NUEVAS tareas</a>:</p></li>
+<li><p>Check there are no duplicate short_name of tasks in the <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">tareas jsPsychR</a> and <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NUEVAS tareas</a></p></li>
+<li><p>Check which tasks do not have a prepare_TASK.R script</p></li>
+<li><p>Check tasks with no info on <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">the tareas jsPsychR Google doc</a></p></li>
+<li><p>Check tasks with missing info on <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NUEVAS tareas</a></p></li>
 </ul>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="jsPsychRAdmins.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
 <span id="cb24-2"><a href="jsPsychRAdmins.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="jsPsychRAdmins.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
-<span id="cb24-4"><a href="jsPsychRAdmins.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># invisible(lapply(list.files(&quot;./R&quot;, full.names = TRUE, pattern = &quot;.R$&quot;), source))</span></span>
-<span id="cb24-5"><a href="jsPsychRAdmins.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;../jsPsychHelpeR/R/check_missing_prepare_TASK.R&quot;</span>))</span>
-<span id="cb24-6"><a href="jsPsychRAdmins.html#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="jsPsychRAdmins.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check_missing_prepare_TASK() will download to ../CSCN-server/protocols all the protocols from the server</span></span>
-<span id="cb24-8"><a href="jsPsychRAdmins.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>, <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb24-4"><a href="jsPsychRAdmins.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;../jsPsychHelpeR/R/check_missing_prepare_TASK.R&quot;</span>))</span>
+<span id="cb24-5"><a href="jsPsychRAdmins.html#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="jsPsychRAdmins.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
+<span id="cb24-7"><a href="jsPsychRAdmins.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb24-8"><a href="jsPsychRAdmins.html#cb24-8" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb24-9"><a href="jsPsychRAdmins.html#cb24-9" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb24-10"><a href="jsPsychRAdmins.html#cb24-10" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## New names:
 ## 
 ## ── FOLDER: protocols/
@@ -345,6 +429,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  - experiment: FONDECYT2022E1 
 ##  - trialid:    if_instructions_000, FONDECYT2022E1 + _giro_check_ending</code></pre>
 <pre><code>## 
+## ── Checking /NEW_TASKS ─────────────────────────────────────────────────────────</code></pre>
+<pre><code>## 8 ISSUES:
+##  - experiment: FORM4, RMET 
+##  - trialid:    FORM_01, FORM_02, FORM_03, FORM_04, FORM_05, FORM_06, question000_1, question000_2</code></pre>
+<pre><code>## 
 ## ── FOLDER: protocols/999/ ──────────────────────────────────────────────────────
 ## 
 ## ── Checking /999 ───────────────────────────────────────────────────────────────</code></pre>
@@ -352,120 +441,178 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  - experiment: HRPVB, HRPVBpost 
 ##  - trialid:    HRPVB_BB, HRPVB_MM, HRPVBpost_BB, HRPVBpost_MM</code></pre>
 <pre><code>## 
+## ── CHECK missing info in tabs ──────────────────────────────────────────────────
+## ✖ Tasks missing info in tabs: 
+## • altroncoso@alumnosuaicl.onmicrosoft.com: 1
+## • buitrago-c@javeriana.edu.co: 10
+## • jmoraless@uc.cl: 4
+## • joaquin.migeot@gmail.com: 3
+## • nicolasmarchant@alumnos.uai.cl: 1
+## • vicente.soto.d@uai.cl: 3
+## 
+## ── Details ──
+## 
+## • altroncoso@alumnosuaicl.onmicrosoft.com: ESV (citas, puntajes, dimensiones)
+## • buitrago-c@javeriana.edu.co: CIT (citas, puntajes, dimensiones); CRQ (citas,
+## puntajes, dimensiones); CTT (citas, puntajes, dimensiones); ICvsID (citas,
+## puntajes, dimensiones); LSNS (citas, puntajes, dimensiones); MCA (citas,
+## puntajes, dimensiones); MDDF (citas, puntajes, dimensiones); PSC (citas,
+## puntajes, dimensiones); SCGT (citas, puntajes, dimensiones); UCLA (citas,
+## puntajes, dimensiones)
+## • jmoraless@uc.cl: CEL (dimensiones); fauxPasEv (citas, puntajes, dimensiones);
+## LoB (dimensiones); Words (puntajes, dimensiones)
+## • joaquin.migeot@gmail.com: BDI (citas, puntajes, dimensiones); LOT (citas,
+## puntajes, dimensiones); MCQ30 (citas, puntajes, dimensiones)
+## • nicolasmarchant@alumnos.uai.cl: PPD (citas, puntajes, dimensiones)
+## • vicente.soto.d@uai.cl: NARS (citas, puntajes, dimensiones); RMET (citas,
+## puntajes, dimensiones); RobToM (citas, puntajes, dimensiones)
+## 
 ## ── CHECK duplicates ────────────────────────────────────────────────────────────
 ## ✔ No duplicated short_name in the Google docs</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="jsPsychRAdmins.html#cb46-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb46-2"><a href="jsPsychRAdmins.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb46-3"><a href="jsPsychRAdmins.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid&#39;s are OK</span></span>
-<span id="cb46-4"><a href="jsPsychRAdmins.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="jsPsychRAdmins.html#cb48-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb48-2"><a href="jsPsychRAdmins.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb48-3"><a href="jsPsychRAdmins.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid&#39;s are OK</span></span>
+<span id="cb48-4"><a href="jsPsychRAdmins.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code></pre></div>
 <pre><code>## $DF_FINAL
-## # A tibble: 95 × 9
-##    task    missing_script missi…¹ missi…² proto…³ EMAIL.x Nombre Descr…⁴ EMAIL.y
-##    &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  
-##  1 AIM     &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    12, 17… &lt;NA&gt;    Grupo… Modelo… &lt;NA&gt;   
-##  2 Bank    &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    20      &lt;NA&gt;    Detal… Detall… &lt;NA&gt;   
-##  3 BART    &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    11, 99… &lt;NA&gt;    Ballo… Medida… &lt;NA&gt;   
-##  4 BDI     BDI            &lt;NA&gt;    &lt;NA&gt;    19      &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaqui…
-##  5 BNT     &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    2, 22,… &lt;NA&gt;    Berli… Breve,… &lt;NA&gt;   
-##  6 bRCOPE  &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    999, t… &lt;NA&gt;    Escal… Evalúa… &lt;NA&gt;   
-##  7 CAS     &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    8, 999… &lt;NA&gt;    COVID… Evalúa… &lt;NA&gt;   
-##  8 CEL     CEL            &lt;NA&gt;    &lt;NA&gt;    test/p… &lt;NA&gt;    Cuest… Mide l… jmoral…
-##  9 CIT     CIT            &lt;NA&gt;    &lt;NA&gt;    23, 28… &lt;NA&gt;    Test … Prueba… buitra…
-## 10 Consent &lt;NA&gt;           &lt;NA&gt;    &lt;NA&gt;    10, 11… &lt;NA&gt;    Conse… Consen… &lt;NA&gt;   
-## # … with 85 more rows, and abbreviated variable names ¹​missing_googledoc,
-## #   ²​missing_task, ³​protocols, ⁴​Descripcion
+## # A tibble: 96 × 8
+##    task    missing_script missing_gdoc missing_task proto…¹ Nombre Descr…² EMAIL
+##    &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
+##  1 AIM     &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         12, 17… Grupo… Modelo… &lt;NA&gt; 
+##  2 Bank    &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         20, te… Detal… Detall… &lt;NA&gt; 
+##  3 BART    &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         11, 99… Ballo… Medida… &lt;NA&gt; 
+##  4 BDI     BDI            &lt;NA&gt;         &lt;NA&gt;         19      &lt;NA&gt;   &lt;NA&gt;    joaq…
+##  5 BNT     &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         2, 22,… Berli… Breve,… &lt;NA&gt; 
+##  6 bRCOPE  &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         999, t… Escal… Evalúa… &lt;NA&gt; 
+##  7 CAS     &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         8, 999… COVID… Evalúa… &lt;NA&gt; 
+##  8 CEL     &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         test/p… Cuest… Mide l… jmor…
+##  9 CIT     CIT            &lt;NA&gt;         &lt;NA&gt;         23, 28… Test … Prueba… buit…
+## 10 Consent &lt;NA&gt;           &lt;NA&gt;         &lt;NA&gt;         10, 11… Conse… Consen… &lt;NA&gt; 
+## # … with 86 more rows, and abbreviated variable names ¹​protocols, ²​Descripcion
 ## # ℹ Use `print(n = ...)` to see more rows
 ## 
-## $DF_missing_tasks
-## # A tibble: 0 × 4
-## # … with 4 variables: task &lt;chr&gt;, Nombre &lt;chr&gt;, Descripcion &lt;chr&gt;, EMAIL &lt;chr&gt;
+## $DF_missing_JS_tasks
+## # A tibble: 0 × 3
+## # … with 3 variables: task &lt;chr&gt;, Nombre &lt;chr&gt;, Descripcion &lt;chr&gt;
 ## # ℹ Use `colnames()` to see all variable names
 ## 
 ## $DF_missing_script
-## # A tibble: 24 × 2
+## # A tibble: 22 × 2
 ##    task                 protocols                                           
 ##    &lt;chr&gt;                &lt;chr&gt;                                               
 ##  1 BDI                  19                                                  
-##  2 CEL                  test/protocols_DEV/27                               
-##  3 CIT                  23, 28, test/protocols_DEV/23, test/protocols_DEV/28
-##  4 CRQ                  23, 28, test/protocols_DEV/23, test/protocols_DEV/28
-##  5 CTT                  23, 28, test/protocols_DEV/23, test/protocols_DEV/28
-##  6 DEMOGRfondecyt2022E1 22, test/protocols_DEV/22                           
-##  7 ESV                  test/protocols_DEV/25                               
-##  8 faux_pas             13                                                  
-##  9 HC                   test/tasks_DEV                                      
-## 10 ICvsID               23, 28, test/protocols_DEV/23, test/protocols_DEV/28
-## # … with 14 more rows
+##  2 CIT                  23, 28, test/protocols_DEV/23, test/protocols_DEV/28
+##  3 CRQ                  23, 28, test/protocols_DEV/23, test/protocols_DEV/28
+##  4 CTT                  23, 28, test/protocols_DEV/23, test/protocols_DEV/28
+##  5 DEMOGRfondecyt2022E1 22, test/protocols_DEV/22                           
+##  6 ESV                  test/protocols_DEV/25                               
+##  7 faux_pas             13                                                  
+##  8 HC                   test/tasks_DEV                                      
+##  9 ICvsID               23, 28, test/protocols_DEV/23, test/protocols_DEV/28
+## 10 ITC                  15, 999, test/canonical_protocol_DEV                
+## # … with 12 more rows
 ## # ℹ Use `print(n = ...)` to see more rows
 ## 
 ## $DF_missing_googledoc
 ## # A tibble: 5 × 2
-##   task                 protocols                                  
-##   &lt;chr&gt;                &lt;chr&gt;                                      
-## 1 DEMOGR24             test/protocols_DEV/24                      
-## 2 DEMOGRfondecyt2022E1 22, test/protocols_DEV/22                  
-## 3 faux_pas             13                                         
-## 4 HC                   test/tasks_DEV                             
-## 5 PBS                  17, 20, 8, 999, test/canonical_protocol_DEV
+##   task                 protocols                                          
+##   &lt;chr&gt;                &lt;chr&gt;                                              
+## 1 DEMOGR24             test/protocols_DEV/24, test/protocols_DEV/NEW_TASKS
+## 2 DEMOGR27             test/protocols_DEV/27, test/protocols_DEV/NEW_TASKS
+## 3 DEMOGRfondecyt2022E1 22, test/protocols_DEV/22                          
+## 4 faux_pas             13                                                 
+## 5 HC                   test/tasks_DEV                                     
 ## 
 ## $MISSING_tabs
-## NULL</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="jsPsychRAdmins.html#cb48-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb48-2"><a href="jsPsychRAdmins.html#cb48-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb48-3"><a href="jsPsychRAdmins.html#cb48-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 95 × 9
-##    task    missing_script missi…¹ missi…² proto…³ EMAIL.x Nombre Descr…⁴ EMAIL.y
-##    &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  
-##  1 AIM     &quot;&quot;             &quot;&quot;      &quot;&quot;      12, 17… &lt;NA&gt;    Grupo… Modelo… &lt;NA&gt;   
-##  2 Bank    &quot;&quot;             &quot;&quot;      &quot;&quot;      20      &lt;NA&gt;    Detal… Detall… &lt;NA&gt;   
-##  3 BART    &quot;&quot;             &quot;&quot;      &quot;&quot;      11, 99… &lt;NA&gt;    Ballo… Medida… &lt;NA&gt;   
-##  4 BDI     &quot;BDI&quot;          &quot;&quot;      &quot;&quot;      19      &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaqui…
-##  5 BNT     &quot;&quot;             &quot;&quot;      &quot;&quot;      2, 22,… &lt;NA&gt;    Berli… Breve,… &lt;NA&gt;   
-##  6 bRCOPE  &quot;&quot;             &quot;&quot;      &quot;&quot;      999, t… &lt;NA&gt;    Escal… Evalúa… &lt;NA&gt;   
-##  7 CAS     &quot;&quot;             &quot;&quot;      &quot;&quot;      8, 999… &lt;NA&gt;    COVID… Evalúa… &lt;NA&gt;   
-##  8 CEL     &quot;CEL&quot;          &quot;&quot;      &quot;&quot;      test/p… &lt;NA&gt;    Cuest… Mide l… jmoral…
-##  9 CIT     &quot;CIT&quot;          &quot;&quot;      &quot;&quot;      23, 28… &lt;NA&gt;    Test … Prueba… buitra…
-## 10 Consent &quot;&quot;             &quot;&quot;      &quot;&quot;      10, 11… &lt;NA&gt;    Conse… Consen… &lt;NA&gt;   
-## # … with 85 more rows, and abbreviated variable names ¹​missing_googledoc,
-## #   ²​missing_task, ³​protocols, ⁴​Descripcion
+## # A tibble: 6 × 3
+##   EMAIL                                   tasks                            TEXT 
+##   &lt;chr&gt;                                   &lt;chr&gt;                            &lt;chr&gt;
+## 1 altroncoso@alumnosuaicl.onmicrosoft.com &quot;ESV (, citas, puntajes, dimens… altr…
+## 2 buitrago-c@javeriana.edu.co             &quot;CIT (, citas, puntajes, dimens… buit…
+## 3 jmoraless@uc.cl                         &quot;CEL (, , , dimensiones, ) ; fa… jmor…
+## 4 joaquin.migeot@gmail.com                &quot;BDI (, citas, puntajes, dimens… joaq…
+## 5 nicolasmarchant@alumnos.uai.cl          &quot;PPD (, citas, puntajes, dimens… nico…
+## 6 vicente.soto.d@uai.cl                   &quot;NARS (, citas, puntajes, dimen… vice…</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="jsPsychRAdmins.html#cb50-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb50-2"><a href="jsPsychRAdmins.html#cb50-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb50-3"><a href="jsPsychRAdmins.html#cb50-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 96 × 8
+##    task    missing_script missing_gdoc missing_task proto…¹ Nombre Descr…² EMAIL
+##    &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
+##  1 AIM     &quot;&quot;             &lt;NA&gt;         &quot;&quot;           12, 17… Grupo… Modelo… &lt;NA&gt; 
+##  2 Bank    &quot;&quot;             &lt;NA&gt;         &quot;&quot;           20, te… Detal… Detall… &lt;NA&gt; 
+##  3 BART    &quot;&quot;             &lt;NA&gt;         &quot;&quot;           11, 99… Ballo… Medida… &lt;NA&gt; 
+##  4 BDI     &quot;BDI&quot;          &lt;NA&gt;         &quot;&quot;           19      &lt;NA&gt;   &lt;NA&gt;    joaq…
+##  5 BNT     &quot;&quot;             &lt;NA&gt;         &quot;&quot;           2, 22,… Berli… Breve,… &lt;NA&gt; 
+##  6 bRCOPE  &quot;&quot;             &lt;NA&gt;         &quot;&quot;           999, t… Escal… Evalúa… &lt;NA&gt; 
+##  7 CAS     &quot;&quot;             &lt;NA&gt;         &quot;&quot;           8, 999… COVID… Evalúa… &lt;NA&gt; 
+##  8 CEL     &quot;&quot;             &lt;NA&gt;         &quot;&quot;           test/p… Cuest… Mide l… jmor…
+##  9 CIT     &quot;CIT&quot;          &lt;NA&gt;         &quot;&quot;           23, 28… Test … Prueba… buit…
+## 10 Consent &quot;&quot;             &lt;NA&gt;         &quot;&quot;           10, 11… Conse… Consen… &lt;NA&gt; 
+## # … with 86 more rows, and abbreviated variable names ¹​protocols, ²​Descripcion
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="jsPsychRAdmins.html#cb50-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script   </span></span>
-<span id="cb50-2"><a href="jsPsychRAdmins.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_googledoc))</span></code></pre></div>
-<pre><code>## # A tibble: 21 × 9
-##    task   missing_script missin…¹ missi…² proto…³ EMAIL.x Nombre Descr…⁴ EMAIL.y
-##    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  
-##  1 BDI    BDI            &lt;NA&gt;     &lt;NA&gt;    19      &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaqui…
-##  2 CEL    CEL            &lt;NA&gt;     &lt;NA&gt;    test/p… &lt;NA&gt;    Cuest… Mide l… jmoral…
-##  3 CIT    CIT            &lt;NA&gt;     &lt;NA&gt;    23, 28… &lt;NA&gt;    Test … Prueba… buitra…
-##  4 CRQ    CRQ            &lt;NA&gt;     &lt;NA&gt;    23, 28… &lt;NA&gt;    Escal… &lt;NA&gt;    buitra…
-##  5 CTT    CTT            &lt;NA&gt;     &lt;NA&gt;    23, 28… &lt;NA&gt;    Test … &lt;NA&gt;    buitra…
-##  6 ESV    ESV            &lt;NA&gt;     &lt;NA&gt;    test/p… &lt;NA&gt;    Empat… &lt;NA&gt;    altron…
-##  7 ICvsID ICvsID         &lt;NA&gt;     &lt;NA&gt;    23, 28… &lt;NA&gt;    Impar… &lt;NA&gt;    buitra…
-##  8 ITC    ITC            &lt;NA&gt;     &lt;NA&gt;    15, 99… &lt;NA&gt;    Inter… &lt;NA&gt;    &lt;NA&gt;   
-##  9 LOT    LOT            &lt;NA&gt;     &lt;NA&gt;    19      &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaqui…
-## 10 LSNS   LSNS           &lt;NA&gt;     &lt;NA&gt;    23, te… &lt;NA&gt;    Escal… &lt;NA&gt;    buitra…
-## # … with 11 more rows, and abbreviated variable names ¹​missing_googledoc,
-## #   ²​missing_task, ³​protocols, ⁴​Descripcion
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="jsPsychRAdmins.html#cb52-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script   </span></span>
+<span id="cb52-2"><a href="jsPsychRAdmins.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span></code></pre></div>
+<pre><code>## # A tibble: 19 × 8
+##    task   missing_script missing_gdoc missing_task protoc…¹ Nombre Descr…² EMAIL
+##    &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
+##  1 BDI    BDI            &lt;NA&gt;         &lt;NA&gt;         19       &lt;NA&gt;   &lt;NA&gt;    joaq…
+##  2 CIT    CIT            &lt;NA&gt;         &lt;NA&gt;         23, 28,… Test … Prueba… buit…
+##  3 CRQ    CRQ            &lt;NA&gt;         &lt;NA&gt;         23, 28,… Escal… &lt;NA&gt;    buit…
+##  4 CTT    CTT            &lt;NA&gt;         &lt;NA&gt;         23, 28,… Test … &lt;NA&gt;    buit…
+##  5 ESV    ESV            &lt;NA&gt;         &lt;NA&gt;         test/pr… Empat… &lt;NA&gt;    altr…
+##  6 ICvsID ICvsID         &lt;NA&gt;         &lt;NA&gt;         23, 28,… Impar… &lt;NA&gt;    buit…
+##  7 ITC    ITC            &lt;NA&gt;         &lt;NA&gt;         15, 999… Inter… &lt;NA&gt;    &lt;NA&gt; 
+##  8 LOT    LOT            &lt;NA&gt;         &lt;NA&gt;         19       &lt;NA&gt;   &lt;NA&gt;    joaq…
+##  9 LSNS   LSNS           &lt;NA&gt;         &lt;NA&gt;         23, tes… Escal… &lt;NA&gt;    buit…
+## 10 MCA    MCA            &lt;NA&gt;         &lt;NA&gt;         test/pr… Moral… &lt;NA&gt;    buit…
+## 11 MCQ30  MCQ30          &lt;NA&gt;         &lt;NA&gt;         19       &lt;NA&gt;   &lt;NA&gt;    joaq…
+## 12 MDDF   MDDF           &lt;NA&gt;         &lt;NA&gt;         23, tes… MORAL… &lt;NA&gt;    buit…
+## 13 NARS   NARS           &lt;NA&gt;         &lt;NA&gt;         18       Negat… &lt;NA&gt;    vice…
+## 14 PPD    PPD            &lt;NA&gt;         &lt;NA&gt;         test/pr… Proba… &lt;NA&gt;    nico…
+## 15 PSC    PSC            &lt;NA&gt;         &lt;NA&gt;         23, tes… Proso… &lt;NA&gt;    buit…
+## 16 RobToM RobToM         &lt;NA&gt;         &lt;NA&gt;         18       &lt;NA&gt;   &lt;NA&gt;    vice…
+## 17 SCGT   SCGT           &lt;NA&gt;         &lt;NA&gt;         23, tes… Test … Mide l… buit…
+## 18 UCLA   UCLA           &lt;NA&gt;         &lt;NA&gt;         23, tes… Escal… &lt;NA&gt;    buit…
+## 19 Words  Words          &lt;NA&gt;         &lt;NA&gt;         9        Escal… Este t… jmor…
+## # … with abbreviated variable names ¹​protocols, ²​Descripcion</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="jsPsychRAdmins.html#cb54-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="jsPsychRAdmins.html#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DEMOGR24&quot;</span>, <span class="st">&quot;DEMOGRfondecyt2022E1&quot;</span>, <span class="st">&quot;ITC&quot;</span>, <span class="st">&quot;fauxPasEv&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># &quot;MDDF_respaldo&quot;, &quot;mic_test&quot;, &quot;faux_pas&quot;,</span></span>
+<span id="cb54-3"><a href="jsPsychRAdmins.html#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">&quot;missing&quot;</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion) </span></code></pre></div>
+<pre><code>## # A tibble: 21 × 3
+##    task     protocols                                            EMAIL          
+##    &lt;chr&gt;    &lt;chr&gt;                                                &lt;chr&gt;          
+##  1 BDI      19                                                   joaquin.migeot…
+##  2 CIT      23, 28, test/protocols_DEV/23, test/protocols_DEV/28 buitrago-c@jav…
+##  3 CRQ      23, 28, test/protocols_DEV/23, test/protocols_DEV/28 buitrago-c@jav…
+##  4 CTT      23, 28, test/protocols_DEV/23, test/protocols_DEV/28 buitrago-c@jav…
+##  5 DEMOGR27 test/protocols_DEV/27, test/protocols_DEV/NEW_TASKS  &lt;NA&gt;           
+##  6 ESV      test/protocols_DEV/25                                altroncoso@alu…
+##  7 faux_pas 13                                                   &lt;NA&gt;           
+##  8 HC       test/tasks_DEV                                       &lt;NA&gt;           
+##  9 ICvsID   23, 28, test/protocols_DEV/23, test/protocols_DEV/28 buitrago-c@jav…
+## 10 LOT      19                                                   joaquin.migeot…
+## # … with 11 more rows
 ## # ℹ Use `print(n = ...)` to see more rows</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="jsPsychRAdmins.html#cb52-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_googledoc)) <span class="sc">%&gt;%</span> </span>
-<span id="cb52-2"><a href="jsPsychRAdmins.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DEMOGR24&quot;</span>, <span class="st">&quot;DEMOGRfondecyt2022E1&quot;</span>, <span class="st">&quot;ITC&quot;</span>, <span class="st">&quot;fauxPasEv&quot;</span>)) <span class="sc">%&gt;%</span>  <span class="co"># &quot;MDDF_respaldo&quot;, &quot;mic_test&quot;, &quot;faux_pas&quot;,</span></span>
-<span id="cb52-3"><a href="jsPsychRAdmins.html#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">&quot;missing&quot;</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion) </span></code></pre></div>
-<pre><code>## # A tibble: 23 × 4
-##    task     protocols                                            EMAIL.x EMAIL.y
-##    &lt;chr&gt;    &lt;chr&gt;                                                &lt;chr&gt;   &lt;chr&gt;  
-##  1 BDI      19                                                   &lt;NA&gt;    joaqui…
-##  2 CEL      test/protocols_DEV/27                                &lt;NA&gt;    jmoral…
-##  3 CIT      23, 28, test/protocols_DEV/23, test/protocols_DEV/28 &lt;NA&gt;    buitra…
-##  4 CRQ      23, 28, test/protocols_DEV/23, test/protocols_DEV/28 &lt;NA&gt;    buitra…
-##  5 CTT      23, 28, test/protocols_DEV/23, test/protocols_DEV/28 &lt;NA&gt;    buitra…
-##  6 ESV      test/protocols_DEV/25                                &lt;NA&gt;    altron…
-##  7 faux_pas 13                                                   &lt;NA&gt;    &lt;NA&gt;   
-##  8 HC       test/tasks_DEV                                       &lt;NA&gt;    &lt;NA&gt;   
-##  9 ICvsID   23, 28, test/protocols_DEV/23, test/protocols_DEV/28 &lt;NA&gt;    buitra…
-## 10 LOT      19                                                   &lt;NA&gt;    joaqui…
-## # … with 13 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+<div id="create-protocol-with-new-tasks" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Create protocol with NEW tasks<a href="jsPsychRAdmins.html#create-protocol-with-new-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>With <code>create_protocol_with_NEW_tasks.R</code> we can create a protocol with the tasks for which we do not yet have a control snapshot (no .csv’s in the 999.zip data).</p>
+<p>This is an important step before the task can go to the canonical protocol.</p>
+</div>
+<div id="check-canonical-protocol-dev" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Check canonical protocol DEV<a href="jsPsychRAdmins.html#check-canonical-protocol-dev" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>With <code>000_CHECK_CANONICAL.R</code> we can check that the canonical protocol in development works and expected.</p>
+<p>In the script you can:</p>
+<ul>
+<li>sync <code>canonical_protocol_DEV/</code> folder in jsPsychMaker to <code>999/</code> in the server</li>
+<li>launch 5 monkeys</li>
+<li>rename the csv files to a fixed date, etc.</li>
+<li>prepare data</li>
+<li>compare with snaphot (WIP)</li>
+</ul>
 
+</div>
+</div>
 </div>
             </section>
 
