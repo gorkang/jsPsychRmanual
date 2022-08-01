@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>jsPsychR manual - 4&nbsp; jsPsychMonkeys</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../qmd/05-jsPsychHelpeR.html" rel="next">
+<link href="../qmd/03-jsPsychMaker.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">jsPsychMonkeys</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">jsPsychR manual</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gorkang/jsPsychR-manual/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">What is jsPsychR?</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/01-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reproducible experiments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/02-QuickGuide.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/03-jsPsychMaker.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">jsPsychMaker</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/04-jsPsychMonkeys.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">jsPsychMonkeys</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/05-jsPsychHelpeR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">jsPsychHelpeR</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/06-jsPsychRadmins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">jsPsychR Admins</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/10-references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#how-to-simulate-participants" id="toc-how-to-simulate-participants" class="nav-link active" data-scroll-target="#how-to-simulate-participants"> <span class="header-section-number">4.1</span> How to simulate participants</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"> <span class="header-section-number">4.2</span> Parameters</a>
+  <ul class="collapse">
+  <li><a href="#release-the-monkeys" id="toc-release-the-monkeys" class="nav-link" data-scroll-target="#release-the-monkeys"> <span class="header-section-number">4.2.1</span> Release the Monkeys!</a></li>
+  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"> <span class="header-section-number">4.2.2</span> Launch monkeys on a server</a></li>
+  <li><a href="#parameters-for-parameters_monkeys_minimal" id="toc-parameters-for-parameters_monkeys_minimal" class="nav-link" data-scroll-target="#parameters-for-parameters_monkeys_minimal"> <span class="header-section-number">4.2.3</span> Parameters for parameters_monkeys_minimal</a></li>
+  </ul></li>
+  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"> <span class="header-section-number">4.3</span> Technical aspects</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="jsPsychMonkeys" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">jsPsychMonkeys</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<p><a href="https://github.com/gorkang/jsPsychMonkeys"><img src="../img/GitHub32.png" class="img-fluid" style="width:5.0%"> jsPsychMonkeys</a>: Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.</p>
+<hr>
+<p>With jsPsychMonkeys you can simulate participants and easily do the following:</p>
+<ul>
+<li><p>Simulate participants online and offline</p></li>
+<li><p>Simulate participants sequentially and in parallel</p></li>
+<li><p>Ask your Monkeys to take pictures of each screen</p></li>
+<li><p>Make the behavior of the Monkeys reproducible setting a random seed associated with their unique id</p></li>
+<li><p>Store logs of the process, including console logs with errors</p></li>
+<li><p>Watch your participants randomly click things in VNC</p></li>
+</ul>
+<hr>
+<p><strong>See <a href="02-QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> for basic instructions.</strong></p>
+<hr>
+<section id="how-to-simulate-participants" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="how-to-simulate-participants"><span class="header-section-number">4.1</span> How to simulate participants</h2>
+<p>If the <a href="02-QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> configuration steps didn’t work… You may need to do one of the things below:</p>
+<ul>
+<li><p>Run participants manually</p></li>
+<li><p>Use a Linux computer or create a Linux partition</p></li>
+<li><p>Create a Linux virtual machine from where to simulate participants. You can use <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> to install <a href="https://releases.ubuntu.com/20.04/">Ubuntu</a>. Once there, you can use this <a href="https://gorkang.github.io/R_preparacion_visualizacion_datos/preparando-sistema.html#empezando-en-a-b-c">manual to prepare the system to run R &amp; RStudio</a></p></li>
+</ul>
+<!-- sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev  -->
+</section>
+<section id="parameters" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="parameters"><span class="header-section-number">4.2</span> Parameters</h2>
+<p>Edit the <code>Parameters</code> section of the <code>_targets.R</code> file. The minimal set of parameters needed are:</p>
+<pre><code>parameters_monkeys_minimal = list(
+  uid = 1:10, # User id's for the participants. 
+  local_folder_tasks = "Downloads/tests/2" # Location of your jsPsych protocol
+)</code></pre>
+<hr>
+<section id="release-the-monkeys" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="release-the-monkeys"><span class="header-section-number">4.2.1</span> Release the Monkeys!</h3>
+<p>If you want a sequential process:</p>
+<ul>
+<li><code>targets::tar_make()</code></li>
+</ul>
+<p>If you want a parallel horde of monkeys:</p>
+<ul>
+<li><code>targets::tar_future_make(workers = 2)</code></li>
+</ul>
+<p>You can set as many parallel workers as you want. With <code>targets::tar_make_future(workers = future::availableCores() - 1)</code> you can have as many workers as your computer cores minus 1.</p>
+<p>In <code>run.R</code> you can see the typical set of commands needed for a variety of situations.</p>
+<hr>
+<p>10 Monkeys completing a protocol in parallel. You can use <code>targets::tar_watch(seconds = 10, outdated = FALSE, targets_only = TRUE)</code> to see the live progress:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../img/jsMonkeys_parallel.gif" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<!-- ![](img/jsMonkeys_parallel.gif) -->
+</section>
+<section id="launch-monkeys-on-a-server" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="launch-monkeys-on-a-server"><span class="header-section-number">4.2.2</span> Launch monkeys on a server</h3>
+<p>You will need a <code>.vault/SERVER_PATH.R</code> file that contains the path where the protocols are located in your server: <code>server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"</code></p>
+<p>With the <code>server_folder_tasks</code> you will set the subfolder where the protocol is located. In the example below the monkeys would go to, <code>http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/1</code></p>
+<pre><code>parameters_monkeys_minimal = list(
+  uid = 1:10, # User id's for the participants. 
+  server_folder_tasks = "1" # Location of your jsPsych protocol
+)</code></pre>
+</section>
+<section id="parameters-for-parameters_monkeys_minimal" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="parameters-for-parameters_monkeys_minimal"><span class="header-section-number">4.2.3</span> Parameters for parameters_monkeys_minimal</h3>
+<p>There are a few parameters that can be useful:</p>
+<ul>
+<li><p><code>uid_URL = TRUE</code>: The uid is passed in the URL (e.g.&nbsp;<code>&amp;uid=1</code>)</p></li>
+<li><p><code>local_folder_tasks = rep("Downloads/tests/test_prototol", 25)</code>: Passing a vector of multiple tasks will make the monkeys to complete all of them.</p></li>
+<li><p><code>keep_alive = TRUE</code> Keep the docker container alive after completing the tasks</p></li>
+<li><p><code>DEBUG = TRUE</code> Activate DEBUG mode. Lot’s of stuff will show up in the console.</p></li>
+<li><p><code>open_VNC = TRUE</code> Activate DEBUG mode and open a VNC container to see the monkey’s progress.</p></li>
+<li><p><code>screenshot = TRUE</code> The monkeys will take a picture of all the pages they see. The .png files are stored in <code>outputs/screenshots</code></p></li>
+<li><p><code>debug_file = TRUE</code> Activate DEBUG mode and store all the console output in the <code>outputs/log</code></p></li>
+<li><p><code>big_container = TRUE</code> Sets the Shared memory size (/dev/shm) to 2 gigabytes. This is useful to avoid long/complex protocols to crash</p></li>
+<li><p><code>disable_web_security = TRUE</code> If you are running a local protocol that loads external files (e.g.&nbsp;consent form in a html file), you may need this. Only works with Google Chrome.</p></li>
+<li><p><code>console_logs = TRUE</code> Store the browser’s console logs. Only works with Google Chrome</p></li>
+<li><p><code>forced_random_wait = TRUE</code> Will wait a randomly sampled number of seconds on page 4</p></li>
+<li><p><code>forced_seed = 11</code> Set a random seed so the Monkeys’ behavior will be fully reproducible</p></li>
+<li><p><code>forced_refresh = 20</code> Refresh browser in page 20 (if TRUE is given, it will refresh in a randomly sampled page)</p></li>
+</ul>
+<section id="parameters-details" class="level4" data-number="4.2.3.1">
+<h4 data-number="4.2.3.1" class="anchored" data-anchor-id="parameters-details"><span class="header-section-number">4.2.3.1</span> Parameters details</h4>
+<ul>
+<li><code>local_folder_tasks</code>: If the folder is not accessible to Docker (anything outside the Download folder), jsPsychMonkeys will create a copy of the protocol in <code>Downloads/JSPSYCH/</code></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="technical-aspects" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="technical-aspects"><span class="header-section-number">4.3</span> Technical aspects</h2>
+<p>Since jsPsych 7.1 there is a <a href="https://www.jspsych.org/7.3/overview/simulation/">simulation mode</a> available, which should be much faster than the good ol’ monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../qmd/03-jsPsychMaker.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">jsPsychMaker</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../qmd/05-jsPsychHelpeR.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">jsPsychHelpeR</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>jsPsychR manual - 5&nbsp; jsPsychHelpeR</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../qmd/06-jsPsychRadmins.html" rel="next">
+<link href="../qmd/04-jsPsychMonkeys.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">jsPsychHelpeR</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">jsPsychR manual</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/gorkang/jsPsychR-manual/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">What is jsPsychR?</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/01-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reproducible experiments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/02-QuickGuide.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/03-jsPsychMaker.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">jsPsychMaker</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/04-jsPsychMonkeys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">jsPsychMonkeys</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/05-jsPsychHelpeR.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">jsPsychHelpeR</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/06-jsPsychRadmins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">jsPsychR Admins</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd/10-references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#how-to-prepare-data" id="toc-how-to-prepare-data" class="nav-link active" data-scroll-target="#how-to-prepare-data"> <span class="header-section-number">5.1</span> How to prepare data</a></li>
+  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"> <span class="header-section-number">5.2</span> Basics</a>
+  <ul class="collapse">
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs"> <span class="header-section-number">5.2.1</span> Inputs</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs"> <span class="header-section-number">5.2.2</span> Outputs</a></li>
+  </ul></li>
+  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced"> <span class="header-section-number">5.3</span> Advanced</a>
+  <ul class="collapse">
+  <li><a href="#create-your-own-reports" id="toc-create-your-own-reports" class="nav-link" data-scroll-target="#create-your-own-reports"> <span class="header-section-number">5.3.1</span> Create your own reports</a></li>
+  <li><a href="#create-new-tasks" id="toc-create-new-tasks" class="nav-link" data-scroll-target="#create-new-tasks"> <span class="header-section-number">5.3.2</span> Create new tasks</a></li>
+  <li><a href="#adapting-new-tasks" id="toc-adapting-new-tasks" class="nav-link" data-scroll-target="#adapting-new-tasks"> <span class="header-section-number">5.3.3</span> Adapting new tasks</a></li>
+  <li><a href="#how-to-fill-the-new-tasks-document" id="toc-how-to-fill-the-new-tasks-document" class="nav-link" data-scroll-target="#how-to-fill-the-new-tasks-document"> <span class="header-section-number">5.3.4</span> How to fill the <span>NEW tasks document</span></a></li>
+  <li><a href="#debug-tasks" id="toc-debug-tasks" class="nav-link" data-scroll-target="#debug-tasks"> <span class="header-section-number">5.3.5</span> DEBUG tasks</a></li>
+  </ul></li>
+  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"> <span class="header-section-number">5.4</span> Helper functions</a>
+  <ul class="collapse">
+  <li><a href="#reliability" id="toc-reliability" class="nav-link" data-scroll-target="#reliability"> <span class="header-section-number">5.4.1</span> Reliability</a></li>
+  </ul></li>
+  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"> <span class="header-section-number">5.5</span> Technical aspects</a>
+  <ul class="collapse">
+  <li><a href="#how-trialids-are-processed" id="toc-how-trialids-are-processed" class="nav-link" data-scroll-target="#how-trialids-are-processed"> <span class="header-section-number">5.5.1</span> How trialid’s are processed</a></li>
+  </ul></li>
+  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors"> <span class="header-section-number">5.6</span> Common ERRORS</a>
+  <ul class="collapse">
+  <li><a href="#run_initial_setup" id="toc-run_initial_setup" class="nav-link" data-scroll-target="#run_initial_setup"> <span class="header-section-number">5.6.1</span> <code>run_initial_setup()</code>:</a></li>
+  <li><a href="#on-mac-or-windows" id="toc-on-mac-or-windows" class="nav-link" data-scroll-target="#on-mac-or-windows"> <span class="header-section-number">5.6.2</span> On Mac or Windows:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="jsPsychHelpeR" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">jsPsychHelpeR</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<p><a href="https://github.com/gorkang/jsPsychHelpeR"><img src="../img/GitHub32.png" class="img-fluid" style="width:5.0%"> jsPsychHelpeR</a>: Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.</p>
+<hr>
+<p>jsPsychHelpeR will lend you a hand automatizing and standardizing your data preparation and analysis.</p>
+<ul>
+<li><p>Use a completely open, reproducible and automatic process to prepare your data</p></li>
+<li><p>Data preparation ready for &gt; 50 tasks (see <a href="https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv">here the list of tasks</a>)</p></li>
+<li><p>Get tidy output dataframes for each task, and tidy general dataframes for the whole protocol</p></li>
+<li><p>Include tests for common issues</p></li>
+<li><p>Automatic reports with progress, descriptives, codebook, etc.</p></li>
+</ul>
+<hr>
+<p><strong>See <a href="02-QuickGuide.html#QuickGuidejsPsychHelpeR">QuickGuide</a> for basic instructions.</strong></p>
+<hr>
+<section id="how-to-prepare-data" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="how-to-prepare-data"><span class="header-section-number">5.1</span> How to prepare data</h2>
+<p>Our goal is that <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> task has a sister script on <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to help prepare the data automatically. If a task you need does not have one, you can try to <a href="https://gorkang.github.io/jsPsychR-manual/jsPsychHelpeR.html#create-new-tasks">create the script yourself</a> and do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">pull request in the jsPsychHelpeR repo</a>, or fill the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a> with the details to help us create the correction script.</p>
+<p>If you already ran a pilot experiment, simply:</p>
+<ol type="1">
+<li>Download <code>jsPsychHelpeR</code>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="st">"gorkang/jsPsychHelpeR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><code>run_initial_setup()</code>: go to the file <code>run.R</code> and run the following two lines. They will:</li>
+</ol>
+<ul>
+<li>Try to make sure you have all the dependencies, folders, etc.<br>
+</li>
+<li>Download all the data from your protocol (you will need the FTP credentials and set <code>download_files = TRUE</code>)<br>
+</li>
+<li>Download and zip a copy of the full protocol without the data (you will need the FTP credentials and set <code>download_task_script = TRUE</code>)<br>
+</li>
+<li>Create a customized <code>_targets.R</code> file adapted to the data of your protocol, so data preparation can run automagically</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">"./R"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">".R$"</span>), source))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">download_files =</span> <span class="cn">TRUE</span>, <span class="at">download_task_script =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This should work on <a href="https://ubuntu.com/">Ubuntu</a>, if you have the <a href="jsPsychHelpeR.html#run_initial_setup">FTP credentials</a>, and <code>sshpass</code> and <code>rsync</code> installed.</p>
+<p>If you don’t have the credentials, or some of the requirements to download the files, you can manually copy the .csv files to the <code>data/PROJECT ID</code> folder, and then run the <code>offline</code> version of <code>run_initial_setup()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">"./R"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">".R$"</span>), source))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">download_files =</span> <span class="cn">FALSE</span>, <span class="at">download_task_script =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p>We use the <a href="https://github.com/wlandau/targets">targets</a> package.</p>
+<p><strong>The whole process can be reproduced running <code>targets::tar_make()</code></strong></p>
+<p>A nice visualization of all the pre-processing steps can be seen with <code>targets::tar_visnetwork(targets_only = TRUE)</code></p>
+<p>The file <code>_targets.R</code> contains the important parameters and calls to all the functions used when running <code>targets::tar_make()</code></p>
+<p>To see more detail about any specific step, you can:</p>
+<ol type="1">
+<li><p>Go to the relevant function</p></li>
+<li><p>Load the input parameters of the function with <code>debug_function(NAME_OF FUNCTION)</code>. Alternatively, manually use <code>targets::tar_load(NAME_OF_TARGET)</code></p></li>
+<li><p>Run the code step by step as you would normally do</p></li>
+</ol>
+</section>
+<section id="basics" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="basics"><span class="header-section-number">5.2</span> Basics</h2>
+<p><a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> uses as input a data created with a <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> experimental protocol.</p>
+<section id="inputs" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="inputs"><span class="header-section-number">5.2.1</span> Inputs</h3>
+<p>The input data folder will be named after the protocol_id, for example <code>999/</code> and needs to be placed in the <code>data/</code> folder of the jsPsychHelpeR project <code>data/YOUR_PROJECT_NUMBER</code>:</p>
+<ul>
+<li>The data folder can contain either multiple .csv files, or a single .zip file</li>
+</ul>
+<p>There will be a single .csv file for each participant and task of the protocol. For example:</p>
+<ul>
+<li>999_Consent_original_2022-04-02T205622_1.csv:
+<ul>
+<li>[project: 999]_[experimento: Consent]_[version: original]_[datetime: 2022-04-02T205622]_[participant id: 1]</li>
+</ul></li>
+</ul>
+</section>
+<section id="outputs" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="outputs"><span class="header-section-number">5.2.2</span> Outputs</h3>
+<p>When the pipeline successfully runs with <code>targets::tar_make()</code>, a number of outputs will be created.</p>
+<p>All the outputs can be found in the <code>/outputs</code> folder. The only exception is the sensitive data and reports, which can be found in <code>.vault/outputs</code>. <span style="     color: red !important;">WARNING: The ‘.vault/’ folder <strong>MUST NOT</strong> be made public.</span></p>
+<section id="output-folders" class="level4" data-number="5.2.2.1">
+<h4 data-number="5.2.2.1" class="anchored" data-anchor-id="output-folders"><span class="header-section-number">5.2.2.1</span> Output folders</h4>
+<p>The outputs will be organized in different folders:</p>
+<ul>
+<li><p><strong>Data frames</strong> for different stages of data processing can be found in <code>outputs/data</code></p></li>
+<li><p><strong>Temporary files for manual correction</strong> are in <code>outputs/data/manual_correction</code> (the final manual correction files must be place by the user in <code>data/manual_correction</code>). <span style="     color: red !important;">WARNING: These will be overwritten each time the pipeline runs</span></p></li>
+<li><p><strong>Plots</strong>, <strong>tables</strong> and <strong>reports</strong> are in <code>outputs/plots</code>, <code>outputs/tables</code>and <code>outputs/reports</code> respectively.</p></li>
+<li><p><strong>Test outputs</strong> are in <code>outputs/tests_outputs</code></p></li>
+<li><p><strong>Anonymized Raw data</strong> will be moved to <code>.vault/data_vault/</code></p></li>
+</ul>
+</section>
+<section id="output-dataframes" class="level4" data-number="5.2.2.2">
+<h4 data-number="5.2.2.2" class="anchored" data-anchor-id="output-dataframes"><span class="header-section-number">5.2.2.2</span> Output dataframes</h4>
+<p>There will be a single data frame (df) for each of the tasks in <code>outputs/data</code>, plus a data frame (DF) for each of the steps of the data preparation, and a dictionary file listing all the available tasks. We store the files in two formats, csv and rds:</p>
+<ul>
+<li><p><strong>DF_raw.csv</strong>: All the <code>data/project_id/</code> csv files combined on a single file. We only add the columns “project”, “experimento”, “version”, “datetime”, “id” by parsing the filenames</p></li>
+<li><p><strong>DF_clean.csv</strong>: Clean version of the raw file ready to process the individual tasks</p></li>
+<li><p><strong>df_ShortNameOfTask.csv</strong>: One df for each of the tasks of the protocol after being processed with the <code>prepare_ShortNameOfTask()</code> functions</p></li>
+<li><p><strong>DF_joined.csv</strong>: all the processed tasks joined in a single DF</p></li>
+<li><p><strong>DF_analysis</strong>: only the total scores and dimensions from <code>DF_joined</code> (columns ending in <code>_DIRt</code>, <code>_STDt</code>, <code>_DIRd</code>, <code>_RELd</code>, <code>STDd</code>). Can be visually explored using the shiny app in <code>Rmd/app.R</code></p></li>
+<li><p><strong>DICCIONARY_tasks.csv</strong>: list of all tasks in the protocol</p></li>
+</ul>
+</section>
+<section id="output-dataframes-column-names" class="level4" data-number="5.2.2.3">
+<h4 data-number="5.2.2.3" class="anchored" data-anchor-id="output-dataframes-column-names"><span class="header-section-number">5.2.2.3</span> Output dataframes column names</h4>
+<p>All the output processed data frames columns are named in a standardized way:</p>
+<ul>
+<li><p><strong>ShortNameOfTask_ItemNumber_RAW</strong>: raw responses of participants for individual items</p></li>
+<li><p><strong>ShortNameOfTask_ItemNumber_DIR</strong>: processed raw responses following the task correction instructions (e.g.&nbsp;inverting certain items, converting strings to numbers, computing accuracy…)</p></li>
+<li><p><strong>ShortNameOfTask_RAW_NA</strong>: number of missing data (NA) in the RAW responses</p></li>
+<li><p><strong>ShortNameOfTask_DIR_NA</strong>: number of missing data (NA) in the DIR responses. If it is not equal to <code>ShortNameOfTask_RAW_NA</code> there is something wrong in the items correction.</p></li>
+<li><p><strong>ShortNameOfTask_DimensionName_DIRd</strong>: scores for a specific dimension (<code>d</code>) in a task, calculated following task correction instructions (e.g.&nbsp;summing or averaging certain items)</p></li>
+<li><p><strong>ShortNameOfTask_DimensionName_RELd</strong>: scores for a specific dimension (<code>d</code>) in a task, calculated following task correction instructions AND after filtering items with low reliability. See <a href="jsPsychHelpeR.html#reliability">Reliability section</a> for more information.</p></li>
+<li><p><strong>ShortNameOfTask_DimensionName_STDd</strong>: standardized score for a dimension (<code>d</code>)</p></li>
+<li><p><strong>ShortNameOfTask_DIRt</strong>: total (<code>t</code>) score for a task calculated following task correction instructions (e.g.&nbsp;summing or averaging all items)</p></li>
+<li><p><strong>ShortNameOfTask_STDt</strong>: standardized (<code>t</code>) score for a task</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="advanced" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="advanced"><span class="header-section-number">5.3</span> Advanced</h2>
+<section id="create-your-own-reports" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="create-your-own-reports"><span class="header-section-number">5.3.1</span> Create your own reports</h3>
+<p>You can use any of the template reports in the <code>_targets.R</code> file, or create your own reports.</p>
+<p>We will start opening one of the template reports: <code>rstudioapi::navigateToFile("doc/report_analysis.Rmd")</code>.</p>
+<ul>
+<li><p>Edit the RMarkdown file to adapt it to your needs.</p></li>
+<li><p>If you already did <code>targets::tar_make()</code>, when running <code>targets::tar_load(DF_analysis)</code> the dataframe <code>DF_analysis</code> will load in your Environment.</p></li>
+</ul>
+<p>Go back to the <code>_targets.R</code> file:</p>
+<ul>
+<li>Look for <code># Analysis report</code> and uncomment the following lines:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tar_render(report_analysis, "doc/report_analysis.Rmd",</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#            output_file = paste0("../outputs/reports/report_analysis.html")),</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When you finished editing and uncomented the tar_render command, go back to the <code>run.R</code> file:</p>
+<ul>
+<li><code>targets::tar_make()</code></li>
+</ul>
+</section>
+<section id="create-new-tasks" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="create-new-tasks"><span class="header-section-number">5.3.2</span> Create new tasks</h3>
+<p>To create the correction script for a new task, you start with:</p>
+<ul>
+<li><code>create_new_task(short_name_task = "NAMETASK")</code></li>
+</ul>
+<p>This will:</p>
+<ul>
+<li><p>create a new file from a template correction script (<code>R_tasks/prepare_TEMPLATE.R</code>)</p></li>
+<li><p>adapt it to your <code>short_name_task</code> to make everything as standardized as possible</p></li>
+<li><p>open the new <code>prepare_NAMETASK.R</code> file</p></li>
+</ul>
+<p>If the parameter <code>get_dimensions_googledoc = TRUE</code>:</p>
+<ul>
+<li><p>The <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a> is checked.</p></li>
+<li><p>If the document has been filled properly, it will show in the console standardized strings (ready to be copy/pasted to the new <code>prepare_NAMETASK.R</code> file) about:</p>
+<ul>
+<li><p>dimension names</p></li>
+<li><p>items corresponding to each dimension</p></li>
+<li><p>dimension calculation</p></li>
+<li><p>inverse items</p></li>
+<li><p>numeric conversion of items</p></li>
+</ul></li>
+</ul>
+<p>You can also use <code>get_dimensions_googledoc()</code> as a standalone function:</p>
+<p><code>get_dimensions_googledoc(short_name_text = "MLQ")</code></p>
+<p>All the <code>prepare_NAMEOFTASK.R</code> scripts on the <code>R_tasks/</code> folder have been created starting from the same template. The only exception are the experimental tasks and some surveys with particularities that require more complex adaptations.</p>
+<p>When you finish implementing the correction script, please do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">Pull request</a> so we can add you script to the pool. If you have not already, please help us filling up details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
+</section>
+<section id="adapting-new-tasks" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="adapting-new-tasks"><span class="header-section-number">5.3.3</span> Adapting new tasks</h3>
+<p><code>get_dimensions_googledoc</code> will show you how to adapt the <code>prepare_TASK()</code> script, but you will need to know how it works to be able to edit the relevant bits. Also, sometimes <code>get_dimensions_googledoc</code> won’t get all the details of the task right, or there could be non-standard elements to it. Here, we will describe some of the elements of the template to help understand how it works.</p>
+<p>Remember you should <strong>ALWAYS</strong> start with <code>create_new_task(short_name_task = "NAMETASK")</code> so your task template works well with <code>jsPsychHelpeR</code>.</p>
+<p>There are three chunks you will need to adapt to have a fully working preparation script.</p>
+<ul>
+<li><code>[ADAPT 1/3]: Items to ignore and reverse, dimensions</code></li>
+<li><code>[ADAPT 2/3]: RAW to DIR for individual items</code></li>
+<li><code>[ADAPT 3/3]: Scales and dimensions calculations</code></li>
+</ul>
+<section id="items-to-ignore-and-reverse-dimensions" class="level4" data-number="5.3.3.1">
+<h4 data-number="5.3.3.1" class="anchored" data-anchor-id="items-to-ignore-and-reverse-dimensions"><span class="header-section-number">5.3.3.1</span> Items to ignore and reverse, dimensions</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [ADAPT 1/3]: Items to ignore and reverse, dimensions -----------------------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ****************************************************************************</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>description_task <span class="ot">=</span> <span class="st">""</span> <span class="co"># Brief description here</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>items_to_ignore <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"000"</span>) <span class="co"># Ignore these items: If nothing to ignore, keep as is</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>items_to_reverse <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"000"</span>) <span class="co"># Reverse these items: If nothing to reverse, keep as is</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">## NameDimension1, NameDimension2 should be the names of the dimensions</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Inside each c() create a vector of the item numbers for the dimension</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Add lines as needed. If there are no dimensions, keep as is</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>items_dimensions <span class="ot">=</span> <span class="fu">list</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">NameDimension1 =</span> <span class="fu">c</span>(<span class="st">"000"</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">NameDimension2 =</span> <span class="fu">c</span>(<span class="st">"000"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [</span><span class="re">END</span><span class="co"> ADAPT 1/3]: ***********************************************************</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ****************************************************************************</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="raw-to-dir-for-individual-items" class="level4" data-number="5.3.3.2">
+<h4 data-number="5.3.3.2" class="anchored" data-anchor-id="raw-to-dir-for-individual-items"><span class="header-section-number">5.3.3.2</span> RAW to DIR for individual items</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DF_long_DIR <span class="ot">=</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    DF_long_RAW <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(id, trialid, RAW) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># [ADAPT 2/3]: RAW to DIR for individual items -------------------------------</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ****************************************************************************</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Transformations</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">DIR =</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">case_when</span>(</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          RAW <span class="sc">==</span> <span class="st">"Nunca"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>          RAW <span class="sc">==</span> <span class="st">"Poco"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>          RAW <span class="sc">==</span> <span class="st">"Medianamente"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>          RAW <span class="sc">==</span> <span class="st">"Bastante"</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>          RAW <span class="sc">==</span> <span class="st">"Mucho"</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>          <span class="fu">is.na</span>(RAW) <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          <span class="fu">grepl</span>(items_to_ignore, trialid) <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">9999</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Invert items</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">DIR =</span> </span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">case_when</span>(</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>          DIR <span class="sc">==</span> <span class="dv">9999</span> <span class="sc">~</span> DIR, <span class="co"># To keep the missing values unchanged</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>          trialid <span class="sc">%in%</span> <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_to_reverse) <span class="sc">~</span> (<span class="dv">6</span> <span class="sc">-</span> DIR),</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>          <span class="cn">TRUE</span> <span class="sc">~</span> DIR</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># [</span><span class="re">END</span><span class="co"> ADAPT 2/3]: ***********************************************************</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ****************************************************************************</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scales-and-dimensions-calculations" class="level4" data-number="5.3.3.3">
+<h4 data-number="5.3.3.3" class="anchored" data-anchor-id="scales-and-dimensions-calculations"><span class="header-section-number">5.3.3.3</span> Scales and dimensions calculations</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [ADAPT 3/3]: Scales and dimensions calculations ----------------------------</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ****************************************************************************</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reliability -------------------------------------------------------------</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># REL1 = auto_reliability(DF_wide_RAW, short_name_scale = short_name_scale_str, items = items_DIRd1)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># items_RELd1 = REL1$item_selection_string</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># [USE STANDARD NAMES FOR Scales and dimensions: names_list$name_DIRd[1], names_list$name_DIRt,...] </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># CHECK with: create_formulas(type = "dimensions_DIR", functions = "sum", names_dimensions)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>DF_wide_RAW_DIR <span class="ot">=</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  DF_wide_RAW <span class="sc">%&gt;%</span> </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># [CHECK] Using correct formula? rowMeans() / rowSums()</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Score Dimensions (see standardized_names(help_names = TRUE) for instructions)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!!</span>names_list<span class="sc">$</span>name_DIRd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_dimensions[[<span class="dv">1</span>]], <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!!</span>names_list<span class="sc">$</span>name_DIRd[<span class="dv">2</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_dimensions[[<span class="dv">2</span>]], <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reliability Dimensions (see standardized_names(help_names = TRUE) for instructions)</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># !!names_list$name_RELd[1] := rowMeans(select(., paste0(short_name_scale_str, "_", items_RELd1, "_DIR")), na.rm = TRUE), </span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Score Scale</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!!</span>names_list<span class="sc">$</span><span class="at">name_DIRt :=</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., <span class="fu">matches</span>(<span class="st">"_DIR$"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># [</span><span class="re">END</span><span class="co"> ADAPT 3/3]: ***********************************************************</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co"># ****************************************************************************</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-fill-the-new-tasks-document" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="how-to-fill-the-new-tasks-document"><span class="header-section-number">5.3.4</span> How to fill the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a></h3>
+<p>The best way is to check the main document with information about all the tasks (<a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">Tareas jsPsychR</a>) and find a similar task to copy/paste and adapt it in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
+<p>The main suggestion is to be very consistent. For example, when entering the informacion about numeric conversion in the Puntajes_items tab:</p>
+<pre><code>All the cells must be:  
+1 = Mucho  
+2 = Poco  
+...</code></pre>
+<p>DO NOT do things like:</p>
+<pre><code>1: Mucho  
+1 Mucho  
+1 pto = Mucho  
+Mucho 1  </code></pre>
+<p>Please, make sure you fill out all the details in all the tabs.</p>
+</section>
+<section id="debug-tasks" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="debug-tasks"><span class="header-section-number">5.3.5</span> DEBUG tasks</h3>
+<p>At the begining of each of the <code>R_tasks/prepare_NAMETASK.R</code> scripts you will find a commented <code>debug_function(prepare_NAMETASK)</code> line.</p>
+<p>When running it, it will load the input parameters for the task. From there, you can work inside of the preparation scipt as you would normally do in a R script.</p>
+<p>If you get the error <code>"Error in debug_function(prepare_NAMETASK) : could not find function 'debug_function'</code>debug_function()<code>does nor work"</code> you will need to load all the functions in the <code>R/</code> folder first.</p>
+<p>You can do this in one of three ways:</p>
+<ul>
+<li><p><code>CONTROL + P</code> shortcut will work if the <code>run_initial_setup()</code> completed correctly (at least on Ubuntu systems).</p></li>
+<li><p>Run <code>targets::tar_load_globals()</code></p></li>
+<li><p>Or directly, source all the scripts in the <code>R/</code> folder: <code>invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))</code></p></li>
+</ul>
+</section>
+</section>
+<section id="helper-functions" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="helper-functions"><span class="header-section-number">5.4</span> Helper functions</h2>
+<section id="reliability" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="reliability"><span class="header-section-number">5.4.1</span> Reliability</h3>
+<p>You can use the <code>auto_reliability()</code> function to help you automatically filter items with low reliability (although doing this automatically is probably a bad idea). The function uses <code>psych::alpha()</code> and filters by default items with an r.drop &lt;= 0.2. See <code>psych::alpha()</code> help for more details. <strong>IMPORTANT</strong>: Using <code>psych::omega()</code> is generally a better idea, see <a href="https://search.r-project.org/CRAN/refmans/psych/html/alpha.html">the alpha help page</a>.</p>
+<p>An example can be found in <a href="https://github.com/gorkang/jsPsychHelpeR/blob/master/R_tasks/prepare_REI40.R">prepare_REI40()</a>.</p>
+<p>The basic logic would be:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define items for a specific dimension</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>items_DIRd1 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>, <span class="st">"04"</span>, <span class="st">"05"</span>, <span class="st">"06"</span>, <span class="st">"07"</span>, <span class="st">"08"</span>, <span class="st">"09"</span>, <span class="st">"10"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate reliability</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>REL1 <span class="ot">=</span> <span class="fu">auto_reliability</span>(DF_wide_RAW, <span class="at">short_name_scale =</span> short_name_scale_str, <span class="at">items =</span> items_DIRd1, <span class="at">min_rdrop =</span> <span class="fl">0.2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Store item selection in a variable</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>items_RELd1 <span class="ot">=</span> REL1<span class="sc">$</span>item_selection_string</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># In the final Dimension calculation, use the item selection including only the items with a reliability over the defined threshold   </span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">## See `items_RELd1` below</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="sc">!!</span>names_list<span class="sc">$</span>name_RELd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_RELd1, <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare it with the calculation including the original items</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">## See `items_DIRd1` below</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="sc">!!</span>names_list<span class="sc">$</span>name_DIRd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_DIRd1, <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="technical-aspects" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="technical-aspects"><span class="header-section-number">5.5</span> Technical aspects</h2>
+<section id="how-trialids-are-processed" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="how-trialids-are-processed"><span class="header-section-number">5.5.1</span> How trialid’s are processed</h3>
+<p>See <code>PRFBM</code>:</p>
+<ul>
+<li>If more than one response per screen
+<ul>
+<li>Item: <code>PRFBM_04</code></li>
+<li>Responses: <code>{"daño":"Parcialmente en desacuerdo","beneficio":"Parcialmente en desacuerdo"}</code></li>
+<li>final trialids: <code>PRFBM_04_beneficio</code> and <code>PRFBM_04_daño</code></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="common-errors" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="common-errors"><span class="header-section-number">5.6</span> Common ERRORS</h2>
+<section id="run_initial_setup" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="run_initial_setup"><span class="header-section-number">5.6.1</span> <code>run_initial_setup()</code>:</h3>
+<pre><code>x Can find server credentials in '.vault/.credentials'
+x 0 tasks found for protocol 'TU NUMERO DE PROYECTO'. NOT creating _targets.R file</code></pre>
+<section id="on-linux-ubuntu" class="level4" data-number="5.6.1.1">
+<h4 data-number="5.6.1.1" class="anchored" data-anchor-id="on-linux-ubuntu"><span class="header-section-number">5.6.1.1</span> On Linux (Ubuntu):</h4>
+<ul>
+<li><p>IF you have the server credentials:</p>
+<ul>
+<li><p>Open .credentials_TEMPLATE <code>rstudioapi::navigateToFile(".vault/.credentials_TEMPLATE")</code></p></li>
+<li><p>Edit the file with your server credentials</p></li>
+<li><p>Rename the file to <code>.credentials</code></p></li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li><p>IF you DON’T have the credentials but you have the .csv results files:</p>
+<ul>
+<li><p>Copy the csv files to the folder <code>data/YOUR_PROJECT_NUMBER</code></p></li>
+<li><p>Run again <code>run_initial_setup()</code></p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="on-mac-or-windows" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="on-mac-or-windows"><span class="header-section-number">5.6.2</span> On Mac or Windows:</h3>
+<ul>
+<li><p>Copy the csv files to the folder <code>data/YOUR_PROJECT_NUMBER</code></p></li>
+<li><p>Run again <code>run_initial_setup()</code></p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../qmd/04-jsPsychMonkeys.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">jsPsychMonkeys</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../qmd/06-jsPsychRadmins.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">jsPsychR Admins</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
