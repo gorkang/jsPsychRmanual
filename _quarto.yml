@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: docs
+  # execute-dir: project
+
+book:
+  title: "jsPsychR manual"
+  author: "Gorka Navarrete"
+  # Sys.Date()
+  date: "2022"
+  search: true
+  repo-url: https://github.com/gorkang/jsPsychR-manual/
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - qmd/01-intro.qmd
+    - qmd/02-QuickGuide.qmd
+    - qmd/03-jsPsychMaker.qmd
+    - qmd/04-jsPsychMonkeys.qmd
+    - qmd/05-jsPsychHelpeR.qmd
+    - qmd/06-jsPsychRadmins.qmd
+    - qmd/10-references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: source
+

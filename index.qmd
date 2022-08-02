@@ -1,0 +1,25 @@
+# What is jsPsychR? {.unnumbered}
+
+`jsPsychR` is a group of **open source** tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis.
+
+------------------------------------------------------------------------
+
+![](img/jsPsych-trinity.png){width="75%"}
+
+------------------------------------------------------------------------
+
+We have three main tools:
+
+-   [jsPsychMaker](#jsPsychMaker): Create experiments with [jsPsych](https://www.jspsych.org/), randomize participants balance between conditions, etc.
+-   [jsPsychMonkeys](#jsPsychMonkeys): Release monkeys to a [jsPsych](https://www.jspsych.org/) experiment using the R package {[targets](https://books.ropensci.org/targets/)}, [docker](https://www.docker.com/) and {[RSelenium](https://docs.ropensci.org/RSelenium/)}
+-   [jsPsychHelpeR](#jsPsychHelpeR): Standardize and automatize data preparation and analysis of [jsPsych](https://www.jspsych.org/) experiments created with [jsPsychMaker](#jsPsychMaker)
+
+------------------------------------------------------------------------
+
+**Contributors**
+
+-   [Gorka Navarrete](https://github.com/gorkang)
+
+-   [Herman Valencia](https://github.com/HeRm4nV)
+
+------------------------------------------------------------------------

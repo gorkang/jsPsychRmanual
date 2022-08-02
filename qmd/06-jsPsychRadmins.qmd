@@ -1,0 +1,140 @@
+# jsPsychR Admins {#jsPsychRAdmins}
+
+<!-- TODO: create protocol to test new tasks in 999 with all available tasks... (extending canonical protocol with new tasks) -->
+
+Instructions and protocols for jsPsychR admins. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.
+
+## Google Docs
+
+-   [All tasks](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0)
+
+-   [List of protocols](https://docs.google.com/spreadsheets/d/13xX8aGhKmfz8zVvNuCMDnS6L6Dy6T1NlA6nTOqZuErA/edit#gid=0)
+
+-   [NEW tasks](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)
+
+-   [Checks specific tasks](https://docs.google.com/spreadsheets/d/1fM_T-u-77DHEGTOV5A8BrMyXZfN-rt-MaKsfQV1v3u0/edit#gid=1315185109)
+
+## Folders and how to work
+
+We have two main locations, the [Github jsPsychMaker project](https://github.com/gorkang/jsPsychMaker/) and the server.
+
+[**Github jsPsychMaker project**](https://github.com/gorkang/jsPsychMaker/)
+
+-   canonical_protocol:
+    -   machinery: last stable version
+    -   tasks: all available tasks
+    -   server: `protocols/999/`
+-   canonical_protocol_DEV
+    -   machinery: development version
+    -   tasks: all available tasks
+    -   server: `protocols/test/canonical_protocol_DEV/`
+-   canonical_protocol_clean
+    -   machinery: last stable version
+    -   tasks: Consent and Goodbye
+    -   server: `protocols/test/canonical_protocol_clean/`
+-   protocols_DEV
+    -   machinery: last stable version
+    -   should only contain tasks in development
+    -   server: `protocols/test/protocols_DEV/`
+
+In `protocols_DEV` we prepare the new **protocolos**:
+
+-   Create a copy in `test/protocols_DEV` of `canonical_protocol_clean` and rename to the number of the new protocol, `test/protocols_DEV/NumberOfProtocol`
+
+-   Once the protocol is ready:
+
+    -   Copy protocol to root folder: `protocols/NumberOfProtocol`
+    -   ZIP subfolder and move zip to `protocols/test/protocols_DEV/OLD_TESTS/`
+    -   Delete folder `test/protocols_DEV/NumberOfProtocol`\
+    -   If there are new tasks:
+        -   CHECK with: check_missing_prepare_TASK()
+        -   TEST with create_protocol_with_NEW_tasks.R
+        -   Copy tasks, images, videos, specific plugins, etc. to `protocols/999/`
+        -   TEST in canonical protocol `protocols/999/` just in case there is a weird interaction
+
+<!-- test/tasks_DEV/ -->
+
+<!-- - Maquinaria: ultima version estable -->
+
+<!-- - Directorio para trabajar en las NUEVAS **tareas individuales** -->
+
+<!-- - Una vez implementadas, copiar tareas (y sus imagenes, videos, ...) a 999/ -->
+
+<!-- test/protocols_DEV/NEW_TASKS  -->
+
+## Helper functions
+
+There are a number of helper functions to make some of the jsPsychR admins tasks easier.
+
+### Check all protocols
+
+For example, we can use `check_missing_prepare_TASK()` to:
+
+-   Download all the protocols (without data) to a local folder (`sync_protocols = TRUE`)
+
+-   Check the trialid's of all the tests are OK (`check_trialids = TRUE`)
+
+-   Check there are no duplicate short_name of tasks in the [tareas jsPsychR](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0) and [NUEVAS tareas](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)
+
+-   Check which tasks do not have a prepare_TASK.R script
+
+-   Check tasks with no info on [the tareas jsPsychR Google doc](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0)
+
+-   Check tasks with missing info on [NUEVAS tareas](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)
+
+```{r admins-check_missing_prepare_TASK, results='markup', eval=TRUE}
+
+# Open jsPsychHelpeR RStudio project
+
+  # Load check_missing_prepare_TASK() function
+  # cli::cli_alert_info(getwd())
+
+  WD = getwd()
+  setwd("../../jsPsychHelpeR/")
+  source("R/check_missing_prepare_TASK.R")
+  # source("../../jsPsychHelpeR/R/check_missing_prepare_TASK.R")
+  setwd(WD)
+  
+  # If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server
+  DF_missing = check_missing_prepare_TASK(sync_protocols = FALSE,
+                                          check_trialids = TRUE,
+                                          delete_nonexistent = TRUE,
+                                          check_new_task_tabs = TRUE,
+                                          helper_folder = "../../jsPsychHelpeR",
+                                          CSCN_server_folder = "../../CSCN-server/")
+
+  # - Tasks with no prepare_TASK() script!
+  # - Tasks NOT in Google Doc
+  # - Check trialid's are OK
+  DF_missing
+
+  DF_missing$DF_FINAL %>% tidyr::replace_na(list(missing_script = "",
+                                                 missing_googledoc = "",
+                                                 missing_task = ""))
+
+
+  # Tasks ready to create prepare_*.R script
+  DF_missing$DF_FINAL %>% filter(!is.na(missing_script) & is.na(missing_gdoc))
+  DF_missing$DF_FINAL %>% filter(!is.na(missing_script) | !is.na(missing_gdoc)) %>%
+    filter(!task %in% c("DEMOGR24", "DEMOGRfondecyt2022E1", "ITC", "fauxPasEv")) %>%  # "MDDF_respaldo", "mic_test", "faux_pas",
+    select(-matches("missing"), -Nombre, -Descripcion)
+  
+```
+
+### Create protocol with NEW tasks
+
+With `create_protocol_with_NEW_tasks.R` we can create a protocol with the tasks for which we do not yet have a control snapshot (no .csv's in the 999.zip data).
+
+This is an important step before the task can go to the canonical protocol.
+
+### Check canonical protocol DEV
+
+With `000_CHECK_CANONICAL.R` we can check that the canonical protocol in development works and expected.
+
+In the script you can:
+
+-   sync `canonical_protocol_DEV/` folder in jsPsychMaker to `999/` in the server
+-   launch 5 monkeys
+-   rename the csv files to a fixed date, etc.
+-   prepare data
+-   compare with snaphot (WIP)

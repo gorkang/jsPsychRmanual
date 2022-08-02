@@ -1,0 +1,7 @@
+# References {.unnumbered}
+
+-   [jsPsych](https://www.jspsych.org/)
+
+-   [targets](https://books.ropensci.org/targets)
+
+::: {#refs} :::

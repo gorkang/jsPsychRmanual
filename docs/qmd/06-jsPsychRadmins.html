@@ -318,29 +318,164 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"../jsPsychHelpeR/R/check_missing_prepare_TASK.R"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cli::cli_alert_info(getwd())</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  WD <span class="ot">=</span> <span class="fu">getwd</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"../../jsPsychHelpeR/"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/check_missing_prepare_TASK.R"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># source("../../jsPsychHelpeR/R/check_missing_prepare_TASK.R")</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(WD)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  DF_missing</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>, </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script   </span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">helper_folder =</span> <span class="st">"../../jsPsychHelpeR"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">CSCN_server_folder =</span> <span class="st">"../../CSCN-server/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+
+── FOLDER: protocols/
+──────────────────────────────────────────────────────────
+
+── FOLDER: protocols/test/protocols_DEV/
+───────────────────────────────────────
+
+── FOLDER: protocols/999/
+──────────────────────────────────────────────────────
+
+── CHECK missing info in tabs
+──────────────────────────────────────────────────
+✖ Tasks missing info in tabs:
+• altroncoso@alumnosuaicl.onmicrosoft.com: 1
+• buitrago-c@javeriana.edu.co: 10
+• jmoraless@uc.cl: 4
+• joaquin.migeot@gmail.com: 3
+• nicolasmarchant@alumnos.uai.cl: 1
+• vicente.soto.d@uai.cl: 3
+
+── Details ──
+
+• altroncoso@alumnosuaicl.onmicrosoft.com: ESV (citas, puntajes, dimensiones)
+• buitrago-c@javeriana.edu.co: CIT (citas, puntajes, dimensiones) ; CRQ (citas,
+puntajes, dimensiones) ; CTT (citas, puntajes, dimensiones) ; ICvsID (citas,
+puntajes, dimensiones) ; LSNS (citas, puntajes, dimensiones) ; MCA (citas,
+puntajes, dimensiones) ; MDDF (citas, puntajes, dimensiones) ; PSC (citas,
+puntajes, dimensiones) ; SCGT (citas, puntajes, dimensiones) ; UCLA (citas,
+puntajes, dimensiones)
+• jmoraless@uc.cl: CEL (dimensiones) ; fauxPasEv (citas, puntajes, dimensiones)
+; LoB (dimensiones) ; Words (puntajes, dimensiones)
+• joaquin.migeot@gmail.com: BDI (citas, puntajes, dimensiones) ; LOT (citas,
+puntajes, dimensiones) ; MCQ30 (citas, puntajes, dimensiones)
+• nicolasmarchant@alumnos.uai.cl: PPD (citas, puntajes, dimensiones)
+• vicente.soto.d@uai.cl: NARS (citas, puntajes, dimensiones) ; RMET (citas,
+puntajes, dimensiones) ; RobToM (citas, puntajes, dimensiones)
+
+── CHECK duplicates
+────────────────────────────────────────────────────────────
+✔ No duplicated short_name in the Google docs
+• `` -&gt; `...12`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$DF_FINAL
+# A tibble: 27 × 8
+   task      missing_script missing_gdoc missing_…¹ proto…² Nombre Descr…³ EMAIL
+   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
+ 1 BDI       &lt;NA&gt;           &lt;NA&gt;         BDI        &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaq…
+ 2 CEL       &lt;NA&gt;           &lt;NA&gt;         CEL        &lt;NA&gt;    Cuest… Mide l… jmor…
+ 3 CIT       &lt;NA&gt;           &lt;NA&gt;         CIT        &lt;NA&gt;    Test … Prueba… buit…
+ 4 CRQ       &lt;NA&gt;           &lt;NA&gt;         CRQ        &lt;NA&gt;    Escal… &lt;NA&gt;    buit…
+ 5 CS        &lt;NA&gt;           &lt;NA&gt;         CS         &lt;NA&gt;    Escal… Mide l… altr…
+ 6 CTT       &lt;NA&gt;           &lt;NA&gt;         CTT        &lt;NA&gt;    Test … &lt;NA&gt;    buit…
+ 7 ESV       &lt;NA&gt;           &lt;NA&gt;         ESV        &lt;NA&gt;    Empat… &lt;NA&gt;    altr…
+ 8 ESZ       &lt;NA&gt;           &lt;NA&gt;         ESZ        &lt;NA&gt;    Escal… Mide l… altr…
+ 9 fauxPasEv &lt;NA&gt;           &lt;NA&gt;         fauxPasEv  &lt;NA&gt;    Faux … Evalua… jmor…
+10 ICvsID    &lt;NA&gt;           &lt;NA&gt;         ICvsID     &lt;NA&gt;    Impar… &lt;NA&gt;    buit…
+# … with 17 more rows, and abbreviated variable names ¹​missing_task,
+#   ²​protocols, ³​Descripcion
+# ℹ Use `print(n = ...)` to see more rows
+
+$DF_missing_JS_tasks
+# A tibble: 27 × 3
+   task      Nombre                                               Descripcion   
+   &lt;chr&gt;     &lt;chr&gt;                                                &lt;chr&gt;         
+ 1 BDI       &lt;NA&gt;                                                 &lt;NA&gt;          
+ 2 CEL       Cuestionario Estilos de Liderazgo                    Mide los esti…
+ 3 CIT       Test de inferencia contrafactual                     Prueba de sel…
+ 4 CRQ       Escala de Reserva Cognitiva                          &lt;NA&gt;          
+ 5 CS        Escala de Compasión                                  Mide la Compa…
+ 6 CTT       Test de pensamiento contrafactual                    &lt;NA&gt;          
+ 7 ESV       Empathy Stimulus Validation                          &lt;NA&gt;          
+ 8 ESZ       Escala abreviada de Sobrecarga del Cuidador de Zarit Mide la sobre…
+ 9 fauxPasEv Faux Pas                                             Evalua teoría…
+10 ICvsID    Impartial Charity vs. Instrumental Damage            &lt;NA&gt;          
+# … with 17 more rows
+# ℹ Use `print(n = ...)` to see more rows
+
+$DF_missing_script
+# A tibble: 0 × 2
+# … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
+# ℹ Use `colnames()` to see all variable names
+
+$DF_missing_googledoc
+# A tibble: 0 × 2
+# … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
+# ℹ Use `colnames()` to see all variable names
+
+$MISSING_tabs
+# A tibble: 6 × 3
+  EMAIL                                   tasks                            TEXT 
+  &lt;chr&gt;                                   &lt;chr&gt;                            &lt;chr&gt;
+1 altroncoso@alumnosuaicl.onmicrosoft.com "ESV (citas, puntajes, dimensio… "alt…
+2 buitrago-c@javeriana.edu.co             "CIT (citas, puntajes, dimensio… "bui…
+3 jmoraless@uc.cl                         "CEL (dimensiones) ; fauxPasEv … "jmo…
+4 joaquin.migeot@gmail.com                "BDI (citas, puntajes, dimensio… "joa…
+5 nicolasmarchant@alumnos.uai.cl          "PPD (citas, puntajes, dimensio… "nic…
+6 vicente.soto.d@uai.cl                   "NARS (citas, puntajes, dimensi… "vic…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 8
+   task      missing_script missing_gdoc missing_…¹ proto…² Nombre Descr…³ EMAIL
+   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
+ 1 BDI       ""             &lt;NA&gt;         BDI        &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaq…
+ 2 CEL       ""             &lt;NA&gt;         CEL        &lt;NA&gt;    Cuest… Mide l… jmor…
+ 3 CIT       ""             &lt;NA&gt;         CIT        &lt;NA&gt;    Test … Prueba… buit…
+ 4 CRQ       ""             &lt;NA&gt;         CRQ        &lt;NA&gt;    Escal… &lt;NA&gt;    buit…
+ 5 CS        ""             &lt;NA&gt;         CS         &lt;NA&gt;    Escal… Mide l… altr…
+ 6 CTT       ""             &lt;NA&gt;         CTT        &lt;NA&gt;    Test … &lt;NA&gt;    buit…
+ 7 ESV       ""             &lt;NA&gt;         ESV        &lt;NA&gt;    Empat… &lt;NA&gt;    altr…
+ 8 ESZ       ""             &lt;NA&gt;         ESZ        &lt;NA&gt;    Escal… Mide l… altr…
+ 9 fauxPasEv ""             &lt;NA&gt;         fauxPasEv  &lt;NA&gt;    Faux … Evalua… jmor…
+10 ICvsID    ""             &lt;NA&gt;         ICvsID     &lt;NA&gt;    Impar… &lt;NA&gt;    buit…
+# … with 17 more rows, and abbreviated variable names ¹​missing_task,
+#   ²​protocols, ³​Descripcion
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 0 × 8
+# … with 8 variables: task &lt;chr&gt;, missing_script &lt;chr&gt;, missing_gdoc &lt;chr&gt;,
+#   missing_task &lt;chr&gt;, protocols &lt;chr&gt;, Nombre &lt;chr&gt;, Descripcion &lt;chr&gt;,
+#   EMAIL &lt;chr&gt;
+# ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 0 × 3
+# … with 3 variables: task &lt;chr&gt;, protocols &lt;chr&gt;, EMAIL &lt;chr&gt;
+# ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
 </div>
 </section>
 <section id="create-protocol-with-new-tasks" class="level3" data-number="6.3.2">

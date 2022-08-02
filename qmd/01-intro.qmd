@@ -1,0 +1,32 @@
+# Reproducible experiments {#intro}
+
+We use different technologies to develop experiments. Some examples are [Psychopy](https://www.psychopy.org/), [Qualtrics](https://www.qualtrics.com/), [Limesurvey](https://www.limesurvey.org/), [jsPsych](https://www.jspsych.org/plugins/jspsych-preload/), [Gorilla](https://gorilla.sc/), etc. Each of these has advantages and disadvantages and, in general, there are pragmatic aspects to take into account when adopting one or the other: cost, type of experiment (EEG or behavioral, lab or online), lab history and available resources, ...
+
+We opted for [jsPsych](https://www.jspsych.org/) to run behavioral experiments because it is an **open source** javascript library, based on standard web technologies, and can be used online and offline.
+
+In the last years, we started working on a set of tools to create [jsPsych](https://www.jspsych.org/) experiments ([jsPsychMaker](https://github.com/gorkang/jsPsychMaker)), simulate participants ([jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys)) and standardize and automatize the data preparation and analysis ([jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR)).
+
+Our final goal is to have a big catalog of tasks available to use in the [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) repo. Each of the tasks should run with [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) to create virtual participants. And each task will have a sister script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to fully automate data preparation.
+
+## Open and reproducible pipeline
+
+To replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.
+
+Furthermore, all the components of the pipeline should be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.
+
+With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically (including anonimization).
+
+The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a [registered report](https://www.cos.io/initiatives/registered-reports) and just relaunch the data preparation and analysis when the participant's data arrive, with a single command.
+
+## Automatization
+
+We tried to make a few basic things right, but this is an evolving project, and some things are more complex than one would want. Please do report the issues you find:
+
+-   [jsPsychMaker issues](https://github.com/gorkang/jsPsychMaker)
+-   [jsPsychMonkeys issues](https://github.com/gorkang/jsPsychMonkeys/issues)
+-   [jsPsychHelpeR issues](https://github.com/gorkang/jsPsychHelpeR/issues)
+
+```{r, echo=FALSE, out.width='40%', fig.cap='SOURCE: https://xkcd.com/1425/', fig.align="center"}
+  knitr::include_graphics(here::here("img/xkcd_tasks.png"))
+```
+<!-- ![SOURCE: https://xkcd.com/1425/](img/xkcd-tasks.png){width="40%"} -->

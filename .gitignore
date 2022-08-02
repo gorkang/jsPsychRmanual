@@ -6,3 +6,4 @@
 *.insyncdl
 TODO.md
 dev/
+/.quarto/
