@@ -188,7 +188,7 @@ This will:
 
 -   open the new `prepare_NAMETASK.R` file
 
-If the parameter `get_dimensions_googledoc = TRUE`:
+If the parameter `get_info_googledoc = TRUE`:
 
 -   The [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) is checked.
 
