@@ -125,7 +125,27 @@ For example, we can use `check_missing_prepare_TASK()` to:
 
 With `create_protocol_with_NEW_tasks.R` we can create a protocol with the tasks for which we do not yet have a control snapshot (no .csv's in the 999.zip data).
 
-This is an important step before the task can go to the canonical protocol.
+**This is a necessary step before the task can be moved to the canonical protocol.**
+
+The function `find_missing_tasks_in_999()` will read all the csv in `jsPsychHelpeR/data/999/999.zip` and depending on the value of the parameter `search_where` ("prepare_TASK" or "js"):
+
+- all .js tasks in `jsPsychMaker/protocols_DEV/`
+
+- all prepare_TASK.R in `jsPSychHelpeR/R_tasks/`
+
+Comparing both sources, will look for tasks for which we do not have a .csv in the 999 protocol yet (remember the 999 protocol is the canonical_protocol in the server).
+
+Then, it prepares a NEW_TASKS protocol using the tasks.js files found in the server (after downloading all the server protocols to `jsPsychR/CSCN-server/`). A couple important points:  
+
+- This is a bit tricky, as it will use all the tasks in the server that it can found, across all the protocols, and will select the newest one.
+
+- Sometimes there are multiple copies, with different dates and sizes...
+
+- It is important that the server is as clean as possible. With all the OLD non-updated protocols zipped.
+
+
+To make sure the Github `jsPsychMaker/protocols_DEV/NEW_TASKS/` is up to date, `create_protocol_with_NEW_tasks.R` will UPLOAD `CSCN-server/.../NEW_TASKS` to the server, and then DOWNLOAD NEW_TASKS to `../jsPsychMaker/protocols_DEV/NEW_TASKS/`  
+
 
 ### Check canonical protocol DEV
 

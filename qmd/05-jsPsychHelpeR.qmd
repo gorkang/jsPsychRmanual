@@ -60,17 +60,19 @@ run_initial_setup(pid = "999", download_files = FALSE, download_task_script = FA
 
 ------------------------------------------------------------------------
 
-We use the [targets](https://github.com/wlandau/targets) package.
+### Targets pipeline
 
-**The whole process can be reproduced running `targets::tar_make()`**
+To help make the pipeline reproducible and more efficient, we use the [targets](https://github.com/wlandau/targets) package [@targets]. A few basic things to know:
 
-A nice visualization of all the pre-processing steps can be seen with `targets::tar_visnetwork(targets_only = TRUE)`
+-   **The whole process can be reproduced running `targets::tar_make()`**
 
-The file `_targets.R` contains the important parameters and calls to all the functions used when running `targets::tar_make()`
+-   A nice visualization of all the pre-processing steps can be seen with `targets::tar_visnetwork(targets_only = TRUE)`
+
+-   The file `_targets.R` contains the important parameters and calls to all the functions used when running `targets::tar_make()`
 
 To see more detail about any specific step, you can:
 
-1.  Go to the relevant function
+1.  Go to the relevant function in `_targets.R` (cursor on a function, then F2)
 
 2.  Load the input parameters of the function with `debug_function(NAME_OF FUNCTION)`. Alternatively, manually use `targets::tar_load(NAME_OF_TARGET)`
 

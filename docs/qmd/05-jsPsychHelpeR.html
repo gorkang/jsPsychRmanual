@@ -78,6 +78,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -204,7 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-prepare-data" id="toc-how-to-prepare-data" class="nav-link active" data-scroll-target="#how-to-prepare-data"> <span class="header-section-number">5.1</span> How to prepare data</a></li>
+  <li><a href="#how-to-prepare-data" id="toc-how-to-prepare-data" class="nav-link active" data-scroll-target="#how-to-prepare-data"> <span class="header-section-number">5.1</span> How to prepare data</a>
+  <ul class="collapse">
+  <li><a href="#targets-pipeline" id="toc-targets-pipeline" class="nav-link" data-scroll-target="#targets-pipeline"> <span class="header-section-number">5.1.1</span> Targets pipeline</a></li>
+  </ul></li>
   <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"> <span class="header-section-number">5.2</span> Basics</a>
   <ul class="collapse">
   <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs"> <span class="header-section-number">5.2.1</span> Inputs</a></li>
@@ -301,16 +323,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">download_files =</span> <span class="cn">FALSE</span>, <span class="at">download_task_script =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
-<p>We use the <a href="https://github.com/wlandau/targets">targets</a> package.</p>
-<p><strong>The whole process can be reproduced running <code>targets::tar_make()</code></strong></p>
-<p>A nice visualization of all the pre-processing steps can be seen with <code>targets::tar_visnetwork(targets_only = TRUE)</code></p>
-<p>The file <code>_targets.R</code> contains the important parameters and calls to all the functions used when running <code>targets::tar_make()</code></p>
+<section id="targets-pipeline" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="targets-pipeline"><span class="header-section-number">5.1.1</span> Targets pipeline</h3>
+<p>To help make the pipeline reproducible and more efficient, we use the <a href="https://github.com/wlandau/targets">targets</a> package <span class="citation" data-cites="targets">(<a href="10-references.html#ref-targets" role="doc-biblioref">Landau 2021</a>)</span>. A few basic things to know:</p>
+<ul>
+<li><p><strong>The whole process can be reproduced running <code>targets::tar_make()</code></strong></p></li>
+<li><p>A nice visualization of all the pre-processing steps can be seen with <code>targets::tar_visnetwork(targets_only = TRUE)</code></p></li>
+<li><p>The file <code>_targets.R</code> contains the important parameters and calls to all the functions used when running <code>targets::tar_make()</code></p></li>
+</ul>
 <p>To see more detail about any specific step, you can:</p>
 <ol type="1">
-<li><p>Go to the relevant function</p></li>
+<li><p>Go to the relevant function in <code>_targets.R</code> (cursor on a function, then F2)</p></li>
 <li><p>Load the input parameters of the function with <code>debug_function(NAME_OF FUNCTION)</code>. Alternatively, manually use <code>targets::tar_load(NAME_OF_TARGET)</code></p></li>
 <li><p>Run the code step by step as you would normally do</p></li>
 </ol>
+</section>
 </section>
 <section id="basics" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="basics"><span class="header-section-number">5.2</span> Basics</h2>
@@ -408,7 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>adapt it to your <code>short_name_task</code> to make everything as standardized as possible</p></li>
 <li><p>open the new <code>prepare_NAMETASK.R</code> file</p></li>
 </ul>
-<p>If the parameter <code>get_dimensions_googledoc = TRUE</code>:</p>
+<p>If the parameter <code>get_info_googledoc = TRUE</code>:</p>
 <ul>
 <li><p>The <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a> is checked.</p></li>
 <li><p>If the document has been filled properly, it will show in the console standardized strings (ready to be copy/pasted to the new <code>prepare_NAMETASK.R</code> file) about:</p>
@@ -639,6 +666,11 @@ x 0 tasks found for protocol 'TU NUMERO DE PROYECTO'. NOT creating _targets.R fi
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-targets" class="csl-entry" role="doc-biblioentry">
+Landau, William Michael. 2021. <span>“The Targets r Package: A Dynamic Make-Like Function-Oriented Pipeline Toolkit for Reproducibility and High-Performance Computing”</span> 6: 2959. <a href="https://doi.org/10.21105/joss.02959">https://doi.org/10.21105/joss.02959</a>.
+</div>
+</div>
 </section>
 </section>
 
