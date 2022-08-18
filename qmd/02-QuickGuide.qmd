@@ -27,18 +27,14 @@ Open RStudio and run the following two lines in the console. This will download 
 # Make sure you have {usethis} installed
 if (!require('usethis')) install.packages('usethis'); library('usethis')
 
-# Download last stable jsPsychMaker version to the Downloads folder
-usethis::use_course(
-  url = "https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.2.0.zip", 
-  destdir = "~/Downloads/"
-  )
-
-# Alternatively, download the dev version:
-# usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
+# Download the last version:
+usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
 
 ```
 
 #### 2) Edit configuration {.unnumbered}
+
+You will need to edit the config.js file on the `canonical_protocols`. See the [experiment configuration section](#experiment-configuration) for more details.  
 
 ```{r}
 #| echo: false
@@ -48,19 +44,18 @@ usethis::use_course(
   knitr::include_graphics(here::here("img/jsPsychmaker_config.png"))
 ```
 
-Go to folder `canonical_protocols` and edit `config.js`. You can also use the [jsPsychMaker_config Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) and copy the generated config.js file to your protocol folder.
+You can do one of the following:  
 
-The variable `tasks` should contain the name of an array of the tasks we want to run.
+A) Go to folder `canonical_protocols` and edit `config.js`. 
 
-Available tasks:\
-- [full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks)\
-- [details of available tasks](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0) (Spanish)\
-- If you need help creating a NEW task, see the section [help with new tasks](#Newtasks).  
+B) Use the [jsPsychMaker_config Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) and copy the generated config.js file in the `canonical_protocols` folder.  
 
 
 #### 3) Run experiment {.unnumbered}
 
 The experiment is ready to run on your computer. Open `index.html` in Google Chrome or your favorite (and up to date) browser.
+
+
 
 ## jsPsychMonkeys: Simulate participants {#QuickGuidejsPsychMonkeys}
 
@@ -71,6 +66,8 @@ The experiment is ready to run on your computer. Open `index.html` in Google Chr
 ------------------------------------------------------------------------
 
 jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](https://www.docker.com/) container to guarantee each session is a clean session. On Linux it's use and configuration is trivial, but on Windows it can be trickier.
+
+------------------------------------------------------------------------
 
 **Outline**
 
@@ -100,15 +97,8 @@ Run setup: `source("setup.R")`. This will install the packages needed.
 
 You may need to install some system libraries first:
 
--   `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev`
+-   `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`
 
-**Mac**
-
--   (?)
-
-**Windows**
-
-Download and install [docker](https://docs.docker.com/docker-for-windows/install/) (\~ 500MB)
 
 #### 3) Run Monkeys {.unnumbered}
 
@@ -121,6 +111,8 @@ Open `run.R` and follow the instructions. Mainly:
     -   `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "Downloads/999")`
 
 -   Run Monkeys!: `targets::tar_make()`
+
+
 
 ## jsPsychHelpeR: Prepare data {#QuickGuidejsPsychHelpeR}
 
@@ -186,6 +178,7 @@ run_initial_setup(pid = 999)
 -   Create a `_targets.R` file for your project
 
 **IMPORTANT**: You may need to manually copy the results files to the folder `data/PROJECT ID`
+
 
 #### 3) Run data preparation {.unnumbered}
 

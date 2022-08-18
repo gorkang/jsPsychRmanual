@@ -253,29 +253,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure you have {usethis} installed</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download last stable jsPsychMaker version to the Downloads folder</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">"https://github.com/gorkang/jsPsychMaker/archive/refs/tags/v0.2.0.zip"</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, download the dev version:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the last version:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="at">url =</span> <span class="st">"gorkang/jsPsychMaker"</span>, <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="edit-configuration" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="edit-configuration">2) Edit configuration</h4>
+<p>You will need to edit the config.js file on the <code>canonical_protocols</code>. See the <a href="03-jsPsychMaker.html#experiment-configuration">experiment configuration section</a> for more details.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="../img/jsPsychmaker_config.png" class="img-fluid" style="width:40.0%"></p>
 </div>
 </div>
-<p>Go to folder <code>canonical_protocols</code> and edit <code>config.js</code>. You can also use the <a href="https://gorkang.shinyapps.io/jsPsychMaker_config/">jsPsychMaker_config Shiny APP</a> and copy the generated config.js file to your protocol folder.</p>
-<p>The variable <code>tasks</code> should contain the name of an array of the tasks we want to run.</p>
-<p>Available tasks:<br>
-- <a href="https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks">full list of tasks in the Github repo</a><br>
-- <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">details of available tasks</a> (Spanish)<br>
-- If you need help creating a NEW task, see the section <a href="07-NEWtasks.html">help with new tasks</a>.</p>
+<p>You can do one of the following:</p>
+<ol type="A">
+<li><p>Go to folder <code>canonical_protocols</code> and edit <code>config.js</code>.</p></li>
+<li><p>Use the <a href="https://gorkang.shinyapps.io/jsPsychMaker_config/">jsPsychMaker_config Shiny APP</a> and copy the generated config.js file in the <code>canonical_protocols</code> folder.</p></li>
+</ol>
 </section>
 <section id="run-experiment" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-experiment">3) Run experiment</h4>
@@ -288,6 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>See the <a href="04-jsPsychMonkeys.html">jsPsychMonkeys chapter</a> for more detailed instructions.</strong></p>
 <hr>
 <p>jsPsychMonkeys uses <a href="https://www.selenium.dev/">Selenium</a> inside a <a href="https://www.docker.com/">Docker</a> container to guarantee each session is a clean session. On Linux it’s use and configuration is trivial, but on Windows it can be trickier.</p>
+<hr>
 <p><strong>Outline</strong></p>
 <ol type="1">
 <li><p>Download jsPsychMonkeys</p></li>
@@ -309,14 +304,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Ubuntu</strong></p>
 <p>You may need to install some system libraries first:</p>
 <ul>
-<li><code>sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev</code></li>
+<li><code>sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker</code></li>
 </ul>
-<p><strong>Mac</strong></p>
-<ul>
-<li>(?)</li>
-</ul>
-<p><strong>Windows</strong></p>
-<p>Download and install <a href="https://docs.docker.com/docker-for-windows/install/">docker</a> (~ 500MB)</p>
 </section>
 <section id="run-monkeys" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-monkeys">3) Run Monkeys</h4>
