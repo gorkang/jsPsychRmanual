@@ -26,7 +26,7 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 ## How to prepare data
 
-Our goal is that [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](https://gorkang.github.io/jsPsychR-manual/jsPsychHelpeR.html#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or fill the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) with the details to help us create the correction script.
+Our goal is that [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](https://gorkang.github.io/jsPsychR-manual/jsPsychHelpeR.html#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or see the section [help creating a new task](#Newtasks).
 
 If you already ran a pilot experiment, simply:
 
@@ -152,6 +152,12 @@ All the output processed data frames columns are named in a standardized way:
 -   **ShortNameOfTask_STDt**: standardized (`t`) score for a task
 
 ## Advanced
+
+
+### Need help preparing new task 
+
+If you need help preparing a NEW task, see the section [help with new tasks](#Newtasks).  
+
 
 ### Create your own reports
 
@@ -326,26 +332,6 @@ DF_wide_RAW_DIR =
 # [END ADAPT 3/3]: ***********************************************************
 # ****************************************************************************
 ```
-
-### How to fill the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)
-
-The best way is to check the main document with information about all the tasks ([Tareas jsPsychR](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0)) and find a similar task to copy/paste and adapt it in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
-
-The main suggestion is to be very consistent. For example, when entering the informacion about numeric conversion in the Puntajes_items tab:
-
-    All the cells must be:  
-    1 = Mucho  
-    2 = Poco  
-    ...
-
-DO NOT do things like:
-
-    1: Mucho  
-    1 Mucho  
-    1 pto = Mucho  
-    Mucho 1  
-
-Please, make sure you fill out all the details in all the tabs.
 
 ### DEBUG tasks
 

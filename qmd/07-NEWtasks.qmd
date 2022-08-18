@@ -1,0 +1,42 @@
+# Help with new tasks {#Newtasks}
+
+If you need help developing new tasks, you can [open a new Issue in the jsPsychMaker Github](https://github.com/gorkang/jsPsychMaker/issues).
+
+We will ask you to add the details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
+
+Once the task is implemented, our goal is to always end up having a sister task preparation script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR). You can try [to create the preparation script](#create-new-tasks) and do a Pull request, or ask for help [opening a new Issue in the jsPsychHelpeR Github](https://github.com/gorkang/jsPsychHelpeR/issues).
+
+
+## How to fill the NEW tasks document
+
+---  
+
+[NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)  
+
+---  
+
+First of all, you will need the original paper where the task was validated/translated to have all the details at hand. Please, send us a link to the paper.  
+
+The best way to fill the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) is:  
+
+1. Find a task similar to yours in the document [Tareas jsPsychR](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0) where we have information about all the available tasks.  
+
+2. Copy/paste the information from all the tabs to the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0) and adapt it.  
+
+
+
+Try to be as consistent as possible. For example, when entering the information about numeric conversion in the Puntajes_items tab:
+
+    All the cells must be:  
+    1 = Mucho  
+    2 = Poco  
+    ...
+
+DO NOT do things like:
+
+    1: Mucho  
+    1 Mucho  
+    1 pto = Mucho  
+    Mucho 1  
+
+Please, make sure you fill out all the details in all the tabs.

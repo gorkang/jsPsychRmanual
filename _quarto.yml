@@ -7,7 +7,7 @@ book:
   title: "jsPsychR manual"
   author: "Gorka Navarrete"
   # Sys.Date()
-  date: "2022"
+  date: today
   search: true
   repo-url: https://github.com/gorkang/jsPsychR-manual/
   downloads: [pdf]
@@ -19,6 +19,7 @@ book:
     - qmd/04-jsPsychMonkeys.qmd
     - qmd/05-jsPsychHelpeR.qmd
     - qmd/06-jsPsychRadmins.qmd
+    - qmd/07-NEWtasks.qmd
     - qmd/10-references.qmd
 
 bibliography: references.bib

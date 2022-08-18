@@ -60,7 +60,7 @@ DF_raw_NEW = googlesheets4::read_sheet("1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc
 
 In `r Sys.Date()` we have `r nrow(DF_raw)` tasks implemented, and `r nrow(DF_raw_NEW)` in development. The full details about the available tasks can be checked in [this document](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0). You can always check [the full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks).
 
-If you need help creating a NEW task [fill this form](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
+If you need help creating a NEW task, see the section [help creating a new task](#Newtasks).  
 
 ------------------------------------------------------------------------
 
@@ -227,21 +227,20 @@ delete from protocol where id_protocol=@PID;
 
 You will most likely need help from the server admin to perform these steps.
 
+
+## Need help implementing a task!
+
+If you need help creating a NEW task, see the section [help creating a new task](#Newtasks).  
+
+
 ## Developing tasks
 
-Remember to place an `if (debug_mode == 'false')` before the randomization of the item order so when running in debug_mode, the items are not randomized. This is important so the behaviour of the jsPsychMonkeys is reproducible:
+Remember to place an `if (debug_mode === false)` before the randomization of the item order so when running in debug_mode, the items are not randomized. This is important so the behaviour of the jsPsychMonkeys is reproducible:
 
 ```{js eval=FALSE}
-if (debug_mode == 'false') NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);
+if (debug_mode === false) NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);
 ```
 
-### Need help implementing a task!
-
-If you need help developing new tasks, you can [open a new Issue in the jsPsychMaker Github](https://github.com/gorkang/jsPsychMaker/issues).
-
-We will ask you to add the details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
-
-Once the task is implemented, our goal is to always end up having a sister task preparation script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR). You can try [to create the preparation script](#create-new-tasks) and do a Pull request, or ask for help [opening a new Issue in the jsPsychHelpeR Github](https://github.com/gorkang/jsPsychHelpeR/issues).
 
 ## Technical aspects
 

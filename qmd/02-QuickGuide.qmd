@@ -55,7 +55,8 @@ The variable `tasks` should contain the name of an array of the tasks we want to
 Available tasks:\
 - [full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks)\
 - [details of available tasks](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0) (Spanish)\
-- If you need a NEW task [fill this form](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0)
+- If you need help creating a NEW task, see the section [help with new tasks](#Newtasks).  
+
 
 #### 3) Run experiment {.unnumbered}
 
