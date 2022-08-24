@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # NEW tasks {#Newtasks}
 
 ## Create tasks
@@ -17,6 +22,9 @@ There are some important things to take into account:
 You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`:  
 
 ```{r, eval=FALSE}
+
+if (!require('usethis')) install.packages('usethis'); library('usethis')
+usethis::use_course("gorkang/jsPsychMaker")
 
 # Source functions
 invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
