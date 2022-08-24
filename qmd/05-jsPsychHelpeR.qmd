@@ -153,11 +153,9 @@ All the output processed data frames columns are named in a standardized way:
 
 ## Advanced
 
+### Need help preparing new task
 
-### Need help preparing new task 
-
-If you need help preparing a NEW task, see the section [help with new tasks](#Newtasks).  
-
+If you need help preparing a NEW task, see the section [help with new tasks](#Newtasks).
 
 ### Create your own reports
 
@@ -420,3 +418,18 @@ See `PRFBM`:
 -   Copy the csv files to the folder `data/YOUR_PROJECT_NUMBER`
 
 -   Run again `run_initial_setup()`
+
+## Rendering Rmd's
+
+> Error: ! missing files \_targets/meta/meta Execution halted
+
+It is better to run everything, including your reports, inside the pipeline (`targets::tar_make()`).
+
+If you need to the knitr (or render) button, you will have to:
+
+-   Load DF's `DF_analysis = readr::read_rds(here::here("_targets/objects/DF_analysis"))` instead of `targets::tar_load(DF_analysis)`
+-   Include all the necessary `library()` calls
+
+> Error : Could not parse knitr report Rmd/report_analysis.Rmd to detect dependencies: Scanner error: mapping values are not allowed in this context at line 6, column 17
+
+There is something wrong in Your YAML heather.

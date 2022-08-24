@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -258,6 +258,7 @@ div.csl-indent {
   <li><a href="#run_initial_setup" id="toc-run_initial_setup" class="nav-link" data-scroll-target="#run_initial_setup"> <span class="header-section-number">5.6.1</span> <code>run_initial_setup()</code>:</a></li>
   <li><a href="#on-mac-or-windows" id="toc-on-mac-or-windows" class="nav-link" data-scroll-target="#on-mac-or-windows"> <span class="header-section-number">5.6.2</span> On Mac or Windows:</a></li>
   </ul></li>
+  <li><a href="#rendering-rmds" id="toc-rendering-rmds" class="nav-link" data-scroll-target="#rendering-rmds"> <span class="header-section-number">5.7</span> Rendering Rmd’s</a></li>
   </ul>
 </nav>
     </div>
@@ -658,6 +659,23 @@ x 0 tasks found for protocol 'TU NUMERO DE PROYECTO'. NOT creating _targets.R fi
 <li><p>Copy the csv files to the folder <code>data/YOUR_PROJECT_NUMBER</code></p></li>
 <li><p>Run again <code>run_initial_setup()</code></p></li>
 </ul>
+</section>
+</section>
+<section id="rendering-rmds" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="rendering-rmds"><span class="header-section-number">5.7</span> Rendering Rmd’s</h2>
+<blockquote class="blockquote">
+<p>Error: ! missing files _targets/meta/meta Execution halted</p>
+</blockquote>
+<p>It is better to run everything, including your reports, inside the pipeline (<code>targets::tar_make()</code>).</p>
+<p>If you need to the knitr (or render) button, you will have to:</p>
+<ul>
+<li>Load DF’s <code>DF_analysis = readr::read_rds(here::here("_targets/objects/DF_analysis"))</code> instead of <code>targets::tar_load(DF_analysis)</code></li>
+<li>Include all the necessary <code>library()</code> calls</li>
+</ul>
+<blockquote class="blockquote">
+<p>Error : Could not parse knitr report Rmd/report_analysis.Rmd to detect dependencies: Scanner error: mapping values are not allowed in this context at line 6, column 17</p>
+</blockquote>
+<p>There is something wrong in Your YAML heather.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -665,7 +683,6 @@ x 0 tasks found for protocol 'TU NUMERO DE PROYECTO'. NOT creating _targets.R fi
 Landau, William Michael. 2021. <span>“The Targets r Package: A Dynamic Make-Like Function-Oriented Pipeline Toolkit for Reproducibility and High-Performance Computing”</span> 6: 2959. <a href="https://doi.org/10.21105/joss.02959">https://doi.org/10.21105/joss.02959</a>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
