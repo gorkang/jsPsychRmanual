@@ -50,8 +50,8 @@ if (!require('usethis')) install.packages('usethis'); library('usethis')
 usethis::use_course("gorkang/jsPsychMaker")
 
 
-# Launch this two commands in the new RStudio project (gorkang-jsPsychMaker-...)
-invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source)) # Source functions
+# Launch these two commands in the new RStudio project (gorkang-jsPsychMaker-...)
+invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
 create_protocol(tasks_folder = "admin/example_tasks_new_protocol/", 
                 folder_output = "admin/OUTPUT/NEW", 
                 launch_browser = TRUE)
