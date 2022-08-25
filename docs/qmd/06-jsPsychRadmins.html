@@ -447,7 +447,6 @@ puntajes, dimensiones) ; RobToM (citas, puntajes, dimensiones)</code></pre>
  9 CRQ   &lt;NA&gt;           &lt;NA&gt;         CRQ          &lt;NA&gt;      Escal… &lt;NA&gt;    buit…
 10 CS    &lt;NA&gt;           &lt;NA&gt;         CS           &lt;NA&gt;      Escal… Mide l… altr…
 # … with 23 more rows, and abbreviated variable name ¹​Descripcion
-# ℹ Use `print(n = ...)` to see more rows
 
 $DF_missing_JS_tasks
 # A tibble: 30 × 3
@@ -464,17 +463,14 @@ $DF_missing_JS_tasks
  9 CTT   Test de pensamiento contrafactual &lt;NA&gt;                                 
 10 ESV   Empathy Stimulus Validation       &lt;NA&gt;                                 
 # … with 20 more rows
-# ℹ Use `print(n = ...)` to see more rows
 
 $DF_missing_script
 # A tibble: 0 × 2
 # … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
-# ℹ Use `colnames()` to see all variable names
 
 $DF_missing_googledoc
 # A tibble: 0 × 2
 # … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
-# ℹ Use `colnames()` to see all variable names
 
 $MISSING_tabs
 # A tibble: 6 × 3
@@ -504,8 +500,7 @@ $MISSING_tabs
  8 CIT   ""             &lt;NA&gt;         CIT          &lt;NA&gt;      Test … Prueba… buit…
  9 CRQ   ""             &lt;NA&gt;         CRQ          &lt;NA&gt;      Escal… &lt;NA&gt;    buit…
 10 CS    ""             &lt;NA&gt;         CS           &lt;NA&gt;      Escal… Mide l… altr…
-# … with 23 more rows, and abbreviated variable name ¹​Descripcion
-# ℹ Use `print(n = ...)` to see more rows</code></pre>
+# … with 23 more rows, and abbreviated variable name ¹​Descripcion</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -513,16 +508,14 @@ $MISSING_tabs
 <pre><code># A tibble: 0 × 8
 # … with 8 variables: task &lt;chr&gt;, missing_script &lt;chr&gt;, missing_gdoc &lt;chr&gt;,
 #   missing_task &lt;chr&gt;, protocols &lt;chr&gt;, Nombre &lt;chr&gt;, Descripcion &lt;chr&gt;,
-#   EMAIL &lt;chr&gt;
-# ℹ Use `colnames()` to see all variable names</code></pre>
+#   EMAIL &lt;chr&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 3
-# … with 3 variables: task &lt;chr&gt;, protocols &lt;chr&gt;, EMAIL &lt;chr&gt;
-# ℹ Use `colnames()` to see all variable names</code></pre>
+# … with 3 variables: task &lt;chr&gt;, protocols &lt;chr&gt;, EMAIL &lt;chr&gt;</code></pre>
 </div>
 </div>
 </section>

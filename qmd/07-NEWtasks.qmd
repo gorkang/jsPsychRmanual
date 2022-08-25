@@ -7,19 +7,30 @@ editor_options:
 
 ## Create tasks
 
-There are a number of important elements the tasks need to have to work well with jsPsychR, so we recommend to use one of the systems we have developed to help with this.
+There are a number of elements the tasks need to have to work well with jsPsychR, so we recommend to use one of the systems we have developed.
 
-For example, with the function `create_protocol()`, you can create new tasks as part of a fully working protocol to be able to test them using csv files for the items and html files for the instructions.  
+For example, with `create_protocol()`, you can create new tasks as part of a fully working protocol to be able to test them using csv files for the items and html files for the instructions.  
 
-There are some important things to take into account:   
+There are some things to take into account:   
 
-- The tasks_folder expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have a csv file and html files  
+- The **tasks_folder** expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have a csv file and html files  
 
-- The csv file (ShortName.csv) needs to have an ID and plugin columns, and then columns by the name of parameters used in the plugin  
+- The **csv file** (ShortName.csv) needs to have an ID and plugin columns, and then columns by the name of parameters used in the plugin  
 
-- For each html file (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. If there is no html, a default page will be used  
+- For each **html file** (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. If there is no html, a default page will be used  
 
-You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`:  
+You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
+
+---  
+
+`create_protocol()` will:
+
+- Loop through the subfolders in `tasks_folder` to create one task per subfolder
+- Copy `canonical_protocol clean` to `folder_output`
+- Modify `config.js` to add the recently created tasks
+- Modify `index.html` to add only the plugins those tasks will use
+
+---  
 
 ```{r, eval=FALSE}
 
@@ -35,8 +46,6 @@ create_protocol(tasks_folder = "admin/example_tasks_new_protocol/",
                 launch_browser = TRUE)
 
 ```
-
-
 
 
 

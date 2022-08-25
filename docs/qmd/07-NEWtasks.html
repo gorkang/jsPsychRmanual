@@ -236,15 +236,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="create-tasks" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="create-tasks"><span class="header-section-number">7.1</span> Create tasks</h2>
-<p>There are a number of important elements the tasks need to have to work well with jsPsychR, so we recommend to use one of the systems we have developed to help with this.</p>
-<p>For example, with the function <code>create_protocol()</code>, you can create new tasks as part of a fully working protocol to be able to test them using csv files for the items and html files for the instructions.</p>
-<p>There are some important things to take into account:</p>
+<p>There are a number of elements the tasks need to have to work well with jsPsychR, so we recommend to use one of the systems we have developed.</p>
+<p>For example, with <code>create_protocol()</code>, you can create new tasks as part of a fully working protocol to be able to test them using csv files for the items and html files for the instructions.</p>
+<p>There are some things to take into account:</p>
 <ul>
-<li><p>The tasks_folder expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have a csv file and html files</p></li>
-<li><p>The csv file (ShortName.csv) needs to have an ID and plugin columns, and then columns by the name of parameters used in the plugin</p></li>
-<li><p>For each html file (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. If there is no html, a default page will be used</p></li>
+<li><p>The <strong>tasks_folder</strong> expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have a csv file and html files</p></li>
+<li><p>The <strong>csv file</strong> (ShortName.csv) needs to have an ID and plugin columns, and then columns by the name of parameters used in the plugin</p></li>
+<li><p>For each <strong>html file</strong> (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. If there is no html, a default page will be used</p></li>
 </ul>
-<p>You can run the fully reproducible example included in jsPsychMaker. It uses the files from <code>admin/example_tasks_new_protocol/</code>:</p>
+<p>You can run the fully reproducible example included in jsPsychMaker. It uses the files from <code>admin/example_tasks_new_protocol/</code>.</p>
+<hr>
+<p><code>create_protocol()</code> will:</p>
+<ul>
+<li>Loop through the subfolders in <code>tasks_folder</code> to create one task per subfolder</li>
+<li>Copy <code>canonical_protocol clean</code> to <code>folder_output</code></li>
+<li>Modify <code>config.js</code> to add the recently created tasks</li>
+<li>Modify <code>index.html</code> to add only the plugins those tasks will use</li>
+</ul>
+<hr>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span>
