@@ -44,19 +44,30 @@ There are some things to take into account:
 You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
 
 
-1) Download jsPsychMaker. This commands will open a new RStudio project called "gorkang-jsPsychMaker-..."
+1) Install jsPsychMaker from Github  
+
 ```{r, eval=FALSE}
-if (!require('usethis')) install.packages('usethis'); library('usethis')
-usethis::use_course("gorkang/jsPsychMaker")
+
+if (!require('remotes')) install.packages('remotes'); library('remotes')
+remotes::install_github("gorkang/jsPsychMaker")
 
 ```
 
-2) In the new RStudio project, run the following (or go to the file run.R)
+2) Create your prototol  
+
 ```{r, eval=FALSE}
-invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
-create_protocol(tasks_folder = "admin/example_tasks_new_protocol/", 
-                folder_output = "admin/OUTPUT/NEW", 
-                launch_browser = TRUE)
+
+  # Load library
+  library(jsPsychMaker)
+
+  # Copy example tasks to local folder
+  copy_example_tasks("~/Downloads/TEST")
+  
+  # Create protocol
+  create_protocol(tasks_folder = "~/Downloads/TEST/example_tasks/", 
+                  folder_output = "~/Downloads/TEST/new_protocol", 
+                  launch_browser = TRUE)
+
 ```
 
 
