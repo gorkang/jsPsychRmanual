@@ -9,7 +9,7 @@ editor_options:
 
 There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.
 
-For example, with `create_protocol()`, you can create new tasks as part of a fully working protocol to be able to test them using `csv` or `xls/xlxs` files for the items and html files for the instructions.  
+For example, with `create_protocol()`, you can create new tasks as part of a fully working protocol to be able to test them using `csv` or `xls/xlxs` files for the items and html files for the instructions. You will need R 4.2 or higher to use it.    
 
 There are some things to take into account:   
 
@@ -26,8 +26,6 @@ There are some things to take into account:
   + `15 == yes`: Response to item 3 is yes
 
 
-You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
-
 ---  
 
 `create_protocol()` will:
@@ -43,19 +41,22 @@ You can run the fully reproducible example included in jsPsychMaker. It uses the
 
 ---  
 
-```{r, eval=FALSE}
+You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
 
-# Download jsPsychMaker. This will open a new RStudio project called "gorkang-jsPsychMaker-..."
+
+1) Download jsPsychMaker. This commands will open a new RStudio project called "gorkang-jsPsychMaker-..."
+```{r, eval=FALSE}
 if (!require('usethis')) install.packages('usethis'); library('usethis')
 usethis::use_course("gorkang/jsPsychMaker")
 
+```
 
-# Launch these two commands in the new RStudio project (gorkang-jsPsychMaker-...)
+2) In the new RStudio project, run the following (or go to the file run.R)
+```{r, eval=FALSE}
 invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
 create_protocol(tasks_folder = "admin/example_tasks_new_protocol/", 
                 folder_output = "admin/OUTPUT/NEW", 
                 launch_browser = TRUE)
-
 ```
 
 
