@@ -67,6 +67,11 @@ There are some things to take into account:
   + `3 == 20`: Response to item 3 is 20
   + `15 == yes`: Response to item 3 is yes
 
+- If you use tasks with images, video or audio, make sure to include the files in a `media/` folder:  
+
+  + Images: `media/img`   
+  + Videos: `media/vid`  
+  + Audio: `media/audio`  
 
 ---  
 
@@ -86,24 +91,29 @@ There are some things to take into account:
 You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
 
 
-1) Install jsPsychMaker from Github  
+1) Install jsPsychMaker from Github and load library   
 
 ```{r, eval=FALSE}
 
 if (!require('remotes')) install.packages('remotes'); library('remotes')
-remotes::install_github("gorkang/jsPsychMaker")
+if (!require('jsPsychMaker')) remotes::install_github("gorkang/jsPsychMaker"); library('jsPsychMaker')
 
 ```
 
-2) Create your prototol  
+
+2) Copy example tasks
+
+This will copy a few example tasks that you use to adapt your tasks. For example, `MultiChoice` and `Slider` tasks, a key questions mini-task (`IfQuestion`), and an `ImageButtonResponse` task.  
+
 
 ```{r, eval=FALSE}
-
-  # Load library
-  library(jsPsychMaker)
-
   # Copy example tasks to local folder
-  copy_example_tasks("~/Downloads/TEST")
+  copy_example_tasks(destination_folder = "~/Downloads/TEST")
+```
+
+3) Create your protocol  
+
+```{r, eval=FALSE}
   
   # Create protocol
   create_protocol(tasks_folder = "~/Downloads/TEST/example_tasks/", 
