@@ -3,9 +3,51 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-# NEW tasks {#Newtasks}
+# New protocols and tasks
 
-## Create tasks
+## New protocols {#Newprotocols}
+
+You can create a new protocol in seconds, choosing from the tasks we have already available.  
+
+Make sure you have the last version of jsPsychMaker, installing from Github:  
+
+```{r, eval=FALSE}
+
+if (!require('remotes')) install.packages('remotes'); library('remotes')
+remotes::install_github("gorkang/jsPsychMaker")
+
+```
+
+
+
+### List available tasks
+
+
+You can list available tasks to choose from. You have more details in the section [available-tasks](03-jsPsychMaker.html#available-tasks).   
+
+```{r, eval=TRUE}
+
+  jsPsychMaker::list_available_tasks()
+
+```
+
+### Create a protocol
+
+This will create a fully working protocol in `folder_output`. You can edit `config.js` to adapt the protocol to your needs. See [experiment configuration](03-jsPsychMaker.html#experiment-configuration) for more details.  
+
+```{r, eval=FALSE}
+
+  jsPsychMaker::create_protocol(add_canonical_tasks = c("AIM", "EAR", "IRI"),
+                                folder_output = "~/Downloads/TEST/new_protocol", 
+                                launch_browser = TRUE)
+
+```
+
+
+
+## New tasks {#Newtasks}
+
+### Create tasks
 
 There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.
 
@@ -72,7 +114,8 @@ remotes::install_github("gorkang/jsPsychMaker")
 
 
 
-## Help with new tasks {#HelpNewtasks}
+## HELP with new tasks {#HelpNewtasks}
+
 If you need help developing new tasks, you can [open a new Issue in the jsPsychMaker Github](https://github.com/gorkang/jsPsychMaker/issues).
 
 We will ask you to add the details about the task in the [NEW tasks document](https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0).
@@ -80,7 +123,7 @@ We will ask you to add the details about the task in the [NEW tasks document](ht
 Once the task is implemented, our goal is to always end up having a sister task preparation script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR). You can try [to create the preparation script](#create-new-tasks) and do a Pull request, or ask for help [opening a new Issue in the jsPsychHelpeR Github](https://github.com/gorkang/jsPsychHelpeR/issues).
 
 
-## How to fill the NEW tasks document
+### How to fill the NEW tasks document
 
 ---  
 

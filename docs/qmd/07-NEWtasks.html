@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>jsPsychR manual - 7&nbsp; NEW tasks</title>
+<title>jsPsychR manual - 7&nbsp; New protocols and tasks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NEW tasks</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">New protocols and tasks</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -192,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd/07-NEWtasks.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NEW tasks</span></a>
+  <a href="../qmd/07-NEWtasks.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">New protocols and tasks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -209,9 +209,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#create-tasks" id="toc-create-tasks" class="nav-link active" data-scroll-target="#create-tasks"> <span class="header-section-number">7.1</span> Create tasks</a></li>
-  <li><a href="#HelpNewtasks" id="toc-HelpNewtasks" class="nav-link" data-scroll-target="#HelpNewtasks"> <span class="header-section-number">7.2</span> Help with new tasks</a></li>
-  <li><a href="#how-to-fill-the-new-tasks-document" id="toc-how-to-fill-the-new-tasks-document" class="nav-link" data-scroll-target="#how-to-fill-the-new-tasks-document"> <span class="header-section-number">7.3</span> How to fill the NEW tasks document</a></li>
+  <li><a href="#Newprotocols" id="toc-Newprotocols" class="nav-link active" data-scroll-target="#Newprotocols"> <span class="header-section-number">7.1</span> New protocols</a>
+  <ul class="collapse">
+  <li><a href="#list-available-tasks" id="toc-list-available-tasks" class="nav-link" data-scroll-target="#list-available-tasks"> <span class="header-section-number">7.1.1</span> List available tasks</a></li>
+  <li><a href="#create-a-protocol" id="toc-create-a-protocol" class="nav-link" data-scroll-target="#create-a-protocol"> <span class="header-section-number">7.1.2</span> Create a protocol</a></li>
+  </ul></li>
+  <li><a href="#Newtasks" id="toc-Newtasks" class="nav-link" data-scroll-target="#Newtasks"> <span class="header-section-number">7.2</span> New tasks</a>
+  <ul class="collapse">
+  <li><a href="#create-tasks" id="toc-create-tasks" class="nav-link" data-scroll-target="#create-tasks"> <span class="header-section-number">7.2.1</span> Create tasks</a></li>
+  </ul></li>
+  <li><a href="#HelpNewtasks" id="toc-HelpNewtasks" class="nav-link" data-scroll-target="#HelpNewtasks"> <span class="header-section-number">7.3</span> HELP with new tasks</a>
+  <ul class="collapse">
+  <li><a href="#how-to-fill-the-new-tasks-document" id="toc-how-to-fill-the-new-tasks-document" class="nav-link" data-scroll-target="#how-to-fill-the-new-tasks-document"> <span class="header-section-number">7.3.1</span> How to fill the NEW tasks document</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="Newtasks" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NEW tasks</span></span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">New protocols and tasks</span></h1>
 </div>
 
 
@@ -234,8 +244,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="create-tasks" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="create-tasks"><span class="header-section-number">7.1</span> Create tasks</h2>
+<section id="Newprotocols" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="Newprotocols"><span class="header-section-number">7.1</span> New protocols</h2>
+<p>You can create a new protocol in seconds, choosing from the tasks we have already available.</p>
+<p>Make sure you have the last version of jsPsychMaker, installing from Github:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); <span class="fu">library</span>(<span class="st">'remotes'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="list-available-tasks" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="list-available-tasks"><span class="header-section-number">7.1.1</span> List available tasks</h3>
+<p>You can list available tasks to choose from. You have more details in the section <a href="03-jsPsychMaker.html#available-tasks">available-tasks</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$tasks
+ [1] "AIM"          "Bank"         "BART"         "BNT"          "bRCOPE"      
+ [6] "CAS"          "Consent"      "ConsentHTML"  "Cov19Q"       "COVIDCONTROL"
+[11] "CRS"          "CRT7"         "CRTMCQ4"      "CRTv"         "DASS21"      
+[16] "DEBRIEF"      "DEMOGR"       "EAR"          "EmpaTom"      "ERQ"         
+[21] "ESM"          "GBS"          "GHQ12"        "Goodbye"      "HRPVB"       
+[26] "HRPVBpost"    "IBT"          "IDQ"          "IEC"          "INFCONS"     
+[31] "IRI"          "IRS"          "MDMQ"         "MIS"          "OBJNUM"      
+[36] "OTRASRELIG"   "PBS"          "PRFBM"        "PRFBMpost"    "PSETPP"      
+[41] "PSPPC"        "PSS"          "PVC"          "PWb"          "REI40"       
+[46] "Report"       "RSS"          "RTS"          "SASS"         "SBS"         
+[51] "SCSORF"       "SDG"          "SRA"          "SRBQP"        "SRSav"       
+[56] "STAI"         "SWBQ"         "WEBEXEC"     
+
+$tasks_zip
+[1] "/home/emrys/R/x86_64-pc-linux-gnu-library/4.2/jsPsychMaker/templates/tasks.zip"</code></pre>
+</div>
+</div>
+</section>
+<section id="create-a-protocol" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="create-a-protocol"><span class="header-section-number">7.1.2</span> Create a protocol</h3>
+<p>This will create a fully working protocol in <code>folder_output</code>. You can edit <code>config.js</code> to adapt the protocol to your needs. See <a href="03-jsPsychMaker.html#experiment-configuration">experiment configuration</a> for more details.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">add_canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"AIM"</span>, <span class="st">"EAR"</span>, <span class="st">"IRI"</span>),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="Newtasks" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="Newtasks"><span class="header-section-number">7.2</span> New tasks</h2>
+<section id="create-tasks" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="create-tasks"><span class="header-section-number">7.2.1</span> Create tasks</h3>
 <p>There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.</p>
 <p>For example, with <code>create_protocol()</code>, you can create new tasks as part of a fully working protocol to be able to test them using <code>csv</code> or <code>xls/xlxs</code> files for the items and html files for the instructions. You will need R 4.2 or higher to use it.</p>
 <p>There are some things to take into account:</p>
@@ -267,33 +322,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Install jsPsychMaker from Github</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); <span class="fu">library</span>(<span class="st">'remotes'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); <span class="fu">library</span>(<span class="st">'remotes'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Create your prototol</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load library</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(jsPsychMaker)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Copy example tasks to local folder</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">copy_example_tasks</span>(<span class="st">"~/Downloads/TEST"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_protocol</span>(<span class="at">tasks_folder =</span> <span class="st">"~/Downloads/TEST/example_tasks/"</span>, </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load library</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(jsPsychMaker)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Copy example tasks to local folder</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">copy_example_tasks</span>(<span class="st">"~/Downloads/TEST"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_protocol</span>(<span class="at">tasks_folder =</span> <span class="st">"~/Downloads/TEST/example_tasks/"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="HelpNewtasks" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="HelpNewtasks"><span class="header-section-number">7.2</span> Help with new tasks</h2>
+</section>
+<section id="HelpNewtasks" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="HelpNewtasks"><span class="header-section-number">7.3</span> HELP with new tasks</h2>
 <p>If you need help developing new tasks, you can <a href="https://github.com/gorkang/jsPsychMaker/issues">open a new Issue in the jsPsychMaker Github</a>.</p>
 <p>We will ask you to add the details about the task in the <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a>.</p>
 <p>Once the task is implemented, our goal is to always end up having a sister task preparation script in <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a>. You can try <a href="05-jsPsychHelpeR.html#create-new-tasks">to create the preparation script</a> and do a Pull request, or ask for help <a href="https://github.com/gorkang/jsPsychHelpeR/issues">opening a new Issue in the jsPsychHelpeR Github</a>.</p>
-</section>
-<section id="how-to-fill-the-new-tasks-document" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="how-to-fill-the-new-tasks-document"><span class="header-section-number">7.3</span> How to fill the NEW tasks document</h2>
+<section id="how-to-fill-the-new-tasks-document" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="how-to-fill-the-new-tasks-document"><span class="header-section-number">7.3.1</span> How to fill the NEW tasks document</h3>
 <hr>
 <p><a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NEW tasks document</a></p>
 <hr>
@@ -316,6 +371,7 @@ Mucho 1  </code></pre>
 <p>Please, make sure you fill out all the details in all the tabs.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
