@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -304,14 +304,6 @@ $tasks_zip
 <li><code>3 == 20</code>: Response to item 3 is 20</li>
 <li><code>15 == yes</code>: Response to item 3 is yes</li>
 </ul></li>
-<li><p>If you use tasks with images, video or audio, make sure to include the files in a <code>media/</code> folder:</p>
-<ul>
-<li>Images: <code>media/img</code><br>
-</li>
-<li>Videos: <code>media/vid</code><br>
-</li>
-<li>Audio: <code>media/audio</code></li>
-</ul></li>
 </ul>
 <hr>
 <p><code>create_protocol()</code> will:</p>
@@ -327,28 +319,26 @@ $tasks_zip
 <hr>
 <p>You can run the fully reproducible example included in jsPsychMaker. It uses the files from <code>admin/example_tasks_new_protocol/</code>.</p>
 <ol type="1">
-<li>Install jsPsychMaker from Github and load library</li>
+<li>Install jsPsychMaker from Github</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); <span class="fu">library</span>(<span class="st">'remotes'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'jsPsychMaker'</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>); <span class="fu">library</span>(<span class="st">'jsPsychMaker'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li>Copy example tasks</li>
-</ol>
-<p>This will copy a few example tasks that you use to adapt your tasks. For example, <code>MultiChoice</code> and <code>Slider</code> tasks, a key questions mini-task (<code>IfQuestion</code>), and an <code>ImageButtonResponse</code> task.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Copy example tasks to local folder</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">copy_example_tasks</span>(<span class="at">destination_folder =</span> <span class="st">"~/Downloads/TEST"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li>Create your protocol</li>
+<li>Create your prototol</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_protocol</span>(<span class="at">tasks_folder =</span> <span class="st">"~/Downloads/TEST/example_tasks/"</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load library</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(jsPsychMaker)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Copy example tasks to local folder</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">copy_example_tasks</span>(<span class="st">"~/Downloads/TEST"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_protocol</span>(<span class="at">tasks_folder =</span> <span class="st">"~/Downloads/TEST/example_tasks/"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

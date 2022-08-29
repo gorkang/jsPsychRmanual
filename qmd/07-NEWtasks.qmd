@@ -5,6 +5,38 @@ editor_options:
 ---
 # New protocols and tasks
 
+There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.  
+
+For example, with `jsPsychMaker::create_protocol()`, you can use tasks we already developed, and/or create new tasks defining their parameters in csv/excel files. The tasks will be part of a fully working protocol. You will need R 4.2 or higher to use it.    
+
+---  
+
+**`create_protocol()` can**:
+
+- Loop through the subfolders in `tasks_folder` to create one task per subfolder  
+- Copy `canonical_protocol_clean` to `folder_output`
+- Include in the protocol any tasks in `add_canonical_tasks`  
+- Modify `config.js` to add all the tasks created and selected  
+- Modify `index.html` to add only the plugins those tasks will use  
+- Modify `index.html` to add the media those task will use  
+- Check task names are OK (no spaces, _, -, do not start by a number, ...)  
+- Check only one csv or xls/xlsx file per folder  
+- Check plugins used exist in jsPsych-6/plugins  
+
+---  
+
+
+**`create_protocol()` cannot yet**: 
+
+- Modify config.js to adapt `all_conditions` to the experimental tasks added  
+- Use shiny app to edit the local config.js
+- Warn about CORS when protocol is local and we have videos
+
+
+---  
+
+
+
 ## New protocols {#Newprotocols}
 
 You can create a new protocol in seconds, choosing from the tasks we have already available.  
@@ -49,9 +81,7 @@ This will create a fully working protocol in `folder_output`. You can edit `conf
 
 ### Create tasks
 
-There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.
-
-For example, with `create_protocol()`, you can create new tasks as part of a fully working protocol to be able to test them using `csv` or `xls/xlxs` files for the items and html files for the instructions. You will need R 4.2 or higher to use it.    
+You can create new tasks with `create_task()` using `csv` or `xls/xlxs` files for the items, and `html` files for the instructions. But we recommend you use `create_protocol()` instead, so the tasks will be part of a fully working protocol, and testing them will be a breeze.  
 
 There are some things to take into account:   
 
@@ -75,19 +105,6 @@ There are some things to take into account:
 
 ---  
 
-`create_protocol()` will:
-
-- Loop through the subfolders in `tasks_folder` to create one task per subfolder
-- Copy `canonical_protocol clean` to `folder_output`
-- Modify `config.js` to add the recently created tasks
-- Modify `index.html` to add only the plugins those tasks will use
-- Check task names are OK (no spaces, _, -, do not start by a number, ...)
-- Check only one csv or xls/xlsx file per folder
-- Check plugins used exist in jsPsych-6/plugins
-
-
----  
-
 You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
 
 
@@ -107,8 +124,9 @@ This will copy a few example tasks that you use to adapt your tasks. For example
 
 
 ```{r, eval=FALSE}
-  # Copy example tasks to local folder
+
   copy_example_tasks(destination_folder = "~/Downloads/TEST")
+
 ```
 
 3) Create your protocol  
