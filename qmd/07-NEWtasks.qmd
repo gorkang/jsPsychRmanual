@@ -13,15 +13,18 @@ For example, with `jsPsychMaker::create_protocol()`, you can use tasks we alread
 
 **`create_protocol()` can**:
 
-- Loop through the subfolders in `tasks_folder` to create one task per subfolder  
+- Loop through the subfolders in `folder_tasks` to create one task per subfolder  
 - Copy `canonical_protocol_clean` to `folder_output`
-- Include in the protocol any tasks in `add_canonical_tasks`  
+- Include in the protocol any tasks in `canonical_tasks`  
 - Modify `config.js` to add all the tasks created and selected  
-- Modify `index.html` to add only the plugins those tasks will use  
+- Modify `index.html` to inlude only the plugins those tasks will use  
 - Modify `index.html` to add the media those task will use  
 - Check task names are OK (no spaces, _, -, do not start by a number, ...)  
+- Check names of all trialid's are OK (NAMETASK_NUMBER, e.g. MYTASK_001)  
 - Check only one csv or xls/xlsx file per folder  
 - Check plugins used exist in jsPsych-6/plugins  
+- Check we have the necessary parameters (WIP)  
+- Delete files of plugins not used  
 
 ---  
 
@@ -30,8 +33,6 @@ For example, with `jsPsychMaker::create_protocol()`, you can use tasks we alread
 
 - Modify config.js to adapt `all_conditions` to the experimental tasks added  
 - Use shiny app to edit the local config.js
-- Warn about CORS when protocol is local and we have videos
-
 
 ---  
 
@@ -39,7 +40,7 @@ For example, with `jsPsychMaker::create_protocol()`, you can use tasks we alread
 
 ## New protocols {#Newprotocols}
 
-You can create a new protocol in seconds, choosing from the tasks we have already available.  
+You can create a new protocol in seconds, choosing from the tasks we already have available.  
 
 Make sure you have the last version of jsPsychMaker, installing from Github:  
 
@@ -49,6 +50,10 @@ if (!require('remotes')) install.packages('remotes'); library('remotes')
 remotes::install_github("gorkang/jsPsychMaker")
 
 ```
+
+Check if there are new tasks available in a new version of the Github package: 
+ 
+`jsPsychMaker::check_NEW_tasks_Github()`
 
 
 
@@ -69,7 +74,7 @@ This will create a fully working protocol in `folder_output`. You can edit `conf
 
 ```{r, eval=FALSE}
 
-  jsPsychMaker::create_protocol(add_canonical_tasks = c("AIM", "EAR", "IRI"),
+  jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
                                 folder_output = "~/Downloads/TEST/new_protocol", 
                                 launch_browser = TRUE)
 
@@ -85,7 +90,7 @@ You can create new tasks with `create_task()` using `csv` or `xls/xlxs` files fo
 
 There are some things to take into account:   
 
-- The **tasks_folder** expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one `csv` or `xls/xlxs` file and `html` files  
+- **folder_tasks** expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one `csv` or `xls/xlxs` file and `html` files. Use `jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")` to see a working example    
 
 - The **csv or xls/xlsx file** (ShortName.csv or Shortname.xls/xlsx) needs to have an `ID` and `plugin` columns, and then columns by the name of parameters used in the plugin (e.g. if using the `survey-text` plugin, you will need the `prompt` parameter). If you need **help with the plugins parametes**, see [the jsPsych 6.3 list of plugins](https://www.jspsych.org/6.3/plugins/list-of-plugins/)    
 
@@ -105,7 +110,7 @@ There are some things to take into account:
 
 ---  
 
-You can run the fully reproducible example included in jsPsychMaker. It uses the files from `admin/example_tasks_new_protocol/`.  
+You can run the fully reproducible example included in jsPsychMaker:    
 
 
 1) Install jsPsychMaker from Github and load library   
@@ -125,7 +130,7 @@ This will copy a few example tasks that you use to adapt your tasks. For example
 
 ```{r, eval=FALSE}
 
-  copy_example_tasks(destination_folder = "~/Downloads/TEST")
+  jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")
 
 ```
 
@@ -134,9 +139,9 @@ This will copy a few example tasks that you use to adapt your tasks. For example
 ```{r, eval=FALSE}
   
   # Create protocol
-  create_protocol(tasks_folder = "~/Downloads/TEST/example_tasks/", 
-                  folder_output = "~/Downloads/TEST/new_protocol", 
-                  launch_browser = TRUE)
+  jsPsychMaker::create_protocol(folder_tasks = "~/Downloads/TEST/", 
+                                folder_output = "~/Downloads/TEST/new_protocol", 
+                                launch_browser = TRUE)
 
 ```
 

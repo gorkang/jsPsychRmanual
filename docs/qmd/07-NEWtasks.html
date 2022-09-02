@@ -244,14 +244,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<p>There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.</p>
+<p>For example, with <code>jsPsychMaker::create_protocol()</code>, you can use tasks we already developed, and/or create new tasks defining their parameters in csv/excel files. The tasks will be part of a fully working protocol. You will need R 4.2 or higher to use it.</p>
+<hr>
+<p><strong><code>create_protocol()</code> can</strong>:</p>
+<ul>
+<li>Loop through the subfolders in <code>folder_tasks</code> to create one task per subfolder<br>
+</li>
+<li>Copy <code>canonical_protocol_clean</code> to <code>folder_output</code></li>
+<li>Include in the protocol any tasks in <code>canonical_tasks</code><br>
+</li>
+<li>Modify <code>config.js</code> to add all the tasks created and selected<br>
+</li>
+<li>Modify <code>index.html</code> to inlude only the plugins those tasks will use<br>
+</li>
+<li>Modify <code>index.html</code> to add the media those task will use<br>
+</li>
+<li>Check task names are OK (no spaces, _, -, do not start by a number, …)<br>
+</li>
+<li>Check names of all trialid’s are OK (NAMETASK_NUMBER, e.g.&nbsp;MYTASK_001)<br>
+</li>
+<li>Check only one csv or xls/xlsx file per folder<br>
+</li>
+<li>Check plugins used exist in jsPsych-6/plugins<br>
+</li>
+<li>Check we have the necessary parameters (WIP)<br>
+</li>
+<li>Delete files of plugins not used</li>
+</ul>
+<hr>
+<p><strong><code>create_protocol()</code> cannot yet</strong>:</p>
+<ul>
+<li>Modify config.js to adapt <code>all_conditions</code> to the experimental tasks added<br>
+</li>
+<li>Use shiny app to edit the local config.js</li>
+</ul>
+<hr>
 <section id="Newprotocols" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="Newprotocols"><span class="header-section-number">7.1</span> New protocols</h2>
-<p>You can create a new protocol in seconds, choosing from the tasks we have already available.</p>
+<p>You can create a new protocol in seconds, choosing from the tasks we already have available.</p>
 <p>Make sure you have the last version of jsPsychMaker, installing from Github:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); <span class="fu">library</span>(<span class="st">'remotes'</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Check if there are new tasks available in a new version of the Github package:</p>
+<p><code>jsPsychMaker::check_NEW_tasks_Github()</code></p>
 <section id="list-available-tasks" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="list-available-tasks"><span class="header-section-number">7.1.1</span> List available tasks</h3>
 <p>You can list available tasks to choose from. You have more details in the section <a href="03-jsPsychMaker.html#available-tasks">available-tasks</a>.</p>
@@ -272,8 +310,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [51] "SCSORF"       "SDG"          "SRA"          "SRBQP"        "SRSav"       
 [56] "STAI"         "SWBQ"         "WEBEXEC"     
 
-$tasks_zip
-[1] "/home/emrys/R/x86_64-pc-linux-gnu-library/4.2/jsPsychMaker/templates/tasks.zip"</code></pre>
+$tasks_js
+ [1] "AIM.js"          "Bank.js"         "BART.js"         "BNT.js"         
+ [5] "bRCOPE.js"       "CAS.js"          "Consent.js"      "ConsentHTML.js" 
+ [9] "Cov19Q.js"       "COVIDCONTROL.js" "CRS.js"          "CRT7.js"        
+[13] "CRTMCQ4.js"      "CRTv.js"         "DASS21.js"       "DEBRIEF.js"     
+[17] "DEMOGR.js"       "EAR.js"          "EmpaTom.js"      "ERQ.js"         
+[21] "ESM.js"          "GBS.js"          "GHQ12.js"        "Goodbye.js"     
+[25] "HRPVB.js"        "HRPVBpost.js"    "IBT.js"          "IDQ.js"         
+[29] "IEC.js"          "INFCONS.js"      "IRI.js"          "IRS.js"         
+[33] "MDMQ.js"         "MIS.js"          "OBJNUM.js"       "OTRASRELIG.js"  
+[37] "PBS.js"          "PRFBM.js"        "PRFBMpost.js"    "PSETPP.js"      
+[41] "PSPPC.js"        "PSS.js"          "PVC.js"          "PWb.js"         
+[45] "REI40.js"        "Report.js"       "RSS.js"          "RTS.js"         
+[49] "SASS.js"         "SBS.js"          "SCSORF.js"       "SDG.js"         
+[53] "SRA.js"          "SRBQP.js"        "SRSav.js"        "STAI.js"        
+[57] "SWBQ.js"         "WEBEXEC.js"     </code></pre>
 </div>
 </div>
 </section>
@@ -281,7 +333,7 @@ $tasks_zip
 <h3 data-number="7.1.2" class="anchored" data-anchor-id="create-a-protocol"><span class="header-section-number">7.1.2</span> Create a protocol</h3>
 <p>This will create a fully working protocol in <code>folder_output</code>. You can edit <code>config.js</code> to adapt the protocol to your needs. See <a href="03-jsPsychMaker.html#experiment-configuration">experiment configuration</a> for more details.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">add_canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"AIM"</span>, <span class="st">"EAR"</span>, <span class="st">"IRI"</span>),</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"AIM"</span>, <span class="st">"EAR"</span>, <span class="st">"IRI"</span>),</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -291,11 +343,10 @@ $tasks_zip
 <h2 data-number="7.2" class="anchored" data-anchor-id="Newtasks"><span class="header-section-number">7.2</span> New tasks</h2>
 <section id="create-tasks" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="create-tasks"><span class="header-section-number">7.2.1</span> Create tasks</h3>
-<p>There are a number of elements the tasks need to work well with jsPsychR, so we recommend to use one of the systems we have developed.</p>
-<p>For example, with <code>create_protocol()</code>, you can create new tasks as part of a fully working protocol to be able to test them using <code>csv</code> or <code>xls/xlxs</code> files for the items and html files for the instructions. You will need R 4.2 or higher to use it.</p>
+<p>You can create new tasks with <code>create_task()</code> using <code>csv</code> or <code>xls/xlxs</code> files for the items, and <code>html</code> files for the instructions. But we recommend you use <code>create_protocol()</code> instead, so the tasks will be part of a fully working protocol, and testing them will be a breeze.</p>
 <p>There are some things to take into account:</p>
 <ul>
-<li><p>The <strong>tasks_folder</strong> expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one <code>csv</code> or <code>xls/xlxs</code> file and <code>html</code> files</p></li>
+<li><p><strong>folder_tasks</strong> expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one <code>csv</code> or <code>xls/xlxs</code> file and <code>html</code> files. Use <code>jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")</code> to see a working example</p></li>
 <li><p>The <strong>csv or xls/xlsx file</strong> (ShortName.csv or Shortname.xls/xlsx) needs to have an <code>ID</code> and <code>plugin</code> columns, and then columns by the name of parameters used in the plugin (e.g.&nbsp;if using the <code>survey-text</code> plugin, you will need the <code>prompt</code> parameter). If you need <strong>help with the plugins parametes</strong>, see <a href="https://www.jspsych.org/6.3/plugins/list-of-plugins/">the jsPsych 6.3 list of plugins</a></p></li>
 <li><p>For each <strong>html file</strong> (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. The files need to end with <code>_instructions.html</code> or <code>instructions#.html</code> (# is a number). If there is no html, a default page will be used</p></li>
 <li><p>For <strong>key questions</strong> (e.g.&nbsp;present this question only if participants responded “3”), you need to create a column named <code>if_question</code> and include a logical condition. For example:</p>
@@ -304,41 +355,39 @@ $tasks_zip
 <li><code>3 == 20</code>: Response to item 3 is 20</li>
 <li><code>15 == yes</code>: Response to item 3 is yes</li>
 </ul></li>
-</ul>
-<hr>
-<p><code>create_protocol()</code> will:</p>
+<li><p>If you use tasks with images, video or audio, make sure to include the files in a <code>media/</code> folder:</p>
 <ul>
-<li>Loop through the subfolders in <code>tasks_folder</code> to create one task per subfolder</li>
-<li>Copy <code>canonical_protocol clean</code> to <code>folder_output</code></li>
-<li>Modify <code>config.js</code> to add the recently created tasks</li>
-<li>Modify <code>index.html</code> to add only the plugins those tasks will use</li>
-<li>Check task names are OK (no spaces, _, -, do not start by a number, …)</li>
-<li>Check only one csv or xls/xlsx file per folder</li>
-<li>Check plugins used exist in jsPsych-6/plugins</li>
+<li>Images: <code>media/img</code><br>
+</li>
+<li>Videos: <code>media/vid</code><br>
+</li>
+<li>Audio: <code>media/audio</code></li>
+</ul></li>
 </ul>
 <hr>
-<p>You can run the fully reproducible example included in jsPsychMaker. It uses the files from <code>admin/example_tasks_new_protocol/</code>.</p>
+<p>You can run the fully reproducible example included in jsPsychMaker:</p>
 <ol type="1">
-<li>Install jsPsychMaker from Github</li>
+<li>Install jsPsychMaker from Github and load library</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); <span class="fu">library</span>(<span class="st">'remotes'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'jsPsychMaker'</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>); <span class="fu">library</span>(<span class="st">'jsPsychMaker'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li>Create your prototol</li>
+<li>Copy example tasks</li>
+</ol>
+<p>This will copy a few example tasks that you use to adapt your tasks. For example, <code>MultiChoice</code> and <code>Slider</code> tasks, a key questions mini-task (<code>IfQuestion</code>), and an <code>ImageButtonResponse</code> task.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">copy_example_tasks</span>(<span class="at">destination_folder =</span> <span class="st">"~/Downloads/TEST"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Create your protocol</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load library</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(jsPsychMaker)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Copy example tasks to local folder</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">copy_example_tasks</span>(<span class="st">"~/Downloads/TEST"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_protocol</span>(<span class="at">tasks_folder =</span> <span class="st">"~/Downloads/TEST/example_tasks/"</span>, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">folder_tasks =</span> <span class="st">"~/Downloads/TEST/"</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
