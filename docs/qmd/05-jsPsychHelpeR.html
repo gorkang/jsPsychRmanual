@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -224,41 +229,41 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-prepare-data" id="toc-how-to-prepare-data" class="nav-link active" data-scroll-target="#how-to-prepare-data"> <span class="header-section-number">5.1</span> How to prepare data</a>
+  <li><a href="#how-to-prepare-data" id="toc-how-to-prepare-data" class="nav-link active" data-scroll-target="#how-to-prepare-data"><span class="toc-section-number">5.1</span>  How to prepare data</a>
   <ul class="collapse">
-  <li><a href="#targets-pipeline" id="toc-targets-pipeline" class="nav-link" data-scroll-target="#targets-pipeline"> <span class="header-section-number">5.1.1</span> Targets pipeline</a></li>
+  <li><a href="#targets-pipeline" id="toc-targets-pipeline" class="nav-link" data-scroll-target="#targets-pipeline"><span class="toc-section-number">5.1.1</span>  Targets pipeline</a></li>
   </ul></li>
-  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"> <span class="header-section-number">5.2</span> Basics</a>
+  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"><span class="toc-section-number">5.2</span>  Basics</a>
   <ul class="collapse">
-  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs"> <span class="header-section-number">5.2.1</span> Inputs</a></li>
-  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs"> <span class="header-section-number">5.2.2</span> Outputs</a></li>
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs"><span class="toc-section-number">5.2.1</span>  Inputs</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs"><span class="toc-section-number">5.2.2</span>  Outputs</a></li>
   </ul></li>
-  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced"> <span class="header-section-number">5.3</span> Advanced</a>
+  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced"><span class="toc-section-number">5.3</span>  Advanced</a>
   <ul class="collapse">
-  <li><a href="#need-help-preparing-new-task" id="toc-need-help-preparing-new-task" class="nav-link" data-scroll-target="#need-help-preparing-new-task"> <span class="header-section-number">5.3.1</span> Need help preparing new task</a></li>
-  <li><a href="#create-your-own-reports" id="toc-create-your-own-reports" class="nav-link" data-scroll-target="#create-your-own-reports"> <span class="header-section-number">5.3.2</span> Create your own reports</a></li>
-  <li><a href="#create-new-tasks" id="toc-create-new-tasks" class="nav-link" data-scroll-target="#create-new-tasks"> <span class="header-section-number">5.3.3</span> Create new tasks</a></li>
-  <li><a href="#adapting-new-tasks" id="toc-adapting-new-tasks" class="nav-link" data-scroll-target="#adapting-new-tasks"> <span class="header-section-number">5.3.4</span> Adapting new tasks</a></li>
-  <li><a href="#debug-tasks" id="toc-debug-tasks" class="nav-link" data-scroll-target="#debug-tasks"> <span class="header-section-number">5.3.5</span> DEBUG tasks</a></li>
+  <li><a href="#need-help-preparing-new-task" id="toc-need-help-preparing-new-task" class="nav-link" data-scroll-target="#need-help-preparing-new-task"><span class="toc-section-number">5.3.1</span>  Need help preparing new task</a></li>
+  <li><a href="#create-your-own-reports" id="toc-create-your-own-reports" class="nav-link" data-scroll-target="#create-your-own-reports"><span class="toc-section-number">5.3.2</span>  Create your own reports</a></li>
+  <li><a href="#create-new-tasks" id="toc-create-new-tasks" class="nav-link" data-scroll-target="#create-new-tasks"><span class="toc-section-number">5.3.3</span>  Create new tasks</a></li>
+  <li><a href="#adapting-new-tasks" id="toc-adapting-new-tasks" class="nav-link" data-scroll-target="#adapting-new-tasks"><span class="toc-section-number">5.3.4</span>  Adapting new tasks</a></li>
+  <li><a href="#debug-tasks" id="toc-debug-tasks" class="nav-link" data-scroll-target="#debug-tasks"><span class="toc-section-number">5.3.5</span>  DEBUG tasks</a></li>
   </ul></li>
-  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"> <span class="header-section-number">5.4</span> Helper functions</a>
+  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="toc-section-number">5.4</span>  Helper functions</a>
   <ul class="collapse">
-  <li><a href="#reliability" id="toc-reliability" class="nav-link" data-scroll-target="#reliability"> <span class="header-section-number">5.4.1</span> Reliability</a></li>
+  <li><a href="#reliability" id="toc-reliability" class="nav-link" data-scroll-target="#reliability"><span class="toc-section-number">5.4.1</span>  Reliability</a></li>
   </ul></li>
-  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"> <span class="header-section-number">5.5</span> Technical aspects</a>
+  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"><span class="toc-section-number">5.5</span>  Technical aspects</a>
   <ul class="collapse">
-  <li><a href="#how-trialids-are-processed" id="toc-how-trialids-are-processed" class="nav-link" data-scroll-target="#how-trialids-are-processed"> <span class="header-section-number">5.5.1</span> How trialid’s are processed</a></li>
+  <li><a href="#how-trialids-are-processed" id="toc-how-trialids-are-processed" class="nav-link" data-scroll-target="#how-trialids-are-processed"><span class="toc-section-number">5.5.1</span>  How trialid’s are processed</a></li>
   </ul></li>
-  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors"> <span class="header-section-number">5.6</span> Common ERRORS</a>
+  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors"><span class="toc-section-number">5.6</span>  Common ERRORS</a>
   <ul class="collapse">
-  <li><a href="#run_initial_setup" id="toc-run_initial_setup" class="nav-link" data-scroll-target="#run_initial_setup"> <span class="header-section-number">5.6.1</span> <code>run_initial_setup()</code>:</a></li>
-  <li><a href="#on-mac-or-windows" id="toc-on-mac-or-windows" class="nav-link" data-scroll-target="#on-mac-or-windows"> <span class="header-section-number">5.6.2</span> On Mac or Windows:</a></li>
+  <li><a href="#run_initial_setup" id="toc-run_initial_setup" class="nav-link" data-scroll-target="#run_initial_setup"><span class="toc-section-number">5.6.1</span>  <code>run_initial_setup()</code>:</a></li>
+  <li><a href="#on-mac-or-windows" id="toc-on-mac-or-windows" class="nav-link" data-scroll-target="#on-mac-or-windows"><span class="toc-section-number">5.6.2</span>  On Mac or Windows:</a></li>
   </ul></li>
-  <li><a href="#rendering-rmds" id="toc-rendering-rmds" class="nav-link" data-scroll-target="#rendering-rmds"> <span class="header-section-number">5.7</span> Rendering Rmd’s</a></li>
+  <li><a href="#rendering-rmds" id="toc-rendering-rmds" class="nav-link" data-scroll-target="#rendering-rmds"><span class="toc-section-number">5.7</span>  Rendering Rmd’s</a></li>
   </ul>
 </nav>
     </div>
@@ -755,7 +760,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

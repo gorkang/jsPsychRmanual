@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -205,17 +210,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#google-docs" id="toc-google-docs" class="nav-link active" data-scroll-target="#google-docs"> <span class="header-section-number">6.1</span> Google Docs</a></li>
-  <li><a href="#folders-and-how-to-work" id="toc-folders-and-how-to-work" class="nav-link" data-scroll-target="#folders-and-how-to-work"> <span class="header-section-number">6.2</span> Folders and how to work</a></li>
-  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"> <span class="header-section-number">6.3</span> Helper functions</a>
+  <li><a href="#google-docs" id="toc-google-docs" class="nav-link active" data-scroll-target="#google-docs"><span class="toc-section-number">6.1</span>  Google Docs</a></li>
+  <li><a href="#folders-and-how-to-work" id="toc-folders-and-how-to-work" class="nav-link" data-scroll-target="#folders-and-how-to-work"><span class="toc-section-number">6.2</span>  Folders and how to work</a></li>
+  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="toc-section-number">6.3</span>  Helper functions</a>
   <ul class="collapse">
-  <li><a href="#check-all-protocols" id="toc-check-all-protocols" class="nav-link" data-scroll-target="#check-all-protocols"> <span class="header-section-number">6.3.1</span> Check all protocols</a></li>
-  <li><a href="#create-protocol-with-new-tasks" id="toc-create-protocol-with-new-tasks" class="nav-link" data-scroll-target="#create-protocol-with-new-tasks"> <span class="header-section-number">6.3.2</span> Create protocol with NEW tasks</a></li>
-  <li><a href="#check-canonical-protocol-dev" id="toc-check-canonical-protocol-dev" class="nav-link" data-scroll-target="#check-canonical-protocol-dev"> <span class="header-section-number">6.3.3</span> Check canonical protocol DEV</a></li>
+  <li><a href="#check-all-protocols" id="toc-check-all-protocols" class="nav-link" data-scroll-target="#check-all-protocols"><span class="toc-section-number">6.3.1</span>  Check all protocols</a></li>
+  <li><a href="#create-protocol-with-new-tasks" id="toc-create-protocol-with-new-tasks" class="nav-link" data-scroll-target="#create-protocol-with-new-tasks"><span class="toc-section-number">6.3.2</span>  Create protocol with NEW tasks</a></li>
+  <li><a href="#check-canonical-protocol-dev" id="toc-check-canonical-protocol-dev" class="nav-link" data-scroll-target="#check-canonical-protocol-dev"><span class="toc-section-number">6.3.3</span>  Check canonical protocol DEV</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -366,16 +371,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>✖ Tasks missing info in tabs: </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• altroncoso@alumnosuaicl.onmicrosoft.com: 2</code></pre>
+<pre><code>• buitrago-c@javeriana.edu.co; dmgarciag@javeriana.edu.co: 1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• buitrago-c@javeriana.edu.co: 9</code></pre>
+<pre><code>• dfrancobyr@gmail.com, joaquin.migeot@gmail.com: 1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• jmoraless@uc.cl: 4</code></pre>
+<pre><code>• Email de la persona que solicita la implementación: 1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• joaquin.migeot@gmail.com: 3</code></pre>
+<pre><code>• jmoraless@uc.cl: 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• joaquin.migeot@gmail.com: 2</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>• nicolasmarchant@alumnos.uai.cl: 1</code></pre>
@@ -393,23 +401,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code></code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• altroncoso@alumnosuaicl.onmicrosoft.com: ESV (citas, puntajes, dimensiones) ;
-ESZ (citas,)</code></pre>
+<pre><code>• buitrago-c@javeriana.edu.co; dmgarciag@javeriana.edu.co: AIM23 (citas,
+puntajes, dimensiones)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• buitrago-c@javeriana.edu.co: CIT (citas, puntajes, dimensiones) ; CRQ (citas,
-puntajes, dimensiones) ; CTT (citas, puntajes, dimensiones) ; ICvsID (citas,
-puntajes, dimensiones) ; LSNS (citas, puntajes, dimensiones) ; MDDF (citas,
-puntajes, dimensiones) ; PSC (citas, puntajes, dimensiones) ; SCGT (citas,
-puntajes, dimensiones) ; UCLA (citas, puntajes, dimensiones)</code></pre>
+<pre><code>• dfrancobyr@gmail.com, joaquin.migeot@gmail.com: BDI (citas, puntajes,
+dimensiones)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• jmoraless@uc.cl: CEL (citas,) ; fauxPasEv (puntajes, dimensiones) ; LoB
-(citas,) ; Words (puntajes, dimensiones)</code></pre>
+<pre><code>• Email de la persona que solicita la implementación: SIN espacios ni
+caracteres extraños
+
+NOMBRE UNICO (CHECK Tareas jsPsychMaker) (citas, puntajes, dimensiones)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• joaquin.migeot@gmail.com: BDI (citas, puntajes, dimensiones) ; LOT (citas,
-puntajes, dimensiones) ; MCQ30 (citas, puntajes, dimensiones)</code></pre>
+<pre><code>• jmoraless@uc.cl: LoB (citas,)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• joaquin.migeot@gmail.com: LOT (citas, puntajes, dimensiones) ; MCQ30 (citas,
+puntajes, dimensiones)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>• nicolasmarchant@alumnos.uai.cl: PPD (citas, puntajes, dimensiones)</code></pre>
@@ -427,42 +437,42 @@ puntajes, dimensiones) ; RobToM (citas, puntajes, dimensiones)</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>✔ No duplicated short_name in the Google docs</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$DF_FINAL
-# A tibble: 33 × 8
+# A tibble: 27 × 8
    task  missing_script missing_gdoc missing_task protocols Nombre Descr…¹ EMAIL
    &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
- 1 BART  &lt;NA&gt;           &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… &lt;NA&gt; 
- 2 BART  &lt;NA&gt;           &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… fati…
- 3 BDI   &lt;NA&gt;           &lt;NA&gt;         BDI          &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;    joaq…
- 4 BRS   &lt;NA&gt;           &lt;NA&gt;         BRS          &lt;NA&gt;      The B… Escala… gork…
- 5 CAS   &lt;NA&gt;           &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… &lt;NA&gt; 
- 6 CAS   &lt;NA&gt;           &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… fati…
- 7 CEL   &lt;NA&gt;           &lt;NA&gt;         CEL          &lt;NA&gt;      Cuest… Mide l… jmor…
+ 1 AIM23 &lt;NA&gt;           &lt;NA&gt;         AIM23        &lt;NA&gt;      AIM    &lt;NA&gt;    buit…
+ 2 BART  &lt;NA&gt;           &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… &lt;NA&gt; 
+ 3 BART  &lt;NA&gt;           &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… fati…
+ 4 BDI   &lt;NA&gt;           &lt;NA&gt;         BDI          &lt;NA&gt;      Beck … Medida… dfra…
+ 5 BRS   &lt;NA&gt;           &lt;NA&gt;         BRS          &lt;NA&gt;      The B… Escala… gork…
+ 6 CAS   &lt;NA&gt;           &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… &lt;NA&gt; 
+ 7 CAS   &lt;NA&gt;           &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… fati…
  8 CIT   &lt;NA&gt;           &lt;NA&gt;         CIT          &lt;NA&gt;      Test … Prueba… buit…
- 9 CRQ   &lt;NA&gt;           &lt;NA&gt;         CRQ          &lt;NA&gt;      Escal… &lt;NA&gt;    buit…
-10 CS    &lt;NA&gt;           &lt;NA&gt;         CS           &lt;NA&gt;      Escal… Mide l… altr…
-# … with 23 more rows, and abbreviated variable name ¹​Descripcion
+ 9 CRQ   &lt;NA&gt;           &lt;NA&gt;         CRQ          &lt;NA&gt;      Escal… Evalúa… buit…
+10 CTT   &lt;NA&gt;           &lt;NA&gt;         CTT          &lt;NA&gt;      Test … Evalúa… buit…
+# … with 17 more rows, and abbreviated variable name ¹​Descripcion
 
 $DF_missing_JS_tasks
-# A tibble: 30 × 3
-   task  Nombre                            Descripcion                          
-   &lt;chr&gt; &lt;chr&gt;                             &lt;chr&gt;                                
- 1 BART  Ballon Analogue Rish Task         Medida de riesgo individual mediante…
- 2 BDI   &lt;NA&gt;                              &lt;NA&gt;                                 
- 3 BRS   The Brief Resilience Scale        Escala de resiliencia                
- 4 CAS   COVID-19 anxiety scale            Evalúa las fluctuaciones en los nive…
- 5 CEL   Cuestionario Estilos de Liderazgo Mide los estilos de liderazgo según …
- 6 CIT   Test de inferencia contrafactual  Prueba de selección múltiple que eva…
- 7 CRQ   Escala de Reserva Cognitiva       &lt;NA&gt;                                 
- 8 CS    Escala de Compasión               Mide la Compasión hacia otros        
- 9 CTT   Test de pensamiento contrafactual &lt;NA&gt;                                 
-10 ESV   Empathy Stimulus Validation       Evalúa la interacción entre 2 indivi…
-# … with 20 more rows
+# A tibble: 24 × 3
+   task      Nombre                               Descripcion                   
+   &lt;chr&gt;     &lt;chr&gt;                                &lt;chr&gt;                         
+ 1 AIM23     AIM                                  &lt;NA&gt;                          
+ 2 BART      Ballon Analogue Rish Task            Medida de riesgo individual m…
+ 3 BDI       Beck depression inventory            Medida de frecuencua y graved…
+ 4 BRS       The Brief Resilience Scale           Escala de resiliencia         
+ 5 CAS       COVID-19 anxiety scale               Evalúa las fluctuaciones en l…
+ 6 CIT       Test de inferencia contrafactual     Prueba de selección múltiple …
+ 7 CRQ       Escala de Reserva Cognitiva          Evalúa aspectos de la reserva…
+ 8 CTT       Test de pensamiento contrafactual    Evalúa cómo la anticipación d…
+ 9 fauxPasEv Faux Pas                             Evalua la teoría de la mente  
+10 GHQ12     12-item General health questionnaire Detecta personas con trastorn…
+# … with 14 more rows
 
 $DF_missing_script
 # A tibble: 0 × 2
@@ -473,46 +483,47 @@ $DF_missing_googledoc
 # … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
 
 $MISSING_tabs
-# A tibble: 6 × 3
-  EMAIL                                   tasks                            TEXT 
-  &lt;chr&gt;                                   &lt;chr&gt;                            &lt;chr&gt;
-1 altroncoso@alumnosuaicl.onmicrosoft.com "ESV (citas, puntajes, dimensio… "alt…
-2 buitrago-c@javeriana.edu.co             "CIT (citas, puntajes, dimensio… "bui…
-3 jmoraless@uc.cl                         "CEL (citas,) ; fauxPasEv (punt… "jmo…
-4 joaquin.migeot@gmail.com                "BDI (citas, puntajes, dimensio… "joa…
-5 nicolasmarchant@alumnos.uai.cl          "PPD (citas, puntajes, dimensio… "nic…
-6 vicente.soto.d@uai.cl                   "NARS (citas, puntajes, dimensi… "vic…</code></pre>
+# A tibble: 7 × 3
+  EMAIL                                                   tasks            TEXT 
+  &lt;chr&gt;                                                   &lt;chr&gt;            &lt;chr&gt;
+1 buitrago-c@javeriana.edu.co; dmgarciag@javeriana.edu.co "AIM23 (citas, … "bui…
+2 dfrancobyr@gmail.com, joaquin.migeot@gmail.com          "BDI (citas, pu… "dfr…
+3 Email de la persona que solicita la implementación      "SIN espacios n… "Ema…
+4 jmoraless@uc.cl                                         "LoB (citas,) "  "jmo…
+5 joaquin.migeot@gmail.com                                "LOT (citas, pu… "joa…
+6 nicolasmarchant@alumnos.uai.cl                          "PPD (citas, pu… "nic…
+7 vicente.soto.d@uai.cl                                   "NARS (citas, p… "vic…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 33 × 8
+<pre><code># A tibble: 27 × 8
    task  missing_script missing_gdoc missing_task protocols Nombre Descr…¹ EMAIL
    &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
- 1 BART  ""             &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… &lt;NA&gt; 
- 2 BART  ""             &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… fati…
- 3 BDI   ""             &lt;NA&gt;         BDI          &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;    joaq…
- 4 BRS   ""             &lt;NA&gt;         BRS          &lt;NA&gt;      The B… Escala… gork…
- 5 CAS   ""             &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… &lt;NA&gt; 
- 6 CAS   ""             &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… fati…
- 7 CEL   ""             &lt;NA&gt;         CEL          &lt;NA&gt;      Cuest… Mide l… jmor…
+ 1 AIM23 ""             &lt;NA&gt;         AIM23        &lt;NA&gt;      AIM    &lt;NA&gt;    buit…
+ 2 BART  ""             &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… &lt;NA&gt; 
+ 3 BART  ""             &lt;NA&gt;         BART         &lt;NA&gt;      Ballo… Medida… fati…
+ 4 BDI   ""             &lt;NA&gt;         BDI          &lt;NA&gt;      Beck … Medida… dfra…
+ 5 BRS   ""             &lt;NA&gt;         BRS          &lt;NA&gt;      The B… Escala… gork…
+ 6 CAS   ""             &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… &lt;NA&gt; 
+ 7 CAS   ""             &lt;NA&gt;         CAS          &lt;NA&gt;      COVID… Evalúa… fati…
  8 CIT   ""             &lt;NA&gt;         CIT          &lt;NA&gt;      Test … Prueba… buit…
- 9 CRQ   ""             &lt;NA&gt;         CRQ          &lt;NA&gt;      Escal… &lt;NA&gt;    buit…
-10 CS    ""             &lt;NA&gt;         CS           &lt;NA&gt;      Escal… Mide l… altr…
-# … with 23 more rows, and abbreviated variable name ¹​Descripcion</code></pre>
+ 9 CRQ   ""             &lt;NA&gt;         CRQ          &lt;NA&gt;      Escal… Evalúa… buit…
+10 CTT   ""             &lt;NA&gt;         CTT          &lt;NA&gt;      Test … Evalúa… buit…
+# … with 17 more rows, and abbreviated variable name ¹​Descripcion</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 8
 # … with 8 variables: task &lt;chr&gt;, missing_script &lt;chr&gt;, missing_gdoc &lt;chr&gt;,
 #   missing_task &lt;chr&gt;, protocols &lt;chr&gt;, Nombre &lt;chr&gt;, Descripcion &lt;chr&gt;,
 #   EMAIL &lt;chr&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 3
 # … with 3 variables: task &lt;chr&gt;, protocols &lt;chr&gt;, EMAIL &lt;chr&gt;</code></pre>
@@ -623,7 +634,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

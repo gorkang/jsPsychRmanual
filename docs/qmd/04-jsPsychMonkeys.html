@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -142,18 +147,18 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-simulate-participants" id="toc-how-to-simulate-participants" class="nav-link active" data-scroll-target="#how-to-simulate-participants"> <span class="header-section-number">4.1</span> How to simulate participants</a></li>
-  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"> <span class="header-section-number">4.2</span> Parameters</a>
+  <li><a href="#how-to-simulate-participants" id="toc-how-to-simulate-participants" class="nav-link active" data-scroll-target="#how-to-simulate-participants"><span class="toc-section-number">4.1</span>  How to simulate participants</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"><span class="toc-section-number">4.2</span>  Parameters</a>
   <ul class="collapse">
-  <li><a href="#release-the-monkeys" id="toc-release-the-monkeys" class="nav-link" data-scroll-target="#release-the-monkeys"> <span class="header-section-number">4.2.1</span> Release the Monkeys!</a></li>
-  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"> <span class="header-section-number">4.2.2</span> Launch monkeys on a server</a></li>
-  <li><a href="#parameters-for-parameters_monkeys_minimal" id="toc-parameters-for-parameters_monkeys_minimal" class="nav-link" data-scroll-target="#parameters-for-parameters_monkeys_minimal"> <span class="header-section-number">4.2.3</span> Parameters for parameters_monkeys_minimal</a></li>
+  <li><a href="#release-the-monkeys" id="toc-release-the-monkeys" class="nav-link" data-scroll-target="#release-the-monkeys"><span class="toc-section-number">4.2.1</span>  Release the Monkeys!</a></li>
+  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"><span class="toc-section-number">4.2.2</span>  Launch monkeys on a server</a></li>
+  <li><a href="#parameters-for-parameters_monkeys_minimal" id="toc-parameters-for-parameters_monkeys_minimal" class="nav-link" data-scroll-target="#parameters-for-parameters_monkeys_minimal"><span class="toc-section-number">4.2.3</span>  Parameters for parameters_monkeys_minimal</a></li>
   </ul></li>
-  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"> <span class="header-section-number">4.3</span> Technical aspects</a></li>
+  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"><span class="toc-section-number">4.3</span>  Technical aspects</a></li>
   </ul>
 </nav>
     </div>
@@ -341,7 +346,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
