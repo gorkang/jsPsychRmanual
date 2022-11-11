@@ -1,5 +1,13 @@
 # Quick Guide {#QuickGuide}
 
+## Pre-requisites
+
+1. [Install R](https://cran.rstudio.com/)
+
+2. [Install RStudio desktop](https://posit.co/download/rstudio-desktop/)
+
+
+
 ## jsPsychMaker: Create an experimental protocol {#QuickGuidejsPsychMaker}
 
 ------------------------------------------------------------------------
@@ -10,45 +18,39 @@
 
 **Outline**
 
-1)  Download jsPsychMaker
+1)  Install jsPsychMaker
 
-2)  Go to the folder `canonical_protocols` and edit the `config.js` file to select the tasks you need
+2)  `create_protocol()` using any of the `list_available_tasks()` and edit the `config.js` to adapt the protocol settings
 
 3)  Open `index.html` in your browser
 
 ------------------------------------------------------------------------
 
-#### 1) Download jsPsychMaker {.unnumbered}
+#### 1) Install jsPsychMaker {.unnumbered}
 
-Open RStudio and run the following two lines in the console. This will download the last stable jsPsychMaker version `v0.2.0`. When you finish, a new RStudio project named jsPsychMaker-0.0.2 will open.
+Open RStudio and run the following two lines in the console. This will install the jsPsychMaker package from the Github repository.  
+
 
 ```{r, eval=FALSE}
 
-# Make sure you have {usethis} installed
-if (!require('usethis')) install.packages('usethis'); library('usethis')
-
-# Download the last version:
-usethis::use_course(url = "gorkang/jsPsychMaker", destdir = "~/Downloads/")
+if (!require('remotes')) install.packages('remotes'); library('remotes')
+remotes::install_github("gorkang/jsPsychMaker")
 
 ```
 
-#### 2) Edit configuration {.unnumbered}
+#### 2) Create protocol {.unnumbered}
 
-You will need to edit the config.js file on the `canonical_protocols`. See the [experiment configuration section](#experiment-configuration) for more details.  
+To create and test a fully working protocol in `folder_output` you can use the `create_protocol()` function. Include the `canonical_tasks` you want from the available ones (you can list them with `list_available_tasks()`). You have more details in [available-tasks](03-jsPsychMaker.html#available-tasks). If you need new tasks, see [New tasks](07-NEWtasks.html#Newtasks).  
 
-```{r}
-#| echo: false
-#| out.width: '40%'
-# column: margin
+```{r, eval=FALSE}
 
-  knitr::include_graphics(here::here("img/jsPsychmaker_config.png"))
+  jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
+                                folder_output = "~/Downloads/MyProtocol", 
+                                launch_browser = TRUE)
+
 ```
 
-You can do one of the following:  
-
-A) Go to folder `canonical_protocols` and edit `config.js`. 
-
-B) Use the [jsPsychMaker_config Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) and copy the generated config.js file in the `canonical_protocols` folder.  
+You must edit `config.js` to adapt the protocol to your needs. See [experiment configuration](03-jsPsychMaker.html#experiment-configuration) for more details.  
 
 
 #### 3) Run experiment {.unnumbered}
