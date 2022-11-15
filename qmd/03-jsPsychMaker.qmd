@@ -28,7 +28,7 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 
     -   Automatically discard participants over the time limit, freeing the slots for new participants
 
--   Seamlessly select between online and offline protocols
+-   Seamlessly switch between online and offline protocols
 
 -   Simulate participants with [jsPsychMonkeys](#jsPsychMonkeys)
 
@@ -39,6 +39,10 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 **See [QuickGuide](#QuickGuidejsPsychMaker) for basic instructions.**
 
 ------------------------------------------------------------------------
+
+![](../img/jsPsychMaker.png)
+
+
 
 ## Available tasks
 
