@@ -10,9 +10,9 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 -   Use a completely open, reproducible and automatic process to prepare your data
 
--   Data preparation ready for \> 50 tasks (see [here the list of tasks](https://github.com/gorkang/jsPsychMaker/blob/main/canonical_protocol/canonical_protocol_details.csv))
+-   Data preparation ready for \> 70 tasks (see [here the available tasks](03-jsPsychMaker.html#available-tasks))
 
--   Get tidy output dataframes for each task, and tidy general dataframes for the whole protocol
+-   Get tidy output dataframes for each task, and for the whole protocol
 
 -   Include tests for common issues
 
@@ -23,6 +23,9 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 **See [QuickGuide](#QuickGuidejsPsychHelpeR) for basic instructions.**
 
 ------------------------------------------------------------------------
+
+
+![](../img/jsPsychHelpeR.png)
 
 ## How to prepare data
 
