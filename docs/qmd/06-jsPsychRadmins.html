@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -214,13 +214,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#google-docs" id="toc-google-docs" class="nav-link active" data-scroll-target="#google-docs"><span class="toc-section-number">6.1</span>  Google Docs</a></li>
-  <li><a href="#folders-and-how-to-work" id="toc-folders-and-how-to-work" class="nav-link" data-scroll-target="#folders-and-how-to-work"><span class="toc-section-number">6.2</span>  Folders and how to work</a></li>
-  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="toc-section-number">6.3</span>  Helper functions</a>
+  <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link active" data-scroll-target="#docker-containers"><span class="toc-section-number">6.1</span>  Docker containers</a></li>
+  <li><a href="#google-docs" id="toc-google-docs" class="nav-link" data-scroll-target="#google-docs"><span class="toc-section-number">6.2</span>  Google Docs</a></li>
+  <li><a href="#folders-and-how-to-work" id="toc-folders-and-how-to-work" class="nav-link" data-scroll-target="#folders-and-how-to-work"><span class="toc-section-number">6.3</span>  Folders and how to work</a></li>
+  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="toc-section-number">6.4</span>  Helper functions</a>
   <ul class="collapse">
-  <li><a href="#check-all-protocols" id="toc-check-all-protocols" class="nav-link" data-scroll-target="#check-all-protocols"><span class="toc-section-number">6.3.1</span>  Check all protocols</a></li>
-  <li><a href="#create-protocol-with-new-tasks" id="toc-create-protocol-with-new-tasks" class="nav-link" data-scroll-target="#create-protocol-with-new-tasks"><span class="toc-section-number">6.3.2</span>  Create protocol with NEW tasks</a></li>
-  <li><a href="#check-canonical-protocol-dev" id="toc-check-canonical-protocol-dev" class="nav-link" data-scroll-target="#check-canonical-protocol-dev"><span class="toc-section-number">6.3.3</span>  Check canonical protocol DEV</a></li>
+  <li><a href="#check-all-protocols" id="toc-check-all-protocols" class="nav-link" data-scroll-target="#check-all-protocols"><span class="toc-section-number">6.4.1</span>  Check all protocols</a></li>
+  <li><a href="#create-protocol-with-new-tasks" id="toc-create-protocol-with-new-tasks" class="nav-link" data-scroll-target="#create-protocol-with-new-tasks"><span class="toc-section-number">6.4.2</span>  Create protocol with NEW tasks</a></li>
+  <li><a href="#check-canonical-protocol-dev" id="toc-check-canonical-protocol-dev" class="nav-link" data-scroll-target="#check-canonical-protocol-dev"><span class="toc-section-number">6.4.3</span>  Check canonical protocol DEV</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -238,6 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -246,8 +248,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <!-- TODO: create protocol to test new tasks in 999 with all available tasks... (extending canonical protocol with new tasks) -->
 <p>Instructions and protocols for jsPsychR admins. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.</p>
-<section id="google-docs" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="google-docs"><span class="header-section-number">6.1</span> Google Docs</h2>
+<section id="docker-containers" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">6.1</span> Docker containers</h2>
+<p>We can create a fully reproducible docker container with the data preparation and analysis for a specific project using <code>admin/create_docker.R</code></p>
+<p>The current version is a first attempt at this, so there is a lot to improve.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"admin/helper-scripts-admin.R"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapts the Dockerfile_TEMPLATE to the pid of the project</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">create_dockerfile</span>(<span class="at">PID =</span> <span class="dv">999</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Builds the docker container (ONLY ONCE)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"docker build -t project ."</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Runs the analysis (the user should be able to do this)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"docker run --rm -d --name jspsychhelper -v ~/Downloads/jsPsychHelpeR/outputs:/home/project/jsPsychHelpeR/outputs:rw project"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># The outputs folder will be recreated in ~/Downloads/jsPsychHelpeR/ after a couple minutes</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="st">"~/Downloads/jsPsychHelpeR/outputs"</span>, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="google-docs" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="google-docs"><span class="header-section-number">6.2</span> Google Docs</h2>
 <ul>
 <li><p><a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">All tasks</a></p></li>
 <li><p><a href="https://docs.google.com/spreadsheets/d/13xX8aGhKmfz8zVvNuCMDnS6L6Dy6T1NlA6nTOqZuErA/edit#gid=0">List of protocols</a></p></li>
@@ -255,8 +277,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><a href="https://docs.google.com/spreadsheets/d/1fM_T-u-77DHEGTOV5A8BrMyXZfN-rt-MaKsfQV1v3u0/edit#gid=1315185109">Checks specific tasks</a></p></li>
 </ul>
 </section>
-<section id="folders-and-how-to-work" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="folders-and-how-to-work"><span class="header-section-number">6.2</span> Folders and how to work</h2>
+<section id="folders-and-how-to-work" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="folders-and-how-to-work"><span class="header-section-number">6.3</span> Folders and how to work</h2>
 <p>We have two main locations, the <a href="https://github.com/gorkang/jsPsychMaker/">Github jsPsychMaker project</a> and the server.</p>
 <p><a href="https://github.com/gorkang/jsPsychMaker/"><strong>Github jsPsychMaker project</strong></a></p>
 <ul>
@@ -310,11 +332,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- - Una vez implementadas, copiar tareas (y sus imagenes, videos, ...) a 999/ -->
 <!-- test/protocols_DEV/NEW_TASKS  -->
 </section>
-<section id="helper-functions" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="helper-functions"><span class="header-section-number">6.3</span> Helper functions</h2>
+<section id="helper-functions" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="helper-functions"><span class="header-section-number">6.4</span> Helper functions</h2>
 <p>There are a number of helper functions to make some of the jsPsychR admins tasks easier.</p>
-<section id="check-all-protocols" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="check-all-protocols"><span class="header-section-number">6.3.1</span> Check all protocols</h3>
+<section id="check-all-protocols" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="check-all-protocols"><span class="header-section-number">6.4.1</span> Check all protocols</h3>
 <p>For example, we can use <code>check_missing_prepare_TASK()</code> to:</p>
 <ul>
 <li><p>Download all the protocols (without data) to a local folder (<code>sync_protocols = TRUE</code>)</p></li>
@@ -325,225 +347,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Check tasks with missing info on <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NUEVAS tareas</a></p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cli::cli_alert_info(getwd())</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  WD <span class="ot">=</span> <span class="fu">getwd</span>()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"../../jsPsychHelpeR/"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/check_missing_prepare_TASK.R"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># source("../../jsPsychHelpeR/R/check_missing_prepare_TASK.R")</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(WD)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">helper_folder =</span> <span class="st">"../../jsPsychHelpeR"</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">CSCN_server_folder =</span> <span class="st">"../../CSCN-server/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── FOLDER: protocols/ ──────────────────────────────────────────────────────────</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── FOLDER: protocols/test/protocols_DEV/ ───────────────────────────────────────</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── FOLDER: protocols/999/ ──────────────────────────────────────────────────────</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── CHECK missing info in tabs ──────────────────────────────────────────────────</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✖ Tasks missing info in tabs: </code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Email de la persona que solicita la implementación: 1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• jmoraless@uc.cl: 1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• joaquin.migeot@gmail.com: 2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• joaquin.migeot@gmail.com, dfrancobyr@gmail.com: 1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• nicolasmarchant@alumnos.uai.cl: 1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• vicente.soto.d@uai.cl: 3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Details ──</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• Email de la persona que solicita la implementación: SIN espacios ni
-caracteres extraños
-
-NOMBRE UNICO (CHECK Tareas jsPsychMaker) (citas, puntajes, dimensiones)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• jmoraless@uc.cl: LoB (citas,)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• joaquin.migeot@gmail.com: LOT (citas, puntajes, dimensiones) ; MCQ30 (citas,
-puntajes, dimensiones)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• joaquin.migeot@gmail.com, dfrancobyr@gmail.com: BDI (citas, puntajes,
-dimensiones)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• nicolasmarchant@alumnos.uai.cl: PPD (citas, puntajes, dimensiones)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>• vicente.soto.d@uai.cl: NARS (citas, puntajes, dimensiones) ; RMET (citas,
-puntajes, dimensiones) ; RobToM (citas, puntajes, dimensiones)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── CHECK duplicates ────────────────────────────────────────────────────────────</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✔ No duplicated short_name in the Google docs</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  DF_missing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$DF_FINAL
-# A tibble: 17 × 8
-   task                     missi…¹ missi…² missi…³ proto…⁴ Nombre Descr…⁵ EMAIL
-   &lt;chr&gt;                    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
- 1 "BART"                   &lt;NA&gt;    &lt;NA&gt;    "BART"  &lt;NA&gt;    Ballo… Medida… &lt;NA&gt; 
- 2 "BART"                   &lt;NA&gt;    &lt;NA&gt;    "BART"  &lt;NA&gt;    Ballo… Medida… fati…
- 3 "BDI"                    &lt;NA&gt;    &lt;NA&gt;    "BDI"   &lt;NA&gt;    Beck … Medida… joaq…
- 4 "BRS"                    &lt;NA&gt;    &lt;NA&gt;    "BRS"   &lt;NA&gt;    The B… Escala… gork…
- 5 "CAS"                    &lt;NA&gt;    &lt;NA&gt;    "CAS"   &lt;NA&gt;    COVID… Evalúa… &lt;NA&gt; 
- 6 "CAS"                    &lt;NA&gt;    &lt;NA&gt;    "CAS"   &lt;NA&gt;    COVID… Evalúa… fati…
- 7 "fauxPasEv"              &lt;NA&gt;    &lt;NA&gt;    "fauxP… &lt;NA&gt;    Faux … Evalua… jmor…
- 8 "GHQ12"                  &lt;NA&gt;    &lt;NA&gt;    "GHQ12" &lt;NA&gt;    12-it… Detect… &lt;NA&gt; 
- 9 "GHQ12"                  &lt;NA&gt;    &lt;NA&gt;    "GHQ12" &lt;NA&gt;    12-it… Detect… fati…
-10 "LoB"                    &lt;NA&gt;    &lt;NA&gt;    "LoB"   &lt;NA&gt;    Last … Evalua… jmor…
-11 "LOT"                    &lt;NA&gt;    &lt;NA&gt;    "LOT"   &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaq…
-12 "MCQ30"                  &lt;NA&gt;    &lt;NA&gt;    "MCQ30" &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaq…
-13 "NARS"                   &lt;NA&gt;    &lt;NA&gt;    "NARS"  &lt;NA&gt;    Negat… &lt;NA&gt;    vice…
-14 "PPD"                    &lt;NA&gt;    &lt;NA&gt;    "PPD"   &lt;NA&gt;    Proba… &lt;NA&gt;    nico…
-15 "RMET"                   &lt;NA&gt;    &lt;NA&gt;    "RMET"  &lt;NA&gt;    Readi… &lt;NA&gt;    vice…
-16 "RobToM"                 &lt;NA&gt;    &lt;NA&gt;    "RobTo… &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    vice…
-17 "SIN espacios ni caract… &lt;NA&gt;    &lt;NA&gt;    "SIN e… &lt;NA&gt;    Nombr… Descri… Emai…
-# … with abbreviated variable names ¹​missing_script, ²​missing_gdoc,
-#   ³​missing_task, ⁴​protocols, ⁵​Descripcion
-
-$DF_missing_JS_tasks
-# A tibble: 14 × 3
-   task                                                           Nombre Descr…¹
-   &lt;chr&gt;                                                          &lt;chr&gt;  &lt;chr&gt;  
- 1 "BART"                                                         Ballo… Medida…
- 2 "BDI"                                                          Beck … Medida…
- 3 "BRS"                                                          The B… Escala…
- 4 "CAS"                                                          COVID… Evalúa…
- 5 "fauxPasEv"                                                    Faux … Evalua…
- 6 "GHQ12"                                                        12-it… Detect…
- 7 "LoB"                                                          Last … Evalua…
- 8 "LOT"                                                          &lt;NA&gt;   &lt;NA&gt;   
- 9 "MCQ30"                                                        &lt;NA&gt;   &lt;NA&gt;   
-10 "NARS"                                                         Negat… &lt;NA&gt;   
-11 "PPD"                                                          Proba… &lt;NA&gt;   
-12 "RMET"                                                         Readi… &lt;NA&gt;   
-13 "RobToM"                                                       &lt;NA&gt;   &lt;NA&gt;   
-14 "SIN espacios ni caracteres extraños\n\nNOMBRE UNICO (CHECK T… Nombr… Descri…
-# … with abbreviated variable name ¹​Descripcion
-
-$DF_missing_script
-# A tibble: 0 × 2
-# … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
-
-$DF_missing_googledoc
-# A tibble: 0 × 2
-# … with 2 variables: task &lt;chr&gt;, protocols &lt;chr&gt;
-
-$MISSING_tabs
-# A tibble: 6 × 3
-  EMAIL                                              tasks                 TEXT 
-  &lt;chr&gt;                                              &lt;chr&gt;                 &lt;chr&gt;
-1 Email de la persona que solicita la implementación "SIN espacios ni car… "Ema…
-2 jmoraless@uc.cl                                    "LoB (citas,) "       "jmo…
-3 joaquin.migeot@gmail.com                           "LOT (citas, puntaje… "joa…
-4 joaquin.migeot@gmail.com, dfrancobyr@gmail.com     "BDI (citas, puntaje… "joa…
-5 nicolasmarchant@alumnos.uai.cl                     "PPD (citas, puntaje… "nic…
-6 vicente.soto.d@uai.cl                              "NARS (citas, puntaj… "vic…</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 17 × 8
-   task                     missi…¹ missi…² missi…³ proto…⁴ Nombre Descr…⁵ EMAIL
-   &lt;chr&gt;                    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;
- 1 "BART"                   ""      &lt;NA&gt;    "BART"  &lt;NA&gt;    Ballo… Medida… &lt;NA&gt; 
- 2 "BART"                   ""      &lt;NA&gt;    "BART"  &lt;NA&gt;    Ballo… Medida… fati…
- 3 "BDI"                    ""      &lt;NA&gt;    "BDI"   &lt;NA&gt;    Beck … Medida… joaq…
- 4 "BRS"                    ""      &lt;NA&gt;    "BRS"   &lt;NA&gt;    The B… Escala… gork…
- 5 "CAS"                    ""      &lt;NA&gt;    "CAS"   &lt;NA&gt;    COVID… Evalúa… &lt;NA&gt; 
- 6 "CAS"                    ""      &lt;NA&gt;    "CAS"   &lt;NA&gt;    COVID… Evalúa… fati…
- 7 "fauxPasEv"              ""      &lt;NA&gt;    "fauxP… &lt;NA&gt;    Faux … Evalua… jmor…
- 8 "GHQ12"                  ""      &lt;NA&gt;    "GHQ12" &lt;NA&gt;    12-it… Detect… &lt;NA&gt; 
- 9 "GHQ12"                  ""      &lt;NA&gt;    "GHQ12" &lt;NA&gt;    12-it… Detect… fati…
-10 "LoB"                    ""      &lt;NA&gt;    "LoB"   &lt;NA&gt;    Last … Evalua… jmor…
-11 "LOT"                    ""      &lt;NA&gt;    "LOT"   &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaq…
-12 "MCQ30"                  ""      &lt;NA&gt;    "MCQ30" &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    joaq…
-13 "NARS"                   ""      &lt;NA&gt;    "NARS"  &lt;NA&gt;    Negat… &lt;NA&gt;    vice…
-14 "PPD"                    ""      &lt;NA&gt;    "PPD"   &lt;NA&gt;    Proba… &lt;NA&gt;    nico…
-15 "RMET"                   ""      &lt;NA&gt;    "RMET"  &lt;NA&gt;    Readi… &lt;NA&gt;    vice…
-16 "RobToM"                 ""      &lt;NA&gt;    "RobTo… &lt;NA&gt;    &lt;NA&gt;   &lt;NA&gt;    vice…
-17 "SIN espacios ni caract… ""      &lt;NA&gt;    "SIN e… &lt;NA&gt;    Nombr… Descri… Emai…
-# … with abbreviated variable names ¹​missing_script, ²​missing_gdoc,
-#   ³​missing_task, ⁴​protocols, ⁵​Descripcion</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 8
-# … with 8 variables: task &lt;chr&gt;, missing_script &lt;chr&gt;, missing_gdoc &lt;chr&gt;,
-#   missing_task &lt;chr&gt;, protocols &lt;chr&gt;, Nombre &lt;chr&gt;, Descripcion &lt;chr&gt;,
-#   EMAIL &lt;chr&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 3
-# … with 3 variables: task &lt;chr&gt;, protocols &lt;chr&gt;, EMAIL &lt;chr&gt;</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cli::cli_alert_info(getwd())</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  WD <span class="ot">=</span> <span class="fu">getwd</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"../../jsPsychHelpeR/"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/check_missing_prepare_TASK.R"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># source("../../jsPsychHelpeR/R/check_missing_prepare_TASK.R")</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(WD)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">helper_folder =</span> <span class="st">"../../jsPsychHelpeR"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">CSCN_server_folder =</span> <span class="st">"../../CSCN-server/"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  DF_missing</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="create-protocol-with-new-tasks" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="create-protocol-with-new-tasks"><span class="header-section-number">6.3.2</span> Create protocol with NEW tasks</h3>
+<section id="create-protocol-with-new-tasks" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="create-protocol-with-new-tasks"><span class="header-section-number">6.4.2</span> Create protocol with NEW tasks</h3>
 <p>With <code>create_protocol_with_NEW_tasks.R</code> we can create a protocol with the tasks for which we do not yet have a control snapshot (no .csv’s in the 999.zip data).</p>
 <p><strong>This is a necessary step before the task can be moved to the canonical protocol.</strong></p>
 <p>The function <code>find_missing_tasks_in_999()</code> will read all the csv in <code>jsPsychHelpeR/data/999/999.zip</code> and depending on the value of the parameter <code>search_where</code> (“prepare_TASK” or “js”):</p>
@@ -560,8 +401,8 @@ $MISSING_tabs
 </ul>
 <p>To make sure the Github <code>jsPsychMaker/protocols_DEV/NEW_TASKS/</code> is up to date, <code>create_protocol_with_NEW_tasks.R</code> will UPLOAD <code>CSCN-server/.../NEW_TASKS</code> to the server, and then DOWNLOAD NEW_TASKS to <code>../jsPsychMaker/protocols_DEV/NEW_TASKS/</code></p>
 </section>
-<section id="check-canonical-protocol-dev" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="check-canonical-protocol-dev"><span class="header-section-number">6.3.3</span> Check canonical protocol DEV</h3>
+<section id="check-canonical-protocol-dev" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="check-canonical-protocol-dev"><span class="header-section-number">6.4.3</span> Check canonical protocol DEV</h3>
 <p>With <code>000_CHECK_CANONICAL.R</code> we can check that the canonical protocol in development works and expected.</p>
 <p>In the script you can:</p>
 <ul>
@@ -618,7 +459,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -654,24 +512,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
