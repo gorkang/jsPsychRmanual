@@ -10,23 +10,57 @@ We can create a fully reproducible docker container with the data preparation an
 
 The current version is a first attempt at this, so there is a lot to improve.
 
-```{r admins-docker, results='markup', eval=FALSE}
+### Install Docker
 
+First, we need to install docker.
+
+- Linux: follow [installation instructions](https://docs.docker.com/engine/install/ubuntu/)
+
+- Mac: follow [installation instructions](https://docs.docker.com/desktop/install/mac-install/)
+
+- Windows: 
+  + Install [docker desktop](https://www.docker.com/products/docker-desktop/)
+  + Update wsl (in a command prompt): wsl -- update
+
+
+### Create container for a project
+
+When a project is ready to share, you can create a self-contained docker container:  
+
+```{r admins-docker, results='markup', eval=FALSE}
 source("admin/helper-scripts-admin.R")
 
-# Adapts the Dockerfile_TEMPLATE to the pid of the project
-create_dockerfile(PID = 999)
+PID = 999
 
-# Builds the docker container (ONLY ONCE)
-system("docker build -t project .")
-
-# Runs the analysis (the user should be able to do this)
-system("docker run --rm -d --name jspsychhelper -v ~/Downloads/jsPsychHelpeR/outputs:/home/project/jsPsychHelpeR/outputs:rw project")
-
-# The outputs folder will be recreated in ~/Downloads/jsPsychHelpeR/ after a couple minutes
-list.files("~/Downloads/jsPsychHelpeR/outputs", recursive = TRUE)
+# Create a Dockerfile in the project's main folder and builds the docker container
+create_docker_container(PID = PID)
 
 ```
+
+This will create a file called pid999.tar.zip. This file contains a docker image with all the necessary to rebuild the data preparation and analysis for the project 999.
+
+### Run container
+
+- Linux
+```{r results='markup', eval=FALSE}
+# Run project inside a docker container. Output will be in Downloads/jsPsychHelpeR/pid[PID]/ after a couple of minutes
+system(paste0("docker run --rm -d --name pid", PID, " -v ~/Downloads/jsPsychHelpeR", PID, "/outputs:/home/project/jsPsychHelpeR/outputs:rw pid", PID))
+```
+
+- Windows
+
+After copying the file pid999.tar.zip to your computer, run the following command in a cmd shell:  
+
+```{r}
+PID = 999
+
+paste0("tar -xf pid", PID, ".tar.zip & ", 
+       "docker load input - & ",
+       r"(docker run --rm -d --name jspsychhelper -v %USERPROFILE%\Downloads\jsPsychHelpeR\outputs:/home/project/jsPsychHelpeR/outputs:rw pid)", PID
+       )
+```
+
+
 
 ## Google Docs
 
