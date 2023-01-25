@@ -29,7 +29,7 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 ## How to prepare data
 
-Our goal is that [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](https://gorkang.github.io/jsPsychR-manual/jsPsychHelpeR.html#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or see the section [help creating a new task](#Newtasks).
+Our goal is that [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or see the section [help creating a new task](#Newtasks).
 
 If you already ran a pilot experiment, simply:
 
