@@ -18,6 +18,10 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 -   Automatic reports with progress, descriptives, codebook, etc.
 
+-   [Create a fully reproducible Docker container](06-jsPsychRadmins.html#docker-containers) with the project's data preparation and analysis  
+
+-   Create a blinded dataframe to be able to perform blinded analyses. See MacCoun, R., & Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., & Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)
+
 ------------------------------------------------------------------------
 
 **See [QuickGuide](#QuickGuidejsPsychHelpeR) for basic instructions.**
@@ -29,7 +33,7 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 ## How to prepare data
 
-Our goal is that [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or see the section [help creating a new task](#Newtasks).
+Our goal is that each [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) task has a sister script on [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to help prepare the data automatically. If a task you need does not have one, you can try to [create the script yourself](#create-new-tasks) and do a [pull request in the jsPsychHelpeR repo](https://github.com/gorkang/jsPsychHelpeR/pulls), or see the section [help creating a new task](#Newtasks).
 
 If you already ran a pilot experiment, simply:
 
@@ -129,6 +133,8 @@ There will be a single data frame (df) for each of the tasks in `outputs/data`, 
 -   **DF_joined.csv**: all the processed tasks joined in a single DF
 
 -   **DF_analysis**: only the total scores and dimensions from `DF_joined` (columns ending in `_DIRt`, `_STDt`, `_DIRd`, `_RELd`, `STDd`). Can be visually explored using the shiny app in `Rmd/app.R`
+
+-   **DF_analysis_blinded**: If the `DVars` parameter of `create_DF_analysis()` is not empty, jsPsychHelpeR will create DF_analysis_blinded where the DVars will be scrambled so te data analysts can perform blinded analysis
 
 -   **DICCIONARY_tasks.csv**: list of all tasks in the protocol
 

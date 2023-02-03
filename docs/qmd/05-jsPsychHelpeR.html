@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -297,6 +297,8 @@ div.csl-indent {
 <li><p>Get tidy output dataframes for each task, and for the whole protocol</p></li>
 <li><p>Include tests for common issues</p></li>
 <li><p>Automatic reports with progress, descriptives, codebook, etc.</p></li>
+<li><p><a href="06-jsPsychRadmins.html#docker-containers">Create a fully reproducible Docker container</a> with the project’s data preparation and analysis</p></li>
+<li><p>Create a blinded dataframe to be able to perform blinded analyses. See MacCoun, R., &amp; Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., &amp; Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)</p></li>
 </ul>
 <hr>
 <p><strong>See <a href="02-QuickGuide.html#QuickGuidejsPsychHelpeR">QuickGuide</a> for basic instructions.</strong></p>
@@ -304,7 +306,7 @@ div.csl-indent {
 <p><img src="../img/jsPsychHelpeR.png" class="img-fluid"></p>
 <section id="how-to-prepare-data" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="how-to-prepare-data"><span class="header-section-number">5.1</span> How to prepare data</h2>
-<p>Our goal is that <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> task has a sister script on <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to help prepare the data automatically. If a task you need does not have one, you can try to <a href="#create-new-tasks">create the script yourself</a> and do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">pull request in the jsPsychHelpeR repo</a>, or see the section <a href="07-NEWtasks.html#Newtasks">help creating a new task</a>.</p>
+<p>Our goal is that each <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> task has a sister script on <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to help prepare the data automatically. If a task you need does not have one, you can try to <a href="#create-new-tasks">create the script yourself</a> and do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">pull request in the jsPsychHelpeR repo</a>, or see the section <a href="07-NEWtasks.html#Newtasks">help creating a new task</a>.</p>
 <p>If you already ran a pilot experiment, simply:</p>
 <ol type="1">
 <li>Download <code>jsPsychHelpeR</code>:</li>
@@ -393,6 +395,7 @@ div.csl-indent {
 <li><p><strong>df_ShortNameOfTask.csv</strong>: One df for each of the tasks of the protocol after being processed with the <code>prepare_ShortNameOfTask()</code> functions</p></li>
 <li><p><strong>DF_joined.csv</strong>: all the processed tasks joined in a single DF</p></li>
 <li><p><strong>DF_analysis</strong>: only the total scores and dimensions from <code>DF_joined</code> (columns ending in <code>_DIRt</code>, <code>_STDt</code>, <code>_DIRd</code>, <code>_RELd</code>, <code>STDd</code>). Can be visually explored using the shiny app in <code>Rmd/app.R</code></p></li>
+<li><p><strong>DF_analysis_blinded</strong>: If the <code>DVars</code> parameter of <code>create_DF_analysis()</code> is not empty, jsPsychHelpeR will create DF_analysis_blinded where the DVars will be scrambled so te data analysts can perform blinded analysis</p></li>
 <li><p><strong>DICCIONARY_tasks.csv</strong>: list of all tasks in the protocol</p></li>
 </ul>
 </section>

@@ -41,9 +41,13 @@ This will create a file called pid999.tar.zip. This file contains a docker image
 
 ### Run container
 
+You will be able to run the data preparation and analysis project inside a docker container, ensuring reproducibility. The output will be in Downloads/jsPsychHelpeR/pid[PID]/ after a couple of minutes.  
+
 - Linux
 ```{r results='markup', eval=FALSE}
-# Run project inside a docker container. Output will be in Downloads/jsPsychHelpeR/pid[PID]/ after a couple of minutes
+#UNTAR file
+
+# Run docker
 system(paste0("docker run --rm -d --name pid", PID, " -v ~/Downloads/jsPsychHelpeR", PID, "/outputs:/home/project/jsPsychHelpeR/outputs:rw pid", PID))
 ```
 
@@ -51,18 +55,19 @@ system(paste0("docker run --rm -d --name pid", PID, " -v ~/Downloads/jsPsychHelp
 
 After copying the file pid999.tar.zip to your computer, run the following command in a cmd shell:  
 
-```{r}
+```{r, echo=FALSE}
 PID = 999
 
-paste0("tar -xf pid", PID, ".tar.zip & ", 
+cat(paste0("tar -xf pid", PID, ".tar.zip & ", 
        "docker load input - & ",
-       r"(docker run --rm -d --name jspsychhelper -v %USERPROFILE%\Downloads\jsPsychHelpeR\outputs:/home/project/jsPsychHelpeR/outputs:rw pid)", PID
-       )
+       r"(docker run --rm -d --name jspsychhelper -v %USERPROFILE%\Downloads\jsPsychHelpeR\outputs:/home/project/jsPsychHelpeR/outputs:rw pid)", PID))
 ```
 
 
 
 ## Google Docs
+
+We have a few Google Documents with information about available tasks, protocols, etc.
 
 -   [All tasks](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0)
 

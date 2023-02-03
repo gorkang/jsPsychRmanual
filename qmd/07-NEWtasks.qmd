@@ -19,7 +19,7 @@ For example, with `jsPsychMaker::create_protocol()`, you can use tasks we alread
 - Modify `config.js` to add all the tasks created and selected  
 - Modify `index.html` to inlude only the plugins those tasks will use  
 - Modify `index.html` to add the media those task will use  
-- Check task names are OK (no spaces, _, -, do not start by a number, ...)  
+- Check task names are OK: no spaces, -, _, do not start by a number, ...
 - Check names of all trialid's are OK (NAMETASK_NUMBER, e.g. MYTASK_001)  
 - Check only one csv or xls/xlsx file per folder  
 - Check plugins used exist in jsPsych-6/plugins  
