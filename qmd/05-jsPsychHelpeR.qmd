@@ -20,7 +20,7 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 
 -   [Create a fully reproducible Docker container](06-jsPsychRadmins.html#docker-containers) with the project's data preparation and analysis  
 
--   Create a blinded dataframe to be able to perform blinded analyses. See MacCoun, R., & Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., & Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)
+-   Create a blinded dataframe to be able to perform blinded analyses. See [10.1038/526187a](https://doi.org/10.1038/526187a) and [10.1177/25152459221128319](https://doi.org/10.1177/25152459221128319)
 
 ------------------------------------------------------------------------
 
@@ -355,6 +355,16 @@ You can do this in one of three ways:
 -   Run `targets::tar_load_globals()`
 
 -   Or directly, source all the scripts in the `R/` folder: `invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))`
+
+
+### Blinded analysis
+
+The funcion `create_DF_analysis()` haste parameter `DVars` to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. 
+We use a simple `sort()` in those variables, so their data will be ordered from smaller to bigger, losing the relationship with the other variables in the data, but keeping their structure.
+
+See MacCoun, R., & Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., & Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)
+
+
 
 ## Helper functions
 

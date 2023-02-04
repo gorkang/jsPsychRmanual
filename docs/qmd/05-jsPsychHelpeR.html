@@ -249,6 +249,7 @@ div.csl-indent {
   <li><a href="#create-new-tasks" id="toc-create-new-tasks" class="nav-link" data-scroll-target="#create-new-tasks"><span class="toc-section-number">5.3.3</span>  Create new tasks</a></li>
   <li><a href="#adapting-new-tasks" id="toc-adapting-new-tasks" class="nav-link" data-scroll-target="#adapting-new-tasks"><span class="toc-section-number">5.3.4</span>  Adapting new tasks</a></li>
   <li><a href="#debug-tasks" id="toc-debug-tasks" class="nav-link" data-scroll-target="#debug-tasks"><span class="toc-section-number">5.3.5</span>  DEBUG tasks</a></li>
+  <li><a href="#blinded-analysis" id="toc-blinded-analysis" class="nav-link" data-scroll-target="#blinded-analysis"><span class="toc-section-number">5.3.6</span>  Blinded analysis</a></li>
   </ul></li>
   <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="toc-section-number">5.4</span>  Helper functions</a>
   <ul class="collapse">
@@ -298,7 +299,7 @@ div.csl-indent {
 <li><p>Include tests for common issues</p></li>
 <li><p>Automatic reports with progress, descriptives, codebook, etc.</p></li>
 <li><p><a href="06-jsPsychRadmins.html#docker-containers">Create a fully reproducible Docker container</a> with the project’s data preparation and analysis</p></li>
-<li><p>Create a blinded dataframe to be able to perform blinded analyses. See MacCoun, R., &amp; Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., &amp; Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)</p></li>
+<li><p>Create a blinded dataframe to be able to perform blinded analyses. See <a href="https://doi.org/10.1038/526187a">10.1038/526187a</a> and <a href="https://doi.org/10.1177/25152459221128319">10.1177/25152459221128319</a></p></li>
 </ul>
 <hr>
 <p><strong>See <a href="02-QuickGuide.html#QuickGuidejsPsychHelpeR">QuickGuide</a> for basic instructions.</strong></p>
@@ -593,6 +594,11 @@ div.csl-indent {
 <li><p>Run <code>targets::tar_load_globals()</code></p></li>
 <li><p>Or directly, source all the scripts in the <code>R/</code> folder: <code>invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))</code></p></li>
 </ul>
+</section>
+<section id="blinded-analysis" class="level3" data-number="5.3.6">
+<h3 data-number="5.3.6" class="anchored" data-anchor-id="blinded-analysis"><span class="header-section-number">5.3.6</span> Blinded analysis</h3>
+<p>The funcion <code>create_DF_analysis()</code> haste parameter <code>DVars</code> to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. We use a simple <code>sort()</code> in those variables, so their data will be ordered from smaller to bigger, losing the relationship with the other variables in the data, but keeping their structure.</p>
+<p>See MacCoun, R., &amp; Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., &amp; Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)</p>
 </section>
 </section>
 <section id="helper-functions" class="level2" data-number="5.4">
