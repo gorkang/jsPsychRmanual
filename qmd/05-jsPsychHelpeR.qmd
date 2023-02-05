@@ -357,9 +357,17 @@ You can do this in one of three ways:
 -   Or directly, source all the scripts in the `R/` folder: `invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))`
 
 
+### Docker containers
+
+The function `create_docker_container()` will create a fully reproducible docker container with the data preparation and analysis for a specific project.  
+
+The container can be easily shared or stored to allow others to run the data preparation and analysis for you project without worrying about dependencies, versions of packages, etc.  
+
+
+
 ### Blinded analysis
 
-The funcion `create_DF_analysis()` haste parameter `DVars` to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. 
+The funcion `create_DF_analysis()` has the parameter `DVars` to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. 
 We use a simple `sort()` in those variables, so their data will be ordered from smaller to bigger, losing the relationship with the other variables in the data, but keeping their structure.
 
 See MacCoun, R., & Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., & Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)
