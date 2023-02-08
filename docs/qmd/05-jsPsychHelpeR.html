@@ -311,33 +311,41 @@ div.csl-indent {
 <p>Our goal is that each <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> task has a sister script on <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to help prepare the data automatically. If a task you need does not have one, you can try to <a href="#create-new-tasks">create the script yourself</a> and do a <a href="https://github.com/gorkang/jsPsychHelpeR/pulls">pull request in the jsPsychHelpeR repo</a>, or see the section <a href="07-NEWtasks.html#Newtasks">help creating a new task</a>.</p>
 <p>If you already ran a pilot experiment, simply:</p>
 <ol type="1">
-<li>Download <code>jsPsychHelpeR</code>:</li>
+<li>Install <code>jsPsychHelpeR</code>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="st">"gorkang/jsPsychHelpeR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychHelpeR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li><code>run_initial_setup()</code>: go to the file <code>run.R</code> and run the following two lines. They will:</li>
+<li><code>jsPsychHelpeR::run_initial_setup()</code> will:</li>
 </ol>
 <ul>
 <li>Try to make sure you have all the dependencies, folders, etc.<br>
 </li>
-<li>Download all the data from your protocol (you will need the FTP credentials and set <code>download_files = TRUE</code>)<br>
+<li>Copy the data to the data/pid folder<br>
 </li>
-<li>Download and zip a copy of the full protocol without the data (you will need the FTP credentials and set <code>download_task_script = TRUE</code>)<br>
+<li>Move data with sensitive tasks to the .vault folder<br>
 </li>
 <li>Create a customized <code>_targets.R</code> file adapted to the data of your protocol, so data preparation can run automagically</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">"./R"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">".R$"</span>), source))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">download_files =</span> <span class="cn">TRUE</span>, <span class="at">download_task_script =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">'999'</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data_location =</span> <span class="st">'~/Downloads/JSPSYCH/999/'</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">'~/Downloads/jsPsychHelpeR_999/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>If you have the sFTP credentials for the server, it will:</p>
+<ul>
+<li>Download all the data from your protocol (you will need the FTP credentials and set <code>download_files = TRUE</code>)<br>
+</li>
+<li>Download and zip a copy of the full protocol without the data (you will need the FTP credentials and set <code>download_task_script = TRUE</code>)<br>
+</li>
+</ul>
 <p>This should work on <a href="https://ubuntu.com/">Ubuntu</a>, if you have the <a href="jsPsychHelpeR.html#run_initial_setup">FTP credentials</a>, and <code>sshpass</code> and <code>rsync</code> installed.</p>
-<p>If you don’t have the credentials, or some of the requirements to download the files, you can manually copy the .csv files to the <code>data/PROJECT ID</code> folder, and then run the <code>offline</code> version of <code>run_initial_setup()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">"./R"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">".R$"</span>), source))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">download_files =</span> <span class="cn">FALSE</span>, <span class="at">download_task_script =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">'999'</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">download_files =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">download_task_script =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">"~/Downloads/jsPsychHelpeR_999"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <section id="targets-pipeline" class="level3" data-number="5.1.1">

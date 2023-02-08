@@ -334,63 +334,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr>
 <p><strong>Outline</strong></p>
 <ol type="1">
-<li><p>Download jsPsychHelpeR</p></li>
-<li><p>Run setup</p></li>
+<li><p>Install jsPsychHelpeR</p></li>
+<li><p>Create new project</p></li>
 <li><p>Run data preparation</p></li>
 </ol>
 <hr>
-<section id="download-jspsychhelper" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="download-jspsychhelper">1) Download jsPsychHelpeR</h4>
+<section id="install-jspsychhelper" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="install-jspsychhelper">1) Install jsPsychHelpeR</h4>
 <ul>
-<li>Run the following two lines in a RStudio console. A new RStudio session will appear. On the top right corner of your RStudio you should see something similar to:<br>
-<img src="../img/jsPsychHelpeR_project.png" class="img-fluid" style="width:40.0%"></li>
+<li>Run the following line in a RStudio console to install jsPsychHelpeR from Github.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure you have {usethis} installed</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Download jsPsychHelpeR version to the Downloads folder</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="at">url =</span> <span class="st">"gorkang/jsPsychHelpeR"</span>, <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychHelpeR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="run-setup" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="run-setup">2) Run setup</h4>
-<p>Open the file <code>run.R</code> and run initial setup:</p>
+<section id="create-new-project" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="create-new-project">2) Create new project</h4>
+<p>The function <code>run_initial_setup()</code> will create and setup a new RStudio project for your data.</p>
+<p><code>run_initial_setup()</code> will: - Install dependencies<br>
+- Create necessary folders<br>
+- Copy the data to the data/pid folder - Move data with sensitive tasks to the .vault folder - Create a customized <code>_targets.R</code> file adapted to the data of your protocol, so data preparation can run automagically</p>
+<p>Before doing this, you need to locate the raw data for the jsPsychMaker project.</p>
+<p>In this example, our raw data is in <code>~/Downloads/JSPSYCH/999/</code> and we want the new project to be in <code>~/Downloads/jsPsychHelpeR_999/</code></p>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="../img/files-pane_run.png" class="img-fluid" style="width:40.0%"></p>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">'999'</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data_location =</span> <span class="st">'~/Downloads/JSPSYCH/999/'</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">'~/Downloads/jsPsychHelpeR_999/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load functions</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">"./R"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">".R$"</span>), source))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run initial setup [REMEMBER to replace `999` with your project number]</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>run_initial_setup()</code> will:</p>
-<ul>
-<li>Delete old files<br>
-</li>
-<li>Install dependencies<br>
-</li>
-<li>Create necessary folders<br>
-</li>
-<li>Download results files for the project (you will need the FTP credentials)<br>
-</li>
-<li>Download and zip a copy of the full protocol without the data (you will need the FTP credentials)<br>
-</li>
-<li>Create a <code>_targets.R</code> file for your project</li>
-</ul>
-<p><strong>IMPORTANT</strong>: You may need to manually copy the results files to the folder <code>data/PROJECT ID</code></p>
 </section>
 <section id="run-data-preparation" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-data-preparation">3) Run data preparation</h4>
+<p>Run the data preparation with <code>targets::tar_make()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run data preparation</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you are curious, running <code>targets::tar_visnetwork(targets_only = TRUE)</code> will show the whole data preparation targets tree.</p>
+<p>If you are curious, running <code>targets::tar_visnetwork(targets_only = TRUE)</code> will show the whole data preparation targets tree. Open the file <code>run.R</code> for more details.</p>
 <hr>
 
 

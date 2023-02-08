@@ -6,9 +6,12 @@ Instructions and protocols for jsPsychR admins. The goal is to minimize issues a
 
 ## Docker containers
 
-We can create a fully reproducible docker container with the data preparation and analysis for a specific project using `admin/create_docker.R`  
+We can create a fully reproducible docker image with the data preparation and analysis for a specific project using `create_docker_container()`  
 
-The current version is a first attempt at this, so there is a lot to improve.
+Afterwards, you can use the image to run a docker container that will reproduce the analysis and results of your project.  
+
+The current version is a first attempt at this, so there is a lot to improve.  
+
 
 ### Install Docker
 
@@ -23,44 +26,131 @@ First, we need to install docker.
   + Update wsl (in a command prompt): wsl -- update
 
 
-### Create container for a project
+### Create image for a project
 
-When a project is ready to share, you can create a self-contained docker container:  
+When a project is ready to share, you can create a self-contained docker image:  
 
 ```{r admins-docker, results='markup', eval=FALSE}
-source("admin/helper-scripts-admin.R")
 
-PID = 999
+# Clean environment -------------------------------------------------------
 
-# Create a Dockerfile in the project's main folder and builds the docker container
-create_docker_container(PID = PID)
+  # DELETE ALL CACHE
+  system("docker builder prune --all -f")
+  
+  # Clean renv cache libraries
+  renv::clean()
+
+  # Clean extra versions of libraries
+  source("R/helper_functions_extra.R")
+  clean_renv_cache()
+
+
+# Create docker image -----------------------------------------------------  
+  
+  PID = 999
+  jsPsychHelpeR::create_docker_container(PID = PID)
 
 ```
 
-This will create a file called pid999.tar.zip. This file contains a docker image with all the necessary to rebuild the data preparation and analysis for the project 999.
+
+### Store image
+
+You can create a tar file with the image or directly share it through dockerhub:
+
+1. Store image creating a pid[PID].tar.zip file TO SHARE
+
+```{r results='markup', eval=FALSE}
+
+  PID = 999
+  system(paste0("docker save gorkang/jspsychhelper:pid", PID, " | zip > pid", PID, ".tar.zip"))
+  
+```
+
+2. Push image to Dockerhub
+
+```{r results='markup', eval=FALSE}
+  PID = 999
+  system(paste0("docker push gorkang/jspsychhelper:pid", PID))
+```
+
+
+### Load image
+
+You can load the image in your computer in two ways:
+
+1. Using a pid[PID].tar.zip:  
+
+On linux: 
+```{r results='markup', eval=FALSE}
+
+  PID = 999
+  utils::unzip(zipfile = paste0("pid", PID, ".tar.zip"), files = paste0("-"))
+  system(paste0("docker load --input -"))
+  
+```
+
+On windows:
+```{r, echo = FALSE}
+  PID = 999
+  cat(paste0("tar -xf pid", PID, ".tar.zip & docker load input - "))
+```
+
+
+
+2. Pull image from Dockerhub
+
+```{r results='markup', eval=FALSE}
+  PID = 999
+  system(paste0("docker pull gorkang/jspsychhelper:pid", PID))
+```
+
+
 
 ### Run container
 
-You will be able to run the data preparation and analysis project inside a docker container, ensuring reproducibility. The output will be in Downloads/jsPsychHelpeR/pid[PID]/ after a couple of minutes.  
+Once the docker image is loaded in your system, you will be able to run the data preparation and analysis for your project inside a docker container, ensuring reproducibility. The output will be in `Downloads/jsPsychHelpeR/pid[PID]/` after a couple of minutes.  
 
 - Linux
 ```{r results='markup', eval=FALSE}
-#UNTAR file
 
-# Run docker
-system(paste0("docker run --rm -d --name pid", PID, " -v ~/Downloads/jsPsychHelpeR", PID, "/outputs:/home/project/jsPsychHelpeR/outputs:rw pid", PID))
+  # Make sure ~/Downloads/jsPsychHelpeR999 is empty
+  file.remove(list.files(paste0("~/Downloads/jsPsychHelpeR", PID, "/outputs"), recursive = TRUE, full.names = TRUE))
+  
+  # Run docker
+  system(paste0("docker run --rm -d --name pid", PID, " -v ~/Downloads/jsPsychHelpeR", PID, "/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid", PID))
 ```
 
 - Windows
 
-After copying the file pid999.tar.zip to your computer, run the following command in a cmd shell:  
+```{r, echo=FALSE}
+PID = 999
+cat(paste0(r"(docker run --rm -d --name jspsychhelper -v %USERPROFILE%\Downloads\jsPsychHelpeR\outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid)", PID))
+```
+
+
+### DEBUG Container
+
+You can DEBUG a container with the following command:  
 
 ```{r, echo=FALSE}
 PID = 999
+cat(paste0("docker run --rm -ti -v ~/Downloads/jsPsychHelpeR", PID, "/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid", PID, " /bin/bash"))
+```
+Inside the container, you can acces R and debug as you would locally.  
 
-cat(paste0("tar -xf pid", PID, ".tar.zip & ", 
-       "docker load input - & ",
-       r"(docker run --rm -d --name jspsychhelper -v %USERPROFILE%\Downloads\jsPsychHelpeR\outputs:/home/project/jsPsychHelpeR/outputs:rw pid)", PID))
+```{r results='markup', eval=FALSE}
+
+# See last CMD line in Dockerfile_TEMPLATE:
+# $ R
+source('renv/activate.R')
+invisible(lapply(list.files('./R', full.names = TRUE, pattern = '.R$'), source))
+setup_folders(pid = 999, folder = '.')
+targets::tar_destroy(ask = FALSE)
+targets::tar_make()
+
+# Check size folders
+du -had1 renv/ 
+
 ```
 
 

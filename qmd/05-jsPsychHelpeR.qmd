@@ -37,33 +37,40 @@ Our goal is that each [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) ta
 
 If you already ran a pilot experiment, simply:
 
-1.  Download `jsPsychHelpeR`:
+1.  Install `jsPsychHelpeR`:
 
 ```{r eval=FALSE}
-if (!require('usethis')) install.packages('usethis'); library('usethis')
-usethis::use_course("gorkang/jsPsychHelpeR")
+if (!require('remotes')) utils::install.packages('remotes'); remotes::install_github('gorkang/jsPsychHelpeR')
 ```
 
-2.  `run_initial_setup()`: go to the file `run.R` and run the following two lines. They will:
+2.  `jsPsychHelpeR::run_initial_setup()` will:
 
 -   Try to make sure you have all the dependencies, folders, etc.\
--   Download all the data from your protocol (you will need the FTP credentials and set `download_files = TRUE`)\
--   Download and zip a copy of the full protocol without the data (you will need the FTP credentials and set `download_task_script = TRUE`)\
--   Create a customized `_targets.R` file adapted to the data of your protocol, so data preparation can run automagically
+-   Copy the data to the data/pid folder  
+-   Move data with sensitive tasks to the .vault folder  
+-   Create a customized `_targets.R` file adapted to the data of your protocol, so data preparation can run automagically  
+
 
 ```{r eval=FALSE}
-invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
-run_initial_setup(pid = "999", download_files = TRUE, download_task_script = TRUE)
+jsPsychHelpeR::run_initial_setup(pid = '999', 
+                                 data_location = '~/Downloads/JSPSYCH/999/', 
+                                 folder = '~/Downloads/jsPsychHelpeR_999/')
 ```
+
+If you have the sFTP credentials for the server, it will:  
+
+-   Download all the data from your protocol (you will need the FTP credentials and set `download_files = TRUE`)\
+-   Download and zip a copy of the full protocol without the data (you will need the FTP credentials and set `download_task_script = TRUE`)\
 
 This should work on [Ubuntu](https://ubuntu.com/), if you have the [FTP credentials](jsPsychHelpeR.html#run_initial_setup), and `sshpass` and `rsync` installed.
 
-If you don't have the credentials, or some of the requirements to download the files, you can manually copy the .csv files to the `data/PROJECT ID` folder, and then run the `offline` version of `run_initial_setup()`:
-
 ```{r eval=FALSE}
-invisible(lapply(list.files("./R", full.names = TRUE, pattern = ".R$"), source))
-run_initial_setup(pid = "999", download_files = FALSE, download_task_script = FALSE)
+jsPsychHelpeR::run_initial_setup(pid = '999', 
+                                 download_files = TRUE, 
+                                 download_task_script = TRUE,
+                                 folder = "~/Downloads/jsPsychHelpeR_999")
 ```
+
 
 ------------------------------------------------------------------------
 

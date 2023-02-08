@@ -51,7 +51,7 @@ library(dplyr)
 googlesheets4::gs4_auth("gorkang@gmail.com")
 
 DF_raw = googlesheets4::read_sheet("1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA", sheet = 2, skip = 0) %>% 
-    rename(short_name = `Código Test`) %>% 
+    rename(short_name = `Codigo Test`) %>% 
     filter(!grepl("short_name", short_name)) %>% 
     arrange(short_name) %>% 
     select(short_name, Nombre, Descripcion) %>% 
