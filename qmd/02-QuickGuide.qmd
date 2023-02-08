@@ -1,6 +1,6 @@
 # Quick Guide {#QuickGuide}
 
-## Pre-requisites
+## Pre-requisites {-}
 
 1. [Install R](https://cran.rstudio.com/)
 
@@ -39,12 +39,14 @@ if (!require('remotes')) install.packages('remotes'); remotes::install_github("g
 
 #### 2) Create protocol {.unnumbered}
 
-To create and test a fully working protocol in `folder_output` you can use the `create_protocol()` function. Include the `canonical_tasks` you want from the available ones (you can list them with `list_available_tasks()`). You have more details in [available-tasks](03-jsPsychMaker.html#available-tasks). If you need new tasks, see [New tasks](07-NEWtasks.html#Newtasks).  
+Create and test a fully working protocol with `jsPsychMaker::create_protocol()`.   
+
+Include the `canonical_tasks` you want (list the available tasks with `jsPsychMaker::list_available_tasks()`). You have more details in [available-tasks](03-jsPsychMaker.html#available-tasks). If you need new tasks, see [New tasks](07-NEWtasks.html#Newtasks).  
 
 ```{r, eval=FALSE}
 
   jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
-                                folder_output = "~/Downloads/MyProtocol", 
+                                folder_output = "~/Downloads/protocol999", 
                                 launch_browser = TRUE)
 
 ```
@@ -92,13 +94,18 @@ usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
 
 #### 2) Setup {.unnumbered}
 
-Run setup: `source("setup.R")`. This will install the packages needed.
+Run setup: `source("setup.R")`. This will install the packages needed.  
 
-**Ubuntu**
+**Ubuntu**  
 
-You may need to install some system libraries first:
+You may need to install some system libraries first:  
 
--   `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`
+-   `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`  
+
+**Windows**  
+
+- Install [docker desktop](https://docs.docker.com/desktop/install/windows-install/)  
+- Update wsl (in a command prompt): `wsl - update`  
 
 
 #### 3) Run Monkeys {.unnumbered}
@@ -107,9 +114,9 @@ Open `run.R` and follow the instructions. Mainly:
 
 -   Open `_targets.R` file: `rstudioapi::navigateToFile("_targets.R")`
 
--   Edit `parameters_monkeys_minimal`. For example, launch participants 1 to 5 to the 999 protocol locally:
+-   Edit `parameters_monkeys_minimal`. For example, launch participants 1 to 5 to the `protocol999` protocol locally:
 
-    -   `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "Downloads/999")`
+    -   `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "Downloads/protocol999")`
 
 -   Run Monkeys!: `targets::tar_make()`
 
@@ -135,7 +142,7 @@ Open `run.R` and follow the instructions. Mainly:
 
 #### 1) Install jsPsychHelpeR {.unnumbered}
 
--   Run the following line in a RStudio console to install jsPsychHelpeR from Github. 
+-   Install jsPsychHelpeR from Github. 
 
 ```{r, eval=FALSE}
 
@@ -145,27 +152,19 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
 
 #### 2) Create new project {.unnumbered}
 
-The function `run_initial_setup()` will create and setup a new RStudio project for your data.  
+Create and setup a new RStudio project for your data. Before doing this, you need to locate the raw data for the jsPsychMaker project.   
 
-`run_initial_setup()` will:
--   Install dependencies\
--   Create necessary folders\
--   Copy the data to the data/pid folder
--   Move data with sensitive tasks to the .vault folder
--   Create a customized `_targets.R` file adapted to the data of your protocol, so data preparation can run automagically  
-
-
-Before doing this, you need to locate the raw data for the jsPsychMaker project.   
-
-In this example, our raw data is in `~/Downloads/JSPSYCH/999/` and we want the new project to be in `~/Downloads/jsPsychHelpeR_999/`
+In this example, our raw data is in `~/Downloads/JSPSYCH/999/` and we want the new project to be in `~/Downloads/jsPsychHelpeR_999/`  
 
 ```{r, eval=FALSE}
 
 jsPsychHelpeR::run_initial_setup(pid = '999', 
-                                 data_location = '~/Downloads/JSPSYCH/999/', 
+                                 data_location = '~/Downloads/protocol999/data/', 
                                  folder = '~/Downloads/jsPsychHelpeR_999/')
 
 ```
+
+After this, a new RStudio project will open.
 
 
 #### 3) Run data preparation {.unnumbered}
@@ -174,6 +173,10 @@ Run the data preparation with `targets::tar_make()`
 
 ```{r, eval=FALSE}
 
+# Restore all the necessary packages using renv
+renv::restore(prompt = FALSE)
+
+# Run data preparation
 targets::tar_make()
 
 ```

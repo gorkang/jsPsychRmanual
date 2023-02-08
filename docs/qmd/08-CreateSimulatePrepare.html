@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>jsPsychR manual - 2&nbsp; Quick Guide</title>
+<title>jsPsychR manual - 8&nbsp; CreateSimulatePrepare</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../qmd/03-jsPsychMaker.html" rel="next">
-<link href="../qmd/01-intro.html" rel="prev">
+<link href="../qmd/10-references.html" rel="next">
+<link href="../qmd/07-NEWtasks.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -172,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd/02-QuickGuide.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></a>
+  <a href="../qmd/02-QuickGuide.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -202,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd/08-CreateSimulatePrepare.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></a>
+  <a href="../qmd/08-CreateSimulatePrepare.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -219,10 +219,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link active" data-scroll-target="#pre-requisites">Pre-requisites</a></li>
-  <li><a href="#QuickGuidejsPsychMaker" id="toc-QuickGuidejsPsychMaker" class="nav-link" data-scroll-target="#QuickGuidejsPsychMaker"><span class="toc-section-number">2.1</span>  jsPsychMaker: Create an experimental protocol</a></li>
-  <li><a href="#QuickGuidejsPsychMonkeys" id="toc-QuickGuidejsPsychMonkeys" class="nav-link" data-scroll-target="#QuickGuidejsPsychMonkeys"><span class="toc-section-number">2.2</span>  jsPsychMonkeys: Simulate participants</a></li>
-  <li><a href="#QuickGuidejsPsychHelpeR" id="toc-QuickGuidejsPsychHelpeR" class="nav-link" data-scroll-target="#QuickGuidejsPsychHelpeR"><span class="toc-section-number">2.3</span>  jsPsychHelpeR: Prepare data</a></li>
+  <li><a href="#create-protocol" id="toc-create-protocol" class="nav-link active" data-scroll-target="#create-protocol"><span class="toc-section-number">8.1</span>  Create protocol</a></li>
+  <li><a href="#simulate-participants" id="toc-simulate-participants" class="nav-link" data-scroll-target="#simulate-participants"><span class="toc-section-number">8.2</span>  Simulate participants</a></li>
+  <li><a href="#prepare-data" id="toc-prepare-data" class="nav-link" data-scroll-target="#prepare-data"><span class="toc-section-number">8.3</span>  Prepare data</a></li>
   </ul>
 </nav>
     </div>
@@ -231,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="QuickGuide" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></span></h1>
+<h1 class="title"><span id="CreateSimulatePrepare" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></span></h1>
 </div>
 
 
@@ -246,142 +245,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="pre-requisites" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
-<ol type="1">
-<li><p><a href="https://cran.rstudio.com/">Install R</a></p></li>
-<li><p><a href="https://posit.co/download/rstudio-desktop/">Install RStudio desktop</a></p></li>
-</ol>
-</section>
-<section id="QuickGuidejsPsychMaker" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="QuickGuidejsPsychMaker"><span class="header-section-number">2.1</span> jsPsychMaker: Create an experimental protocol</h2>
-<hr>
-<p><strong>See the <a href="03-jsPsychMaker.html">jsPsychMaker chapter</a> for more detailed instructions.</strong></p>
-<hr>
-<p><strong>Outline</strong></p>
-<ol type="1">
-<li><p>Install jsPsychMaker</p></li>
-<li><p><code>create_protocol()</code> using any of the <code>list_available_tasks()</code> and edit the <code>config.js</code> to adapt the protocol settings</p></li>
-<li><p>Open <code>index.html</code> in your browser</p></li>
-</ol>
-<hr>
+<p>Here you can see the full process of creating a protocol with jsPsychMaker, simulating participants with jsPsychMonkeys and preparing the data with jsPsychHelpeR:</p>
+<section id="create-protocol" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="create-protocol"><span class="header-section-number">8.1</span> Create protocol</h2>
 <section id="install-jspsychmaker" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="install-jspsychmaker">1) Install jsPsychMaker</h4>
-<p>Open RStudio and run the following line in the console. This will install the jsPsychMaker package from the Github repository.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="create-protocol" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="create-protocol">2) Create protocol</h4>
-<p>Create and test a fully working protocol with <code>jsPsychMaker::create_protocol()</code>.</p>
-<p>Include the <code>canonical_tasks</code> you want (list the available tasks with <code>jsPsychMaker::list_available_tasks()</code>). You have more details in <a href="03-jsPsychMaker.html#available-tasks">available-tasks</a>. If you need new tasks, see <a href="07-NEWtasks.html#Newtasks">New tasks</a>.</p>
+<section id="check-available-tasks" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="check-available-tasks">2) Check available tasks</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"AIM"</span>, <span class="st">"EAR"</span>, <span class="st">"IRI"</span>),</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/protocol999"</span>, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>()<span class="sc">$</span>tasks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You must edit <code>config.js</code> to adapt the protocol to your needs. See <a href="03-jsPsychMaker.html#experiment-configuration">experiment configuration</a> for more details.</p>
 </section>
-<section id="run-experiment" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="run-experiment">3) Run experiment</h4>
-<p>The experiment is ready to run on your computer. Open <code>index.html</code> in Google Chrome or your favorite (and up to date) browser.</p>
-</section>
-</section>
-<section id="QuickGuidejsPsychMonkeys" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="QuickGuidejsPsychMonkeys"><span class="header-section-number">2.2</span> jsPsychMonkeys: Simulate participants</h2>
-<hr>
-<p><strong>See the <a href="04-jsPsychMonkeys.html">jsPsychMonkeys chapter</a> for more detailed instructions.</strong></p>
-<hr>
-<p>jsPsychMonkeys uses <a href="https://www.selenium.dev/">Selenium</a> inside a <a href="https://www.docker.com/">Docker</a> container to guarantee each session is a clean session. On Linux it’s use and configuration is trivial, but on Windows it can be trickier.</p>
-<hr>
-<p><strong>Outline</strong></p>
-<ol type="1">
-<li><p>Download jsPsychMonkeys</p></li>
-<li><p>Setup</p></li>
-<li><p>Run Monkeys</p></li>
-</ol>
-<hr>
-<section id="download-jspsychmonkeys" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="download-jspsychmonkeys">1) Download jsPsychMonkeys</h4>
+<section id="create-protocol-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="create-protocol-1">3) Create protocol</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="at">url =</span> <span class="st">"gorkang/jsPsychMonkeys"</span>, <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"AIM"</span>, <span class="st">"EAR"</span>, <span class="st">"IRI"</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/protocol999"</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="edit-configuration" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="edit-configuration">4) Edit configuration</h4>
+<p>Edit the <code>~/Downloads/protocol999config.js</code> to adjust the project’s parameters</p>
+</section>
+</section>
+<section id="simulate-participants" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="simulate-participants"><span class="header-section-number">8.2</span> Simulate participants</h2>
+<section id="install-jspsychmonkeys" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="install-jspsychmonkeys">1) Install jsPsychMonkeys</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); <span class="fu">library</span>(<span class="st">'usethis'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="at">url =</span> <span class="st">"gorkang/jsPsychMonkeys"</span>, <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="setup" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="setup">2) Setup</h4>
-<p>Run setup: <code>source("setup.R")</code>. This will install the packages needed.</p>
-<p><strong>Ubuntu</strong></p>
-<p>You may need to install some system libraries first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"setup.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="change-parameters" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="change-parameters">3) Change parameters</h4>
+<p>Go to _targets.R:</p>
 <ul>
-<li><code>sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker</code></li>
-</ul>
-<p><strong>Windows</strong></p>
-<ul>
-<li>Install <a href="https://docs.docker.com/desktop/install/windows-install/">docker desktop</a><br>
-</li>
-<li>Update wsl (in a command prompt): <code>wsl - update</code></li>
+<li>Change parameter <code>local_folder_tasks</code> to your folder_output above. For example <code>local_folder_tasks = "~/Downloads/protocol999"</code></li>
 </ul>
 </section>
 <section id="run-monkeys" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="run-monkeys">3) Run Monkeys</h4>
-<p>Open <code>run.R</code> and follow the instructions. Mainly:</p>
-<ul>
-<li><p>Open <code>_targets.R</code> file: <code>rstudioapi::navigateToFile("_targets.R")</code></p></li>
-<li><p>Edit <code>parameters_monkeys_minimal</code>. For example, launch participants 1 to 5 to the <code>protocol999</code> protocol locally:</p>
-<ul>
-<li><code>parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "Downloads/protocol999")</code></li>
-</ul></li>
-<li><p>Run Monkeys!: <code>targets::tar_make()</code></p></li>
-</ul>
-</section>
-</section>
-<section id="QuickGuidejsPsychHelpeR" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="QuickGuidejsPsychHelpeR"><span class="header-section-number">2.3</span> jsPsychHelpeR: Prepare data</h2>
-<hr>
-<p><strong>See the <a href="05-jsPsychHelpeR.html">jsPsychHelpeR chapter</a> for more detailed instructions.</strong></p>
-<hr>
-<p><strong>Outline</strong></p>
-<ol type="1">
-<li><p>Install jsPsychHelpeR</p></li>
-<li><p>Create new project</p></li>
-<li><p>Run data preparation</p></li>
-</ol>
-<hr>
-<section id="install-jspsychhelper" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="install-jspsychhelper">1) Install jsPsychHelpeR</h4>
-<ul>
-<li>Install jsPsychHelpeR from Github.</li>
-</ul>
+<h4 class="unnumbered anchored" data-anchor-id="run-monkeys">4) Run monkeys</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychHelpeR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="create-new-project" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="create-new-project">2) Create new project</h4>
-<p>Create and setup a new RStudio project for your data. Before doing this, you need to locate the raw data for the jsPsychMaker project.</p>
-<p>In this example, our raw data is in <code>~/Downloads/JSPSYCH/999/</code> and we want the new project to be in <code>~/Downloads/jsPsychHelpeR_999/</code></p>
+<section id="tidy-output-data" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="tidy-output-data">5) Tidy output data</h4>
+<p>Move the downloaded csv’s to a folder. For example, ~/Downloads/protocol999/data</p>
+</section>
+</section>
+<section id="prepare-data" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="prepare-data"><span class="header-section-number">8.3</span> Prepare data</h2>
+<section id="install" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="install">1) Install</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">'999'</span>, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data_location =</span> <span class="st">'~/Downloads/protocol999/data/'</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">'~/Downloads/jsPsychHelpeR_999/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) <span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"gorkang/jsPsychHelpeR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After this, a new RStudio project will open.</p>
+</section>
+<section id="create-project" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="create-project">2) Create project</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="dv">999</span>, <span class="at">data_location =</span> <span class="st">"~/Downloads/protocol99/data"</span>, <span class="at">dont_ask =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="restore-all-the-necessary-packages-using-renv" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="restore-all-the-necessary-packages-using-renv">3) Restore all the necessary packages using renv</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>(<span class="at">prompt =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="run-data-preparation" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="run-data-preparation">3) Run data preparation</h4>
-<p>Run the data preparation with <code>targets::tar_make()</code></p>
+<h4 class="unnumbered anchored" data-anchor-id="run-data-preparation">4) Run data preparation</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore all the necessary packages using renv</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>(<span class="at">prompt =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run data preparation</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you are curious, running <code>targets::tar_visnetwork(targets_only = TRUE)</code> will show the whole data preparation targets tree. Open the file <code>run.R</code> for more details.</p>
-<hr>
 
 
 </section>
@@ -523,13 +472,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd/01-intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reproducible experiments</span></span>
+      <a href="../qmd/07-NEWtasks.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">New protocols and tasks</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd/03-jsPsychMaker.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">jsPsychMaker</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../qmd/10-references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

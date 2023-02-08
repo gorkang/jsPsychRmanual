@@ -202,6 +202,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../qmd/08-CreateSimulatePrepare.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../qmd/10-references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
@@ -365,10 +370,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="debug-container" class="level3" data-number="6.1.6">
 <h3 data-number="6.1.6" class="anchored" data-anchor-id="debug-container"><span class="header-section-number">6.1.6</span> DEBUG Container</h3>
-<p>You can DEBUG a container with the following command.</p>
+<p>You can DEBUG a container with the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>PID <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker run --rm -ti -v ~/Downloads/jsPsychHelpeR"</span>, PID, <span class="st">"/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid"</span>, PID, <span class="st">" /bin/bash"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>docker run --rm -ti -v ~/Downloads/jsPsychHelpeR999/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid999 /bin/bash</code></pre>
+</div>
 </div>
 <p>Inside the container, you can acces R and debug as you would locally.</p>
 <div class="cell">

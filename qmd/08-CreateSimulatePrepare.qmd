@@ -1,0 +1,101 @@
+# CreateSimulatePrepare {#CreateSimulatePrepare}
+
+
+Here you can see the full process of creating a protocol with jsPsychMaker, simulating participants with jsPsychMonkeys and preparing the data with jsPsychHelpeR:
+
+
+## Create protocol
+
+
+#### 1) Install jsPsychMaker {.unnumbered}
+  
+```{r, eval=FALSE}
+  if (!require('remotes')) install.packages('remotes'); remotes::install_github("gorkang/jsPsychMaker")
+```
+
+
+#### 2) Check available tasks {.unnumbered}
+  
+```{r, eval=FALSE}
+  jsPsychMaker::list_available_tasks()$tasks
+```
+  
+
+#### 3) Create protocol {.unnumbered}
+
+```{r, eval=FALSE}
+
+  jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
+                                folder_output = "~/Downloads/protocol999", 
+                                launch_browser = FALSE)
+
+```
+
+#### 4) Edit configuration {.unnumbered}
+  
+Edit the `~/Downloads/protocol999config.js` to adjust the project's parameters
+  
+  
+  
+  
+
+## Simulate participants
+
+#### 1) Install jsPsychMonkeys {.unnumbered}
+  
+```{r, eval=FALSE}
+  if (!require('usethis')) install.packages('usethis'); library('usethis')
+  usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
+```
+
+#### 2) Setup {.unnumbered}
+  
+```{r, eval=FALSE}
+  source("setup.R")
+```
+
+#### 3) Change parameters {.unnumbered}
+
+Go to _targets.R: 
+
+-   Change parameter `local_folder_tasks` to your folder_output above. For example `local_folder_tasks = "~/Downloads/protocol999"`
+
+#### 4) Run monkeys {.unnumbered}
+```{r, eval=FALSE}
+  targets::tar_make()
+```
+
+
+#### 5) Tidy output data {.unnumbered}
+
+Move the monkeys responses csv's (should be in your `Downloads` folder) to the protocol folder. For example, ~/Downloads/protocol999/data
+
+
+
+## Prepare data 
+
+
+#### 1) Install {.unnumbered}
+  
+```{r, eval=FALSE}
+if (!require('remotes')) install.packages('remotes'); remotes::install_github("gorkang/jsPsychHelpeR")
+```
+
+#### 2) Create project {.unnumbered}
+  
+```{r, eval=FALSE}
+jsPsychHelpeR::run_initial_setup(pid = "999", data_location = "~/Downloads/protocol999/data", dont_ask = TRUE)
+```
+
+#### 3) Restore all the necessary packages using renv {.unnumbered}
+  
+```{r, eval=FALSE}
+renv::restore(prompt = FALSE)
+```
+
+#### 4) Run data preparation {.unnumbered}
+  
+```{r, eval=FALSE}
+targets::tar_make()
+```
+

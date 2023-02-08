@@ -20,6 +20,7 @@ book:
     - qmd/05-jsPsychHelpeR.qmd
     - qmd/06-jsPsychRadmins.qmd
     - qmd/07-NEWtasks.qmd
+    - qmd/08-CreateSimulatePrepare.qmd
     - qmd/10-references.qmd
 
 bibliography: references.bib
