@@ -6,93 +6,70 @@ Here you can see the full process of creating a protocol with jsPsychMaker, simu
 
 ## Create protocol
 
-
-#### 1) Install jsPsychMaker {.unnumbered}
-  
-```{r, eval=FALSE}
-  if (!require('remotes')) install.packages('remotes'); remotes::install_github("gorkang/jsPsychMaker")
-```
-
-
-#### 2) Check available tasks {.unnumbered}
-  
-```{r, eval=FALSE}
-  jsPsychMaker::list_available_tasks()$tasks
-```
-  
-
-#### 3) Create protocol {.unnumbered}
+Create a protocol with `jsPsychMaker::create_protocol()`:  
 
 ```{r, eval=FALSE}
 
-  jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
-                                folder_output = "~/Downloads/protocol999", 
-                                launch_browser = FALSE)
+# 1) Install jsPsychMaker
+if (!require('remotes')) install.packages('remotes'); remotes::install_github("gorkang/jsPsychMaker")
+
+# 2) Check available tasks
+jsPsychMaker::list_available_tasks()$tasks
+
+# 3) Create protocol
+jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
+                              folder_output = "~/Downloads/protocol999", 
+                              launch_browser = FALSE)
 
 ```
 
-#### 4) Edit configuration {.unnumbered}
-  
-Edit the `~/Downloads/protocol999config.js` to adjust the project's parameters
-  
-  
+You can now edit the configuration file (`~/Downloads/protocol999/config.js`) to adjust the project's parameters.  
   
   
 
 ## Simulate participants
 
-#### 1) Install jsPsychMonkeys {.unnumbered}
-  
+Simulate participants with {jsPsychMonkeys}:  
+
 ```{r, eval=FALSE}
-  if (!require('usethis')) install.packages('usethis'); library('usethis')
-  usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
-```
 
-#### 2) Setup {.unnumbered}
-  
-```{r, eval=FALSE}
-  source("setup.R")
-```
+# 1) Install jsPsychMonkeys
+if (!require('usethis')) install.packages('usethis'); usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
 
-#### 3) Change parameters {.unnumbered}
+# 2) Setup
+source("setup.R")
 
-Go to _targets.R: 
+# 3) Change parameters
+  # Go to _targets.R: Change parameter `local_folder_tasks` to your folder_output above. For example:  
+  # - On Ubuntu, `local_folder_tasks = "~/Downloads/protocol999"`
+  # - On Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`
 
--   Change parameter `local_folder_tasks` to your folder_output above. For example `local_folder_tasks = "~/Downloads/protocol999"`, or if on Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`
+# 4) Run monkeys
+targets::tar_make()
 
-#### 4) Run monkeys {.unnumbered}
-```{r, eval=FALSE}
-  targets::tar_make()
 ```
 
 The monkeys responses csv's should be initially downloaded in your `Downloads` folder, and automatically moved to a `.data/` folder inside the protocol folder. For example, `~/Downloads/protocol999/.data`
 
 
-
 ## Prepare data 
 
+Create a data preparation project with `jsPsychHelpeR::run_initial_setup()`:   
 
-#### 1) Install {.unnumbered}
-  
 ```{r, eval=FALSE}
+
+# 1) Install
 if (!require('remotes')) install.packages('remotes'); remotes::install_github("gorkang/jsPsychHelpeR")
-```
 
-#### 2) Create project {.unnumbered}
-  
-```{r, eval=FALSE}
+# 2) Create project
 jsPsychHelpeR::run_initial_setup(pid = "999", data_location = "~/Downloads/protocol999/.data", dont_ask = TRUE)
-```
 
-#### 3) Restore all the necessary packages using renv {.unnumbered}
-  
-```{r, eval=FALSE}
+# 3) Restore all the necessary packages using {renv}
 renv::restore(prompt = FALSE)
-```
 
-#### 4) Run data preparation {.unnumbered}
-  
-```{r, eval=FALSE}
+# 4) Run data preparation
 targets::tar_make()
+
 ```
 
+If you don't give a value to the `folder` parameter in `jsPsychHelpeR::run_initial_setup()`, the new project will be created in `~/Downloads/jsPsychHelpeRtest/`. After step 4), the prepared data can be found in the `outputs/data` folder of the new project, reports in  `outputs/reports`, etc.  
