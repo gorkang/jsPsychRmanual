@@ -149,7 +149,8 @@ targets::tar_destroy(ask = FALSE)
 targets::tar_make()
 
 # Check size folders
-du -had1 renv/ 
+du -had1 renv/ | sort -h
+du -had1 * | sort -h
 
 ```
 

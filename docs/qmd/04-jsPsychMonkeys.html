@@ -207,17 +207,16 @@ ul.task-list li input[type="checkbox"] {
 <p>If the <a href="02-QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> configuration steps didn’t work… You may need to do one of the things below:</p>
 <ul>
 <li><p>Run participants manually</p></li>
-<li><p>Use a Linux computer or create a Linux partition</p></li>
-<li><p>Create a Linux virtual machine from where to simulate participants. You can use <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> to install <a href="https://releases.ubuntu.com/20.04/">Ubuntu</a>. Once there, you can use this <a href="https://gorkang.github.io/R_preparacion_visualizacion_datos/preparando-sistema.html#empezando-en-a-b-c">manual to prepare the system to run R &amp; RStudio</a></p></li>
+<li><p>Switch to <a href="https://ubuntu.com/download/desktop">Ubuntu</a> :-)</p></li>
 </ul>
-<!-- sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev  -->
 </section>
 <section id="parameters" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="parameters"><span class="header-section-number">4.2</span> Parameters</h2>
 <p>Edit the <code>Parameters</code> section of the <code>_targets.R</code> file. The minimal set of parameters needed are:</p>
 <pre><code>parameters_monkeys_minimal = list(
   uid = 1:10, # User id's for the participants. 
-  local_folder_tasks = "Downloads/tests/2" # Location of your jsPsych protocol
+  local_folder_tasks = "Downloads/protocol999" # Location of your jsPsych protocol
+  # On Windows: local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"  
 )</code></pre>
 <hr>
 <section id="release-the-monkeys" class="level3" data-number="4.2.1">
@@ -242,11 +241,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="launch-monkeys-on-a-server" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="launch-monkeys-on-a-server"><span class="header-section-number">4.2.2</span> Launch monkeys on a server</h3>
-<p>You will need a <code>.vault/SERVER_PATH.R</code> file that contains the path where the protocols are located in your server: <code>server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"</code></p>
-<p>With the <code>server_folder_tasks</code> you will set the subfolder where the protocol is located. In the example below the monkeys would go to, <code>http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/1</code></p>
+<p>You will need two files for the configuration in the hidden and NOT SHARED <code>.vault/</code> folder:</p>
+<ul>
+<li><p><code>.vault/SERVER_PATH.R</code>: contains the path where the protocols are located in your server: <code>server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"</code></p></li>
+<li><p><code>.vault/.credentials</code>: contains a list with the user and password for the server: <code>list(user = "", password = "")</code></p></li>
+</ul>
+<p>With the <code>server_folder_tasks</code> you will set the subfolder where the protocol is located. In the example below the monkeys would go to, <code>http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999</code></p>
 <pre><code>parameters_monkeys_minimal = list(
   uid = 1:10, # User id's for the participants. 
-  server_folder_tasks = "1" # Location of your jsPsych protocol
+  server_folder_tasks = "999" # Location of your jsPsych protocol
 )</code></pre>
 </section>
 <section id="parameters-for-parameters_monkeys_minimal" class="level3" data-number="4.2.3">

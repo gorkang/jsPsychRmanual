@@ -292,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="unnumbered anchored" data-anchor-id="change-parameters">3) Change parameters</h4>
 <p>Go to _targets.R:</p>
 <ul>
-<li>Change parameter <code>local_folder_tasks</code> to your folder_output above. For example <code>local_folder_tasks = "~/Downloads/protocol999"</code></li>
+<li>Change parameter <code>local_folder_tasks</code> to your folder_output above. For example <code>local_folder_tasks = "~/Downloads/protocol999"</code>, or if on Windows, <code>local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"</code></li>
 </ul>
 </section>
 <section id="run-monkeys" class="level4 unnumbered">
@@ -300,10 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="tidy-output-data" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="tidy-output-data">5) Tidy output data</h4>
-<p>Move the downloaded csv’s to a folder. For example, ~/Downloads/protocol999/data</p>
+<p>The monkeys responses csv’s should be initially downloaded in your <code>Downloads</code> folder, and thn moved to a <code>.data/</code> folder inside the protocol folder. For example, <code>~/Downloads/protocol999/.data</code></p>
 </section>
 </section>
 <section id="prepare-data" class="level2" data-number="8.3">
@@ -317,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="create-project" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="create-project">2) Create project</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="dv">999</span>, <span class="at">data_location =</span> <span class="st">"~/Downloads/protocol99/data"</span>, <span class="at">dont_ask =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">data_location =</span> <span class="st">"~/Downloads/protocol999/data"</span>, <span class="at">dont_ask =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="restore-all-the-necessary-packages-using-renv" class="level4 unnumbered">

@@ -86,9 +86,7 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 
 ```{r, eval=FALSE}
 
-if (!require('usethis')) install.packages('usethis'); library('usethis')
-
-usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
+if (!require('usethis')) install.packages('usethis'); usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
 
 ```
 
@@ -101,6 +99,7 @@ Run setup: `source("setup.R")`. This will install the packages needed.
 You may need to install some system libraries first:  
 
 -   `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`  
+- If the Monkeys do their work but no csv's appear, make sure your the docker user has write access to the `~/Downloads` folder.  
 
 **Windows**  
 
@@ -116,9 +115,14 @@ Open `run.R` and follow the instructions. Mainly:
 
 -   Edit `parameters_monkeys_minimal`. For example, launch participants 1 to 5 to the `protocol999` protocol locally:
 
-    -   `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "Downloads/protocol999")`
+    -   `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "~/Downloads/protocol999")`  
+    
+    -   If you are on Windows, `local_folder_tasks` value should be something similar to `C:/Users/myusername/Downloads/protocol999`  
 
 -   Run Monkeys!: `targets::tar_make()`
+
+
+If the protocol was running from a loccal folder, the Monkey's responses will be copied to a subfolder `.data/` inside the `local_folder_tasks`. In the example above, `~/Downloads/protocol999/.data`. If the protocol was running on the server, the data will be in the protocols' `.data/` folder inside the server.  
 
 
 
@@ -154,13 +158,13 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
 
 Create and setup a new RStudio project for your data. Before doing this, you need to locate the raw data for the jsPsychMaker project.   
 
-In this example, our raw data is in `~/Downloads/JSPSYCH/999/` and we want the new project to be in `~/Downloads/jsPsychHelpeR_999/`  
+In this example, our raw data is in `~/Downloads/protocol999/.data/` and we want the new project to be in `~/Downloads/jsPsychHelpeR999/`  
 
 ```{r, eval=FALSE}
 
 jsPsychHelpeR::run_initial_setup(pid = '999', 
-                                 data_location = '~/Downloads/protocol999/data/', 
-                                 folder = '~/Downloads/jsPsychHelpeR_999/')
+                                 data_location = '~/Downloads/protocol999/.data/', 
+                                 folder = '~/Downloads/jsPsychHelpeR999/')
 
 ```
 

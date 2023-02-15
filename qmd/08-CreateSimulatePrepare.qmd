@@ -58,17 +58,14 @@ Edit the `~/Downloads/protocol999config.js` to adjust the project's parameters
 
 Go to _targets.R: 
 
--   Change parameter `local_folder_tasks` to your folder_output above. For example `local_folder_tasks = "~/Downloads/protocol999"`
+-   Change parameter `local_folder_tasks` to your folder_output above. For example `local_folder_tasks = "~/Downloads/protocol999"`, or if on Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`
 
 #### 4) Run monkeys {.unnumbered}
 ```{r, eval=FALSE}
   targets::tar_make()
 ```
 
-
-#### 5) Tidy output data {.unnumbered}
-
-Move the monkeys responses csv's (should be in your `Downloads` folder) to the protocol folder. For example, ~/Downloads/protocol999/data
+The monkeys responses csv's should be initially downloaded in your `Downloads` folder, and thn moved to a `.data/` folder inside the protocol folder. For example, `~/Downloads/protocol999/.data`
 
 
 

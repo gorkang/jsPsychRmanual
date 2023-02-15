@@ -32,11 +32,8 @@ If the [QuickGuide](#QuickGuidejsPsychMonkeys) configuration steps didn't work..
 
 -   Run participants manually
 
--   Use a Linux computer or create a Linux partition
+-   Switch to [Ubuntu](https://ubuntu.com/download/desktop) :-)
 
--   Create a Linux virtual machine from where to simulate participants. You can use [Virtualbox](https://www.virtualbox.org/wiki/Downloads) to install [Ubuntu](https://releases.ubuntu.com/20.04/). Once there, you can use this [manual to prepare the system to run R & RStudio](https://gorkang.github.io/R_preparacion_visualizacion_datos/preparando-sistema.html#empezando-en-a-b-c)
-
-<!-- sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev  -->
 
 ## Parameters
 
@@ -44,7 +41,8 @@ Edit the `Parameters` section of the `_targets.R` file. The minimal set of param
 
     parameters_monkeys_minimal = list(
       uid = 1:10, # User id's for the participants. 
-      local_folder_tasks = "Downloads/tests/2" # Location of your jsPsych protocol
+      local_folder_tasks = "Downloads/protocol999" # Location of your jsPsych protocol
+      # On Windows: local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"  
     )
 
 ------------------------------------------------------------------------
@@ -78,13 +76,18 @@ if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
 
 ### Launch monkeys on a server
 
-You will need a `.vault/SERVER_PATH.R` file that contains the path where the protocols are located in your server: `server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"`
+You will need two files for the configuration in the hidden and NOT SHARED `.vault/` folder:  
 
-With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/1`
+- `.vault/SERVER_PATH.R`:  contains the path where the protocols are located in your server: `server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"`  
+
+- `.vault/.credentials`: contains a list with the user and password for the server: `list(user = "", password = "")`
+
+
+With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
 
     parameters_monkeys_minimal = list(
       uid = 1:10, # User id's for the participants. 
-      server_folder_tasks = "1" # Location of your jsPsych protocol
+      server_folder_tasks = "999" # Location of your jsPsych protocol
     )
 
 ### Parameters for parameters_monkeys_minimal
