@@ -65,7 +65,7 @@ Go to _targets.R:
   targets::tar_make()
 ```
 
-The monkeys responses csv's should be initially downloaded in your `Downloads` folder, and thn moved to a `.data/` folder inside the protocol folder. For example, `~/Downloads/protocol999/.data`
+The monkeys responses csv's should be initially downloaded in your `Downloads` folder, and automatically moved to a `.data/` folder inside the protocol folder. For example, `~/Downloads/protocol999/.data`
 
 
 
@@ -81,7 +81,7 @@ if (!require('remotes')) install.packages('remotes'); remotes::install_github("g
 #### 2) Create project {.unnumbered}
   
 ```{r, eval=FALSE}
-jsPsychHelpeR::run_initial_setup(pid = "999", data_location = "~/Downloads/protocol999/data", dont_ask = TRUE)
+jsPsychHelpeR::run_initial_setup(pid = "999", data_location = "~/Downloads/protocol999/.data", dont_ask = TRUE)
 ```
 
 #### 3) Restore all the necessary packages using renv {.unnumbered}

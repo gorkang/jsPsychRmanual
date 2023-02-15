@@ -228,14 +228,14 @@
     "href": "qmd/08-CreateSimulatePrepare.html#simulate-participants",
     "title": "8  CreateSimulatePrepare",
     "section": "8.2 Simulate participants",
-    "text": "8.2 Simulate participants\n\n1) Install jsPsychMonkeys\n\n  if (!require('usethis')) install.packages('usethis'); library('usethis')\n  usethis::use_course(url = \"gorkang/jsPsychMonkeys\", destdir = \"~/Downloads/\")\n\n\n\n2) Setup\n\n  source(\"setup.R\")\n\n\n\n3) Change parameters\nGo to _targets.R:\n\nChange parameter local_folder_tasks to your folder_output above. For example local_folder_tasks = \"~/Downloads/protocol999\", or if on Windows, local_folder_tasks = \"C:/Users/myusername/Downloads/protocol999\"\n\n\n\n4) Run monkeys\n\n  targets::tar_make()\n\nThe monkeys responses csv’s should be initially downloaded in your Downloads folder, and thn moved to a .data/ folder inside the protocol folder. For example, ~/Downloads/protocol999/.data"
+    "text": "8.2 Simulate participants\n\n1) Install jsPsychMonkeys\n\n  if (!require('usethis')) install.packages('usethis'); library('usethis')\n  usethis::use_course(url = \"gorkang/jsPsychMonkeys\", destdir = \"~/Downloads/\")\n\n\n\n2) Setup\n\n  source(\"setup.R\")\n\n\n\n3) Change parameters\nGo to _targets.R:\n\nChange parameter local_folder_tasks to your folder_output above. For example local_folder_tasks = \"~/Downloads/protocol999\", or if on Windows, local_folder_tasks = \"C:/Users/myusername/Downloads/protocol999\"\n\n\n\n4) Run monkeys\n\n  targets::tar_make()\n\nThe monkeys responses csv’s should be initially downloaded in your Downloads folder, and automatically moved to a .data/ folder inside the protocol folder. For example, ~/Downloads/protocol999/.data"
   },
   {
     "objectID": "qmd/08-CreateSimulatePrepare.html#prepare-data",
     "href": "qmd/08-CreateSimulatePrepare.html#prepare-data",
     "title": "8  CreateSimulatePrepare",
     "section": "8.3 Prepare data",
-    "text": "8.3 Prepare data\n\n1) Install\n\nif (!require('remotes')) install.packages('remotes'); remotes::install_github(\"gorkang/jsPsychHelpeR\")\n\n\n\n2) Create project\n\njsPsychHelpeR::run_initial_setup(pid = \"999\", data_location = \"~/Downloads/protocol999/data\", dont_ask = TRUE)\n\n\n\n3) Restore all the necessary packages using renv\n\nrenv::restore(prompt = FALSE)\n\n\n\n4) Run data preparation\n\ntargets::tar_make()"
+    "text": "8.3 Prepare data\n\n1) Install\n\nif (!require('remotes')) install.packages('remotes'); remotes::install_github(\"gorkang/jsPsychHelpeR\")\n\n\n\n2) Create project\n\njsPsychHelpeR::run_initial_setup(pid = \"999\", data_location = \"~/Downloads/protocol999/.data\", dont_ask = TRUE)\n\n\n\n3) Restore all the necessary packages using renv\n\nrenv::restore(prompt = FALSE)\n\n\n\n4) Run data preparation\n\ntargets::tar_make()"
   },
   {
     "objectID": "qmd/10-references.html",
