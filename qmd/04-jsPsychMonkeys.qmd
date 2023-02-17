@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-[jsPsychMonkeys](https://github.com/gorkang/jsPsychMonkeys): Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
+[jsPsychMonkeys](https://github.com/gorkang/jsPsychMonkeys): Release Monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
 
 ------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ If you want a sequential process:
 
 -   `targets::tar_make()`
 
-If you want a parallel horde of monkeys:
+If you want a parallel horde of Monkeys:
 
 -   `targets::tar_future_make(workers = 2)`
 
@@ -74,7 +74,7 @@ if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
 }
 ```
 
-### Launch monkeys on a server
+### Launch Monkeys on a server
 
 You will need two files for the configuration in the hidden and NOT SHARED `.vault/` folder:  
 
@@ -83,7 +83,7 @@ You will need two files for the configuration in the hidden and NOT SHARED `.vau
 - `.vault/.credentials`: contains a list with the user and password for the server: `list(user = "", password = "")`
 
 
-With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
+With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the Monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
 
     parameters_monkeys_minimal = list(
       uid = 1:10, # User id's for the participants. 
@@ -96,15 +96,15 @@ There are a few parameters that can be useful:
 
 -   `uid_URL = TRUE`: The uid is passed in the URL (e.g. `&uid=1`)
 
--   `local_folder_tasks = rep("Downloads/tests/test_prototol", 25)`: Passing a vector of multiple tasks will make the monkeys to complete all of them.
+-   `local_folder_tasks = rep("Downloads/tests/test_prototol", 25)`: Passing a vector of multiple protocols will make the Monkeys to complete all of them.
 
 -   `keep_alive = TRUE` Keep the docker container alive after completing the tasks
 
 -   `DEBUG = TRUE` Activate DEBUG mode. Lot's of stuff will show up in the console.
 
--   `open_VNC = TRUE` Activate DEBUG mode and open a VNC container to see the monkey's progress.
+-   `open_VNC = TRUE` Activate DEBUG mode and open a VNC container to see the Monkeys' progress.
 
--   `screenshot = TRUE` The monkeys will take a picture of all the pages they see. The .png files are stored in `outputs/screenshots`
+-   `screenshot = TRUE` The Monkeys will take a picture of all the pages they see. The .png files are stored in `outputs/screenshots`
 
 -   `debug_file = TRUE` Activate DEBUG mode and store all the console output in the `outputs/log`
 
@@ -126,4 +126,4 @@ There are a few parameters that can be useful:
 
 ## Technical aspects
 
-Since jsPsych 7.1 there is a [simulation mode](https://www.jspsych.org/7.3/overview/simulation/) available, which should be much faster than the good ol' monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.
+Since jsPsych 7.1 there is a [simulation mode](https://www.jspsych.org/7.3/overview/simulation/) available, which should be much faster than the good ol' Monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.

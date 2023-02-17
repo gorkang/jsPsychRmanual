@@ -6,7 +6,7 @@ Instructions and protocols for jsPsychR admins. The goal is to minimize issues a
 
 ## Docker containers
 
-We can create a fully reproducible docker image with the data preparation and analysis for a specific project using `create_docker_container()`  
+We can create a fully reproducible docker image with the data preparation and analysis for a specific project using `jsPsychHelpeR::create_docker_container()`  
 
 Afterwards, you can use the image to run a docker container that will reproduce the analysis and results of your project.  
 
@@ -108,7 +108,7 @@ On windows:
 
 ### Run container
 
-Once the docker image is loaded in your system, you will be able to run the data preparation and analysis for your project inside a docker container, ensuring reproducibility. The output will be in `Downloads/jsPsychHelpeR/pid[PID]/` after a couple of minutes.  
+Once the docker image is loaded in your system, you will be able to run the data preparation and analysis for your project inside a docker container, ensuring reproducibility. The output will be in `Downloads/jsPsychHelpeR[PID]/outputs` after a couple of minutes.  
 
 - Linux
 ```{r results='markup', eval=FALSE}

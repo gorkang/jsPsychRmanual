@@ -611,12 +611,47 @@ div.csl-indent {
 </section>
 <section id="docker-containers" class="level3" data-number="5.3.6">
 <h3 data-number="5.3.6" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">5.3.6</span> Docker containers</h3>
-<p>The function <code>create_docker_container()</code> will create a fully reproducible docker container with the data preparation and analysis for a specific project.</p>
+<p>The function <code>jsPsychHelpeR::create_docker_container()</code> will create a fully reproducible docker container with the data preparation and analysis for a specific project.</p>
 <p>The container can be easily shared or stored to allow others to run the data preparation and analysis for you project without worrying about dependencies, versions of packages, etc.</p>
+<p>See more information about the setup in the <a href="06-jsPsychRadmins.html#docker-containers">admin section</a>.</p>
+<p>The gist of it is, after you have the full data preparation and analysis for you project ready, to create the container image and share it, just run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Set your project ID</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Create docker image</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">create_docker_container</span>(<span class="at">PID =</span> PID)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) SHARE your docker image</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Using Dockerhub</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker push gorkang/jspsychhelper:pid"</span>, PID))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Using a .tar file</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker save gorkang/jspsychhelper:pid"</span>, PID, <span class="st">" | zip &gt; pid"</span>, PID, <span class="st">".tar.zip"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To load and run the container image (if you are using Windows, see <a href="06-jsPsychRadmins.html#load-image">here</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Set your project ID</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Get the docker image loaded into to your computer</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dockerhub</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker pull gorkang/jspsychhelper:pid"</span>, PID))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># .tar file</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  utils<span class="sc">::</span><span class="fu">unzip</span>(<span class="at">zipfile =</span> <span class="fu">paste0</span>(<span class="st">"pid"</span>, PID, <span class="st">".tar.zip"</span>), <span class="at">files =</span> <span class="fu">paste0</span>(<span class="st">"-"</span>))</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker load --input -"</span>))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Run docker container</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker run --rm -d --name pid"</span>, PID, <span class="st">" -v ~/Downloads/jsPsychHelpeR"</span>, PID, <span class="st">"/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output will be in <code>Downloads/jsPsychHelpeR[PID]/outputs/</code> after a couple of minutes. You can see the data preparation and analysis progress using <a href="https://www.docker.com/products/docker-desktop/">docker desktop</a>.</p>
 </section>
 <section id="blinded-analysis" class="level3" data-number="5.3.7">
 <h3 data-number="5.3.7" class="anchored" data-anchor-id="blinded-analysis"><span class="header-section-number">5.3.7</span> Blinded analysis</h3>
-<p>The funcion <code>create_DF_analysis()</code> has the parameter <code>DVars</code> to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. We use a simple <code>sort()</code> in those variables, so their data will be ordered from smaller to bigger, losing the relationship with the other variables in the data, but keeping their structure.</p>
+<p>The function <code>create_DF_analysis()</code> has the parameter <code>DVars</code> to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. We use a simple <code>sort()</code> in those variables, so their data will be ordered from smaller to bigger, losing the relationship with the other variables in the data, but keeping their structure.</p>
 <p>See MacCoun, R., &amp; Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., &amp; Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)</p>
 </section>
 </section>
@@ -628,22 +663,22 @@ div.csl-indent {
 <p>An example can be found in <a href="https://github.com/gorkang/jsPsychHelpeR/blob/master/R_tasks/prepare_REI40.R">prepare_REI40()</a>.</p>
 <p>The basic logic would be:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define items for a specific dimension</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>items_DIRd1 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>, <span class="st">"04"</span>, <span class="st">"05"</span>, <span class="st">"06"</span>, <span class="st">"07"</span>, <span class="st">"08"</span>, <span class="st">"09"</span>, <span class="st">"10"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate reliability</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>REL1 <span class="ot">=</span> <span class="fu">auto_reliability</span>(DF_wide_RAW, <span class="at">short_name_scale =</span> short_name_scale_str, <span class="at">items =</span> items_DIRd1, <span class="at">min_rdrop =</span> <span class="fl">0.2</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Store item selection in a variable</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>items_RELd1 <span class="ot">=</span> REL1<span class="sc">$</span>item_selection_string</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># In the final Dimension calculation, use the item selection including only the items with a reliability over the defined threshold   </span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="do">## See `items_RELd1` below</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="sc">!!</span>names_list<span class="sc">$</span>name_RELd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_RELd1, <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare it with the calculation including the original items</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="do">## See `items_DIRd1` below</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="sc">!!</span>names_list<span class="sc">$</span>name_DIRd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_DIRd1, <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define items for a specific dimension</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>items_DIRd1 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>, <span class="st">"04"</span>, <span class="st">"05"</span>, <span class="st">"06"</span>, <span class="st">"07"</span>, <span class="st">"08"</span>, <span class="st">"09"</span>, <span class="st">"10"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate reliability</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>REL1 <span class="ot">=</span> <span class="fu">auto_reliability</span>(DF_wide_RAW, <span class="at">short_name_scale =</span> short_name_scale_str, <span class="at">items =</span> items_DIRd1, <span class="at">min_rdrop =</span> <span class="fl">0.2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Store item selection in a variable</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>items_RELd1 <span class="ot">=</span> REL1<span class="sc">$</span>item_selection_string</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># In the final Dimension calculation, use the item selection including only the items with a reliability over the defined threshold   </span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">## See `items_RELd1` below</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="sc">!!</span>names_list<span class="sc">$</span>name_RELd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_RELd1, <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare it with the calculation including the original items</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">## See `items_DIRd1` below</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="sc">!!</span>names_list<span class="sc">$</span>name_DIRd[<span class="dv">1</span>] <span class="sc">:</span><span class="er">=</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">paste0</span>(short_name_scale_str, <span class="st">"_"</span>, items_DIRd1, <span class="st">"_DIR"</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

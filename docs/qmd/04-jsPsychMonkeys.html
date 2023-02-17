@@ -160,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"><span class="toc-section-number">4.2</span>  Parameters</a>
   <ul class="collapse">
   <li><a href="#release-the-monkeys" id="toc-release-the-monkeys" class="nav-link" data-scroll-target="#release-the-monkeys"><span class="toc-section-number">4.2.1</span>  Release the Monkeys!</a></li>
-  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"><span class="toc-section-number">4.2.2</span>  Launch monkeys on a server</a></li>
+  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"><span class="toc-section-number">4.2.2</span>  Launch Monkeys on a server</a></li>
   <li><a href="#parameters-for-parameters_monkeys_minimal" id="toc-parameters-for-parameters_monkeys_minimal" class="nav-link" data-scroll-target="#parameters-for-parameters_monkeys_minimal"><span class="toc-section-number">4.2.3</span>  Parameters for parameters_monkeys_minimal</a></li>
   </ul></li>
   <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"><span class="toc-section-number">4.3</span>  Technical aspects</a></li>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p><a href="https://github.com/gorkang/jsPsychMonkeys">jsPsychMonkeys</a>: Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.</p>
+<p><a href="https://github.com/gorkang/jsPsychMonkeys">jsPsychMonkeys</a>: Release Monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.</p>
 <hr>
 <p>With jsPsychMonkeys you can simulate participants and easily do the following:</p>
 <ul>
@@ -225,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><code>targets::tar_make()</code></li>
 </ul>
-<p>If you want a parallel horde of monkeys:</p>
+<p>If you want a parallel horde of Monkeys:</p>
 <ul>
 <li><code>targets::tar_future_make(workers = 2)</code></li>
 </ul>
@@ -240,13 +240,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="launch-monkeys-on-a-server" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="launch-monkeys-on-a-server"><span class="header-section-number">4.2.2</span> Launch monkeys on a server</h3>
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="launch-monkeys-on-a-server"><span class="header-section-number">4.2.2</span> Launch Monkeys on a server</h3>
 <p>You will need two files for the configuration in the hidden and NOT SHARED <code>.vault/</code> folder:</p>
 <ul>
 <li><p><code>.vault/SERVER_PATH.R</code>: contains the path where the protocols are located in your server: <code>server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"</code></p></li>
 <li><p><code>.vault/.credentials</code>: contains a list with the user and password for the server: <code>list(user = "", password = "")</code></p></li>
 </ul>
-<p>With the <code>server_folder_tasks</code> you will set the subfolder where the protocol is located. In the example below the monkeys would go to, <code>http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999</code></p>
+<p>With the <code>server_folder_tasks</code> you will set the subfolder where the protocol is located. In the example below the Monkeys would go to, <code>http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999</code></p>
 <pre><code>parameters_monkeys_minimal = list(
   uid = 1:10, # User id's for the participants. 
   server_folder_tasks = "999" # Location of your jsPsych protocol
@@ -257,11 +257,11 @@ ul.task-list li input[type="checkbox"] {
 <p>There are a few parameters that can be useful:</p>
 <ul>
 <li><p><code>uid_URL = TRUE</code>: The uid is passed in the URL (e.g.&nbsp;<code>&amp;uid=1</code>)</p></li>
-<li><p><code>local_folder_tasks = rep("Downloads/tests/test_prototol", 25)</code>: Passing a vector of multiple tasks will make the monkeys to complete all of them.</p></li>
+<li><p><code>local_folder_tasks = rep("Downloads/tests/test_prototol", 25)</code>: Passing a vector of multiple protocols will make the Monkeys to complete all of them.</p></li>
 <li><p><code>keep_alive = TRUE</code> Keep the docker container alive after completing the tasks</p></li>
 <li><p><code>DEBUG = TRUE</code> Activate DEBUG mode. Lot’s of stuff will show up in the console.</p></li>
-<li><p><code>open_VNC = TRUE</code> Activate DEBUG mode and open a VNC container to see the monkey’s progress.</p></li>
-<li><p><code>screenshot = TRUE</code> The monkeys will take a picture of all the pages they see. The .png files are stored in <code>outputs/screenshots</code></p></li>
+<li><p><code>open_VNC = TRUE</code> Activate DEBUG mode and open a VNC container to see the Monkeys’ progress.</p></li>
+<li><p><code>screenshot = TRUE</code> The Monkeys will take a picture of all the pages they see. The .png files are stored in <code>outputs/screenshots</code></p></li>
 <li><p><code>debug_file = TRUE</code> Activate DEBUG mode and store all the console output in the <code>outputs/log</code></p></li>
 <li><p><code>big_container = TRUE</code> Sets the Shared memory size (/dev/shm) to 2 gigabytes. This is useful to avoid long/complex protocols to crash</p></li>
 <li><p><code>disable_web_security = TRUE</code> If you are running a local protocol that loads external files (e.g.&nbsp;consent form in a html file), you may need this. Only works with Google Chrome.</p></li>
@@ -280,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="technical-aspects" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="technical-aspects"><span class="header-section-number">4.3</span> Technical aspects</h2>
-<p>Since jsPsych 7.1 there is a <a href="https://www.jspsych.org/7.3/overview/simulation/">simulation mode</a> available, which should be much faster than the good ol’ monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.</p>
+<p>Since jsPsych 7.1 there is a <a href="https://www.jspsych.org/7.3/overview/simulation/">simulation mode</a> available, which should be much faster than the good ol’ Monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.</p>
 
 
 </section>

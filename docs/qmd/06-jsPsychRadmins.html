@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Instructions and protocols for jsPsychR admins. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.</p>
 <section id="docker-containers" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">6.1</span> Docker containers</h2>
-<p>We can create a fully reproducible docker image with the data preparation and analysis for a specific project using <code>create_docker_container()</code></p>
+<p>We can create a fully reproducible docker image with the data preparation and analysis for a specific project using <code>jsPsychHelpeR::create_docker_container()</code></p>
 <p>Afterwards, you can use the image to run a docker container that will reproduce the analysis and results of your project.</p>
 <p>The current version is a first attempt at this, so there is a lot to improve.</p>
 <section id="install-docker" class="level3" data-number="6.1.1">
@@ -348,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="run-container" class="level3" data-number="6.1.5">
 <h3 data-number="6.1.5" class="anchored" data-anchor-id="run-container"><span class="header-section-number">6.1.5</span> Run container</h3>
-<p>Once the docker image is loaded in your system, you will be able to run the data preparation and analysis for your project inside a docker container, ensuring reproducibility. The output will be in <code>Downloads/jsPsychHelpeR/pid[PID]/</code> after a couple of minutes.</p>
+<p>Once the docker image is loaded in your system, you will be able to run the data preparation and analysis for your project inside a docker container, ensuring reproducibility. The output will be in <code>Downloads/jsPsychHelpeR[PID]/outputs</code> after a couple of minutes.</p>
 <ul>
 <li>Linux</li>
 </ul>

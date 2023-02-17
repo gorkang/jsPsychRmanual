@@ -366,15 +366,59 @@ You can do this in one of three ways:
 
 ### Docker containers
 
-The function `create_docker_container()` will create a fully reproducible docker container with the data preparation and analysis for a specific project.  
+The function `jsPsychHelpeR::create_docker_container()` will create a fully reproducible docker container with the data preparation and analysis for a specific project.  
 
 The container can be easily shared or stored to allow others to run the data preparation and analysis for you project without worrying about dependencies, versions of packages, etc.  
 
+See more information about the setup in the [admin section](06-jsPsychRadmins.html#docker-containers).  
+
+The gist of it is, after you have the full data preparation and analysis for you project ready, to create the container image and share it, just run:
+
+```{r results='markup', eval=FALSE}
+
+# 1) Set your project ID
+  PID = 999
+
+# 2) Create docker image
+  jsPsychHelpeR::create_docker_container(PID = PID)
+
+# 3) SHARE your docker image
+  
+  # Using Dockerhub
+    system(paste0("docker push gorkang/jspsychhelper:pid", PID))
+    
+  # Using a .tar file
+    system(paste0("docker save gorkang/jspsychhelper:pid", PID, " | zip > pid", PID, ".tar.zip"))
+  
+```
+
+To load and run the container image (if you are using Windows, see [here](06-jsPsychRadmins.html#load-image)):
+
+```{r results='markup', eval=FALSE}
+
+# 1) Set your project ID
+  PID = 999
+
+# 2) Get the docker image loaded into to your computer
+
+  # Dockerhub
+  system(paste0("docker pull gorkang/jspsychhelper:pid", PID))
+  
+  # .tar file
+  utils::unzip(zipfile = paste0("pid", PID, ".tar.zip"), files = paste0("-"))
+  system(paste0("docker load --input -"))
+  
+# 3) Run docker container
+  system(paste0("docker run --rm -d --name pid", PID, " -v ~/Downloads/jsPsychHelpeR", PID, "/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid", PID))
+
+```
+
+The output will be in `Downloads/jsPsychHelpeR[PID]/outputs/` after a couple of minutes. You can see the data preparation and analysis progress using [docker desktop](https://www.docker.com/products/docker-desktop/).    
 
 
 ### Blinded analysis
 
-The funcion `create_DF_analysis()` has the parameter `DVars` to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. 
+The function `create_DF_analysis()` has the parameter `DVars` to select the Dependent Variables in your data that should be scrambled to be ready for a blinded analysis. 
 We use a simple `sort()` in those variables, so their data will be ordered from smaller to bigger, losing the relationship with the other variables in the data, but keeping their structure.
 
 See MacCoun, R., & Perlmutter, S. (2015). Blind analysis: Hide results to seek the truth. Nature, 526(7572), 187-189 (https://doi.org/10.1038/526187a), or Sarafoglou, A., Hoogeveen, S., & Wagenmakers, E. J. (2023). Comparing analysis blinding with preregistration in the many-analysts religion project. Advances in Methods and Practices in Psychological Science, 6(1), 25152459221128319. (https://doi.org/10.1177/25152459221128319)

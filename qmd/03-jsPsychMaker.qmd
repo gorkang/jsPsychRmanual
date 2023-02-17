@@ -20,7 +20,7 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 
 -   Select order of tasks, randomize subsets of tasks, etc.
 
--   Randomize participants to groups making sure the balance between the groups is maintained
+-   Randomize participants to groups, making sure the balance between the groups is maintained
 
 -   Allow participants to continue in the task where they left in the protocol
 
@@ -110,19 +110,25 @@ If you use the app, you will need to copy the generated config.js file to your p
 
 ### Main parameters
 
--   `pid = 999999;`: Number of protocol
+-   `pid = 999;`: Number of protocol
 
--   `online = true;`: true if the protocol run in a server, false if runs locally
+-   `online = true;`: true if the protocol runs in a server, false if it runs locally
 
--   `max_participants = 3;`: If you have `between participants` conditions (participants are assign to only one of a number of conditions), this is the max number of participants per condition
+-   `max_participants = 3;`: If you have `between participants` conditions (participants are assigned to only one of a number of conditions), this is the max number of participants per condition
 
 -   `random_id = false;`: true if you want to assign a random id to participants, false if the participant needs to input an id
 
--   `max_time = "24:00:00";`: Max time to complete the protocol (HH:MM:SS; Hours:Minutes:Seconds)
+-   `max_time = "24:00:00";`: Maximum time to complete the protocol (HH:MM:SS; Hours:Minutes:Seconds)
 
--   `accept_discarded = true;`: If an user is discarded (over max_time), shall be allowed to continue given there are available slots?
+-   `accept_discarded = true;`: If a participant is discarded (i.e. exceeded the max_time), should we allow them to continue, given there are available slots?
 
--   `debug_mode = false;`: When testing the protocol it shows DEBUG messages, creates the DB tables if they don't exist... It also forces the tasks with random order of items to avoid the randomization so the `jsPsychMonkeys` can have a reproducible behavior.
+-   `debug_mode = false;`: When testing the protocol:  
+
+  + shows DEBUG messages
+  
+  + creates the DB tables if they don't exist
+  
+  + Avoids randomization (e.g. order of items) so the `jsPsychMonkeys` can have a reproducible behavior
 
 ### Order of tasks
 
