@@ -302,15 +302,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Run Monkeys</p></li>
 </ol>
 <hr>
-<section id="download-jspsychmonkeys" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="download-jspsychmonkeys">1) Download jsPsychMonkeys</h4>
+<section id="install-jspsychmonkeys" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="install-jspsychmonkeys">1) Install jsPsychMonkeys</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="at">url =</span> <span class="st">"gorkang/jsPsychMonkeys"</span>, <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychMonkeys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="setup" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="setup">2) Setup</h4>
-<p>Run setup: <code>source("setup.R")</code>. This will install the packages needed.</p>
 <p><strong>Ubuntu</strong></p>
 <p>You may need to install some system libraries first:</p>
 <ul>
@@ -327,17 +326,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="run-monkeys" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-monkeys">3) Run Monkeys</h4>
-<p>Open <code>run.R</code> and follow the instructions. Mainly:</p>
-<ul>
-<li><p>Open <code>_targets.R</code> file: <code>rstudioapi::navigateToFile("_targets.R")</code></p></li>
-<li><p>Edit <code>parameters_monkeys_minimal</code>. For example, launch participants 1 to 5 to the <code>protocol999</code> protocol locally:</p>
-<ul>
-<li><p><code>parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "~/Downloads/protocol999")</code></p></li>
-<li><p>If you are on Windows, <code>local_folder_tasks</code> value should be something similar to <code>C:/Users/myusername/Downloads/protocol999</code></p></li>
-</ul></li>
-<li><p>Run Monkeys!: <code>targets::tar_make()</code></p></li>
-</ul>
-<p>If the protocol was running from a loccal folder, the Monkey’s responses will be copied to a subfolder <code>.data/</code> inside the <code>local_folder_tasks</code>. In the example above, <code>~/Downloads/protocol999/.data</code>. If the protocol was running on the server, the data will be in the protocols’ <code>.data/</code> folder inside the server.</p>
+<p>Use the <code>uid</code> parameter to set a number of participants, e.g.&nbsp;<code>uid = "1:10"</code> would launch monkeys 1 to 10.</p>
+<p>Use the <code>local_folder_tasks</code> parameter to indicate the location of the <code>jsPsychMakeR</code> protocol. If you are on Windows, <code>local_folder_tasks</code> value should be something similar to <code>C:/Users/myusername/Downloads/protocol999</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="st">"1:10"</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">local_folder_tasks =</span> <span class="st">"~/Downloads/protocol999/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If the protocol was running from a loccal folder, the Monkey’s responses will be copied to a subfolder <code>.data/</code> inside the <code>local_folder_tasks</code>. In the example above, <code>~/Downloads/protocol999/.data</code>. If the protocol was running on the server (see the <code>server_folder_tasks</code> parameter), the data will be in the protocols’ <code>.data/</code> folder inside the server.</p>
 </section>
 </section>
 <section id="QuickGuidejsPsychHelpeR" class="level2" data-number="2.3">
@@ -358,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Install jsPsychHelpeR from Github.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychHelpeR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychHelpeR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-new-project" class="level4 unnumbered">
@@ -366,9 +361,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Create and setup a new RStudio project for your data. Before doing this, you need to locate the raw data for the jsPsychMaker project.</p>
 <p>In this example, our raw data is in <code>~/Downloads/protocol999/.data/</code> and we want the new project to be in <code>~/Downloads/jsPsychHelpeR999/</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">'999'</span>, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data_location =</span> <span class="st">'~/Downloads/protocol999/.data/'</span>, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">'~/Downloads/jsPsychHelpeR999/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="st">'999'</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data_location =</span> <span class="st">'~/Downloads/protocol999/.data/'</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">'~/Downloads/jsPsychHelpeR999/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After this, a new RStudio project will open.</p>
 </section>
@@ -376,11 +371,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="unnumbered anchored" data-anchor-id="run-data-preparation">3) Run data preparation</h4>
 <p>Run the data preparation with <code>targets::tar_make()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore all the necessary packages using renv</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>(<span class="at">prompt =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run data preparation</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore all the necessary packages using renv</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>(<span class="at">prompt =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run data preparation</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you are curious, running <code>targets::tar_visnetwork(targets_only = TRUE)</code> will show the whole data preparation targets tree. Open the file <code>run.R</code> for more details.</p>
 <hr>

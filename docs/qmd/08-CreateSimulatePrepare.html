@@ -268,18 +268,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Simulate participants with {jsPsychMonkeys}:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Install jsPsychMonkeys</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'usethis'</span>)) <span class="fu">install.packages</span>(<span class="st">'usethis'</span>); usethis<span class="sc">::</span><span class="fu">use_course</span>(<span class="at">url =</span> <span class="st">"gorkang/jsPsychMonkeys"</span>, <span class="at">destdir =</span> <span class="st">"~/Downloads/"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychMonkeys'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Setup</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"setup.R"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Change parameters</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Go to _targets.R: Change parameter `local_folder_tasks` to your folder_output above. For example:  </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - On Ubuntu, `local_folder_tasks = "~/Downloads/protocol999"`</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - On Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Run monkeys</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Run monkeys</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Go to _targets.R: Change parameter `local_folder_tasks` to your folder_output above. For example:  </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - On Ubuntu, `local_folder_tasks = "~/Downloads/protocol999"`</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - On Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="st">"1:10"</span>, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">local_folder_tasks =</span> <span class="st">"~/Downloads/protocol999/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The monkeys responses csv’s should be initially downloaded in your <code>Downloads</code> folder, and automatically moved to a <code>.data/</code> folder inside the protocol folder. For example, <code>~/Downloads/protocol999/.data</code></p>
 </section>

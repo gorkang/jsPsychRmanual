@@ -82,17 +82,15 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 
 ------------------------------------------------------------------------
 
-#### 1) Download jsPsychMonkeys {.unnumbered}
+#### 1) Install jsPsychMonkeys {.unnumbered}
 
 ```{r, eval=FALSE}
 
-if (!require('usethis')) install.packages('usethis'); usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
+if (!require('remotes')) utils::install.packages('remotes'); remotes::install_github('gorkang/jsPsychMonkeys')
 
 ```
 
 #### 2) Setup {.unnumbered}
-
-Run setup: `source("setup.R")`. This will install the packages needed.  
 
 **Ubuntu**  
 
@@ -109,20 +107,17 @@ You may need to install some system libraries first:
 
 #### 3) Run Monkeys {.unnumbered}
 
-Open `run.R` and follow the instructions. Mainly:
+Use the `uid` parameter to set a number of participants, e.g. `uid = "1:10"` would launch monkeys 1 to 10.  
 
--   Open `_targets.R` file: `rstudioapi::navigateToFile("_targets.R")`
-
--   Edit `parameters_monkeys_minimal`. For example, launch participants 1 to 5 to the `protocol999` protocol locally:
-
-    -   `parameters_monkeys_minimal = list(uid = 1:5, local_folder_tasks = "~/Downloads/protocol999")`  
-    
-    -   If you are on Windows, `local_folder_tasks` value should be something similar to `C:/Users/myusername/Downloads/protocol999`  
-
--   Run Monkeys!: `targets::tar_make()`
+Use the `local_folder_tasks` parameter to indicate the location of the `jsPsychMakeR` protocol. If you are on Windows, `local_folder_tasks` value should be something similar to `C:/Users/myusername/Downloads/protocol999`.  
 
 
-If the protocol was running from a loccal folder, the Monkey's responses will be copied to a subfolder `.data/` inside the `local_folder_tasks`. In the example above, `~/Downloads/protocol999/.data`. If the protocol was running on the server, the data will be in the protocols' `.data/` folder inside the server.  
+```{r, eval=FALSE}
+jsPsychMonkeys::release_the_monkeys(uid = "1:10", 
+                                    local_folder_tasks = "~/Downloads/protocol999/")
+```
+
+If the protocol was running from a loccal folder, the Monkey's responses will be copied to a subfolder `.data/` inside the `local_folder_tasks`. In the example above, `~/Downloads/protocol999/.data`. If the protocol was running on the server (see the `server_folder_tasks` parameter), the data will be in the protocols' `.data/` folder inside the server.  
 
 
 

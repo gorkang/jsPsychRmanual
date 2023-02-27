@@ -34,18 +34,15 @@ Simulate participants with {jsPsychMonkeys}:
 ```{r, eval=FALSE}
 
 # 1) Install jsPsychMonkeys
-if (!require('usethis')) install.packages('usethis'); usethis::use_course(url = "gorkang/jsPsychMonkeys", destdir = "~/Downloads/")
+if (!require('remotes')) utils::install.packages('remotes'); remotes::install_github('gorkang/jsPsychMonkeys')
 
-# 2) Setup
-source("setup.R")
-
-# 3) Change parameters
+# 2) Run monkeys
   # Go to _targets.R: Change parameter `local_folder_tasks` to your folder_output above. For example:  
   # - On Ubuntu, `local_folder_tasks = "~/Downloads/protocol999"`
   # - On Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`
 
-# 4) Run monkeys
-targets::tar_make()
+jsPsychMonkeys::release_the_monkeys(uid = "1:10", 
+                                    local_folder_tasks = "~/Downloads/protocol999/")
 
 ```
 
