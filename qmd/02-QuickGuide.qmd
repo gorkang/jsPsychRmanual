@@ -68,7 +68,7 @@ The experiment is ready to run on your computer. Open `index.html` in Google Chr
 
 ------------------------------------------------------------------------
 
-jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](https://www.docker.com/) container to guarantee each session is a clean session. On Linux it's use and configuration is trivial, but on Windows it can be trickier.
+jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](https://www.docker.com/) container to guarantee each session is a clean session. On Linux its use and configuration is trivial, but on Windows it can be trickier.
 
 ------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
 
 You may need to install some system libraries first:  
 
--   `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`  
+- `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`  
 - If the Monkeys do their work but no csv's appear, make sure your the docker user has write access to the `~/Downloads` folder.  
 
 **Windows**  

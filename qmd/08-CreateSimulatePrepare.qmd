@@ -29,7 +29,7 @@ You can now edit the configuration file (`~/Downloads/protocol999/config.js`) to
 
 ## Simulate participants
 
-Simulate participants with {jsPsychMonkeys}:  
+Simulate participants with {jsPsychMonkeys}. Make sure your system has a functioning [docker](https://www.docker.com/) installation, see [jsPsychMonkey's setup](02-QuickGuide.html#setup):  
 
 ```{r, eval=FALSE}
 

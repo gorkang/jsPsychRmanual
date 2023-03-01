@@ -157,13 +157,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#how-to-simulate-participants" id="toc-how-to-simulate-participants" class="nav-link active" data-scroll-target="#how-to-simulate-participants"><span class="toc-section-number">4.1</span>  How to simulate participants</a></li>
-  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"><span class="toc-section-number">4.2</span>  Parameters</a>
+  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues"><span class="toc-section-number">4.2</span>  Issues</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters"><span class="toc-section-number">4.3</span>  Parameters</a>
   <ul class="collapse">
-  <li><a href="#release-the-monkeys" id="toc-release-the-monkeys" class="nav-link" data-scroll-target="#release-the-monkeys"><span class="toc-section-number">4.2.1</span>  Release the Monkeys!</a></li>
-  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"><span class="toc-section-number">4.2.2</span>  Launch Monkeys on a server</a></li>
-  <li><a href="#parameters-for-parameters_monkeys_minimal" id="toc-parameters-for-parameters_monkeys_minimal" class="nav-link" data-scroll-target="#parameters-for-parameters_monkeys_minimal"><span class="toc-section-number">4.2.3</span>  Parameters for parameters_monkeys_minimal</a></li>
+  <li><a href="#release-the-monkeys" id="toc-release-the-monkeys" class="nav-link" data-scroll-target="#release-the-monkeys"><span class="toc-section-number">4.3.1</span>  Release the Monkeys!</a></li>
+  <li><a href="#launch-monkeys-on-a-server" id="toc-launch-monkeys-on-a-server" class="nav-link" data-scroll-target="#launch-monkeys-on-a-server"><span class="toc-section-number">4.3.2</span>  Launch Monkeys on a server</a></li>
+  <li><a href="#parameters-for-parameters_monkeys_minimal" id="toc-parameters-for-parameters_monkeys_minimal" class="nav-link" data-scroll-target="#parameters-for-parameters_monkeys_minimal"><span class="toc-section-number">4.3.3</span>  Parameters for parameters_monkeys_minimal</a></li>
   </ul></li>
-  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"><span class="toc-section-number">4.3</span>  Technical aspects</a></li>
+  <li><a href="#technical-aspects" id="toc-technical-aspects" class="nav-link" data-scroll-target="#technical-aspects"><span class="toc-section-number">4.4</span>  Technical aspects</a></li>
   </ul>
 </nav>
     </div>
@@ -204,14 +205,29 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="how-to-simulate-participants" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="how-to-simulate-participants"><span class="header-section-number">4.1</span> How to simulate participants</h2>
+<p>To run monkeys locally:</p>
+<pre><code>
+jsPsychMonkeys::release_the_monkeys(uid = "1", 
+                                    local_folder_tasks = "~/Downloads/protocol999/")
+
+</code></pre>
+<p>To run monkeys on a server:</p>
+<pre><code>
+jsPsychMonkeys::release_the_monkeys(uid = "1", 
+                                    server_folder_tasks = "999", 
+                                    credentials_folder = "~/.vault/")</code></pre>
+<p><code>credentials_folder</code> must contain <code>SERVER_PATH.R</code> and <code>.credentials</code>. See <a href="04-jsPsychMonkeys.html#launch-monkeys-on-a-server">below</a> for the expected content of those files.</p>
+</section>
+<section id="issues" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="issues"><span class="header-section-number">4.2</span> Issues</h2>
 <p>If the <a href="02-QuickGuide.html#QuickGuidejsPsychMonkeys">QuickGuide</a> configuration steps didn’t work… You may need to do one of the things below:</p>
 <ul>
 <li><p>Run participants manually</p></li>
 <li><p>Switch to <a href="https://ubuntu.com/download/desktop">Ubuntu</a> :-)</p></li>
 </ul>
 </section>
-<section id="parameters" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="parameters"><span class="header-section-number">4.2</span> Parameters</h2>
+<section id="parameters" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="parameters"><span class="header-section-number">4.3</span> Parameters</h2>
 <p>Edit the <code>Parameters</code> section of the <code>_targets.R</code> file. The minimal set of parameters needed are:</p>
 <pre><code>parameters_monkeys_minimal = list(
   uid = 1:10, # User id's for the participants. 
@@ -219,8 +235,8 @@ ul.task-list li input[type="checkbox"] {
   # On Windows: local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"  
 )</code></pre>
 <hr>
-<section id="release-the-monkeys" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="release-the-monkeys"><span class="header-section-number">4.2.1</span> Release the Monkeys!</h3>
+<section id="release-the-monkeys" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="release-the-monkeys"><span class="header-section-number">4.3.1</span> Release the Monkeys!</h3>
 <p>If you want a sequential process:</p>
 <ul>
 <li><code>targets::tar_make()</code></li>
@@ -239,8 +255,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="launch-monkeys-on-a-server" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="launch-monkeys-on-a-server"><span class="header-section-number">4.2.2</span> Launch Monkeys on a server</h3>
+<section id="launch-monkeys-on-a-server" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="launch-monkeys-on-a-server"><span class="header-section-number">4.3.2</span> Launch Monkeys on a server</h3>
 <p>You will need two files for the configuration in the hidden and NOT SHARED <code>.vault/</code> folder:</p>
 <ul>
 <li><p><code>.vault/SERVER_PATH.R</code>: contains the path where the protocols are located in your server: <code>server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"</code></p></li>
@@ -252,8 +268,8 @@ ul.task-list li input[type="checkbox"] {
   server_folder_tasks = "999" # Location of your jsPsych protocol
 )</code></pre>
 </section>
-<section id="parameters-for-parameters_monkeys_minimal" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="parameters-for-parameters_monkeys_minimal"><span class="header-section-number">4.2.3</span> Parameters for parameters_monkeys_minimal</h3>
+<section id="parameters-for-parameters_monkeys_minimal" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="parameters-for-parameters_monkeys_minimal"><span class="header-section-number">4.3.3</span> Parameters for parameters_monkeys_minimal</h3>
 <p>There are a few parameters that can be useful:</p>
 <ul>
 <li><p><code>uid_URL = TRUE</code>: The uid is passed in the URL (e.g.&nbsp;<code>&amp;uid=1</code>)</p></li>
@@ -270,16 +286,16 @@ ul.task-list li input[type="checkbox"] {
 <li><p><code>forced_seed = 11</code> Set a random seed so the Monkeys’ behavior will be fully reproducible</p></li>
 <li><p><code>forced_refresh = 20</code> Refresh browser in page 20 (if TRUE is given, it will refresh in a randomly sampled page)</p></li>
 </ul>
-<section id="parameters-details" class="level4" data-number="4.2.3.1">
-<h4 data-number="4.2.3.1" class="anchored" data-anchor-id="parameters-details"><span class="header-section-number">4.2.3.1</span> Parameters details</h4>
+<section id="parameters-details" class="level4" data-number="4.3.3.1">
+<h4 data-number="4.3.3.1" class="anchored" data-anchor-id="parameters-details"><span class="header-section-number">4.3.3.1</span> Parameters details</h4>
 <ul>
 <li><code>local_folder_tasks</code>: If the folder is not accessible to Docker (anything outside the Download folder), jsPsychMonkeys will create a copy of the protocol in <code>Downloads/JSPSYCH/</code></li>
 </ul>
 </section>
 </section>
 </section>
-<section id="technical-aspects" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="technical-aspects"><span class="header-section-number">4.3</span> Technical aspects</h2>
+<section id="technical-aspects" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="technical-aspects"><span class="header-section-number">4.4</span> Technical aspects</h2>
 <p>Since jsPsych 7.1 there is a <a href="https://www.jspsych.org/7.3/overview/simulation/">simulation mode</a> available, which should be much faster than the good ol’ Monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.</p>
 
 

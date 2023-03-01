@@ -28,6 +28,33 @@ With jsPsychMonkeys you can simulate participants and easily do the following:
 
 ## How to simulate participants
 
+To run monkeys locally:  
+
+```
+
+jsPsychMonkeys::release_the_monkeys(uid = "1", 
+                                    local_folder_tasks = "~/Downloads/protocol999/")
+
+
+```
+
+
+To run monkeys on a server:  
+
+```
+
+jsPsychMonkeys::release_the_monkeys(uid = "1", 
+                                    server_folder_tasks = "999", 
+                                    credentials_folder = "~/.vault/")
+```
+
+`credentials_folder` must contain `SERVER_PATH.R` and  `.credentials`. See [below](04-jsPsychMonkeys.html#launch-monkeys-on-a-server) for the expected content of those files.  
+
+
+
+
+## Issues
+
 If the [QuickGuide](#QuickGuidejsPsychMonkeys) configuration steps didn't work... You may need to do one of the things below:
 
 -   Run participants manually
