@@ -1,14 +1,13 @@
 # What is jsPsychR?
 
-`jsPsychR` is a group of tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis.
+`jsPsychR` is a group of **open source** tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis. The final goal is to help you have the data preparation and analysis ready before collecting any real data, drastically reducing errors in your protocols, and making the move towards [registered reports](https://www.cos.io/initiatives/registered-reports) easier. 
 
 We have three main tools:
 
-- [jsPsychMaker](https://gorkang.github.io/jsPsychR-manual/#jsPsychMaker): Create experiments with jsPsych, randomize participants, etc.
+-   [jsPsychMaker](#jsPsychMaker): Create experiments with [jsPsych](https://www.jspsych.org/), randomize participants, balance between conditions, reuse already existing tasks, etc.  
 
-- [jsPsychMonkeys](https://gorkang.github.io/jsPsychR-manual/#jsPsychMonkeys): Release monkeys to a jsPsych experiment using the R package {targets}, docker and {RSelenium}.
+-   [jsPsychMonkeys](#jsPsychMonkeys): Release monkeys to a [jsPsych](https://www.jspsych.org/) experiment with  {[targets](https://books.ropensci.org/targets/)}, [docker](https://www.docker.com/) and {[RSelenium](https://docs.ropensci.org/RSelenium/)}  
 
-- [jsPsychHelpeR](https://gorkang.github.io/jsPsychR-manual/#jsPsychHelpeR): Standardize and automatize data preparation and analysis of jsPsych experiments created with jsPsychMaker.
-
+-   [jsPsychHelpeR](#jsPsychHelpeR): Standardize and automatize data preparation, analysis and reporting of [jsPsych](https://www.jspsych.org/) experiments created with [jsPsychMaker](#jsPsychMaker)
 
 ![](img/jsPsych-trinity.png)

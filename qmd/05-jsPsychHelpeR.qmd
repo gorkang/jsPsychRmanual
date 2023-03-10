@@ -6,6 +6,10 @@
 
 ------------------------------------------------------------------------
 
+::: {.callout-tip icon=false}
+
+## In brief
+
 jsPsychHelpeR will lend you a hand automatizing and standardizing your data preparation and analysis.
 
 -   Use a completely open, reproducible and automatic process to prepare your data
@@ -21,6 +25,9 @@ jsPsychHelpeR will lend you a hand automatizing and standardizing your data prep
 -   [Create a fully reproducible Docker container](06-jsPsychRadmins.html#docker-containers) with the project's data preparation and analysis  
 
 -   Create a blinded dataframe to be able to perform blinded analyses. See [10.1038/526187a](https://doi.org/10.1038/526187a) and [10.1177/25152459221128319](https://doi.org/10.1177/25152459221128319)
+
+:::  
+
 
 ------------------------------------------------------------------------
 

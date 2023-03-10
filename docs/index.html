@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gorka Navarrete">
-<meta name="dcterms.date" content="2023-03-01">
+<meta name="dcterms.date" content="2023-03-10">
 
 <title>jsPsychR manual</title>
 <style>
@@ -157,7 +157,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-jspsychr" id="toc-what-is-jspsychr" class="nav-link active" data-scroll-target="#what-is-jspsychr">What is jsPsychR?</a></li>
+  <li><a href="#what-is-jspsychr" id="toc-what-is-jspsychr" class="nav-link active" data-scroll-target="#what-is-jspsychr">What is jsPsychR?</a>
+  <ul class="collapse">
+  <li><a href="#papers-published-using-jspsychr" id="toc-papers-published-using-jspsychr" class="nav-link" data-scroll-target="#papers-published-using-jspsychr">Papers published using jsPsychR</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -183,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 1, 2023</p>
+      <p class="date">March 10, 2023</p>
     </div>
   </div>
   
@@ -195,15 +198,15 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-is-jspsychr" class="level1 unnumbered">
 <h1 class="unnumbered">What is jsPsychR?</h1>
-<p><code>jsPsychR</code> is a group of <strong>open source</strong> tools to help create experimental paradigms with <a href="https://www.jspsych.org/">jsPsych</a>, simulate participants and standardize the data preparation and analysis.</p>
+<p><code>jsPsychR</code> is a group of <strong>open source</strong> tools to help create experimental paradigms with <a href="https://www.jspsych.org/">jsPsych</a>, simulate participants and standardize the data preparation and analysis. The final goal is to help you have the data preparation and analysis ready before collecting any real data, drastically reducing errors in your protocols, and making the move towards <a href="https://www.cos.io/initiatives/registered-reports">registered reports</a> easier.</p>
 <hr>
 <p><img src="img/jsPsych-trinity.png" class="img-fluid" style="width:75.0%"></p>
 <hr>
 <p>We have three main tools:</p>
 <ul>
-<li><a href="qmd/03-jsPsychMaker.html">jsPsychMaker</a>: Create experiments with <a href="https://www.jspsych.org/">jsPsych</a>, randomize participants balance between conditions, etc.</li>
-<li><a href="qmd/04-jsPsychMonkeys.html">jsPsychMonkeys</a>: Release monkeys to a <a href="https://www.jspsych.org/">jsPsych</a> experiment using the R package {<a href="https://books.ropensci.org/targets/">targets</a>}, <a href="https://www.docker.com/">docker</a> and {<a href="https://docs.ropensci.org/RSelenium/">RSelenium</a>}</li>
-<li><a href="qmd/05-jsPsychHelpeR.html">jsPsychHelpeR</a>: Standardize and automatize data preparation and analysis of <a href="https://www.jspsych.org/">jsPsych</a> experiments created with <a href="qmd/03-jsPsychMaker.html">jsPsychMaker</a></li>
+<li><a href="qmd/03-jsPsychMaker.html">jsPsychMaker</a>: Create experiments with <a href="https://www.jspsych.org/">jsPsych</a>, randomize participants, balance between conditions, reuse already existing tasks, etc.</li>
+<li><a href="qmd/04-jsPsychMonkeys.html">jsPsychMonkeys</a>: Release monkeys to a <a href="https://www.jspsych.org/">jsPsych</a> experiment with {<a href="https://books.ropensci.org/targets/">targets</a>}, <a href="https://www.docker.com/">docker</a> and {<a href="https://docs.ropensci.org/RSelenium/">RSelenium</a>}</li>
+<li><a href="qmd/05-jsPsychHelpeR.html">jsPsychHelpeR</a>: Standardize and automatize data preparation, analysis and reporting of <a href="https://www.jspsych.org/">jsPsych</a> experiments created with <a href="qmd/03-jsPsychMaker.html">jsPsychMaker</a></li>
 </ul>
 <hr>
 <p><strong>Contributors</strong></p>
@@ -212,8 +215,14 @@ ul.task-list li input[type="checkbox"] {
 <li><p><a href="https://github.com/HeRm4nV">Herman Valencia</a></p></li>
 </ul>
 <hr>
+<section id="papers-published-using-jspsychr" class="level2">
+<h2 class="anchored" data-anchor-id="papers-published-using-jspsychr">Papers published using jsPsychR</h2>
+<ul>
+<li>Neely-Prado, A., van Elk, M., Navarrete, G., Hola, F., &amp; Huepe, D. (2021). Social Adaptation in Context: The Differential Role of Religiosity and Self-Esteem in Vulnerable vs.&nbsp;Non-vulnerable Populations–A Registered Report Study. Frontiers in Psychology, 12, 5257. <a href="https://doi.org/10.3389/fpsyg.2021.519623">https://doi.org/10.3389/fpsyg.2021.519623</a></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

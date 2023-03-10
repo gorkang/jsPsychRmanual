@@ -219,8 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link active" data-scroll-target="#pre-requisites">Pre-requisites</a></li>
-  <li><a href="#QuickGuidejsPsychMaker" id="toc-QuickGuidejsPsychMaker" class="nav-link" data-scroll-target="#QuickGuidejsPsychMaker"><span class="toc-section-number">2.1</span>  jsPsychMaker: Create an experimental protocol</a></li>
+  <li><a href="#QuickGuidejsPsychMaker" id="toc-QuickGuidejsPsychMaker" class="nav-link active" data-scroll-target="#QuickGuidejsPsychMaker"><span class="toc-section-number">2.1</span>  jsPsychMaker: Create an experimental protocol</a></li>
   <li><a href="#QuickGuidejsPsychMonkeys" id="toc-QuickGuidejsPsychMonkeys" class="nav-link" data-scroll-target="#QuickGuidejsPsychMonkeys"><span class="toc-section-number">2.2</span>  jsPsychMonkeys: Simulate participants</a></li>
   <li><a href="#QuickGuidejsPsychHelpeR" id="toc-QuickGuidejsPsychHelpeR" class="nav-link" data-scroll-target="#QuickGuidejsPsychHelpeR"><span class="toc-section-number">2.3</span>  jsPsychHelpeR: Prepare data</a></li>
   </ul>
@@ -246,24 +245,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="pre-requisites" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Pre-requisites
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p><a href="https://cran.rstudio.com/">Install R</a></p></li>
 <li><p><a href="https://posit.co/download/rstudio-desktop/">Install RStudio desktop</a></p></li>
+<li><p><a href="https://docs.docker.com/get-docker/">Install Docker</a>. See the <a href="04-jsPsychMonkeys.html#setup">Monkeys’ setup section</a> for more detailed instructions.</p></li>
 </ol>
-</section>
+</div>
+</div>
 <section id="QuickGuidejsPsychMaker" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="QuickGuidejsPsychMaker"><span class="header-section-number">2.1</span> jsPsychMaker: Create an experimental protocol</h2>
 <hr>
 <p><strong>See the <a href="03-jsPsychMaker.html">jsPsychMaker chapter</a> for more detailed instructions.</strong></p>
 <hr>
-<p><strong>Outline</strong></p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Outline
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Install jsPsychMaker</p></li>
 <li><p><code>create_protocol()</code> using any of the <code>list_available_tasks()</code> and edit the <code>config.js</code> to adapt the protocol settings</p></li>
 <li><p>Open <code>index.html</code> in your browser</p></li>
 </ol>
+</div>
+</div>
 <hr>
 <section id="install-jspsychmaker" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="install-jspsychmaker">1) Install jsPsychMaker</h4>
@@ -293,14 +313,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr>
 <p><strong>See the <a href="04-jsPsychMonkeys.html">jsPsychMonkeys chapter</a> for more detailed instructions.</strong></p>
 <hr>
-<p>jsPsychMonkeys uses <a href="https://www.selenium.dev/">Selenium</a> inside a <a href="https://www.docker.com/">Docker</a> container to guarantee each session is a clean session. On Linux its use and configuration is trivial, but on Windows it can be trickier.</p>
+<p>jsPsychMonkeys uses <a href="https://www.selenium.dev/">Selenium</a> inside a <a href="https://www.docker.com/">Docker</a> container to guarantee each session is a clean session. See <a href="04-jsPsychMonkeys.html#setup">how to setup your computer</a>.</p>
 <hr>
-<p><strong>Outline</strong></p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Outline
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Download jsPsychMonkeys</p></li>
-<li><p>Setup</p></li>
 <li><p>Run Monkeys</p></li>
 </ol>
+</div>
+</div>
 <hr>
 <section id="install-jspsychmonkeys" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="install-jspsychmonkeys">1) Install jsPsychMonkeys</h4>
@@ -308,24 +338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychMonkeys'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="setup" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="setup">2) Setup</h4>
-<p><strong>Ubuntu</strong></p>
-<p>You may need to install some system libraries first:</p>
-<ul>
-<li><code>sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker</code><br>
-</li>
-<li>If the Monkeys do their work but no csv’s appear, make sure your the docker user has write access to the <code>~/Downloads</code> folder.</li>
-</ul>
-<p><strong>Windows</strong></p>
-<ul>
-<li>Install <a href="https://docs.docker.com/desktop/install/windows-install/">docker desktop</a><br>
-</li>
-<li>Update wsl (in a command prompt): <code>wsl - update</code></li>
-</ul>
-</section>
 <section id="run-monkeys" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="run-monkeys">3) Run Monkeys</h4>
+<h4 class="unnumbered anchored" data-anchor-id="run-monkeys">2) Run Monkeys</h4>
 <p>Use the <code>uid</code> parameter to set a number of participants, e.g.&nbsp;<code>uid = "1:10"</code> would launch monkeys 1 to 10.</p>
 <p>Use the <code>local_folder_tasks</code> parameter to indicate the location of the <code>jsPsychMakeR</code> protocol. If you are on Windows, <code>local_folder_tasks</code> value should be something similar to <code>C:/Users/myusername/Downloads/protocol999</code>.</p>
 <div class="cell">
@@ -340,12 +354,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr>
 <p><strong>See the <a href="05-jsPsychHelpeR.html">jsPsychHelpeR chapter</a> for more detailed instructions.</strong></p>
 <hr>
-<p><strong>Outline</strong></p>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Outline
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Install jsPsychHelpeR</p></li>
 <li><p>Create new project</p></li>
 <li><p>Run data preparation</p></li>
 </ol>
+</div>
+</div>
 <hr>
 <section id="install-jspsychhelper" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="install-jspsychhelper">1) Install jsPsychHelpeR</h4>
@@ -365,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data_location =</span> <span class="st">'~/Downloads/protocol999/.data/'</span>, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">folder =</span> <span class="st">'~/Downloads/jsPsychHelpeR999/'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After this, a new RStudio project will open.</p>
+<p>After this, <strong>a new RStudio project will open</strong>.</p>
 </section>
 <section id="run-data-preparation" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-data-preparation">3) Run data preparation</h4>
-<p>Run the data preparation with <code>targets::tar_make()</code></p>
+<p>Run the data preparation <strong>in the new RStudio project</strong> with <code>targets::tar_make()</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore all the necessary packages using renv</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>(<span class="at">prompt =</span> <span class="cn">FALSE</span>)</span>

@@ -12,6 +12,11 @@ editor_options:
 
 ------------------------------------------------------------------------
 
+::: {.callout-tip icon=false}
+
+## In brief
+
+
 Using jsPsychMaker to build experimental protocols helps you with a few things:
 
 -   Create full protocols using tasks already implemented by just editing a config.js file
@@ -33,6 +38,8 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 -   Simulate participants with [jsPsychMonkeys](#jsPsychMonkeys)
 
 -   *Automagically* get your data prepared with [jsPsychHelpeR](#jsPsychHelpeR)
+
+:::   
 
 ------------------------------------------------------------------------
 

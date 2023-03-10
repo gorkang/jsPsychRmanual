@@ -6,6 +6,10 @@
 
 ------------------------------------------------------------------------
 
+::: {.callout-tip icon=false}
+
+## In brief
+
 With jsPsychMonkeys you can simulate participants and easily do the following:
 
 -   Simulate participants online and offline
@@ -20,28 +24,63 @@ With jsPsychMonkeys you can simulate participants and easily do the following:
 
 -   Watch your participants randomly click things in VNC
 
+:::  
+
 ------------------------------------------------------------------------
 
 **See [QuickGuide](#QuickGuidejsPsychMonkeys) for basic instructions.**
 
 ------------------------------------------------------------------------
 
+#### Setup {.unnumbered}
+
+
+::: {.callout-caution collapse="true"}
+
+#### Ubuntu
+
+You may need to install some system libraries first:  
+
+- `sudo apt install libssl-dev libcurl4-openssl-dev libxml2-dev docker`  
+- If the Monkeys do their work but no csv's appear, make sure your the docker user has write access to the `~/Downloads` folder.  
+
+:::   
+
+::: {.callout-caution collapse="true"}  
+
+#### Windows  
+
+- Install [docker desktop](https://docs.docker.com/desktop/install/windows-install/)  
+- Update wsl (in a command prompt): `wsl - update`  
+
+
+:::   
+
+::: {.callout-caution collapse="true"}  
+
+#### Mac
+
+- Install [docker desktop](https://docs.docker.com/desktop/install/mac-install/)  
+
+:::
+
+
+
 ## How to simulate participants
 
-To run monkeys locally:  
+To run a monkey locally:  
 
-```
+```{r eval=FALSE}
 
 jsPsychMonkeys::release_the_monkeys(uid = "1", 
                                     local_folder_tasks = "~/Downloads/protocol999/")
 
-
 ```
 
 
-To run monkeys on a server:  
+To run a monkey on a server:  
 
-```
+```{r eval=FALSE}
 
 jsPsychMonkeys::release_the_monkeys(uid = "1", 
                                     server_folder_tasks = "999", 
@@ -52,74 +91,9 @@ jsPsychMonkeys::release_the_monkeys(uid = "1",
 
 
 
+## Parameters available
 
-## Issues
-
-If the [QuickGuide](#QuickGuidejsPsychMonkeys) configuration steps didn't work... You may need to do one of the things below:
-
--   Run participants manually
-
--   Switch to [Ubuntu](https://ubuntu.com/download/desktop) :-)
-
-
-## Parameters
-
-Edit the `Parameters` section of the `_targets.R` file. The minimal set of parameters needed are:
-
-    parameters_monkeys_minimal = list(
-      uid = 1:10, # User id's for the participants. 
-      local_folder_tasks = "Downloads/protocol999" # Location of your jsPsych protocol
-      # On Windows: local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"  
-    )
-
-------------------------------------------------------------------------
-
-### Release the Monkeys!
-
-If you want a sequential process:
-
--   `targets::tar_make()`
-
-If you want a parallel horde of Monkeys:
-
--   `targets::tar_future_make(workers = 2)`
-
-You can set as many parallel workers as you want. With `targets::tar_make_future(workers = future::availableCores() - 1)` you can have as many workers as your computer cores minus 1.
-
-In `run.R` you can see the typical set of commands needed for a variety of situations.
-
-------------------------------------------------------------------------
-
-10 Monkeys completing a protocol in parallel. You can use `targets::tar_watch(seconds = 10, outdated = FALSE, targets_only = TRUE)` to see the live progress:
-
-```{r, echo=FALSE, out.width='100%'}
-# Works only if knit() is called via render(), i.e. when using the button in RStudio.
-if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
-  knitr::include_graphics(here::here("img/jsMonkeys_parallel.gif"))
-} else {
-  knitr::include_graphics(here::here("img/jsMonkeys_parallel.png"))
-}
-```
-
-### Launch Monkeys on a server
-
-You will need two files for the configuration in the hidden and NOT SHARED `.vault/` folder:  
-
-- `.vault/SERVER_PATH.R`:  contains the path where the protocols are located in your server: `server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"`  
-
-- `.vault/.credentials`: contains a list with the user and password for the server: `list(user = "", password = "")`
-
-
-With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the Monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
-
-    parameters_monkeys_minimal = list(
-      uid = 1:10, # User id's for the participants. 
-      server_folder_tasks = "999" # Location of your jsPsych protocol
-    )
-
-### Parameters for parameters_monkeys_minimal
-
-There are a few parameters that can be useful:
+There are a few parameters for `jsPsychMonkeys::release_the_monkeys()` that can be useful:
 
 -   `uid_URL = TRUE`: The uid is passed in the URL (e.g. `&uid=1`)
 
@@ -147,10 +121,74 @@ There are a few parameters that can be useful:
 
 -   `forced_refresh = 20` Refresh browser in page 20 (if TRUE is given, it will refresh in a randomly sampled page)
 
-#### Parameters details
+-   `sequential_parallel` Choose between `sequential`, the default, or `parallel`
+                                    
+-   `number_of_cores` Number of cores for parallel monkeys. The default is half of the available cores  
+
+### Parameters details
 
 -   `local_folder_tasks`: If the folder is not accessible to Docker (anything outside the Download folder), jsPsychMonkeys will create a copy of the protocol in `Downloads/JSPSYCH/`
 
+
+
+
+## Release a horde of Monkeys!  
+
+If you want a horde of Monkeys, you can set up `sequential_parallel = "parallel"` and choose how many monkeys will run in parallel with `number_of_cores`:  
+
+```{r eval=FALSE}
+
+jsPsychMonkeys::release_the_monkeys(uid = "1", 
+                                    local_folder_tasks = "~/Downloads/protocol999/",
+                                    sequential_parallel = "parallel",
+                                    number_of_cores = 4)  
+
+```
+
+
+------------------------------------------------------------------------
+
+10 Monkeys completing a protocol in parallel:  
+
+```{r, echo=FALSE, out.width='100%'}
+# Works only if knit() is called via render(), i.e. when using the button in RStudio.
+if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  knitr::include_graphics(here::here("img/jsMonkeys_parallel.gif"))
+} else {
+  knitr::include_graphics(here::here("img/jsMonkeys_parallel.png"))
+}
+```
+
+
+
+## Issues
+
+If the [QuickGuide](#QuickGuidejsPsychMonkeys) configuration steps didn't work... You may need to do one of the things below:
+
+-   Run participants manually
+
+-   Switch to [Ubuntu](https://ubuntu.com/download/desktop) :-)
+
+
+------------------------------------------------------------------------
+
+
 ## Technical aspects
 
+### Launch Monkeys on a server
+
+You will need two files for the configuration in the hidden and NOT SHARED `.vault/` folder:  
+
+- `.vault/SERVER_PATH.R`:  contains the path where the protocols are located in your server: `server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"`  
+
+- `.vault/.credentials`: contains a list with the user and password for the server: `list(user = "", password = "")`
+
+
+With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the Monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
+
+
+### Alternatives  
+
 Since jsPsych 7.1 there is a [simulation mode](https://www.jspsych.org/7.3/overview/simulation/) available, which should be much faster than the good ol' Monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.
+
+
