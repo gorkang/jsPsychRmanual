@@ -18,14 +18,14 @@
     "href": "qmd/01-intro.html#open-and-reproducible-pipeline",
     "title": "1  Reproducible experiments",
     "section": "1.1 Open and reproducible pipeline",
-    "text": "1.1 Open and reproducible pipeline\nTo replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.\nFurthermore, all the components of the pipeline should be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.\nWith this system you can create a paradigm, simulate data and prepare data and analysis almost automatically (including anonimization).\nThe system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get enerything ready with simulated data, preregister or even better, go for a registered report and just relaunch the data preparation and analysis when the participant’s data arrive, with a single command."
+    "text": "1.1 Open and reproducible pipeline\nTo replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.\nFurthermore, all the components of the pipeline must be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.\nWith this system you can create a paradigm, simulate data and prepare data and analysis almost automatically.\nThe system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get everything ready with simulated data, preregister or even better, go for a registered report and just relaunch the data preparation and analysis when the participant’s data arrive, with a single command.\nAnd if you want to share the final data preparation and analysis project in a Docker container to make sure the future generations will be able to run it without dependency issues, we got you covered."
   },
   {
     "objectID": "qmd/01-intro.html#automatization",
     "href": "qmd/01-intro.html#automatization",
     "title": "1  Reproducible experiments",
     "section": "1.2 Automatization",
-    "text": "1.2 Automatization\nWe tried to make a few basic things right, but this is an evolving project, and some things are more complex than one would want. Please do report the issues you find:\n\njsPsychMaker issues\njsPsychMonkeys issues\njsPsychHelpeR issues\n\n\n\n\n\n\nSOURCE: https://xkcd.com/1425/"
+    "text": "1.2 Automatization\nWe tried to get a few basic things right, but this is an evolving project, and some things are more complex than one would want. Please do report the issues you find:\n\njsPsychMaker issues\njsPsychMonkeys issues\njsPsychHelpeR issues\n\n\n\n\n\n\nSOURCE: https://xkcd.com/1425/"
   },
   {
     "objectID": "qmd/02-QuickGuide.html#QuickGuidejsPsychMaker",
