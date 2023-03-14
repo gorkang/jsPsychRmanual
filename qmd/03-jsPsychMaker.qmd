@@ -19,11 +19,17 @@ editor_options:
 
 Using jsPsychMaker to build experimental protocols helps you with a few things:
 
--   Create full protocols using tasks already implemented by just editing a config.js file
+-   Create full protocols using:  
 
-    -   You can also use the [jsPsychMaker Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) to create your config.js file
+    + tasks already implemented
+    
+    + task that will be created reading a csv or excel file
+    
+- Configure your protocol by editing a simple config.js file
 
--   Select order of tasks, randomize subsets of tasks, etc.
+    -   You can also use the [jsPsychMaker Shiny APP](https://gorkang.shinyapps.io/jsPsychMaker_config/) to edit your config.js file
+
+-   Select order of tasks, randomize blocks of tasks, etc.
 
 -   Randomize participants to groups, making sure the balance between the groups is maintained
 
@@ -33,7 +39,7 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 
     -   Automatically discard participants over the time limit, freeing the slots for new participants
 
--   Seamlessly switch between online and offline protocols
+-   Run online and offline protocols
 
 -   Simulate participants with [jsPsychMonkeys](#jsPsychMonkeys)
 

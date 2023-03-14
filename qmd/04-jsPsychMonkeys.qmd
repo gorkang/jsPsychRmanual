@@ -10,13 +10,13 @@
 
 ## In brief
 
-With jsPsychMonkeys you can simulate participants and easily do the following:
+With jsPsychMonkeys you can:
 
 -   Simulate participants online and offline
 
 -   Simulate participants sequentially and in parallel
 
--   Ask your Monkeys to take pictures of each screen
+-   Ask your Monkeys to take pictures of each screen of the protocol
 
 -   Make the behavior of the Monkeys reproducible setting a random seed associated with their unique id
 
@@ -163,11 +163,12 @@ if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
 
 ## Issues
 
-If the [QuickGuide](#QuickGuidejsPsychMonkeys) configuration steps didn't work... You may need to do one of the things below:
+If the [setup](04-jsPsychMonkeys.html#setup) configuration steps didn't work... You may need to do one of the things below:
 
--   Run participants manually
+-   Switch to [Ubuntu](https://ubuntu.com/download/desktop) :-)  
 
--   Switch to [Ubuntu](https://ubuntu.com/download/desktop) :-)
+-   Run participants manually  
+
 
 
 ------------------------------------------------------------------------
@@ -189,6 +190,4 @@ With the `server_folder_tasks` you will set the subfolder where the protocol is 
 
 ### Alternatives  
 
-Since jsPsych 7.1 there is a [simulation mode](https://www.jspsych.org/7.3/overview/simulation/) available, which should be much faster than the good ol' Monkeys. Once we migrate to jsPSych 7.x, we will probably retire this section.
-
-
+Since jsPsych 7.1 there is a [simulation mode](https://www.jspsych.org/7.3/overview/simulation/) available, which should be much faster than the good ol' Monkeys. Once we migrate to jsPSych 7.x, we may retire this section.
