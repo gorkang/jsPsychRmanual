@@ -4,6 +4,83 @@
 
 Instructions and protocols for jsPsychR admins. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.
 
+## jsPsychAdmin {#jsPsychAdmin}
+
+------------------------------------------------------------------------
+
+[jsPsychAdmin](https://github.com/gorkang/jsPsychAdmin): Functions to help with common administrative tasks for jsPsychR protocols
+
+------------------------------------------------------------------------
+
+- Install with: 
+
+```{r, eval=FALSE}
+
+# if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychAdmin")
+
+```
+
+You will need a `.vault` folder with `.credentials`,  `data_encrypted.rds` and `data_public_key.txt`.
+
+
+### Common tasks
+
+
+#### CHECK participants all protocols
+
+```{r, eval=FALSE}
+
+  # Uses the .credentials file + the public key to unlock the encrypted data_encrypted.rds
+  jsPsychAdmin::check_status_participants_protocol()
+
+```
+
+#### Clean up a DEV protocol
+
+```{r, eval=FALSE}
+
+  # Clean up DB and csv files for a test/protocols_DEV/ protocol # Useful when testing
+  # rstudioapi::navigateToFile(".vault/.credentials")
+  jsPsychAdmin::clean_up_dev_protocol(protocol_id = "test/protocols_DEV/31") # Asks for server password
+
+```
+
+#### Check missing scripts
+
+```{r, eval=FALSE}
+
+  #  Downloads all the protocols to CSCN-server
+  #  Then checks:
+  # - for which ones we do not have preparation scripts
+  # - for which ones we do not have googledoc details in
+  # + https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0
+  # + https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0
+
+  jsPsychAdmin::check_missing_prepare_TASK(sync_protocols = TRUE, check_trialids = TRUE, check_new_task_tabs = TRUE, delete_nonexistent = FALSE,
+                                           gmail_account = "myemail@gmail.com")
+
+  # Will sync all protocols on server to the LOCAL folder ../CSCN-server
+  # Then, will CHECK:
+  # - Tasks with no prepare_TASK() script!
+  # - Tasks NOT in Google Doc
+  # - Check trialid's are OK
+  # - Check no missing info in Google doc of NEW tasks
+  jsPsychAdmin::download_check_all_protocols(gmail_account = "myemail@gmail.com")
+  
+```
+
+#### Build jsPsychHelpeR and jsPsychMonkeys packages
+
+Scripts to build the template projects for jsPsychHelpeR and jsPsychMonkeys
+
+```{r, eval=FALSE}
+
+jsPsychAdmin::create_jsPsychHelpeR_zip()
+jsPsychAdmin::create_jsPsychMonkeys_zip()
+
+```
+
+
 ## Docker containers
 
 We can create a fully reproducible docker image with the data preparation and analysis for a specific project using `jsPsychHelpeR::create_docker_container()`  

@@ -14,6 +14,11 @@ We have three main tools:
 -   [jsPsychMonkeys](#jsPsychMonkeys): Release monkeys to a [jsPsych](https://www.jspsych.org/) experiment with  {[targets](https://books.ropensci.org/targets/)}, [docker](https://www.docker.com/) and {[RSelenium](https://docs.ropensci.org/RSelenium/)}
 -   [jsPsychHelpeR](#jsPsychHelpeR): Standardize and automatize data preparation, analysis and reporting of [jsPsych](https://www.jspsych.org/) experiments created with [jsPsychMaker](#jsPsychMaker)
 
+
+And a package for the system admins:
+
+- [jsPsychAdmin](https://github.com/gorkang/jsPsychAdmin): Functions to help with common administrative tasks for jsPsychR protocols
+
 ------------------------------------------------------------------------
 
 **Contributors**

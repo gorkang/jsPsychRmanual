@@ -21,6 +21,7 @@ book:
     - qmd/06-jsPsychRadmins.qmd
     - qmd/07-NEWtasks.qmd
     - qmd/08-CreateSimulatePrepare.qmd
+    - qmd/09-CommonTasks.qmd
     - qmd/10-references.qmd
 
 bibliography: references.bib
