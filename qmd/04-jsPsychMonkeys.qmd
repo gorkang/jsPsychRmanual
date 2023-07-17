@@ -22,7 +22,7 @@ With jsPsychMonkeys you can:
 
 -   Store logs of the process, including console logs with errors
 
--   Watch your participants randomly click things in VNC
+-   Watch your participants randomly click things in VNC (you will need to [install realvnc](https://www.realvnc.com/en/connect/download/viewer/))
 
 :::  
 

@@ -6,7 +6,6 @@ project:
 book:
   title: "jsPsychR manual"
   author: "Gorka Navarrete"
-  # Sys.Date()
   date: today
   search: true
   repo-url: https://github.com/gorkang/jsPsychR-manual/
