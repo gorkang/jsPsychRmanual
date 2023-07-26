@@ -92,7 +92,7 @@ There are some things to take into account:
 
 - **folder_tasks** expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one `csv` or `xls/xlxs` file and `html` files. Use `jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")` to see a working example    
 
-- The **csv or xls/xlsx file** (ShortName.csv or Shortname.xls/xlsx) needs to have an `ID` and `plugin` columns, and then columns by the name of parameters used in the plugin (e.g. if using the `survey-text` plugin, you will need the `prompt` parameter). If you need **help with the plugins parametes**, see [the jsPsych 6.3 list of plugins](https://www.jspsych.org/6.3/plugins/list-of-plugins/)    
+- The **csv or xls/xlsx file** (ShortName.csv or Shortname.xls/xlsx) needs to have an `ID` and `plugin` columns, and then columns by the name of parameters used in the plugin (e.g. if using the `survey-text` plugin, you will need the `prompt` parameter). If you need **help with the plugins parameters**, see [the jsPsych 6.3 list of plugins](https://www.jspsych.org/6.3/plugins/list-of-plugins/)    
 
 - For each **html file** (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. The files need to end with `_instructions.html` or `instructions#.html` (# is a number). If there is no html, a default page will be used  
 
@@ -107,6 +107,8 @@ There are some things to take into account:
   + Images: `media/img`   
   + Videos: `media/vid`  
   + Audio: `media/audio`  
+
+- If you use a plugin with different options or alternatives (e.g. `survey-multi-choice-vertical`), the different response `options` will be the words or sentences separated by commas (e.g. Yes I am, No I am not). If your options have commas (e.g. Wake up, have breakfast, brush teeth; Wake up, brush teeth, have breakfast), you need to define an `options_separator` using the `options_separator = ";"` parameter.  
 
 ---  
 

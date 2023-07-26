@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -125,8 +125,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychR-manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychR-manual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -351,7 +351,7 @@ $tasks_js
 <p>There are some things to take into account:</p>
 <ul>
 <li><p><strong>folder_tasks</strong> expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one <code>csv</code> or <code>xls/xlxs</code> file and <code>html</code> files. Use <code>jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")</code> to see a working example</p></li>
-<li><p>The <strong>csv or xls/xlsx file</strong> (ShortName.csv or Shortname.xls/xlsx) needs to have an <code>ID</code> and <code>plugin</code> columns, and then columns by the name of parameters used in the plugin (e.g.&nbsp;if using the <code>survey-text</code> plugin, you will need the <code>prompt</code> parameter). If you need <strong>help with the plugins parametes</strong>, see <a href="https://www.jspsych.org/6.3/plugins/list-of-plugins/">the jsPsych 6.3 list of plugins</a></p></li>
+<li><p>The <strong>csv or xls/xlsx file</strong> (ShortName.csv or Shortname.xls/xlsx) needs to have an <code>ID</code> and <code>plugin</code> columns, and then columns by the name of parameters used in the plugin (e.g.&nbsp;if using the <code>survey-text</code> plugin, you will need the <code>prompt</code> parameter). If you need <strong>help with the plugins parameters</strong>, see <a href="https://www.jspsych.org/6.3/plugins/list-of-plugins/">the jsPsych 6.3 list of plugins</a></p></li>
 <li><p>For each <strong>html file</strong> (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. The files need to end with <code>_instructions.html</code> or <code>instructions#.html</code> (# is a number). If there is no html, a default page will be used</p></li>
 <li><p>For <strong>key questions</strong> (e.g.&nbsp;present this question only if participants responded “3”), you need to create a column named <code>if_question</code> and include a logical condition. For example:</p>
 <ul>
@@ -367,6 +367,7 @@ $tasks_js
 </li>
 <li>Audio: <code>media/audio</code></li>
 </ul></li>
+<li><p>If you use a plugin with different options or alternatives (e.g.&nbsp;<code>survey-multi-choice-vertical</code>), the different response <code>options</code> will be the words or sentences separated by commas (e.g.&nbsp;Yes I am, No I am not). If your options have commas (e.g.&nbsp;Wake up, have breakfast, brush teeth; Wake up, brush teeth, have breakfast), you need to define an <code>options_separator</code> using the <code>options_separator = ";"</code> parameter.</p></li>
 </ul>
 <hr>
 <p>You can run the fully reproducible example included in jsPsychMaker:</p>
