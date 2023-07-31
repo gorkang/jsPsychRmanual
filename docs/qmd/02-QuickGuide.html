@@ -322,7 +322,7 @@ Outline
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Download jsPsychMonkeys</p></li>
+<li><p>Install jsPsychMonkeys</p></li>
 <li><p>Run Monkeys</p></li>
 </ol>
 </div>
@@ -338,13 +338,13 @@ Outline
 </section>
 <section id="run-monkeys" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-monkeys">2) Run Monkeys</h4>
-<p>Use the <code>uid</code> parameter to set a number of participants, e.g.&nbsp;<code>uid = "1:10"</code> would launch monkeys 1 to 10.</p>
+<p>Use the <code>uid</code> parameter to set the participants’ numeric id’s, e.g.&nbsp;<code>uid = 1:10</code> would launch monkeys 1 to 10.</p>
 <p>Use the <code>local_folder_tasks</code> parameter to indicate the location of the <code>jsPsychMakeR</code> protocol. If you are on Windows, <code>local_folder_tasks</code> value should be something similar to <code>C:/Users/myusername/Downloads/protocol999</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="st">"1:10"</span>, </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">local_folder_tasks =</span> <span class="st">"~/Downloads/protocol999/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If the protocol was running from a loccal folder, the Monkey’s responses will be copied to a subfolder <code>.data/</code> inside the <code>local_folder_tasks</code>. In the example above, <code>~/Downloads/protocol999/.data</code>. If the protocol was running on the server (see the <code>server_folder_tasks</code> parameter), the data will be in the protocols’ <code>.data/</code> folder inside the server.</p>
+<p>If the protocol was running from a local folder, the Monkey’s responses will be copied to a subfolder <code>.data/</code> inside the <code>local_folder_tasks</code>. In the example above, <code>~/Downloads/protocol999/.data</code>. If the protocol was running on the server (see the <code>server_folder_tasks</code> parameter), the data will be in the protocols’ <code>.data/</code> folder inside the server.</p>
 </section>
 </section>
 <section id="QuickGuidejsPsychHelpeR" class="level2" data-number="2.3">

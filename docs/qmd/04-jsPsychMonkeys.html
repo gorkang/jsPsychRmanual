@@ -341,12 +341,12 @@ Mac
 <h2 data-number="4.1" class="anchored" data-anchor-id="how-to-simulate-participants"><span class="header-section-number">4.1</span> How to simulate participants</h2>
 <p>To run a monkey locally:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="st">"1"</span>, </span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="dv">1</span>, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">local_folder_tasks =</span> <span class="st">"~/Downloads/protocol999/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To run a monkey on a server:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="st">"1"</span>, </span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="dv">1</span>, </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">server_folder_tasks =</span> <span class="st">"999"</span>, </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">credentials_folder =</span> <span class="st">"~/.vault/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -358,6 +358,8 @@ Mac
 <ul>
 <li><p><code>uid_URL = TRUE</code>: The uid is passed in the URL (e.g.&nbsp;<code>&amp;uid=1</code>)</p></li>
 <li><p><code>local_folder_tasks = rep("Downloads/tests/test_prototol", 25)</code>: Passing a vector of multiple protocols will make the Monkeys to complete all of them.</p></li>
+<li><p><code>times_repeat_protocol</code>: How many times a monkey should complete the same protocol (useful for longitudinal protocols or to speed up things)</p></li>
+<li><p><code>time_to_sleep_before_repeating_protocol</code>: How many seconds to wait before reattempting to complete the protocol</p></li>
 <li><p><code>keep_alive = TRUE</code> Keep the docker container alive after completing the tasks</p></li>
 <li><p><code>DEBUG = TRUE</code> Activate DEBUG mode. Lot’s of stuff will show up in the console.</p></li>
 <li><p><code>open_VNC = TRUE</code> Activate DEBUG mode and open a VNC container to see the Monkeys’ progress.</p></li>

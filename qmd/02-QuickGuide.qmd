@@ -87,7 +87,7 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 
 ### Outline
 
-1)  Download jsPsychMonkeys
+1)  Install jsPsychMonkeys
 
 2)  Run Monkeys
 
@@ -107,17 +107,17 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
 
 #### 2) Run Monkeys {.unnumbered}
 
-Use the `uid` parameter to set a number of participants, e.g. `uid = "1:10"` would launch monkeys 1 to 10.  
+Use the `uid` parameter to set the participants' numeric id's, e.g. `uid = 1:10` would launch monkeys 1 to 10.  
 
 Use the `local_folder_tasks` parameter to indicate the location of the `jsPsychMakeR` protocol. If you are on Windows, `local_folder_tasks` value should be something similar to `C:/Users/myusername/Downloads/protocol999`.  
 
 
 ```{r, eval=FALSE}
-jsPsychMonkeys::release_the_monkeys(uid = "1:10", 
+jsPsychMonkeys::release_the_monkeys(uid = 1:10, 
                                     local_folder_tasks = "~/Downloads/protocol999/")
 ```
 
-If the protocol was running from a loccal folder, the Monkey's responses will be copied to a subfolder `.data/` inside the `local_folder_tasks`. In the example above, `~/Downloads/protocol999/.data`. If the protocol was running on the server (see the `server_folder_tasks` parameter), the data will be in the protocols' `.data/` folder inside the server.  
+If the protocol was running from a local folder, the Monkey's responses will be copied to a subfolder `.data/` inside the `local_folder_tasks`. In the example above, `~/Downloads/protocol999/.data`. If the protocol was running on the server (see the `server_folder_tasks` parameter), the data will be in the protocols' `.data/` folder inside the server.  
 
 
 

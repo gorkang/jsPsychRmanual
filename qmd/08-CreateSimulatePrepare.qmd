@@ -41,7 +41,7 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
   # - On Ubuntu, `local_folder_tasks = "~/Downloads/protocol999"`
   # - On Windows, `local_folder_tasks = "C:/Users/myusername/Downloads/protocol999"`
 
-jsPsychMonkeys::release_the_monkeys(uid = "1:10", 
+jsPsychMonkeys::release_the_monkeys(uid = 1:10, 
                                     local_folder_tasks = "~/Downloads/protocol999/")
 
 ```
