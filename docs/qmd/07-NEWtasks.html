@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -125,8 +125,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychR-manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychR-manual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -352,22 +352,22 @@ $tasks_js
 <ul>
 <li><p><strong>folder_tasks</strong> expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one <code>csv</code> or <code>xls/xlxs</code> file and <code>html</code> files. Use <code>jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")</code> to see a working example</p></li>
 <li><p>The <strong>csv or xls/xlsx file</strong> (ShortName.csv or Shortname.xls/xlsx) needs to have an <code>ID</code> and <code>plugin</code> columns, and then columns by the name of parameters used in the plugin (e.g.&nbsp;if using the <code>survey-text</code> plugin, you will need the <code>prompt</code> parameter). If you need <strong>help with the plugins parameters</strong>, see <a href="https://www.jspsych.org/6.3/plugins/list-of-plugins/">the jsPsych 6.3 list of plugins</a></p></li>
-<li><p>For each <strong>html file</strong> (ShortName_instructions.html, ShortName_instructions2.html, etc) an instructions page will be created. The files need to end with <code>_instructions.html</code> or <code>instructions#.html</code> (# is a number). If there is no html, a default page will be used</p></li>
+<li><p>For each <strong>html file</strong> ending with <code>_instructions.html</code> or <code>instructions#.html</code> (# is a number), an instructions page will be created (e.g.&nbsp;ShortName_<em>instructions</em>.html, ShortName_<em>instructions2</em>.html, etc). If there is no html, a default page will be used.</p></li>
 <li><p>For <strong>key questions</strong> (e.g.&nbsp;present this question only if participants responded “3”), you need to create a column named <code>if_question</code> and include a logical condition. For example:</p>
 <ul>
 <li><code>1 != 25</code>: Response to item 1 is NOT 25</li>
 <li><code>3 == 20</code>: Response to item 3 is 20</li>
 <li><code>15 == yes</code>: Response to item 3 is yes</li>
 </ul></li>
-<li><p>If you use tasks with images, video or audio, make sure to include the files in a <code>media/</code> folder:</p>
+<li><p>If you use tasks with images, video or audio, make sure to include the files in a <code>media/</code> folder, inside a subfolder with the name of the task. So, if your task name is <code>ALL</code>:</p>
 <ul>
-<li>Images: <code>media/img</code><br>
+<li>Images: <code>media/images/ALL</code><br>
 </li>
-<li>Videos: <code>media/vid</code><br>
+<li>Videos: <code>media/videos/ALL</code><br>
 </li>
-<li>Audio: <code>media/audio</code></li>
+<li>Audio: <code>media/audios/ALL</code></li>
 </ul></li>
-<li><p>If you use a plugin with different options or alternatives (e.g.&nbsp;<code>survey-multi-choice-vertical</code>), the different response <code>options</code> will be the words or sentences separated by commas (e.g.&nbsp;Yes I am, No I am not). If your options have commas (e.g.&nbsp;Wake up, have breakfast, brush teeth; Wake up, brush teeth, have breakfast), you need to define an <code>options_separator</code> using the <code>options_separator = ";"</code> parameter.</p></li>
+<li><p>If you use a plugin with different options or alternatives (e.g.&nbsp;<code>survey-multi-choice-vertical</code>), the different response <code>options</code> will be the words or sentences separated by semi-colons (e.g.&nbsp;Yes, I am; No, I am not). If your options have semi-colons, you can to use the <code>options_separator</code> parameter to change the default.</p></li>
 </ul>
 <hr>
 <p>You can run the fully reproducible example included in jsPsychMaker:</p>
@@ -391,7 +391,7 @@ $tasks_js
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create protocol</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">folder_tasks =</span> <span class="st">"~/Downloads/TEST/"</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol"</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/TEST/new_protocol_999"</span>, </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>

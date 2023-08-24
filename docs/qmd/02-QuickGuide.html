@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -125,8 +125,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychR-manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychR-manual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -322,22 +322,24 @@ Outline
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Install jsPsychMonkeys</p></li>
+<li><p>Install jsPsychMonkeys and Docker</p></li>
 <li><p>Run Monkeys</p></li>
 </ol>
 </div>
 </div>
 <hr>
-<section id="install-jspsychmonkeys" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="install-jspsychmonkeys">1) Install jsPsychMonkeys</h4>
+<section id="install-jspsychmonkeys-and-docker" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="install-jspsychmonkeys-and-docker">1) Install jsPsychMonkeys and Docker</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'remotes'</span>)) utils<span class="sc">::</span><span class="fu">install.packages</span>(<span class="st">'remotes'</span>); remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'gorkang/jsPsychMonkeys'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If you are on Ubuntu and you get an igraph error, try: sudo apt install build-essential gfortran</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Go to <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> and install it.</p>
 </section>
 <section id="run-monkeys" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="run-monkeys">2) Run Monkeys</h4>
+<p>If you are on Windows, make sure <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> is open and running before releasing the monkeys.</p>
 <p>Use the <code>uid</code> parameter to set the participants’ numeric id’s, e.g.&nbsp;<code>uid = 1:10</code> would launch monkeys 1 to 10.</p>
 <p>Use the <code>local_folder_tasks</code> parameter to indicate the location of the <code>jsPsychMakeR</code> protocol. If you are on Windows, <code>local_folder_tasks</code> value should be something similar to <code>C:/Users/myusername/Downloads/protocol999</code>.</p>
 <div class="cell">

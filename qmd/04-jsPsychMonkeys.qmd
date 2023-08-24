@@ -68,6 +68,8 @@ You may need to install some system libraries first:
 
 ## How to simulate participants
 
+If you are on Windows, make sure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is open and running before releasing the monkeys.  
+
 To run a monkey locally:  
 
 ```{r eval=FALSE}

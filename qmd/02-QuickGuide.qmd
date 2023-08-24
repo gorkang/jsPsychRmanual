@@ -87,7 +87,7 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 
 ### Outline
 
-1)  Install jsPsychMonkeys
+1)  Install jsPsychMonkeys and Docker
 
 2)  Run Monkeys
 
@@ -95,7 +95,7 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 
 ------------------------------------------------------------------------
 
-#### 1) Install jsPsychMonkeys {.unnumbered}
+#### 1) Install jsPsychMonkeys and Docker {.unnumbered}
 
 ```{r, eval=FALSE}
 
@@ -105,7 +105,12 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
 
 ```
 
+Go to [Docker Desktop](https://www.docker.com/products/docker-desktop/) and install it.  
+
+
 #### 2) Run Monkeys {.unnumbered}
+
+If you are on Windows, make sure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is open and running before releasing the monkeys.  
 
 Use the `uid` parameter to set the participants' numeric id's, e.g. `uid = 1:10` would launch monkeys 1 to 10.  
 
