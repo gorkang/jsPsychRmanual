@@ -1,0 +1,10 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "Create experimental paradigms with jsPsych, simulate participants and standardize the data preparation and analysis",
+  author   = "Gorka Navarrete and Herman Valencia",
+  journal  = "NA",
+  year     = "2023",
+  pages    = "1:73",
+  url      = "https://gorkang.github.io/jsPsychRmanual/",
+  doi      = "10.5281/zenodo.8296995"
+)

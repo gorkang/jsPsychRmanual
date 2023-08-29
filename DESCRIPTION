@@ -1,0 +1,38 @@
+Package: jsPsychR
+Title: Create experimental paradigms with jsPsych, simulate participants and standardize the data preparation and analysis
+Version: 0.2.0
+Date: 2023-08-29
+Authors@R: 
+  c(person("Gorka", "Navarrete", email = "gorkang@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7678-8656")),
+  person("Herman", "Valencia", email = "herman.valencia.13@sansano.usm.cl", role = c("aut"), comment = c(ORCID = "")))
+Description: With jsPsychMaker, jsPsychMonkeys and jsPsychHelper you can create new tasks and protocols using jsPsych, simulate participants and prepare data. 
+License: MIT + file LICENSE
+URL: https://gorkang.github.io/jsPsychRmanual/
+BugReports: https://github.com/gorkang/jsPsychRmanual/issues
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    callr,
+    cli,
+    dplyr,
+    here,
+    httr,
+    janitor,
+    purrr,
+    quarto,
+    readr,
+    readxl,
+    stringr,
+    tibble,
+    tidyr
+Suggests: 
+    covr,
+    knitr,
+    testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
+LazyData: FALSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Config/testthat/edition: 3

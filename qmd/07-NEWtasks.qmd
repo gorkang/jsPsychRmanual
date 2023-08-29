@@ -90,7 +90,7 @@ You can create new tasks with `create_task()` using `csv` or `xls/xlxs` files fo
 
 There are some things to take into account:   
 
-- **folder_tasks** expects a folder with sub-folders with the ShortName of tasks. Inside, they need to have one `csv` or `xls/xlxs` file and `html` files. Use `jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")` to see a working example    
+- **folder_tasks** expects a folder with sub-folders with the ShortName of tasks (ShortName is an example of the ShortName of a task, for example, MyTask). Inside, they need to have one `ShortName.csv` or `ShortName.xls/xlxs` file and `*_instructions.html` files. Use `jsPsychMaker::copy_example_tasks(destination_folder = "~/Downloads/TEST")` to see a working example    
 
 - The **csv or xls/xlsx file** (ShortName.csv or Shortname.xls/xlsx) needs to have an `ID` and `plugin` columns, and then columns by the name of parameters used in the plugin (e.g. if using the `survey-text` plugin, you will need the `prompt` parameter). If you need **help with the plugins parameters**, see [the jsPsych 6.3 list of plugins](https://www.jspsych.org/6.3/plugins/list-of-plugins/)    
 

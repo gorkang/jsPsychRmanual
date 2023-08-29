@@ -8,7 +8,9 @@ book:
   author: "Gorka Navarrete"
   date: today
   search: true
-  repo-url: https://github.com/gorkang/jsPsychR-manual/
+  url: https://gorkang.github.io/jsPsychRmanual/
+  doi: 10.5281/zenodo.8296995
+  repo-url: https://github.com/gorkang/jsPsychRmanual/
   downloads: [pdf]
   chapters:
     - index.qmd
