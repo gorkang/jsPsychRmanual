@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/413765764.svg)](https://zenodo.org/badge/latestdoi/413765764)
+
 # What is jsPsychR?
 
 `jsPsychR` is a group of **open source** tools to help create experimental paradigms with [jsPsych](https://www.jspsych.org/), simulate participants and standardize the data preparation and analysis. The final goal is to help you have the data preparation and analysis ready before collecting any real data, drastically reducing errors in your protocols, and making the move towards [registered reports](https://www.cos.io/initiatives/registered-reports) easier. 
