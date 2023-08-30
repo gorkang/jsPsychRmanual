@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,8 +91,8 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychRmanual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychRmanual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -206,14 +206,14 @@ ul.task-list li input[type="checkbox"] {
 
 <p>We use different technologies to develop experiments. Some examples are <a href="https://www.psychopy.org/">Psychopy</a>, <a href="https://www.qualtrics.com/">Qualtrics</a>, <a href="https://www.limesurvey.org/">Limesurvey</a>, <a href="https://www.jspsych.org/plugins/jspsych-preload/">jsPsych</a>, <a href="https://gorilla.sc/">Gorilla</a>, etc. Each of these has advantages and disadvantages and, in general, there are pragmatic aspects to take into account when adopting one or the other: cost, type of experiment (EEG or behavioral, lab or online), lab history and available resources, …</p>
 <p>We opted for <a href="https://www.jspsych.org/">jsPsych</a> to run behavioral experiments because it is an <strong>open source</strong> javascript library, based on standard web technologies, and can be used online and offline.</p>
-<p>In the last years, we started working on a set of tools to help people without coding expertise to create <a href="https://www.jspsych.org/">jsPsych</a> experiments (<a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a>), simulate participants (<a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a>) and standardize and automatize the data preparation and analysis (<a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a>).</p>
-<p>Our final goal is to have a big catalog of tasks available to use in the <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> repo. Each of the tasks should run with <a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a> to create virtual participants. And each task will have a sister script in <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to fully automate data preparation.</p>
+<p>In the last years, we started working on a set of tools to help people without coding expertise to create <a href="https://www.jspsych.org/">jsPsych</a> experimental protocols (<a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a>), simulate participants (<a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a>) and standardize and automatize the data preparation and analysis (<a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a>).</p>
+<p>Our final goal is to have a big catalog of tasks available to use in the <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> repo. Each of the tasks should run with <a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a> to create virtual participants. And each task will have a sister script in <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to fully automate data preparation (re-coding, reversing items, calculating dimensions, etc.).</p>
 <section id="open-and-reproducible-pipeline" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="open-and-reproducible-pipeline"><span class="header-section-number">1.1</span> Open and reproducible pipeline</h2>
-<p>To replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.</p>
-<p>Furthermore, all the components of the pipeline must be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.</p>
+<p>To replicate an experimental protocol from a publication is not trivial. One of the main goals of this system is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.</p>
+<p>Furthermore, all the components of the pipeline are be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer connected to the internet, eliminating cost constrains.</p>
 <p>With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically.</p>
-<p>The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get everything ready with simulated data, preregister or even better, go for a <a href="https://www.cos.io/initiatives/registered-reports">registered report</a> and just relaunch the data preparation and analysis when the participant’s data arrive, with a single command.</p>
+<p>The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get everything ready with simulated data, preregister or even better, go for a <a href="https://www.cos.io/initiatives/registered-reports">registered report</a> and just relaunch the data preparation and analysis when the participant’s responses arrive, with a single command.</p>
 <p>And if you want to share the final data preparation and analysis project in a Docker container to make sure the future generations will be able to run it without dependency issues, <a href="05-jsPsychHelpeR.html#docker-containers">we got you covered</a>.</p>
 </section>
 <section id="automatization" class="level2" data-number="1.2">

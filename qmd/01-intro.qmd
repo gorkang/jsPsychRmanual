@@ -4,20 +4,20 @@ We use different technologies to develop experiments. Some examples are [Psychop
 
 We opted for [jsPsych](https://www.jspsych.org/) to run behavioral experiments because it is an **open source** javascript library, based on standard web technologies, and can be used online and offline.
 
-In the last years, we started working on a set of tools to help people without coding expertise to create [jsPsych](https://www.jspsych.org/) experiments ([jsPsychMaker](https://github.com/gorkang/jsPsychMaker)), simulate participants ([jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys)) and standardize and automatize the data preparation and analysis ([jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR)).  
+In the last years, we started working on a set of tools to help people without coding expertise to create [jsPsych](https://www.jspsych.org/) experimental protocols ([jsPsychMaker](https://github.com/gorkang/jsPsychMaker)), simulate participants ([jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys)) and standardize and automatize the data preparation and analysis ([jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR)).  
 
-Our final goal is to have a big catalog of tasks available to use in the [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) repo. Each of the tasks should run with [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) to create virtual participants. And each task will have a sister script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to fully automate data preparation.
+Our final goal is to have a big catalog of tasks available to use in the [jsPsychMaker](https://github.com/gorkang/jsPsychMaker) repo. Each of the tasks should run with [jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys) to create virtual participants. And each task will have a sister script in [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR) to fully automate data preparation (re-coding, reversing items, calculating dimensions, etc.).  
 
 
 ## Open and reproducible pipeline
 
-To replicate an experiment from a publication is not trivial. One of the main goals of this sytem is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.
+To replicate an experimental protocol from a publication is not trivial. One of the main goals of this system is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.
 
-Furthermore, all the components of the pipeline must be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer and access to the internet, eliminating cost constrains.
+Furthermore, all the components of the pipeline are be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer connected to the internet, eliminating cost constrains.  
 
 With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically.
 
-The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get everything ready with simulated data, preregister or even better, go for a [registered report](https://www.cos.io/initiatives/registered-reports) and just relaunch the data preparation and analysis when the participant's data arrive, with a single command.
+The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get everything ready with simulated data, preregister or even better, go for a [registered report](https://www.cos.io/initiatives/registered-reports) and just relaunch the data preparation and analysis when the participant's responses arrive, with a single command.
 
 And if you want to share the final data preparation and analysis project in a Docker container to make sure the future generations will be able to run it without dependency issues, [we got you covered](05-jsPsychHelpeR.html#docker-containers).  
 

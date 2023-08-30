@@ -4,11 +4,9 @@
 
 ## Pre-requisites {-}
 
-1. [Install R](https://cran.rstudio.com/)
+For jsPsychHelpeR and jsPsychMaker, you will need  [R](https://cran.rstudio.com/) and [RStudio desktop](https://posit.co/download/rstudio-desktop/)
 
-2. [Install RStudio desktop](https://posit.co/download/rstudio-desktop/)
-
-3. [Install Docker](https://docs.docker.com/get-docker/). See the [Monkeys' setup section](04-jsPsychMonkeys.html#setup) for more detailed instructions.
+For jsPsychMonkeys, you will need [Docker](https://docs.docker.com/get-docker/). See the [Monkeys' setup section](04-jsPsychMonkeys.html#setup) for more detailed instructions.
 
 :::
 
@@ -27,7 +25,7 @@
 
 1)  Install jsPsychMaker
 
-2)  `create_protocol()` using any of the `list_available_tasks()` and edit the `config.js` to adapt the protocol settings
+2)  `create_protocol()` using any of the `list_available_tasks()` or [your own tasks defined in csv/xls files](07-NEWtasks.html#Newtasks), and edit the `config.js` to adapt the protocol settings
 
 3)  Open `index.html` in your browser
 
@@ -165,7 +163,7 @@ if (!require('remotes')) utils::install.packages('remotes'); remotes::install_gi
 
 Create and setup a new RStudio project for your data. Before doing this, you need to locate the raw data for the jsPsychMaker project.   
 
-In this example, our raw data is in `~/Downloads/protocol999/.data/` and we want the new project to be in `~/Downloads/jsPsychHelpeR999/`  
+In this example, our raw data is in `~/Downloads/protocol999/.data/` and we want the new data preparation project to be in `~/Downloads/jsPsychHelpeR999/`  
 
 ```{r, eval=FALSE}
 
