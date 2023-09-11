@@ -6,10 +6,10 @@
 
 We have three main tools:
 
--   [jsPsychMaker](#jsPsychMaker): Create experiments with [jsPsych](https://www.jspsych.org/), randomize participants, balance between conditions, reuse already existing tasks, etc.  
+-   [jsPsychMaker](https://github.com/gorkang/jsPsychMaker): Create experiments with [jsPsych](https://www.jspsych.org/), randomize participants, balance between conditions, reuse already existing tasks, etc.  
 
--   [jsPsychMonkeys](#jsPsychMonkeys): Release monkeys to a [jsPsych](https://www.jspsych.org/) experiment with  {[targets](https://books.ropensci.org/targets/)}, [docker](https://www.docker.com/) and {[RSelenium](https://docs.ropensci.org/RSelenium/)}  
+-   [jsPsychMonkeys](https://github.com/gorkang/jsPsychMonkeys): Release monkeys to a [jsPsych](https://www.jspsych.org/) experiment with  {[targets](https://books.ropensci.org/targets/)}, [docker](https://www.docker.com/) and {[RSelenium](https://docs.ropensci.org/RSelenium/)}  
 
--   [jsPsychHelpeR](#jsPsychHelpeR): Standardize and automatize data preparation, analysis and reporting of [jsPsych](https://www.jspsych.org/) experiments created with [jsPsychMaker](#jsPsychMaker)
+-   [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR): Standardize and automatize data preparation, analysis and reporting of [jsPsych](https://www.jspsych.org/) experiments created with [jsPsychMaker](#jsPsychMaker)
 
 ![](img/jsPsych-trinity.png)

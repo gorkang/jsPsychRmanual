@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -125,8 +125,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychRmanual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychRmanual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -213,26 +213,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#jsPsychAdmin" id="toc-jsPsychAdmin" class="nav-link active" data-scroll-target="#jsPsychAdmin"><span class="header-section-number">6.1</span> jsPsychAdmin</a>
+  <li><a href="#common-tasks" id="toc-common-tasks" class="nav-link active" data-scroll-target="#common-tasks"><span class="header-section-number">6.0.1</span> Common tasks</a></li>
+  <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link" data-scroll-target="#docker-containers"><span class="header-section-number">6.1</span> Docker containers</a>
   <ul class="collapse">
-  <li><a href="#common-tasks" id="toc-common-tasks" class="nav-link" data-scroll-target="#common-tasks"><span class="header-section-number">6.1.1</span> Common tasks</a></li>
+  <li><a href="#install-docker" id="toc-install-docker" class="nav-link" data-scroll-target="#install-docker"><span class="header-section-number">6.1.1</span> Install Docker</a></li>
+  <li><a href="#create-image-for-a-project" id="toc-create-image-for-a-project" class="nav-link" data-scroll-target="#create-image-for-a-project"><span class="header-section-number">6.1.2</span> Create image for a project</a></li>
+  <li><a href="#store-image" id="toc-store-image" class="nav-link" data-scroll-target="#store-image"><span class="header-section-number">6.1.3</span> Store image</a></li>
+  <li><a href="#load-image" id="toc-load-image" class="nav-link" data-scroll-target="#load-image"><span class="header-section-number">6.1.4</span> Load image</a></li>
+  <li><a href="#run-container" id="toc-run-container" class="nav-link" data-scroll-target="#run-container"><span class="header-section-number">6.1.5</span> Run container</a></li>
+  <li><a href="#debug-container" id="toc-debug-container" class="nav-link" data-scroll-target="#debug-container"><span class="header-section-number">6.1.6</span> DEBUG Container</a></li>
   </ul></li>
-  <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link" data-scroll-target="#docker-containers"><span class="header-section-number">6.2</span> Docker containers</a>
+  <li><a href="#google-docs" id="toc-google-docs" class="nav-link" data-scroll-target="#google-docs"><span class="header-section-number">6.2</span> Google Docs</a></li>
+  <li><a href="#folders-and-how-to-work" id="toc-folders-and-how-to-work" class="nav-link" data-scroll-target="#folders-and-how-to-work"><span class="header-section-number">6.3</span> Folders and how to work</a></li>
+  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="header-section-number">6.4</span> Helper functions</a>
   <ul class="collapse">
-  <li><a href="#install-docker" id="toc-install-docker" class="nav-link" data-scroll-target="#install-docker"><span class="header-section-number">6.2.1</span> Install Docker</a></li>
-  <li><a href="#create-image-for-a-project" id="toc-create-image-for-a-project" class="nav-link" data-scroll-target="#create-image-for-a-project"><span class="header-section-number">6.2.2</span> Create image for a project</a></li>
-  <li><a href="#store-image" id="toc-store-image" class="nav-link" data-scroll-target="#store-image"><span class="header-section-number">6.2.3</span> Store image</a></li>
-  <li><a href="#load-image" id="toc-load-image" class="nav-link" data-scroll-target="#load-image"><span class="header-section-number">6.2.4</span> Load image</a></li>
-  <li><a href="#run-container" id="toc-run-container" class="nav-link" data-scroll-target="#run-container"><span class="header-section-number">6.2.5</span> Run container</a></li>
-  <li><a href="#debug-container" id="toc-debug-container" class="nav-link" data-scroll-target="#debug-container"><span class="header-section-number">6.2.6</span> DEBUG Container</a></li>
-  </ul></li>
-  <li><a href="#google-docs" id="toc-google-docs" class="nav-link" data-scroll-target="#google-docs"><span class="header-section-number">6.3</span> Google Docs</a></li>
-  <li><a href="#folders-and-how-to-work" id="toc-folders-and-how-to-work" class="nav-link" data-scroll-target="#folders-and-how-to-work"><span class="header-section-number">6.4</span> Folders and how to work</a></li>
-  <li><a href="#helper-functions" id="toc-helper-functions" class="nav-link" data-scroll-target="#helper-functions"><span class="header-section-number">6.5</span> Helper functions</a>
-  <ul class="collapse">
-  <li><a href="#check-all-protocols" id="toc-check-all-protocols" class="nav-link" data-scroll-target="#check-all-protocols"><span class="header-section-number">6.5.1</span> Check all protocols</a></li>
-  <li><a href="#create-protocol-with-new-tasks" id="toc-create-protocol-with-new-tasks" class="nav-link" data-scroll-target="#create-protocol-with-new-tasks"><span class="header-section-number">6.5.2</span> Create protocol with NEW tasks</a></li>
-  <li><a href="#check-canonical-protocol-dev" id="toc-check-canonical-protocol-dev" class="nav-link" data-scroll-target="#check-canonical-protocol-dev"><span class="header-section-number">6.5.3</span> Check canonical protocol DEV</a></li>
+  <li><a href="#check-all-protocols" id="toc-check-all-protocols" class="nav-link" data-scroll-target="#check-all-protocols"><span class="header-section-number">6.4.1</span> Check all protocols</a></li>
+  <li><a href="#create-protocol-with-new-tasks" id="toc-create-protocol-with-new-tasks" class="nav-link" data-scroll-target="#create-protocol-with-new-tasks"><span class="header-section-number">6.4.2</span> Create protocol with NEW tasks</a></li>
+  <li><a href="#check-canonical-protocol-dev" id="toc-check-canonical-protocol-dev" class="nav-link" data-scroll-target="#check-canonical-protocol-dev"><span class="header-section-number">6.4.3</span> Check canonical protocol DEV</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -257,12 +254,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<!-- TODO: create protocol to test new tasks in 999 with all available tasks... (extending canonical protocol with new tasks) -->
-<p>Instructions and protocols for jsPsychR admins. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.</p>
-<section id="jsPsychAdmin" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="jsPsychAdmin"><span class="header-section-number">6.1</span> jsPsychAdmin</h2>
 <hr>
-<p><a href="https://github.com/gorkang/jsPsychAdmin">jsPsychAdmin</a>: Functions to help with common administrative tasks for jsPsychR protocols</p>
+<p><a href="https://github.com/gorkang/jsPsychAdmin">jsPsychAdmin</a>: Functions to help with common administrative tasks for jsPsychR protocols. The goal is to minimize issues and make sure tasks behave in a consistent and reproducible manner.</p>
 <hr>
 <ul>
 <li>Install with:</li>
@@ -271,62 +264,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychAdmin")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will need a <code>.vault</code> folder with <code>.credentials</code>, <code>data_encrypted.rds</code> and <code>data_public_key.txt</code>.</p>
-<section id="common-tasks" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="common-tasks"><span class="header-section-number">6.1.1</span> Common tasks</h3>
-<section id="check-participants-all-protocols" class="level4" data-number="6.1.1.1">
-<h4 data-number="6.1.1.1" class="anchored" data-anchor-id="check-participants-all-protocols"><span class="header-section-number">6.1.1.1</span> CHECK participants all protocols</h4>
+<section id="common-tasks" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="common-tasks"><span class="header-section-number">6.0.1</span> Common tasks</h3>
+<section id="debug-functions" class="level4" data-number="6.0.1.1">
+<h4 data-number="6.0.1.1" class="anchored" data-anchor-id="debug-functions"><span class="header-section-number">6.0.1.1</span> Debug functions</h4>
+<p>Prints usage and examples, shows help, and loads usage parameters to Global environment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Uses the .credentials file + the public key to unlock the encrypted data_encrypted.rds</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">check_status_participants_protocol</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_parameters_of_function</span>(<span class="at">name_function =</span> <span class="st">"jsPsychMaker::create_protocol()"</span>, <span class="at">load_parameters =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="clean-up-a-dev-protocol" class="level4" data-number="6.1.1.2">
-<h4 data-number="6.1.1.2" class="anchored" data-anchor-id="clean-up-a-dev-protocol"><span class="header-section-number">6.1.1.2</span> Clean up a DEV protocol</h4>
+<section id="sync-and-check-all-protocols" class="level4" data-number="6.0.1.2">
+<h4 data-number="6.0.1.2" class="anchored" data-anchor-id="sync-and-check-all-protocols"><span class="header-section-number">6.0.1.2</span> Sync and Check all protocols</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean up DB and csv files for a test/protocols_DEV/ protocol # Useful when testing</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rstudioapi::navigateToFile(".vault/.credentials")</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">clean_up_dev_protocol</span>(<span class="at">protocol_id =</span> <span class="st">"test/protocols_DEV/31"</span>) <span class="co"># Asks for server password</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Syncs and checks all</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">download_check_all_protocols</span>(<span class="at">gmail_account =</span> <span class="st">"XYZ@gmail.com"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">ignore_existing =</span> <span class="cn">FALSE</span>, <span class="co"># Overwrites existing files that changed</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">dont_ask =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">show_all_messages =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Just syncs the protocols</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">sync_server_local</span>(<span class="at">server_folder =</span> <span class="st">""</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">local_folder =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="fu">paste0</span>(<span class="st">".."</span>, <span class="st">"/CSCN-server/protocols/"</span>)),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">direction =</span> <span class="st">"server_to_local"</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">only_test =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">exclude_csv =</span> <span class="cn">TRUE</span>, <span class="co"># DO NOT INCLUDE DATA</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">ignore_existing =</span> <span class="cn">FALSE</span>, <span class="co"># If a file already exists, ignore it. Good for data, bad for protocols.</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">dont_ask =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="check-missing-scripts" class="level4" data-number="6.1.1.3">
-<h4 data-number="6.1.1.3" class="anchored" data-anchor-id="check-missing-scripts"><span class="header-section-number">6.1.1.3</span> Check missing scripts</h4>
+<section id="check-participants-all-protocols" class="level4" data-number="6.0.1.3">
+<h4 data-number="6.0.1.3" class="anchored" data-anchor-id="check-participants-all-protocols"><span class="header-section-number">6.0.1.3</span> CHECK participants all protocols</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  Downloads all the protocols to CSCN-server</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  Then checks:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - for which ones we do not have preparation scripts</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - for which ones we do not have googledoc details in</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># + https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># + https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">TRUE</span>, <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>, <span class="at">delete_nonexistent =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">gmail_account =</span> <span class="st">"myemail@gmail.com"</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Will sync all protocols on server to the LOCAL folder ../CSCN-server</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Then, will CHECK:</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check no missing info in Google doc of NEW tasks</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">download_check_all_protocols</span>(<span class="at">gmail_account =</span> <span class="st">"myemail@gmail.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Uses the .credentials file + the public key to unlock the encrypted data_encrypted.rds</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">check_status_participants_protocol</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="build-jspsychhelper-and-jspsychmonkeys-packages" class="level4" data-number="6.1.1.4">
-<h4 data-number="6.1.1.4" class="anchored" data-anchor-id="build-jspsychhelper-and-jspsychmonkeys-packages"><span class="header-section-number">6.1.1.4</span> Build jsPsychHelpeR and jsPsychMonkeys packages</h4>
+<section id="clean-up-a-dev-protocol" class="level4" data-number="6.0.1.4">
+<h4 data-number="6.0.1.4" class="anchored" data-anchor-id="clean-up-a-dev-protocol"><span class="header-section-number">6.0.1.4</span> Clean up a DEV protocol</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean up DB and csv files for a test/protocols_DEV/ protocol # Useful when testing</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rstudioapi::navigateToFile(".vault/.credentials")</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">clean_up_dev_protocol</span>(<span class="at">protocol_id =</span> <span class="st">"test/protocols_DEV/31"</span>) <span class="co"># Asks for server password</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-missing-scripts" class="level4" data-number="6.0.1.5">
+<h4 data-number="6.0.1.5" class="anchored" data-anchor-id="check-missing-scripts"><span class="header-section-number">6.0.1.5</span> Check missing scripts</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  Downloads all the protocols to CSCN-server</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  Then checks:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - for which ones we do not have preparation scripts</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - for which ones we do not have googledoc details in</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># + https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># + https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">TRUE</span>, <span class="at">check_trialids =</span> <span class="cn">TRUE</span>, <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>, <span class="at">delete_nonexistent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">gmail_account =</span> <span class="st">"myemail@gmail.com"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Will sync all protocols on server to the LOCAL folder ../CSCN-server</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Then, will CHECK:</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check no missing info in Google doc of NEW tasks</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">download_check_all_protocols</span>(<span class="at">gmail_account =</span> <span class="st">"myemail@gmail.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="downloadupload-specific-protocol" class="level4" data-number="6.0.1.6">
+<h4 data-number="6.0.1.6" class="anchored" data-anchor-id="downloadupload-specific-protocol"><span class="header-section-number">6.0.1.6</span> Download/Upload specific protocol</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># UPLOAD</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">sync_server_local</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">direction =</span> <span class="st">"local_to_server"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">local_folder =</span> <span class="st">"protocols_DEV/999/"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">server_folder =</span> <span class="st">"test/protocols_DEV/999/"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">only_test =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">delete_nonexistent =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># DOWNLOAD</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">sync_server_local</span>(</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">direction =</span> <span class="st">"server_to_local"</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">server_folder =</span> <span class="st">"test/protocols_DEV/999/"</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">local_folder =</span> <span class="st">"protocols_DEV/999/"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">only_test =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">delete_nonexistent =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="build-jspsychhelper-and-jspsychmonkeys-packages" class="level4" data-number="6.0.1.7">
+<h4 data-number="6.0.1.7" class="anchored" data-anchor-id="build-jspsychhelper-and-jspsychmonkeys-packages"><span class="header-section-number">6.0.1.7</span> Build jsPsychHelpeR and jsPsychMonkeys packages</h4>
 <p>Scripts to build the template projects for jsPsychHelpeR and jsPsychMonkeys</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>jsPsychAdmin<span class="sc">::</span><span class="fu">create_jsPsychHelpeR_zip</span>()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>jsPsychAdmin<span class="sc">::</span><span class="fu">create_jsPsychMonkeys_zip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>jsPsychAdmin<span class="sc">::</span><span class="fu">create_jsPsychHelpeR_zip</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>jsPsychAdmin<span class="sc">::</span><span class="fu">create_jsPsychMonkeys_zip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-simulate-prepare" class="level4" data-number="6.0.1.8">
+<h4 data-number="6.0.1.8" class="anchored" data-anchor-id="create-simulate-prepare"><span class="header-section-number">6.0.1.8</span> Create &amp; Simulate &amp; Prepare</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract example tasks to a folder</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">copy_example_tasks</span>(<span class="at">destination_folder =</span> <span class="st">"~/Downloads/example_tasks/"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a protocol with the example tasks</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">folder_tasks =</span> <span class="st">"~/Downloads/example_tasks/"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">folder_output =</span> <span class="st">"~/Downloads/protocolALL999"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">launch_browser =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">options_separator =</span> <span class="st">";"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># AUTOMATICALLY run Monkeys and prepare data</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only prints in console the code</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">simulate_prepare</span>(<span class="at">folder_protocol =</span> <span class="st">"~/Downloads/protocolALL999"</span>, <span class="at">n_participants =</span> <span class="dv">3</span>, <span class="at">print_watch_run =</span> <span class="st">"print"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Runs everything</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">simulate_prepare</span>(<span class="at">folder_protocol =</span> <span class="st">"~/Downloads/protocolALL999"</span>, <span class="at">n_participants =</span> <span class="dv">3</span>, <span class="at">print_watch_run =</span> <span class="st">"run"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run a single Monkey and open VNC to see how it goes</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">simulate_prepare</span>(<span class="at">folder_protocol =</span> <span class="st">"~/Downloads/protocolALL999"</span>, <span class="at">print_watch_run =</span> <span class="st">"watch"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-</section>
-<section id="docker-containers" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">6.2</span> Docker containers</h2>
+<section id="docker-containers" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">6.1</span> Docker containers</h2>
 <p>We can create a fully reproducible docker image with the data preparation and analysis for a specific project using <code>jsPsychHelpeR::create_docker_container()</code></p>
 <p>Afterwards, you can use the image to run a docker container that will reproduce the analysis and results of your project.</p>
 <p>The current version is a first attempt at this, so there is a lot to improve.</p>
-<section id="install-docker" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="install-docker"><span class="header-section-number">6.2.1</span> Install Docker</h3>
+<section id="install-docker" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="install-docker"><span class="header-section-number">6.1.1</span> Install Docker</h3>
 <p>First, we need to install docker.</p>
 <ul>
 <li><p>Linux: follow <a href="https://docs.docker.com/engine/install/ubuntu/">installation instructions</a></p></li>
@@ -338,58 +407,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="create-image-for-a-project" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="create-image-for-a-project"><span class="header-section-number">6.2.2</span> Create image for a project</h3>
+<section id="create-image-for-a-project" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="create-image-for-a-project"><span class="header-section-number">6.1.2</span> Create image for a project</h3>
 <p>When a project is ready to share, you can create a self-contained docker image:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean environment -------------------------------------------------------</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># DELETE ALL CACHE</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="st">"docker builder prune --all -f"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean renv cache libraries</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  renv<span class="sc">::</span><span class="fu">clean</span>()</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean extra versions of libraries</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/helper_functions_extra.R"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_renv_cache</span>()</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create docker image -----------------------------------------------------  </span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">create_docker_container</span>(<span class="at">PID =</span> PID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean environment -------------------------------------------------------</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># DELETE ALL CACHE</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="st">"docker builder prune --all -f"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean renv cache libraries</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  renv<span class="sc">::</span><span class="fu">clean</span>()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean extra versions of libraries</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/helper_functions_extra.R"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_renv_cache</span>()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create docker image -----------------------------------------------------  </span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">create_docker_container</span>(<span class="at">PID =</span> PID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="store-image" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="store-image"><span class="header-section-number">6.2.3</span> Store image</h3>
+<section id="store-image" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="store-image"><span class="header-section-number">6.1.3</span> Store image</h3>
 <p>You can create a tar file with the image or directly share it through dockerhub:</p>
 <ol type="1">
 <li>Store image creating a pid[PID].tar.zip file TO SHARE</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker save gorkang/jspsychhelper:pid"</span>, PID, <span class="st">" | zip &gt; pid"</span>, PID, <span class="st">".tar.zip"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker save gorkang/jspsychhelper:pid"</span>, PID, <span class="st">" | zip &gt; pid"</span>, PID, <span class="st">".tar.zip"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Push image to Dockerhub</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker push gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker push gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="load-image" class="level3" data-number="6.2.4">
-<h3 data-number="6.2.4" class="anchored" data-anchor-id="load-image"><span class="header-section-number">6.2.4</span> Load image</h3>
+<section id="load-image" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="load-image"><span class="header-section-number">6.1.4</span> Load image</h3>
 <p>You can load the image in your computer in two ways:</p>
 <ol type="1">
 <li>Using a pid[PID].tar.zip:</li>
 </ol>
 <p>On linux:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  utils<span class="sc">::</span><span class="fu">unzip</span>(<span class="at">zipfile =</span> <span class="fu">paste0</span>(<span class="st">"pid"</span>, PID, <span class="st">".tar.zip"</span>), <span class="at">files =</span> <span class="fu">paste0</span>(<span class="st">"-"</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker load --input -"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  utils<span class="sc">::</span><span class="fu">unzip</span>(<span class="at">zipfile =</span> <span class="fu">paste0</span>(<span class="st">"pid"</span>, PID, <span class="st">".tar.zip"</span>), <span class="at">files =</span> <span class="fu">paste0</span>(<span class="st">"-"</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker load --input -"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>On windows:</p>
 <div class="cell">
@@ -401,22 +470,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Pull image from Dockerhub</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker pull gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  PID <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker pull gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="run-container" class="level3" data-number="6.2.5">
-<h3 data-number="6.2.5" class="anchored" data-anchor-id="run-container"><span class="header-section-number">6.2.5</span> Run container</h3>
+<section id="run-container" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="run-container"><span class="header-section-number">6.1.5</span> Run container</h3>
 <p>Once the docker image is loaded in your system, you will be able to run the data preparation and analysis for your project inside a docker container, ensuring reproducibility. The output will be in <code>Downloads/jsPsychHelpeR[PID]/outputs</code> after a couple of minutes.</p>
 <ul>
 <li>Linux</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make sure ~/Downloads/jsPsychHelpeR999 is empty</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.remove</span>(<span class="fu">list.files</span>(<span class="fu">paste0</span>(<span class="st">"~/Downloads/jsPsychHelpeR"</span>, PID, <span class="st">"/outputs"</span>), <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run docker</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker run --rm -d --name pid"</span>, PID, <span class="st">" -v ~/Downloads/jsPsychHelpeR"</span>, PID, <span class="st">"/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make sure ~/Downloads/jsPsychHelpeR999 is empty</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.remove</span>(<span class="fu">list.files</span>(<span class="fu">paste0</span>(<span class="st">"~/Downloads/jsPsychHelpeR"</span>, PID, <span class="st">"/outputs"</span>), <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run docker</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">system</span>(<span class="fu">paste0</span>(<span class="st">"docker run --rm -d --name pid"</span>, PID, <span class="st">" -v ~/Downloads/jsPsychHelpeR"</span>, PID, <span class="st">"/outputs:/home/project/jsPsychHelpeR/outputs:rw gorkang/jspsychhelper:pid"</span>, PID))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Windows</li>
@@ -427,8 +496,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="debug-container" class="level3" data-number="6.2.6">
-<h3 data-number="6.2.6" class="anchored" data-anchor-id="debug-container"><span class="header-section-number">6.2.6</span> DEBUG Container</h3>
+<section id="debug-container" class="level3" data-number="6.1.6">
+<h3 data-number="6.1.6" class="anchored" data-anchor-id="debug-container"><span class="header-section-number">6.1.6</span> DEBUG Container</h3>
 <p>You can DEBUG a container with the following command:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -437,22 +506,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Inside the container, you can acces R and debug as you would locally.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See last CMD line in Dockerfile_TEMPLATE:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># $ R</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'renv/activate.R'</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">'./R'</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">'.R$'</span>), source))</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setup_folders</span>(<span class="at">pid =</span> <span class="dv">999</span>, <span class="at">folder =</span> <span class="st">'.'</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_destroy</span>(<span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check size folders</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>du <span class="sc">-</span>had1 renv<span class="sc">/</span> <span class="er">|</span> sort <span class="sc">-</span>h</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>du <span class="sc">-</span>had1 <span class="sc">*</span> <span class="er">|</span> sort <span class="sc">-</span>h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See last CMD line in Dockerfile_TEMPLATE:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># $ R</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'renv/activate.R'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(<span class="fu">list.files</span>(<span class="st">'./R'</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>, <span class="at">pattern =</span> <span class="st">'.R$'</span>), source))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setup_folders</span>(<span class="at">pid =</span> <span class="dv">999</span>, <span class="at">folder =</span> <span class="st">'.'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_destroy</span>(<span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check size folders</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>du <span class="sc">-</span>had1 renv<span class="sc">/</span> <span class="er">|</span> sort <span class="sc">-</span>h</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>du <span class="sc">-</span>had1 <span class="sc">*</span> <span class="er">|</span> sort <span class="sc">-</span>h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="google-docs" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="google-docs"><span class="header-section-number">6.3</span> Google Docs</h2>
+<section id="google-docs" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="google-docs"><span class="header-section-number">6.2</span> Google Docs</h2>
 <p>We have a few Google Documents with information about available tasks, protocols, etc.</p>
 <ul>
 <li><p><a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">All tasks</a></p></li>
@@ -461,8 +530,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="https://docs.google.com/spreadsheets/d/1fM_T-u-77DHEGTOV5A8BrMyXZfN-rt-MaKsfQV1v3u0/edit#gid=1315185109">Checks specific tasks</a></p></li>
 </ul>
 </section>
-<section id="folders-and-how-to-work" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="folders-and-how-to-work"><span class="header-section-number">6.4</span> Folders and how to work</h2>
+<section id="folders-and-how-to-work" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="folders-and-how-to-work"><span class="header-section-number">6.3</span> Folders and how to work</h2>
 <p>We have two main locations, the <a href="https://github.com/gorkang/jsPsychMaker/">Github jsPsychMaker project</a> and the server.</p>
 <p><a href="https://github.com/gorkang/jsPsychMaker/"><strong>Github jsPsychMaker project</strong></a></p>
 <ul>
@@ -516,11 +585,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- - Una vez implementadas, copiar tareas (y sus imagenes, videos, ...) a 999/ -->
 <!-- test/protocols_DEV/NEW_TASKS  -->
 </section>
-<section id="helper-functions" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="helper-functions"><span class="header-section-number">6.5</span> Helper functions</h2>
+<section id="helper-functions" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="helper-functions"><span class="header-section-number">6.4</span> Helper functions</h2>
 <p>There are a number of helper functions to make some of the jsPsychR admins tasks easier.</p>
-<section id="check-all-protocols" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="check-all-protocols"><span class="header-section-number">6.5.1</span> Check all protocols</h3>
+<section id="check-all-protocols" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="check-all-protocols"><span class="header-section-number">6.4.1</span> Check all protocols</h3>
 <p>For example, we can use <code>check_missing_prepare_TASK()</code> to:</p>
 <ul>
 <li><p>Download all the protocols (without data) to a local folder (<code>sync_protocols = TRUE</code>)</p></li>
@@ -531,44 +600,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Check tasks with missing info on <a href="https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0">NUEVAS tareas</a></p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cli::cli_alert_info(getwd())</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  WD <span class="ot">=</span> <span class="fu">getwd</span>()</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"../../jsPsychHelpeR/"</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/check_missing_prepare_TASK.R"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># source("../../jsPsychHelpeR/R/check_missing_prepare_TASK.R")</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(WD)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">helper_folder =</span> <span class="st">"../../jsPsychHelpeR"</span>,</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">CSCN_server_folder =</span> <span class="st">"../../CSCN-server/"</span>)</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  DF_missing</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Open jsPsychHelpeR RStudio project</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load check_missing_prepare_TASK() function</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cli::cli_alert_info(getwd())</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  WD <span class="ot">=</span> <span class="fu">getwd</span>()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(<span class="st">"../../jsPsychHelpeR/"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">"R/check_missing_prepare_TASK.R"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># source("../../jsPsychHelpeR/R/check_missing_prepare_TASK.R")</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setwd</span>(WD)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If sync_protocols = TRUE, will download to ../CSCN-server/protocols all the protocols from the server</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  DF_missing <span class="ot">=</span> <span class="fu">check_missing_prepare_TASK</span>(<span class="at">sync_protocols =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_trialids =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">delete_nonexistent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">check_new_task_tabs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">helper_folder =</span> <span class="st">"../../jsPsychHelpeR"</span>,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">CSCN_server_folder =</span> <span class="st">"../../CSCN-server/"</span>)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks with no prepare_TASK() script!</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Tasks NOT in Google Doc</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># - Check trialid's are OK</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  DF_missing</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">missing_script =</span> <span class="st">""</span>,</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_googledoc =</span> <span class="st">""</span>,</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>                                                 <span class="at">missing_task =</span> <span class="st">""</span>))</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tasks ready to create prepare_*.R script</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">&amp;</span> <span class="fu">is.na</span>(missing_gdoc))</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>  DF_missing<span class="sc">$</span>DF_FINAL <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(missing_script) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(missing_gdoc)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span>task <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"DEMOGR24"</span>, <span class="st">"DEMOGRfondecyt2022E1"</span>, <span class="st">"ITC"</span>, <span class="st">"fauxPasEv"</span>)) <span class="sc">%&gt;%</span>  <span class="co"># "MDDF_respaldo", "mic_test", "faux_pas",</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">matches</span>(<span class="st">"missing"</span>), <span class="sc">-</span>Nombre, <span class="sc">-</span>Descripcion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="create-protocol-with-new-tasks" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="create-protocol-with-new-tasks"><span class="header-section-number">6.5.2</span> Create protocol with NEW tasks</h3>
+<section id="create-protocol-with-new-tasks" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="create-protocol-with-new-tasks"><span class="header-section-number">6.4.2</span> Create protocol with NEW tasks</h3>
 <p>With <code>create_protocol_with_NEW_tasks.R</code> we can create a protocol with the tasks for which we do not yet have a control snapshot (no .csv’s in the 999.zip data).</p>
 <p><strong>This is a necessary step before the task can be moved to the canonical protocol.</strong></p>
 <p>The function <code>find_missing_tasks_in_999()</code> will read all the csv in <code>jsPsychHelpeR/data/999/999.zip</code> and depending on the value of the parameter <code>search_where</code> (“prepare_TASK” or “js”):</p>
@@ -585,8 +654,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>To make sure the Github <code>jsPsychMaker/protocols_DEV/NEW_TASKS/</code> is up to date, <code>create_protocol_with_NEW_tasks.R</code> will UPLOAD <code>CSCN-server/.../NEW_TASKS</code> to the server, and then DOWNLOAD NEW_TASKS to <code>../jsPsychMaker/protocols_DEV/NEW_TASKS/</code></p>
 </section>
-<section id="check-canonical-protocol-dev" class="level3" data-number="6.5.3">
-<h3 data-number="6.5.3" class="anchored" data-anchor-id="check-canonical-protocol-dev"><span class="header-section-number">6.5.3</span> Check canonical protocol DEV</h3>
+<section id="check-canonical-protocol-dev" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="check-canonical-protocol-dev"><span class="header-section-number">6.4.3</span> Check canonical protocol DEV</h3>
 <p>With <code>000_CHECK_CANONICAL.R</code> we can check that the canonical protocol in development works and expected.</p>
 <p>In the script you can:</p>
 <ul>

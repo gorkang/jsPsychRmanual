@@ -4,7 +4,7 @@ bibentry(
   author   = "Gorka Navarrete and Herman Valencia",
   journal  = "NA",
   year     = "2023",
-  pages    = "1:73",
+  pages    = "173",
   url      = "https://gorkang.github.io/jsPsychRmanual/",
   doi      = "10.5281/zenodo.8296995"
 )
