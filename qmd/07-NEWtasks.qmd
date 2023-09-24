@@ -60,11 +60,11 @@ Check if there are new tasks available in a new version of the Github package:
 ### List available tasks
 
 
-You can list available tasks to choose from. You have more details in the section [available-tasks](03-jsPsychMaker.html#available-tasks).   
+You can list available tasks to choose from. You have more details in the section [available-tasks](03-jsPsychMaker.html#available-tasks). You can choose between available tasks for jsPsych 6.3 and jsPsych 7.3 with `jsPsych_version`.  
 
 ```{r, eval=TRUE}
 
-  jsPsychMaker::list_available_tasks()
+  jsPsychMaker::list_available_tasks(jsPsych_version = 6)
 
 ```
 
@@ -76,7 +76,8 @@ This will create a fully working protocol in `folder_output`. You can edit `conf
 
   jsPsychMaker::create_protocol(canonical_tasks = c("AIM", "EAR", "IRI"),
                                 folder_output = "~/Downloads/protocol999", 
-                                launch_browser = TRUE)
+                                launch_browser = TRUE,
+                                jsPsych_version = 6)
 
 ```
 

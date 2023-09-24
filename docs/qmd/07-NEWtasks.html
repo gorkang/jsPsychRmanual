@@ -296,42 +296,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>jsPsychMaker::check_NEW_tasks_Github()</code></p>
 <section id="list-available-tasks" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="list-available-tasks"><span class="header-section-number">7.1.1</span> List available tasks</h3>
-<p>You can list available tasks to choose from. You have more details in the section <a href="03-jsPsychMaker.html#available-tasks">available-tasks</a>.</p>
+<p>You can list available tasks to choose from. You have more details in the section <a href="03-jsPsychMaker.html#available-tasks">available-tasks</a>. You can choose between available tasks for jsPsych 6.3 and jsPsych 7.3 with <code>jsPsych_version</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>(<span class="at">jsPsych_version =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$tasks
- [1] "AIM"          "Bank"         "BART"         "BNT"          "bRCOPE"      
- [6] "CAS"          "Consent"      "ConsentHTML"  "Cov19Q"       "COVIDCONTROL"
-[11] "CRS"          "CRT7"         "CRTMCQ4"      "CRTv"         "CS"          
-[16] "DASS21"       "DEBRIEF"      "DEMOGR"       "EAR"          "EmpaTom"     
-[21] "ERQ"          "ESM"          "ESZ"          "fauxPasEv"    "GBS"         
-[26] "GHQ12"        "Goodbye"      "HRPVB"        "HRPVBpost"    "IBT"         
-[31] "IDQ"          "IEC"          "INFCONS"      "IRI"          "IRS"         
-[36] "MDDF"         "MDMQ"         "MIS"          "OBJNUM"       "OTRASRELIG"  
-[41] "PBS"          "PRFBM"        "PRFBMpost"    "PSETPP"       "PSPPC"       
-[46] "PSS"          "PVC"          "PWb"          "REI40"        "Report"      
-[51] "RSS"          "RTS"          "SASS"         "SBS"          "SCSORF"      
-[56] "SDG"          "SRA"          "SRBQP"        "SRSav"        "STAI"        
-[61] "SWBQ"         "WEBEXEC"     
+ [1] "AIM"          "AntiBots"     "Bank"         "BART"         "BDI"         
+ [6] "BNT"          "BNTen"        "bRCOPE"       "CAS"          "CEL"         
+[11] "CIT"          "CMApost"      "CMApre"       "Consent"      "ConsentHTML" 
+[16] "Cov19Q"       "COVIDCONTROL" "CRS"          "CRT7"         "CRTMCQ4"     
+[21] "CRTv"         "CS"           "DASS21"       "DEBRIEF"      "DEMOGR"      
+[26] "EAR"          "EmpaTom"      "EQ"           "ERQ"          "ESM"         
+[31] "ESV"          "ESZ"          "fauxPasEv"    "FKEA"         "GBS"         
+[36] "GHQ12"        "Goodbye"      "HRPVB"        "HRPVBpost"    "IBT"         
+[41] "ICvsID"       "IDQ"          "IEC"          "INFCONS"      "IRI"         
+[46] "IRS"          "LoB"          "LOT"          "MCQ30"        "MDDF"        
+[51] "MDMQ"         "MIS"          "NARS"         "OBJNUM"       "OTRASRELIG"  
+[56] "PBSr"         "PERMA"        "PPD"          "PRFBM"        "PRFBMpost"   
+[61] "PSC"          "PSETPP"       "PSPPC"        "PSS"          "PVC"         
+[66] "PWb"          "REI40"        "Report"       "RMET"         "RobToM"      
+[71] "RSS"          "RTS"          "SASS"         "SBS"          "SCSORF"      
+[76] "SDG"          "SILS"         "sProQOL"      "SRA"          "SRBQP"       
+[81] "SRSav"        "STAI"         "SWBQ"         "WEBEXEC"     
 
 $tasks_js
- [1] "AIM.js"          "Bank.js"         "BART.js"         "BNT.js"         
- [5] "bRCOPE.js"       "CAS.js"          "Consent.js"      "ConsentHTML.js" 
- [9] "Cov19Q.js"       "COVIDCONTROL.js" "CRS.js"          "CRT7.js"        
-[13] "CRTMCQ4.js"      "CRTv.js"         "CS.js"           "DASS21.js"      
-[17] "DEBRIEF.js"      "DEMOGR.js"       "EAR.js"          "EmpaTom.js"     
-[21] "ERQ.js"          "ESM.js"          "ESZ.js"          "fauxPasEv.js"   
-[25] "GBS.js"          "GHQ12.js"        "Goodbye.js"      "HRPVB.js"       
-[29] "HRPVBpost.js"    "IBT.js"          "IDQ.js"          "IEC.js"         
-[33] "INFCONS.js"      "IRI.js"          "IRS.js"          "MDDF.js"        
-[37] "MDMQ.js"         "MIS.js"          "OBJNUM.js"       "OTRASRELIG.js"  
-[41] "PBS.js"          "PRFBM.js"        "PRFBMpost.js"    "PSETPP.js"      
-[45] "PSPPC.js"        "PSS.js"          "PVC.js"          "PWb.js"         
-[49] "REI40.js"        "Report.js"       "RSS.js"          "RTS.js"         
-[53] "SASS.js"         "SBS.js"          "SCSORF.js"       "SDG.js"         
-[57] "SRA.js"          "SRBQP.js"        "SRSav.js"        "STAI.js"        
-[61] "SWBQ.js"         "WEBEXEC.js"     </code></pre>
+ [1] "AIM.js"          "AntiBots.js"     "Bank.js"         "BART.js"        
+ [5] "BDI.js"          "BNT.js"          "BNTen.js"        "bRCOPE.js"      
+ [9] "CAS.js"          "CEL.js"          "CIT.js"          "CMApost.js"     
+[13] "CMApre.js"       "Consent.js"      "ConsentHTML.js"  "Cov19Q.js"      
+[17] "COVIDCONTROL.js" "CRS.js"          "CRT7.js"         "CRTMCQ4.js"     
+[21] "CRTv.js"         "CS.js"           "DASS21.js"       "DEBRIEF.js"     
+[25] "DEMOGR.js"       "EAR.js"          "EmpaTom.js"      "EQ.js"          
+[29] "ERQ.js"          "ESM.js"          "ESV.js"          "ESZ.js"         
+[33] "fauxPasEv.js"    "FKEA.js"         "GBS.js"          "GHQ12.js"       
+[37] "Goodbye.js"      "HRPVB.js"        "HRPVBpost.js"    "IBT.js"         
+[41] "ICvsID.js"       "IDQ.js"          "IEC.js"          "INFCONS.js"     
+[45] "IRI.js"          "IRS.js"          "LoB.js"          "LOT.js"         
+[49] "MCQ30.js"        "MDDF.js"         "MDMQ.js"         "MIS.js"         
+[53] "NARS.js"         "OBJNUM.js"       "OTRASRELIG.js"   "PBSr.js"        
+[57] "PERMA.js"        "PPD.js"          "PRFBM.js"        "PRFBMpost.js"   
+[61] "PSC.js"          "PSETPP.js"       "PSPPC.js"        "PSS.js"         
+[65] "PVC.js"          "PWb.js"          "REI40.js"        "Report.js"      
+[69] "RMET.js"         "RobToM.js"       "RSS.js"          "RTS.js"         
+[73] "SASS.js"         "SBS.js"          "SCSORF.js"       "SDG.js"         
+[77] "SILS.js"         "sProQOL.js"      "SRA.js"          "SRBQP.js"       
+[81] "SRSav.js"        "STAI.js"         "SWBQ.js"         "WEBEXEC.js"     </code></pre>
 </div>
 </div>
 </section>
@@ -341,7 +350,8 @@ $tasks_js
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(<span class="at">canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"AIM"</span>, <span class="st">"EAR"</span>, <span class="st">"IRI"</span>),</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">folder_output =</span> <span class="st">"~/Downloads/protocol999"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">launch_browser =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">jsPsych_version =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

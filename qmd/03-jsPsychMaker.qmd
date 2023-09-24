@@ -79,7 +79,7 @@ DF_raw_NEW = googlesheets4::read_sheet("1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc
 
 In `r Sys.Date()` we have `r nrow(DF_raw)` tasks implemented, and `r nrow(DF_raw_NEW)` in development. The full details about the available tasks can be checked in [this document](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0). You can always check [the full list of tasks in the Github repo](https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks).  
 
-To list the available tasks in you console, you can use the `list_available_tasks()` function. If you don't have the `jsPsychMaker` package, [install it first](02-QuickGuide.html#install-jspsychmaker).  
+To list the available tasks in the jsPsychMaker R package in you console, you can use the `list_available_tasks()` function. If you don't have the `jsPsychMaker` package, [install it first](02-QuickGuide.html#install-jspsychmaker).  
 
 ```{r, eval=TRUE}
 jsPsychMaker::list_available_tasks()$tasks
@@ -90,7 +90,7 @@ If you need help creating a NEW task, see the section [help creating a new task]
 
 ------------------------------------------------------------------------
 
-Below, a table with an overview of the available tasks:
+Below, a table with an overview of the available tasks in the [Google Sheet](https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0). If a task is here but not in the R package, you can [open an issue to let us know](https://github.com/gorkang/jsPsychMaker/issues). 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, out.width='100%'}
 
@@ -284,7 +284,9 @@ if (debug_mode === false) NAMETASK = jsPsych.randomization.repeat(NAMETASK,1);
 
 ## Technical aspects
 
-We currently use [jsPsych 6.3](https://www.jspsych.org/6.3/), and plan to migrate to the last stable jsPsych at some point. There is a [migration guide](https://www.jspsych.org/7.0/support/migration-v7/) and a [Github issue with migration questions](https://github.com/jspsych/jsPsych/discussions/2179).
+We currently use [jsPsych 6.3](https://www.jspsych.org/6.3/) as the default, and started to implement the last stable jsPsych (7.3) recently. To choose a version for the protocols you create, use the parameter `jsPsych_version`. For example, `jsPsych_version = 7`. Things are not fully tested in the v7 so, use with care.  
+
+There is a [migration guide](https://www.jspsych.org/7.0/support/migration-v7/) and a [Github issue with migration questions](https://github.com/jspsych/jsPsych/discussions/2179).
 
 ### Misc
 
