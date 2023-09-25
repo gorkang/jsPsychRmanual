@@ -60,14 +60,14 @@ Using jsPsychMaker to build experimental protocols helps you with a few things:
 ## Available tasks
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-library(dplyr)
+
 googlesheets4::gs4_auth("gorkang@gmail.com")
 
-DF_raw = googlesheets4::read_sheet("1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA", sheet = 2, skip = 0) %>% 
-    dplyr::rename(short_name = `Codigo Test`) %>% 
-    dplyr::filter(!grepl("short_name", short_name)) %>% 
-    dplyr::arrange(short_name) %>% 
-    dplyr::select(short_name, Nombre, Descripcion) %>% 
+DF_raw = googlesheets4::read_sheet("1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA", sheet = 2, skip = 0) |> 
+    dplyr::rename(short_name = `Codigo Test`) |> 
+    dplyr::filter(!grepl("short_name", short_name)) |> 
+    dplyr::arrange(short_name) |> 
+    dplyr::select(short_name, Nombre, Descripcion) |> 
     tidyr::drop_na(short_name)
 
 DF_raw_NEW = googlesheets4::read_sheet("1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ", sheet = 2, skip = 0)
@@ -98,10 +98,10 @@ Below, a table with an overview of the available tasks in the [Google Sheet](htt
 if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
   DT::datatable(DF_raw, filter = 'top', options = list(pageLength = 25, dom = 'tlp')) #
 } else {
-  knitr::kable(DF_raw, format = "latex", booktabs = TRUE, longtable = TRUE, caption = "Test") %>%
-    kableExtra::kable_styling(latex_options = c("hold_position", "repeat_header")) %>% 
-    kableExtra::column_spec(column = c(2), width = "10em") %>% 
-    kableExtra::column_spec(column = c(3), width = "20em") %>% 
+  knitr::kable(DF_raw, format = "latex", booktabs = TRUE, longtable = TRUE, caption = "Test")  |> 
+    kableExtra::kable_styling(latex_options = c("hold_position", "repeat_header")) |> 
+    kableExtra::column_spec(column = c(2), width = "10em") |> 
+    kableExtra::column_spec(column = c(3), width = "20em") |>  
     kableExtra::kable_styling(latex_options = "striped")
 }
 

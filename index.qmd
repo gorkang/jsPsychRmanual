@@ -30,6 +30,17 @@ And a package for the system admins:
 ------------------------------------------------------------------------
 
 
+## Citing jsPsychR
+
+If you use the jsPsychR tools for your research, you can cite us with:
+
+- _Navarrete G, Valencia H (2023). “Create experimental paradigms with jsPsych, simulate participants and standardize the data preparation and analysis.”, 173. doi:10.5281/zenodo.8296995_
+
+
 ## Papers published using jsPsychR
 
-- Neely-Prado, A., van Elk, M., Navarrete, G., Hola, F., & Huepe, D. (2021). Social Adaptation in Context: The Differential Role of Religiosity and Self-Esteem in Vulnerable vs. Non-vulnerable Populations–A Registered Report Study. Frontiers in Psychology, 12, 5257. [https://doi.org/10.3389/fpsyg.2021.519623](https://doi.org/10.3389/fpsyg.2021.519623)
+So far, the following papers using jsPsychR have been published or submitted:  
+
+- Neely-Prado, A., van Elk, M., Navarrete, G., Hola, F., & Huepe, D. (2021). Social Adaptation in Context: The Differential Role of Religiosity and Self-Esteem in Vulnerable vs. Non-vulnerable Populations–A Registered Report Study. Frontiers in Psychology, 12, 5257. [https://doi.org/10.3389/fpsyg.2021.519623](https://doi.org/10.3389/fpsyg.2021.519623)  
+
+- Juan-Pablo Morales, Brenda E. Ryan, Vince Polito, Gorka Navarrete, Mayte Vergara, David Huepe. (Submitted). Can beliefs improve mental health? A dive into resilience during pandemic times in South America
