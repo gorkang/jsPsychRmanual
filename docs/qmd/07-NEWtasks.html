@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -95,6 +95,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WTTG1W9SNG"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
+</script>
 
 
 </head>
@@ -125,8 +134,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychRmanual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychRmanual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -301,50 +310,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>(<span class="at">jsPsych_version =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$tasks
- [1] "AIM"          "AntiBots"     "Bank"         "BART"         "BDI"         
- [6] "BNT"          "BNTen"        "bRCOPE"       "CAS"          "CEL"         
-[11] "CIT"          "CMApost"      "CMApre"       "Consent"      "ConsentHTML" 
-[16] "Cov19Q"       "COVIDCONTROL" "CRQ"          "CRS"          "CRT7"        
-[21] "CRTMCQ4"      "CRTv"         "CS"           "CTT"          "DASS21"      
-[26] "DEBRIEF"      "DEMOGR"       "DMW"          "EAR"          "EmpaTom"     
-[31] "EQ"           "ERQ"          "ESM"          "ESV"          "ESZ"         
-[36] "fauxPasEv"    "FDMQ"         "FKEA"         "GBS"          "GHQ12"       
-[41] "Goodbye"      "HRPVB"        "HRPVBpost"    "IBT"          "ICvsID"      
-[46] "IDQ"          "IEC"          "INFCONS"      "IRI"          "IRS"         
-[51] "ITC"          "LoB"          "LOT"          "LSNS"         "MCQ30"       
-[56] "MDDF"         "MDMQ"         "MIS"          "NARS"         "OBJNUM"      
-[61] "OTRASRELIG"   "PBSr"         "PERMA"        "PPD"          "PRFBM"       
-[66] "PRFBMpost"    "PSC"          "PSETPP"       "PSPPC"        "PSS"         
-[71] "PVC"          "PWb"          "REI40"        "Report"       "RMET"        
-[76] "RobToM"       "RSS"          "RTS"          "SASS"         "SBS"         
-[81] "SCGT"         "SCSORF"       "SDG"          "SILS"         "sProQOL"     
-[86] "SRA"          "SRBQP"        "SRSav"        "STAI"         "SWBQ"        
-[91] "UCLA"         "WEBEXEC"     
+ [1] "AIM"          "Bank"         "BART"         "BNT"          "bRCOPE"      
+ [6] "CAS"          "Consent"      "ConsentHTML"  "Cov19Q"       "COVIDCONTROL"
+[11] "CRS"          "CRT7"         "CRTMCQ4"      "CRTv"         "CS"          
+[16] "DASS21"       "DEBRIEF"      "DEMOGR"       "EAR"          "EmpaTom"     
+[21] "ERQ"          "ESM"          "ESZ"          "fauxPasEv"    "GBS"         
+[26] "GHQ12"        "Goodbye"      "HRPVB"        "HRPVBpost"    "IBT"         
+[31] "IDQ"          "IEC"          "INFCONS"      "IRI"          "IRS"         
+[36] "MDDF"         "MDMQ"         "MIS"          "OBJNUM"       "OTRASRELIG"  
+[41] "PBS"          "PRFBM"        "PRFBMpost"    "PSETPP"       "PSPPC"       
+[46] "PSS"          "PVC"          "PWb"          "REI40"        "Report"      
+[51] "RSS"          "RTS"          "SASS"         "SBS"          "SCSORF"      
+[56] "SDG"          "SRA"          "SRBQP"        "SRSav"        "STAI"        
+[61] "SWBQ"         "WEBEXEC"     
 
 $tasks_js
- [1] "AIM.js"          "AntiBots.js"     "Bank.js"         "BART.js"        
- [5] "BDI.js"          "BNT.js"          "BNTen.js"        "bRCOPE.js"      
- [9] "CAS.js"          "CEL.js"          "CIT.js"          "CMApost.js"     
-[13] "CMApre.js"       "Consent.js"      "ConsentHTML.js"  "Cov19Q.js"      
-[17] "COVIDCONTROL.js" "CRQ.js"          "CRS.js"          "CRT7.js"        
-[21] "CRTMCQ4.js"      "CRTv.js"         "CS.js"           "CTT.js"         
-[25] "DASS21.js"       "DEBRIEF.js"      "DEMOGR.js"       "DMW.js"         
-[29] "EAR.js"          "EmpaTom.js"      "EQ.js"           "ERQ.js"         
-[33] "ESM.js"          "ESV.js"          "ESZ.js"          "fauxPasEv.js"   
-[37] "FDMQ.js"         "FKEA.js"         "GBS.js"          "GHQ12.js"       
-[41] "Goodbye.js"      "HRPVB.js"        "HRPVBpost.js"    "IBT.js"         
-[45] "ICvsID.js"       "IDQ.js"          "IEC.js"          "INFCONS.js"     
-[49] "IRI.js"          "IRS.js"          "ITC.js"          "LoB.js"         
-[53] "LOT.js"          "LSNS.js"         "MCQ30.js"        "MDDF.js"        
-[57] "MDMQ.js"         "MIS.js"          "NARS.js"         "OBJNUM.js"      
-[61] "OTRASRELIG.js"   "PBSr.js"         "PERMA.js"        "PPD.js"         
-[65] "PRFBM.js"        "PRFBMpost.js"    "PSC.js"          "PSETPP.js"      
-[69] "PSPPC.js"        "PSS.js"          "PVC.js"          "PWb.js"         
-[73] "REI40.js"        "Report.js"       "RMET.js"         "RobToM.js"      
-[77] "RSS.js"          "RTS.js"          "SASS.js"         "SBS.js"         
-[81] "SCGT.js"         "SCSORF.js"       "SDG.js"          "SILS.js"        
-[85] "sProQOL.js"      "SRA.js"          "SRBQP.js"        "SRSav.js"       
-[89] "STAI.js"         "SWBQ.js"         "UCLA.js"         "WEBEXEC.js"     </code></pre>
+ [1] "AIM.js"          "Bank.js"         "BART.js"         "BNT.js"         
+ [5] "bRCOPE.js"       "CAS.js"          "Consent.js"      "ConsentHTML.js" 
+ [9] "Cov19Q.js"       "COVIDCONTROL.js" "CRS.js"          "CRT7.js"        
+[13] "CRTMCQ4.js"      "CRTv.js"         "CS.js"           "DASS21.js"      
+[17] "DEBRIEF.js"      "DEMOGR.js"       "EAR.js"          "EmpaTom.js"     
+[21] "ERQ.js"          "ESM.js"          "ESZ.js"          "fauxPasEv.js"   
+[25] "GBS.js"          "GHQ12.js"        "Goodbye.js"      "HRPVB.js"       
+[29] "HRPVBpost.js"    "IBT.js"          "IDQ.js"          "IEC.js"         
+[33] "INFCONS.js"      "IRI.js"          "IRS.js"          "MDDF.js"        
+[37] "MDMQ.js"         "MIS.js"          "OBJNUM.js"       "OTRASRELIG.js"  
+[41] "PBS.js"          "PRFBM.js"        "PRFBMpost.js"    "PSETPP.js"      
+[45] "PSPPC.js"        "PSS.js"          "PVC.js"          "PWb.js"         
+[49] "REI40.js"        "Report.js"       "RSS.js"          "RTS.js"         
+[53] "SASS.js"         "SBS.js"          "SCSORF.js"       "SDG.js"         
+[57] "SRA.js"          "SRBQP.js"        "SRSav.js"        "STAI.js"        
+[61] "SWBQ.js"         "WEBEXEC.js"     </code></pre>
 </div>
 </div>
 </section>
