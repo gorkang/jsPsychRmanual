@@ -4,6 +4,7 @@ project:
   # execute-dir: project
 
 book:
+  google-analytics: "G-WTTG1W9SNG"
   title: "jsPsychR manual"
   author: "Gorka Navarrete"
   date: today
