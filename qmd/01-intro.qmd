@@ -2,7 +2,7 @@
 
 We use different technologies to develop experiments. Some examples are [Psychopy](https://www.psychopy.org/), [Qualtrics](https://www.qualtrics.com/), [Limesurvey](https://www.limesurvey.org/), [jsPsych](https://www.jspsych.org/plugins/jspsych-preload/), [Gorilla](https://gorilla.sc/), etc. Each of these has advantages and disadvantages and, in general, there are pragmatic aspects to take into account when adopting one or the other: cost, type of experiment (EEG or behavioral, lab or online), lab history and available resources, ...
 
-We opted for [jsPsych](https://www.jspsych.org/) to run behavioral experiments because it is an **open source** javascript library, based on standard web technologies, and can be used online and offline.
+In our lab, we opted for [jsPsych](https://www.jspsych.org/) to run behavioral experiments because it is an **open source** javascript library, based on standard web technologies, and can be used online and offline.
 
 In the last years, we started working on a set of tools to help people without coding expertise to create [jsPsych](https://www.jspsych.org/) experimental protocols ([jsPsychMaker](https://github.com/gorkang/jsPsychMaker)), simulate participants ([jspsychMonkeys](https://github.com/gorkang/jsPsychMonkeys)) and standardize and automatize the data preparation and analysis ([jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR)).  
 
@@ -11,7 +11,7 @@ Our final goal is to have a big catalog of tasks available to use in the [jsPsyc
 
 ## Open and reproducible pipeline
 
-To replicate an experimental protocol from a publication is not trivial. One of the main goals of this system is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.
+To replicate an experimental protocol from a publication is not trivial. @obels2020ampps checked the computational reproducibility of Registered Reports in Psychology. From 62 articles meeting the inclusion criteria, only 21 had both data and code, and could be computationally reproduced. One of the main goals of jsPsychR is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort. If recent calls for Journals to assess computational reproducibility are successful [@lindsay2023m], this should be an unavoidable aspect of researcher's work soon enough.  
 
 Furthermore, all the components of the pipeline are be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer connected to the internet, eliminating cost constrains.  
 

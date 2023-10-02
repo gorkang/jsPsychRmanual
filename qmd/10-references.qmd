@@ -1,8 +1,48 @@
 # References {.unnumbered}
 
--   [jsPsych](https://www.jspsych.org/)
+jsPsychR could not be possible without the amazing [jsPsych](https://www.jspsych.org/) [@deleeuw2015br]. We use {[targets](https://github.com/ropensci/targets)} to create well-structured and reproducible pipelines [@targets] for the jsPsychR tools.  
 
--   [targets](https://books.ropensci.org/targets)
+
+## jsPsychR implementation
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Get and cite all packages used in jsPsychMaker", "jsPsychHelpeR", "jsPsychMonkeys""
+DEP1 = renv::dependencies(path = here::here("../jsPsychHelpeR/"), quiet = TRUE)
+DEP2 = renv::dependencies(path = here::here("../jsPsychMaker/"), quiet = TRUE)
+DEP3 = renv::dependencies(path = here::here("../jsPsychMonkeys/"), quiet = TRUE)
+
+DEPS = DEP1 |> 
+  dplyr::bind_rows(DEP2) |> 
+  dplyr::bind_rows(DEP3) |> 
+  dplyr::distinct(Package) |> 
+  dplyr::filter(! Package %in% c("R"))
+
+grateful::get_citations(c("jsPsychMaker", "jsPsychHelpeR", "jsPsychMonkeys", DEPS$Package), out.dir = here::here("."))
+```
+
+```{r, results='asis', echo=FALSE}
+DF = 
+  dplyr::tibble(LINES = readLines(here::here("grateful-refs.bib"))) |> 
+  dplyr::filter(grepl("@Manual\\{", LINES)) |> 
+  dplyr::mutate(REF = gsub("@Manual\\{(.*),", "\\1", LINES))
+
+cat(paste0("The following R packages are used in jsPsychR: ", paste(paste0("@", DF$REF), collapse = ", ")))
+
+```
+
+## Tasks implementation  
+
+```{r, results='asis', echo=FALSE}
+DF = 
+  dplyr::tibble(LINES = readLines(here::here("tasks.bib"))) |> 
+  dplyr::filter(grepl("@article\\{", LINES)) |> 
+  dplyr::mutate(REF = gsub("@article\\{(.*),", "\\1", LINES))
+
+cat(paste0("The tasks have been implemented following: ", paste(paste0("@", DF$REF), collapse = ", ")))
+
+```
+
+## Bibliography
 
 ::: {#refs}
 :::

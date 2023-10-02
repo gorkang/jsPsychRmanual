@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -100,8 +119,8 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychRmanual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychRmanual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -214,12 +233,12 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 </header>
 
 <p>We use different technologies to develop experiments. Some examples are <a href="https://www.psychopy.org/">Psychopy</a>, <a href="https://www.qualtrics.com/">Qualtrics</a>, <a href="https://www.limesurvey.org/">Limesurvey</a>, <a href="https://www.jspsych.org/plugins/jspsych-preload/">jsPsych</a>, <a href="https://gorilla.sc/">Gorilla</a>, etc. Each of these has advantages and disadvantages and, in general, there are pragmatic aspects to take into account when adopting one or the other: cost, type of experiment (EEG or behavioral, lab or online), lab history and available resources, …</p>
-<p>We opted for <a href="https://www.jspsych.org/">jsPsych</a> to run behavioral experiments because it is an <strong>open source</strong> javascript library, based on standard web technologies, and can be used online and offline.</p>
+<p>In our lab, we opted for <a href="https://www.jspsych.org/">jsPsych</a> to run behavioral experiments because it is an <strong>open source</strong> javascript library, based on standard web technologies, and can be used online and offline.</p>
 <p>In the last years, we started working on a set of tools to help people without coding expertise to create <a href="https://www.jspsych.org/">jsPsych</a> experimental protocols (<a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a>), simulate participants (<a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a>) and standardize and automatize the data preparation and analysis (<a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a>).</p>
 <p>Our final goal is to have a big catalog of tasks available to use in the <a href="https://github.com/gorkang/jsPsychMaker">jsPsychMaker</a> repo. Each of the tasks should run with <a href="https://github.com/gorkang/jsPsychMonkeys">jspsychMonkeys</a> to create virtual participants. And each task will have a sister script in <a href="https://github.com/gorkang/jsPsychHelpeR">jsPsychHelpeR</a> to fully automate data preparation (re-coding, reversing items, calculating dimensions, etc.).</p>
 <section id="open-and-reproducible-pipeline" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="open-and-reproducible-pipeline"><span class="header-section-number">1.1</span> Open and reproducible pipeline</h2>
-<p>To replicate an experimental protocol from a publication is not trivial. One of the main goals of this system is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort.</p>
+<p>To replicate an experimental protocol from a publication is not trivial. <span class="citation" data-cites="obels2020ampps">Obels et al. (<a href="10-references.html#ref-obels2020ampps" role="doc-biblioref">2020</a>)</span> checked the computational reproducibility of Registered Reports in Psychology. From 62 articles meeting the inclusion criteria, only 21 had both data and code, and could be computationally reproduced. One of the main goals of jsPsychR is to be able to create, share and reproduce an experiment, its data, and data preparation and analysis without any extra effort. If recent calls for Journals to assess computational reproducibility are successful <span class="citation" data-cites="lindsay2023m">(<a href="10-references.html#ref-lindsay2023m" role="doc-biblioref">Lindsay 2023</a>)</span>, this should be an unavoidable aspect of researcher’s work soon enough.</p>
 <p>Furthermore, all the components of the pipeline are be Open Source, which allows reviewers, collaborators, etc. to check and run the code. This also makes it accessible to anyone with a computer connected to the internet, eliminating cost constrains.</p>
 <p>With this system you can create a paradigm, simulate data and prepare data and analysis almost automatically.</p>
 <p>The system output is standardized, so names of variables and the structure of the data are predictable. Finally, the plots, tables, reports and analysis are reproducible, so you can get everything ready with simulated data, preregister or even better, go for a <a href="https://www.cos.io/initiatives/registered-reports">registered report</a> and just relaunch the data preparation and analysis when the participant’s responses arrive, with a single command.</p>
@@ -245,6 +264,14 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-lindsay2023m" class="csl-entry" role="listitem">
+Lindsay, D. Stephen. 2023. <span>“A <span>Plea</span> to <span>Psychology Professional Societies</span> That <span>Publish Journals</span>: <span>Assess Computational Reproducibility</span>.”</span> <em>Meta-Psychology</em> 7 (September). <a href="https://doi.org/10.15626/MP.2023.4020">https://doi.org/10.15626/MP.2023.4020</a>.
+</div>
+<div id="ref-obels2020ampps" class="csl-entry" role="listitem">
+Obels, Pepijn, Daniël Lakens, Nicholas A Coles, Jaroslav Gottfried, and Seth A Green. 2020. <span>“Analysis of <span>Open Data</span> and <span>Computational Reproducibility</span> in <span>Registered Reports</span> in <span>Psychology</span>.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 3 (2). <a href="https://doi.org/10.1177/2515245920918872">https://doi.org/10.1177/2515245920918872</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -118,8 +118,8 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/gorkang/jsPsychRmanual/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../jsPsychR-manual.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/gorkang/jsPsychRmanual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../jsPsychR-manual.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -202,7 +202,15 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#jspsychr-implementation" id="toc-jspsychr-implementation" class="nav-link active" data-scroll-target="#jspsychr-implementation">jsPsychR implementation</a></li>
+  <li><a href="#tasks-implementation" id="toc-tasks-implementation" class="nav-link" data-scroll-target="#tasks-implementation">Tasks implementation</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -224,19 +232,778 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 
 </header>
 
-<ul>
-<li><p><a href="https://www.jspsych.org/">jsPsych</a></p></li>
-<li><p><a href="https://books.ropensci.org/targets">targets</a></p></li>
-</ul>
+<p>jsPsychR could not be possible without the amazing <a href="https://www.jspsych.org/">jsPsych</a> <span class="citation" data-cites="deleeuw2015br">(<a href="10-references.html#ref-deleeuw2015br" role="doc-biblioref">de Leeuw 2015</a>)</span>. We use {<a href="https://github.com/ropensci/targets">targets</a>} to create well-structured and reproducible pipelines <span class="citation" data-cites="targets">(<a href="10-references.html#ref-targets" role="doc-biblioref">Landau 2021b</a>)</span> for the jsPsychR tools.</p>
+<section id="jspsychr-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="jspsychr-implementation">jsPsychR implementation</h2>
+<p>The following R packages are used in jsPsychR: <span class="citation" data-cites="jsPsychMaker">Navarrete and Valencia (<a href="10-references.html#ref-jsPsychMaker" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="jsPsychHelpeR">Navarrete (<a href="10-references.html#ref-jsPsychHelpeR" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="jsPsychMonkeys">Navarrete (<a href="10-references.html#ref-jsPsychMonkeys" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="pkgdown">Wickham, Hesselberth, and Salmon (<a href="10-references.html#ref-pkgdown" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="purrr">Wickham and Henry (<a href="10-references.html#ref-purrr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tarchetypes">Landau (<a href="10-references.html#ref-tarchetypes" role="doc-biblioref">2021a</a>)</span>, <span class="citation" data-cites="cli">Csárdi (<a href="10-references.html#ref-cli" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="dplyr">Wickham, François, et al. (<a href="10-references.html#ref-dplyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="DT">Xie, Cheng, and Tan (<a href="10-references.html#ref-DT" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="forcats">Wickham (<a href="10-references.html#ref-forcats" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="here">Müller (<a href="10-references.html#ref-here" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="janitor">Firke (<a href="10-references.html#ref-janitor" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="patchwork">Pedersen (<a href="10-references.html#ref-patchwork" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="psych">William Revelle (<a href="10-references.html#ref-psych" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="readr">Wickham, Hester, and Bryan (<a href="10-references.html#ref-readr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="renv">Ushey and Wickham (<a href="10-references.html#ref-renv" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rmarkdown2023">Allaire et al. (<a href="10-references.html#ref-rmarkdown2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rstudioapi">Ushey et al. (<a href="10-references.html#ref-rstudioapi" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="stringr">Wickham (<a href="10-references.html#ref-stringr" role="doc-biblioref">2022b</a>)</span>, <span class="citation" data-cites="tibble">Müller and Wickham (<a href="10-references.html#ref-tibble" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tidyr">Wickham, Vaughan, and Girlich (<a href="10-references.html#ref-tidyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="visNetwork">Almende B.V. and Contributors and Thieurmel (<a href="10-references.html#ref-visNetwork" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="covr">Hester (<a href="10-references.html#ref-covr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="devtools">Wickham et al. (<a href="10-references.html#ref-devtools" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="jsPsychAdmin">Navarrete (<a href="10-references.html#ref-jsPsychAdmin" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="jsPsychHelpeR">Navarrete (<a href="10-references.html#ref-jsPsychHelpeR" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="utils">R Core Team (<a href="10-references.html#ref-utils" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="jsPsychMaker">Navarrete and Valencia (<a href="10-references.html#ref-jsPsychMaker" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="callr">Csárdi and Chang (<a href="10-references.html#ref-callr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="datatable">Dowle and Srinivasan (<a href="10-references.html#ref-datatable" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="glue">Hester and Bryan (<a href="10-references.html#ref-glue" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="googlesheets4">Bryan (<a href="10-references.html#ref-googlesheets4" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="gtools">Bolker, Warnes, and Lumley (<a href="10-references.html#ref-gtools" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="magrittr">Bache and Wickham (<a href="10-references.html#ref-magrittr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="readxl">Wickham and Bryan (<a href="10-references.html#ref-readxl" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rlang">Henry and Wickham (<a href="10-references.html#ref-rlang" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="skimr">Waring et al. (<a href="10-references.html#ref-skimr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="stats">R Core Team (<a href="10-references.html#ref-stats" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="tools">R Core Team (<a href="10-references.html#ref-tools" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="writexl">Ooms (<a href="10-references.html#ref-writexl" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="ggridges">Wilke (<a href="10-references.html#ref-ggridges" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="shiny">Chang et al. (<a href="10-references.html#ref-shiny" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="knitr2023">Xie (<a href="10-references.html#ref-knitr2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="jsPsychMonkeys">Navarrete (<a href="10-references.html#ref-jsPsychMonkeys" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="rvest">Wickham (<a href="10-references.html#ref-rvest" role="doc-biblioref">2022a</a>)</span>, <span class="citation" data-cites="V8">Ooms (<a href="10-references.html#ref-V8" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="rsconnect">Atkins et al. (<a href="10-references.html#ref-rsconnect" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="htmltools">Cheng et al. (<a href="10-references.html#ref-htmltools" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="httr">Wickham (<a href="10-references.html#ref-httr" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="shinyjs">Attali (<a href="10-references.html#ref-shinyjs" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="shinyWidgets">Perrier, Meyer, and Granjon (<a href="10-references.html#ref-shinyWidgets" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="dtplyr">Wickham, Girlich, et al. (<a href="10-references.html#ref-dtplyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="gt">Iannone et al. (<a href="10-references.html#ref-gt" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="markdown">Xie, Allaire, and Horner (<a href="10-references.html#ref-markdown" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="pingr">Csárdi (<a href="10-references.html#ref-pingr" role="doc-biblioref">2022b</a>)</span>, <span class="citation" data-cites="RSelenium">Harrison (<a href="10-references.html#ref-RSelenium" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="shinybusy">Meyer and Perrier (<a href="10-references.html#ref-shinybusy" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="remotes">Csárdi et al. (<a href="10-references.html#ref-remotes" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tictoc">Izrailev (<a href="10-references.html#ref-tictoc" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="crayon">Csárdi (<a href="10-references.html#ref-crayon" role="doc-biblioref">2022a</a>)</span>, <span class="citation" data-cites="fs">Hester, Wickham, and Csárdi (<a href="10-references.html#ref-fs" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="furrr">Vaughan and Dancho (<a href="10-references.html#ref-furrr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="withr">Hester et al. (<a href="10-references.html#ref-withr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="XML">Temple Lang (<a href="10-references.html#ref-XML" role="doc-biblioref">2023</a>)</span></p>
+</section>
+<section id="tasks-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="tasks-implementation">Tasks implementation</h2>
+<p>The tasks have been implemented following: <span class="citation" data-cites="antunez2012tp">Antúnez and Vinet (<a href="10-references.html#ref-antunez2012tp" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="badosa">Bados, Solanas, and Andrés (<a href="10-references.html#ref-badosa" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="baron-cohen2004jadd">Baron-Cohen and Wheelwright (<a href="10-references.html#ref-baron-cohen2004jadd" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="bezalel2020tarie">Bezalel (<a href="10-references.html#ref-bezalel2020tarie" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="boehm2019idd">Boehm and Carter (<a href="10-references.html#ref-boehm2019idd" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="bosc1997en">Bosc, Dubini, and Polin (<a href="10-references.html#ref-bosc1997en" role="doc-biblioref">1997</a>)</span>, <span class="citation" data-cites="bradley1994jobtaep">Bradley and Lang (<a href="10-references.html#ref-bradley1994jobtaep" role="doc-biblioref">1994</a>)</span>, <span class="citation" data-cites="breinbauerk2009rmc">Breinbauer K et al. (<a href="10-references.html#ref-breinbauerk2009rmc" role="doc-biblioref">2009</a>)</span>, <span class="citation" data-cites="buchanan">Buchanan et al. (<a href="10-references.html#ref-buchanan" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="butler2016ijw">Butler and Kern (<a href="10-references.html#ref-butler2016ijw" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="cabello2013ejopa">Cabello et al. (<a href="10-references.html#ref-cabello2013ejopa" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="carreno-moreno2022ieid">Carreño-Moreno et al. (<a href="10-references.html#ref-carreno-moreno2022ieid" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="cohen1983jhsb">Cohen, Kamarck, and Mermelstein (<a href="10-references.html#ref-cohen1983jhsb" role="doc-biblioref">1983</a>)</span>, <span class="citation" data-cites="cokely2012jdm">Cokely et al. (<a href="10-references.html#ref-cokely2012jdm" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="davis">Davis (<a href="10-references.html#ref-davis" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="daza2002jpba">Daza et al. (<a href="10-references.html#ref-daza2002jpba" role="doc-biblioref">2002</a>)</span>, <span class="citation" data-cites="delvalle2022pr">delValle et al. (<a href="10-references.html#ref-delvalle2022pr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="diaz-vilelajp">Díaz-Vilela and Álvarez-González (<a href="10-references.html#ref-diaz-vilelajp" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="diaza">Díaz et al. (<a href="10-references.html#ref-diaza" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="eckblad">Eckblad and Chapman (<a href="10-references.html#ref-eckblad" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="everett2018joesp">Everett et al. (<a href="10-references.html#ref-everett2018joesp" role="doc-biblioref">2018</a>)</span>, <span class="citation" data-cites="fonseca-pedreroa">Fonseca-Pedrero et al. (<a href="10-references.html#ref-fonseca-pedreroa" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="galiana2020hqlo">Galiana et al. (<a href="10-references.html#ref-galiana2020hqlo" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="garcia-retameroa">Garcia-Retamero (<a href="10-references.html#ref-garcia-retameroa" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="garcia2019h">García et al. (<a href="10-references.html#ref-garcia2019h" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="gomez2003paid">Gomez and Fisher (<a href="10-references.html#ref-gomez2003paid" role="doc-biblioref">2003</a>)</span>, <span class="citation" data-cites="gross">Gross and John (<a href="10-references.html#ref-gross" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="hays1987jopa">Hays and DiMatteo (<a href="10-references.html#ref-hays1987jopa" role="doc-biblioref">1987</a>)</span>, <span class="citation" data-cites="hetts2000pm">Hetts et al. (<a href="10-references.html#ref-hetts2000pm" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="hildebrandt2021n">Hildebrandt et al. (<a href="10-references.html#ref-hildebrandt2021n" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="hooker2000p">Hooker, Roese, and Park (<a href="10-references.html#ref-hooker2000p" role="doc-biblioref">2000</a>)</span>, <span class="citation" data-cites="houran2003cac">Houran, Thalbourne, and Lange (<a href="10-references.html#ref-houran2003cac" role="doc-biblioref">2003</a>)</span>, <span class="citation" data-cites="huber2012">Huber and Huber (<a href="10-references.html#ref-huber2012" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="jong2013ejp">Jong, Bluemke, and Halberstadt (<a href="10-references.html#ref-jong2013ejp" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="kanske2015n">Kanske et al. (<a href="10-references.html#ref-kanske2015n" role="doc-biblioref">2015</a>)</span>, <span class="citation" data-cites="keaton">Keaton (<a href="10-references.html#ref-keaton" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="koenig1988jags">Koenig, Moberg, and Kvale (<a href="10-references.html#ref-koenig1988jags" role="doc-biblioref">1988</a>)</span>, <span class="citation" data-cites="lejuez2002joepa">Lejuez et al. (<a href="10-references.html#ref-lejuez2002joepa" role="doc-biblioref">2002</a>)</span>, <span class="citation" data-cites="leon2014po">León, García-García, and Roldán-Tapia (<a href="10-references.html#ref-leon2014po" role="doc-biblioref">2014</a>)</span>, <span class="citation" data-cites="leon2015ap">León, García-García, and Roldán-Tapia (<a href="10-references.html#ref-leon2015ap" role="doc-biblioref">2015</a>)</span>, <span class="citation" data-cites="leonestrada2011r">León Estrada, García García, and Roldán Tapia (<a href="10-references.html#ref-leonestrada2011r" role="doc-biblioref">2011</a>)</span>, <span class="citation" data-cites="levenson">Levenson (<a href="10-references.html#ref-levenson" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="lins">Lins et al. (<a href="10-references.html#ref-lins" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="lipkus2001mdm">Lipkus, Samsa, and Rimer (<a href="10-references.html#ref-lipkus2001mdm" role="doc-biblioref">2001</a>)</span>, <span class="citation" data-cites="lovibond1995brat">Lovibond and Lovibond (<a href="10-references.html#ref-lovibond1995brat" role="doc-biblioref">1995</a>)</span>, <span class="citation" data-cites="lyon2022is">Lyon et al. (<a href="10-references.html#ref-lyon2022is" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="mann1997jbdm">Mann et al. (<a href="10-references.html#ref-mann1997jbdm" role="doc-biblioref">1997</a>)</span>, <span class="citation" data-cites="maria">María, Atenas, and Villarroel (<a href="10-references.html#ref-maria" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="mezzadra2017">Mezzadra and Simkin (<a href="10-references.html#ref-mezzadra2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="moodley2012rt">Moodley, Esterhuyse, and Beukes (<a href="10-references.html#ref-moodley2012rt" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="morejon2004">Morejón, García-Bóveda, and Jiménez (<a href="10-references.html#ref-morejon2004" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="pargament1998jssr">Pargament et al. (<a href="10-references.html#ref-pargament1998jssr" role="doc-biblioref">1998</a>)</span>, <span class="citation" data-cites="perez-albeniz">Pérez-Albéniz, de Paúl, and Etxeberría (<a href="10-references.html#ref-perez-albeniz" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="plante1997pp">Plante and Boccaccini (<a href="10-references.html#ref-plante1997pp" role="doc-biblioref">1997</a>)</span>, <span class="citation" data-cites="pommier2020a">Pommier, Neff, and Tóth-Király (<a href="10-references.html#ref-pommier2020a" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="pons">Pons (<a href="10-references.html#ref-pons" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="psoteg">Psoteg (<a href="10-references.html#ref-psoteg" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="reyna2016rp">Reyna (<a href="10-references.html#ref-reyna2016rp" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="rojas-barahona2009rmc">Rojas-Barahona, Zegers P, and Förster M (<a href="10-references.html#ref-rojas-barahona2009rmc" role="doc-biblioref">2009</a>)</span>, <span class="citation" data-cites="ruiz2017pr">Ruiz, García-Beltrán, and Suárez-Falcón (<a href="10-references.html#ref-ruiz2017pr" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="ryff">Ryff and Keyes (<a href="10-references.html#ref-ryff" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="sala2012ejodp">Sala et al. (<a href="10-references.html#ref-sala2012ejodp" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="sanchez-lopez2008p">Sánchez-López and Dresch (<a href="10-references.html#ref-sanchez-lopez2008p" role="doc-biblioref">2008</a>)</span>, <span class="citation" data-cites="silva2020cp">Silva, de Sampaio Brito, and Pereira (<a href="10-references.html#ref-silva2020cp" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="sirota2018brm">Sirota and Juanchich (<a href="10-references.html#ref-sirota2018brm" role="doc-biblioref">2018</a>)</span>, <span class="citation" data-cites="sirota2020jbdm">Sirota et al. (<a href="10-references.html#ref-sirota2020jbdm" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="stahl2016po">Ståhl, Zaal, and Skitka (<a href="10-references.html#ref-stahl2016po" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="stamm">Stamm (<a href="10-references.html#ref-stamm" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="stoll2016srh">Stoll et al. (<a href="10-references.html#ref-stoll2016srh" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="stone1998jocn">Stone, Baron-Cohen, and Knight (<a href="10-references.html#ref-stone1998jocn" role="doc-biblioref">1998</a>)</span>, <span class="citation" data-cites="tobacyk">J. J. Tobacyk (<a href="10-references.html#ref-tobacyk" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="tobacyka">J. Tobacyk and Milford (<a href="10-references.html#ref-tobacyka" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="toplak2013tr">Toplak, West, and Stanovich (<a href="10-references.html#ref-toplak2013tr" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="vale2012dn">Vale, Balieiro-Jr, and Silva-Filho (<a href="10-references.html#ref-vale2012dn" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="weeks2019">Fiona H. Weeks (<a href="10-references.html#ref-weeks2019" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="weeks2020wab">Fiona H. Weeks, Sadler, and Stoll (<a href="10-references.html#ref-weeks2020wab" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="wu2008paid">Wu and Yao (<a href="10-references.html#ref-wu2008paid" role="doc-biblioref">2008</a>)</span>, <span class="citation" data-cites="zotero-17671"><span>“Coeficiente de Empatía”</span> (<a href="10-references.html#ref-zotero-17671" role="doc-biblioref">n.d.</a>)</span>, <span class="citation" data-cites="zotero-17801"><span>“MANUAL PARA LA UTILIZACIÓN DEL CUESTIONARIO”</span> (<a href="10-references.html#ref-zotero-17801" role="doc-biblioref">n.d.</a>)</span></p>
+</section>
+<section id="bibliography" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-rmarkdown2023" class="csl-entry" role="listitem">
+Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier
+Luraschi, Kevin Ushey, Aron Atkins, et al. 2023. <em><span class="nocase">rmarkdown</span>: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
+</div>
+<div id="ref-visNetwork" class="csl-entry" role="listitem">
+Almende B.V. and Contributors, and Benoit Thieurmel. 2022. <em><span class="nocase">visNetwork</span>: Network Visualization Using
+<span>“<span class="nocase">vis.js</span>”</span> Library</em>. <a href="https://datastorm-open.github.io/visNetwork/">https://datastorm-open.github.io/visNetwork/</a>.
+</div>
+<div id="ref-antunez2012tp" class="csl-entry" role="listitem">
+Antúnez, Zayra, and Eugenia V Vinet. 2012. <span>“Escalas de depresión,
+ansiedad y estrés (DASS – 21): Validación de la Versión Abreviada en
+Estudiantes Universitarios Chilenos.”</span> <em>terapia
+psicolÓgica</em> 30: 9. <a href="https://doi.org/10.4067/S0718-48082012000300005">https://doi.org/10.4067/S0718-48082012000300005</a>.
+</div>
+<div id="ref-rsconnect" class="csl-entry" role="listitem">
+Atkins, Aron, Toph Allen, Hadley Wickham, Jonathan McPherson, and JJ
+Allaire. 2023. <em><span class="nocase">rsconnect</span>: Deploy Docs,
+Apps, and APIs to <span>“<span>Posit Connect</span>,”</span>
+<span>“<span class="nocase">shinyapps.io</span>,”</span> and
+<span>“<span>RPubs</span>”</span></em>. <a href="https://github.com/rstudio/rsconnect">https://github.com/rstudio/rsconnect</a>.
+</div>
+<div id="ref-shinyjs" class="csl-entry" role="listitem">
+Attali, Dean. 2021. <em><span class="nocase">shinyjs</span>: Easily
+Improve the User Experience of Your Shiny Apps in Seconds</em>. <a href="https://deanattali.com/shinyjs/">https://deanattali.com/shinyjs/</a>.
+</div>
+<div id="ref-magrittr" class="csl-entry" role="listitem">
+Bache, Stefan Milton, and Hadley Wickham. 2022. <em><span class="nocase">magrittr</span>: A Forward-Pipe Operator for r</em>.
+</div>
+<div id="ref-badosa" class="csl-entry" role="listitem">
+Bados, Arturo, Antonio Solanas, and Raquel Andrés. n.d.
+<span>“Psychometric Properties of the <span>Spanish</span> Version of
+<span>Depression</span>, <span>Anxiety</span> and <span>Stress
+Scales</span> (<span>DASS</span>),”</span> 6.
+</div>
+<div id="ref-baron-cohen2004jadd" class="csl-entry" role="listitem">
+Baron-Cohen, Simon, and Sally Wheelwright. 2004. <span>“The
+<span>Empathy Quotient</span>: <span>An Investigation</span> of
+<span>Adults</span> with <span>Asperger Syndrome</span> or <span>High
+Functioning Autism</span>, and <span>Normal Sex
+Differences</span>.”</span> <em>Journal of Autism and Developmental
+Disorders</em> 34 (2): 163–75. <a href="https://doi.org/10.1023/B:JADD.0000022607.19833.00">https://doi.org/10.1023/B:JADD.0000022607.19833.00</a>.
+</div>
+<div id="ref-bezalel2020tarie" class="csl-entry" role="listitem">
+Bezalel, Glenn Y. 2020. <span>“<span>‘<span>Moral</span>
+Dumbfounding’</span>: <span>Moral Foundations Theory</span> for the
+Classroom.”</span> <em>Theory and Research in Education</em> 18 (2):
+191–210. <a href="https://doi.org/10.1177/1477878520934014">https://doi.org/10.1177/1477878520934014</a>.
+</div>
+<div id="ref-boehm2019idd" class="csl-entry" role="listitem">
+Boehm, Thomas L., and Erik W. Carter. 2019. <span>“Facets of
+<span>Faith</span>: <span>Spirituality</span>, <span>Religiosity</span>,
+and <span>Parents</span> of <span>Individuals With Intellectual
+Disability</span>.”</span> <em>Intellectual and Developmental
+Disabilities</em> 57 (6): 512–26. <a href="https://doi.org/10.1352/1934-9556-57.6.512">https://doi.org/10.1352/1934-9556-57.6.512</a>.
+</div>
+<div id="ref-gtools" class="csl-entry" role="listitem">
+Bolker, Ben, Gregory R. Warnes, and Thomas Lumley. 2022. <em><span class="nocase">gtools</span>: Various r Programming Tools</em>. <a href="https://github.com/r-gregmisc/gtools">https://github.com/r-gregmisc/gtools</a>.
+</div>
+<div id="ref-bosc1997en" class="csl-entry" role="listitem">
+Bosc, M., A. Dubini, and V. Polin. 1997. <span>“Development and
+Validation of a Social Functioning Scale, the <span class="nocase">Social Adaptation Self-evaluation Scale</span>.”</span>
+<em>European Neuropsychopharmacology</em> 7 (1): S57–70. <a href="https://doi.org/10.1016/S0924-977X(97)00420-3">https://doi.org/10.1016/S0924-977X(97)00420-3</a>.
+</div>
+<div id="ref-bradley1994jobtaep" class="csl-entry" role="listitem">
+Bradley, Margaret M., and Peter J. Lang. 1994. <span>“Measuring Emotion:
+<span>The</span> Self-Assessment Manikin and the Semantic
+Differential.”</span> <em>Journal of Behavior Therapy and Experimental
+Psychiatry</em> 25 (1): 49–59. <a href="https://doi.org/10.1016/0005-7916(94)90063-9">https://doi.org/10.1016/0005-7916(94)90063-9</a>.
+</div>
+<div id="ref-breinbauerk2009rmc" class="csl-entry" role="listitem">
+Breinbauer K, Hayo, Hugo Vásquez V, Sebastián Mayanz S, Claudia Guerra,
+and Teresa Millán K. 2009. <span>“Validación en Chile de la Escala de
+Sobrecarga del Cuidador de Zarit en sus versiones original y
+abreviada.”</span> <em>Revista médica de Chile</em> 137 (5). <a href="https://doi.org/10.4067/S0034-98872009000500009">https://doi.org/10.4067/S0034-98872009000500009</a>.
+</div>
+<div id="ref-googlesheets4" class="csl-entry" role="listitem">
+Bryan, Jennifer. 2023. <em>Googlesheets4: Access Google Sheets Using the
+Sheets API V4</em>. <a href="https://CRAN.R-project.org/package=googlesheets4">https://CRAN.R-project.org/package=googlesheets4</a>.
+</div>
+<div id="ref-buchanan" class="csl-entry" role="listitem">
+Buchanan, Tom, Thomas M Heffernan, Andrew C Parrott, Jonathan Ling,
+Jacqui Rodgers, and Andrew B Scholey. n.d. <span>“A Short Self-Report
+Measure of Problems with Executive Function Suitable for Administration
+via the <span>Internet</span>,”</span> 6. <a href="https://doi.org/10.3758/BRM.42.3.709">https://doi.org/10.3758/BRM.42.3.709</a>.
+</div>
+<div id="ref-butler2016ijw" class="csl-entry" role="listitem">
+Butler, Julie, and Margaret L. Kern. 2016. <span>“The
+<span>PERMA-Profiler</span>: <span>A</span> Brief Multidimensional
+Measure of Flourishing.”</span> <em>International Journal of
+Wellbeing</em> 6 (3): 1–48. <a href="https://doi.org/10.5502/ijw.v6i3.526">https://doi.org/10.5502/ijw.v6i3.526</a>.
+</div>
+<div id="ref-cabello2013ejopa" class="csl-entry" role="listitem">
+Cabello, Rosario, José M. Salguero, Pablo Fernández-Berrocal, and James
+J. Gross. 2013. <span>“A <span>Spanish Adaptation</span> of the
+<span>Emotion Regulation Questionnaire</span>.”</span> <em>European
+Journal of Psychological Assessment</em> 29 (4): 234–40. <a href="https://doi.org/10.1027/1015-5759/a000150">https://doi.org/10.1027/1015-5759/a000150</a>.
+</div>
+<div id="ref-carreno-moreno2022ieid" class="csl-entry" role="listitem">
+Carreño-Moreno, Sonia Patricia, Lorena Chaparro-Díaz, Nelly Cáliz
+Romero, and Nathaly Rivera Romero. 2022. <span>“Validez de la escala de
+soledad UCLA en cuidadores de pacientes crónicos en Colombia.”</span>
+<em>Investigación en Enfermería: Imagen y Desarrollo</em>, July. <a href="https://doi.org/10.11144/Javeriana.ie24.vesu">https://doi.org/10.11144/Javeriana.ie24.vesu</a>.
+</div>
+<div id="ref-shiny" class="csl-entry" role="listitem">
+Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke,
+Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara
+Borges. 2023. <em><span class="nocase">shiny</span>: Web Application
+Framework for r</em>.
+</div>
+<div id="ref-htmltools" class="csl-entry" role="listitem">
+Cheng, Joe, Carson Sievert, Barret Schloerke, Winston Chang, Yihui Xie,
+and Jeff Allen. 2023. <em><span class="nocase">htmltools</span>: Tools
+for HTML</em>.
+</div>
+<div id="ref-zotero-17671" class="csl-entry" role="listitem">
+<span>“Coeficiente de Empatía.”</span> n.d.
+</div>
+<div id="ref-cohen1983jhsb" class="csl-entry" role="listitem">
+Cohen, Sheldon, Tom Kamarck, and Robin Mermelstein. 1983. <span>“A
+<span>Global Measure</span> of <span>Perceived Stress</span>.”</span>
+<em>Journal of Health and Social Behavior</em> 24 (4): 385–96. <a href="https://doi.org/10.2307/2136404">https://doi.org/10.2307/2136404</a>.
+</div>
+<div id="ref-cokely2012jdm" class="csl-entry" role="listitem">
+Cokely, Edward T, Mirta Galesic, Eric Schulz, Rocio Garcia-Retamero, and
+Saima Ghazal. 2012. <span>“Measuring <span>Risk Literacy</span>:
+<span>The Berlin Numeracy Test</span>.”</span> <em>Judgment and Decision
+Making</em> 7 (1): 23.
+</div>
+<div id="ref-crayon" class="csl-entry" role="listitem">
+Csárdi, Gábor. 2022a. <em><span class="nocase">crayon</span>: Colored
+Terminal Output</em>. <a href="https://github.com/r-lib/crayon#readme">https://github.com/r-lib/crayon#readme</a>.
+</div>
+<div id="ref-pingr" class="csl-entry" role="listitem">
+———. 2022b. <em><span class="nocase">pingr</span>: Check If a Remote
+Computer Is up</em>. <a href="https://github.com/r-lib/pingr#readme">https://github.com/r-lib/pingr#readme</a>.
+</div>
+<div id="ref-cli" class="csl-entry" role="listitem">
+———. 2023. <em><span class="nocase">cli</span>: Helpers for Developing
+Command Line Interfaces</em>.
+</div>
+<div id="ref-callr" class="csl-entry" role="listitem">
+Csárdi, Gábor, and Winston Chang. 2022. <em><span class="nocase">callr</span>: Call r from r</em>.
+</div>
+<div id="ref-remotes" class="csl-entry" role="listitem">
+Csárdi, Gábor, Jim Hester, Hadley Wickham, Winston Chang, Martin Morgan,
+and Dan Tenenbaum. 2023. <em><span class="nocase">remotes</span>: R
+Package Installation from Remote Repositories, Including
+<span>“<span>GitHub</span>”</span></em>.
+</div>
+<div id="ref-davis" class="csl-entry" role="listitem">
+Davis, Mark H. n.d. <span>“Measuring <span>Individual Differences</span>
+in <span>Empathy</span>: <span>Evidence</span> for a
+<span>Multidimensional Approach</span>,”</span> 14. <a href="https://doi.org/10.1037/0022-3514.44.1.113">https://doi.org/10.1037/0022-3514.44.1.113</a>.
+</div>
+<div id="ref-daza2002jpba" class="csl-entry" role="listitem">
+Daza, Patricia, Diane M Novy, Melinda A Stanley, and Patricia Averill.
+2002. <span>“The <span>Depression Anxiety Stress Scale-21</span>:
+<span>Spanish Translation</span> and <span>Validation</span> with a
+<span>Hispanic Sample</span>.”</span> <em>Journal of Psychopathology and
+Behavioral Assessment</em>, 11. <a href="https://doi.org/10.1023/A:1016014818163">https://doi.org/10.1023/A:1016014818163</a>.
+</div>
+<div id="ref-delvalle2022pr" class="csl-entry" role="listitem">
+delValle, Macarena V., María Laura Andrés, Sebastián Urquijo, Eliana V.
+Zamora, Ashish Mehta, and James J. Gross. 2022. <span>“Argentinean
+<span>Adaptation</span> and <span>Psychometric Properties</span> of the
+<span>Emotion Regulation Questionnaire</span>
+(<span>ERQ</span>).”</span> <em>Psychological Reports</em> 125 (5):
+2733–59. <a href="https://doi.org/10.1177/00332941211021343">https://doi.org/10.1177/00332941211021343</a>.
+</div>
+<div id="ref-diaza" class="csl-entry" role="listitem">
+Díaz, Darío, Raquel Rodríguez-Carvajal, Amalio Blanco, Bernardo
+Moreno-Jiménez, and Ismael Gallardo. n.d. <span>“Adaptación española de
+las escalas de bienestar psicológico de Ryff.”</span>
+</div>
+<div id="ref-diaz-vilelajp" class="csl-entry" role="listitem">
+Díaz-Vilela, Luis, and Carlos J Álvarez-González. n.d.
+<span>“<span>DIFFERENCES IN PARANORMAL BELIEFS ACROSS FIELDS OF STUDY
+FROM A SPANISH ADAPTATION OF TOBACYK</span>’<span>S RPBS</span>.”</span>
+<em>The Journal of Parapsychology</em>.
+</div>
+<div id="ref-datatable" class="csl-entry" role="listitem">
+Dowle, Matt, and Arun Srinivasan. 2023. <em><span class="nocase">data.table</span>: Extension of <span>“<span class="nocase">data.frame</span>”</span></em>.
+</div>
+<div id="ref-eckblad" class="csl-entry" role="listitem">
+Eckblad, Mark, and Loren J Chapman. n.d. <span>“Magical
+<span>Ideation</span> as an <span>Indicator</span> of
+<span>Schizotypy</span>,”</span> 11. <a href="https://doi.org/10.1037/0022-006X.51.2.215">https://doi.org/10.1037/0022-006X.51.2.215</a>.
+</div>
+<div id="ref-everett2018joesp" class="csl-entry" role="listitem">
+Everett, Jim A. C., Nadira S. Faber, Julian Savulescu, and Molly J.
+Crockett. 2018. <span>“The Costs of Being Consequentialist:
+<span>Social</span> Inference from Instrumental Harm and Impartial
+Beneficence.”</span> <em>Journal of Experimental Social Psychology</em>
+79 (November): 200–216. <a href="https://doi.org/10.1016/j.jesp.2018.07.004">https://doi.org/10.1016/j.jesp.2018.07.004</a>.
+</div>
+<div id="ref-janitor" class="csl-entry" role="listitem">
+Firke, Sam. 2023. <em><span class="nocase">janitor</span>: Simple Tools
+for Examining and Cleaning Dirty Data</em>.
+</div>
+<div id="ref-fonseca-pedreroa" class="csl-entry" role="listitem">
+Fonseca-Pedrero, Eduardo, Mercedes Paino, Serafín Lemos-Giráldez,
+Eduardo García-Cueto, Úrsula Villazón-García, and José Muñiz. n.d.
+<span>“Psychometric Properties of the <span>Perceptual Aberration
+Scale</span> and the <span>Magical Ideation Scale</span> in
+<span>Spanish</span> College Students”</span> 9.
+</div>
+<div id="ref-galiana2020hqlo" class="csl-entry" role="listitem">
+Galiana, Laura, Amparo Oliver, Fernanda Arena, Gustavo De Simone, José
+M. Tomás, Gabriel Vidal-Blanco, Inmaculada Muñoz-Martínez, and Noemí
+Sansó. 2020. <span>“Development and Validation of the <span>Short
+Professional Quality</span> of <span>Life Scale</span> Based on Versions
+<span>IV</span> and <span>V</span> of the <span>Professional
+Quality</span> of <span>Life Scale</span>.”</span> <em>Health and
+Quality of Life Outcomes</em> 18 (1): 364. <a href="https://doi.org/10.1186/s12955-020-01618-3">https://doi.org/10.1186/s12955-020-01618-3</a>.
+</div>
+<div id="ref-garcia2019h" class="csl-entry" role="listitem">
+García, Jorge Acosta, Francisco Checa y Olmos, Manuel Lucas Matheu, and
+Tesifón Parrón Carreño. 2019. <span>“Self Esteem Levels Vs Global Scores
+on the <span>Rosenberg</span> Self-Esteem Scale.”</span>
+<em>Heliyon</em> 5 (3): e01378. <a href="https://doi.org/10.1016/j.heliyon.2019.e01378">https://doi.org/10.1016/j.heliyon.2019.e01378</a>.
+</div>
+<div id="ref-garcia-retameroa" class="csl-entry" role="listitem">
+Garcia-Retamero, Rocio. n.d. <span>“Habilidades numéricas y salud: una
+revisión crítica,”</span> 13.
+</div>
+<div id="ref-gomez2003paid" class="csl-entry" role="listitem">
+Gomez, Rapson, and John W Fisher. 2003. <span>“Domains of Spiritual
+Well-Being and Development and Validation of the <span>Spiritual
+Well-Being Questionnaire</span>.”</span> <em>Personality and Individual
+Differences</em> 35 (8): 1975–91. <a href="https://doi.org/10.1016/S0191-8869(03)00045-X">https://doi.org/10.1016/S0191-8869(03)00045-X</a>.
+</div>
+<div id="ref-gross" class="csl-entry" role="listitem">
+Gross, James J, and Oliver P John. n.d. <span>“Individual
+<span>Differences</span> in <span>Two Emotion Regulation
+Processes</span>: <span>Implications</span> for <span>Affect</span>,
+<span>Relationships</span>, and <span>Well-Being</span>,”</span> 15. <a href="https://doi.org/10.1037/0022-3514.85.2.348">https://doi.org/10.1037/0022-3514.85.2.348</a>.
+</div>
+<div id="ref-RSelenium" class="csl-entry" role="listitem">
+Harrison, John. 2022. <em><span>RSelenium</span>: R Bindings for
+<span>“<span>Selenium WebDriver</span>”</span></em>. <a href="https://docs.ropensci.org/RSelenium/">https://docs.ropensci.org/RSelenium/</a>.
+</div>
+<div id="ref-hays1987jopa" class="csl-entry" role="listitem">
+Hays, Ron, and M. Robin DiMatteo. 1987. <span>“A <span>Short-Form
+Measure</span> of <span>Loneliness</span>.”</span> <em>Journal of
+Personality Assessment</em> 51 (1): 69–81. <a href="https://doi.org/10.1207/s15327752jpa5101_6">https://doi.org/10.1207/s15327752jpa5101_6</a>.
+</div>
+<div id="ref-rlang" class="csl-entry" role="listitem">
+Henry, Lionel, and Hadley Wickham. 2023. <em><span class="nocase">rlang</span>: Functions for Base Types and Core r and
+<span>“<span>Tidyverse</span>”</span> Features</em>. <a href="https://CRAN.R-project.org/package=rlang">https://CRAN.R-project.org/package=rlang</a>.
+</div>
+<div id="ref-covr" class="csl-entry" role="listitem">
+Hester, Jim. 2023. <em><span class="nocase">covr</span>: Test Coverage
+for Packages</em>.
+</div>
+<div id="ref-glue" class="csl-entry" role="listitem">
+Hester, Jim, and Jennifer Bryan. 2022. <em><span class="nocase">glue</span>: Interpreted String Literals</em>.
+</div>
+<div id="ref-withr" class="csl-entry" role="listitem">
+Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham,
+and Winston Chang. 2023. <em><span class="nocase">withr</span>: Run Code
+<span>“<span>With</span>”</span> Temporarily Modified Global State</em>.
+</div>
+<div id="ref-fs" class="csl-entry" role="listitem">
+Hester, Jim, Hadley Wickham, and Gábor Csárdi. 2023. <em><span class="nocase">fs</span>: Cross-Platform File System Operations Based on
+<span>“<span class="nocase">libuv</span>”</span></em>.
+</div>
+<div id="ref-hetts2000pm" class="csl-entry" role="listitem">
+Hetts, John J., David S. Boninger, David A. Armor, Faith Gleicher, and
+Ariel Nathanson. 2000. <span>“The Influence of Anticipated
+Counterfactual Regret on Behavior.”</span> <em>Psychology and
+Marketing</em> 17 (4): 345–68. <a href="https://doi.org/10.1002/(SICI)1520-6793(200004)17:4<345::AID-MAR5>3.0.CO;2-M">https://doi.org/10.1002/(SICI)1520-6793(200004)17:4&lt;345::AID-MAR5&gt;3.0.CO;2-M</a>.
+</div>
+<div id="ref-hildebrandt2021n" class="csl-entry" role="listitem">
+Hildebrandt, Malin K., Emanuel Jauk, Konrad Lehmann, Lara Maliske, and
+Philipp Kanske. 2021. <span>“Brain Activation During Social Cognition
+Predicts Everyday Perspective-Taking: <span>A</span> Combined <span class="nocase">fMRI</span> and Ecological Momentary Assessment Study of
+the Social Brain.”</span> <em>NeuroImage</em> 227 (February): 117624. <a href="https://doi.org/10.1016/j.neuroimage.2020.117624">https://doi.org/10.1016/j.neuroimage.2020.117624</a>.
+</div>
+<div id="ref-hooker2000p" class="csl-entry" role="listitem">
+Hooker, Christine, Neal J. Roese, and Sohee Park. 2000.
+<span>“Impoverished <span>Counterfactual Thinking</span> Is
+<span>Associated</span> with <span>Schizophrenia</span>.”</span>
+<em>Psychiatry</em> 63 (4): 326–35. <a href="https://doi.org/10.1080/00332747.2000.11024925">https://doi.org/10.1080/00332747.2000.11024925</a>.
+</div>
+<div id="ref-houran2003cac" class="csl-entry" role="listitem">
+Houran, James, Michael A Thalbourne, and Rense Lange. 2003.
+<span>“Methodological Note: <span>Erratum</span> and Comment on the Use
+of the <span>Revised Transliminality Scale</span>.”</span>
+<em>Consciousness and Cognition</em> 12 (1): 140–44. <a href="https://doi.org/10.1016/S1053-8100(02)00025-9">https://doi.org/10.1016/S1053-8100(02)00025-9</a>.
+</div>
+<div id="ref-huber2012" class="csl-entry" role="listitem">
+Huber, Stefan, and Odilo W Huber. 2012. <span>“The
+<span>Centrality</span> of <span>Religiosity Scale</span>
+(<span>CRS</span>),”</span> 15. <a href="https://doi.org/10.3390/rel3030710">https://doi.org/10.3390/rel3030710</a>.
+</div>
+<div id="ref-gt" class="csl-entry" role="listitem">
+Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra
+Lauer, and JooYoung Seo. 2023. <em><span class="nocase">gt</span>:
+Easily Create Presentation-Ready Display Tables</em>.
+</div>
+<div id="ref-tictoc" class="csl-entry" role="listitem">
+Izrailev, Sergei. 2023. <em><span class="nocase">tictoc</span>:
+Functions for Timing r Scripts, as Well as Implementations of
+<span>“<span>Stack</span>”</span> and
+<span>“<span>StackList</span>”</span> Structures</em>. <a href="https://CRAN.R-project.org/package=tictoc">https://CRAN.R-project.org/package=tictoc</a>.
+</div>
+<div id="ref-jong2013ejp" class="csl-entry" role="listitem">
+Jong, Jonathan, Matthias Bluemke, and Jamin Halberstadt. 2013.
+<span>“Fear of <span>Death</span> and <span>Supernatural Beliefs</span>:
+<span>Developing A New Supernatural Belief Scale</span> to
+<span>Test</span> the <span>Relationship</span>.”</span> <em>European
+Journal of Personality</em> 27 (5): 495–506. <a href="https://doi.org/10.1002/per.1898">https://doi.org/10.1002/per.1898</a>.
+</div>
+<div id="ref-kanske2015n" class="csl-entry" role="listitem">
+Kanske, Philipp, Anne Böckler, Fynn-Mathis Trautwein, and Tania Singer.
+2015. <span>“Dissecting the Social Brain: <span>Introducing</span> the
+<span>EmpaToM</span> to Reveal Distinct Neural Networks and
+Brain–Behavior Relations for Empathy and <span>Theory</span> of
+<span>Mind</span>.”</span> <em>NeuroImage</em> 122 (November): 6–19. <a href="https://doi.org/10.1016/j.neuroimage.2015.07.082">https://doi.org/10.1016/j.neuroimage.2015.07.082</a>.
+</div>
+<div id="ref-keaton" class="csl-entry" role="listitem">
+Keaton, Shaughan A. n.d. <span>“Profile 53
+<span>Rational</span>‐<span>Experiential Inventory</span>–40
+(<span>REI</span>‐40),”</span> 8.
+</div>
+<div id="ref-koenig1988jags" class="csl-entry" role="listitem">
+Koenig, Harold G., David O. Moberg, and James N. Kvale. 1988.
+<span>“Religious <span>Activities</span> and <span>Attitudes</span> of
+<span>Older Adults</span> in a <span>Geriatric Assessment
+Clinic</span>.”</span> <em>Journal of the American Geriatrics
+Society</em> 36 (4): 362–74. <a href="https://doi.org/10.1111/j.1532-5415.1988.tb02365.x">https://doi.org/10.1111/j.1532-5415.1988.tb02365.x</a>.
+</div>
+<div id="ref-tarchetypes" class="csl-entry" role="listitem">
+Landau, William Michael. 2021a. <em><span class="nocase">tarchetypes</span>: Archetypes for Targets</em>.
+</div>
 <div id="ref-targets" class="csl-entry" role="listitem">
-Landau, William Michael. 2021. <span>“The Targets r Package: A Dynamic
-Make-Like Function-Oriented Pipeline Toolkit for Reproducibility and
-High-Performance Computing”</span> 6: 2959. <a href="https://doi.org/10.21105/joss.02959">https://doi.org/10.21105/joss.02959</a>.
+———. 2021b. <span>“The Targets r Package: A Dynamic Make-Like
+Function-Oriented Pipeline Toolkit for Reproducibility and
+High-Performance Computing.”</span> <em>Journal of Open Source
+Software</em> 6 (57): 2959. <a href="https://doi.org/10.21105/joss.02959">https://doi.org/10.21105/joss.02959</a>.
+</div>
+<div id="ref-deleeuw2015br" class="csl-entry" role="listitem">
+Leeuw, Joshua R. de. 2015. <span>“<span class="nocase">jsPsych</span>:
+<span>A JavaScript</span> Library for Creating Behavioral Experiments in
+a <span>Web</span> Browser.”</span> <em>Behavior Research Methods</em>
+47 (1): 1–12. <a href="https://doi.org/10.3758/s13428-014-0458-y">https://doi.org/10.3758/s13428-014-0458-y</a>.
+</div>
+<div id="ref-lejuez2002joepa" class="csl-entry" role="listitem">
+Lejuez, C. W., Jennifer P. Read, Christopher W. Kahler, Jerry B.
+Richards, Susan E. Ramsey, Gregory L. Stuart, David R. Strong, and
+Richard A. Brown. 2002. <span>“Evaluation of a Behavioral Measure of
+Risk Taking: <span>The Balloon Analogue Risk Task</span>
+(<span>BART</span>).”</span> <em>Journal of Experimental Psychology:
+Applied</em> 8 (2): 75–84. <a href="https://doi.org/10.1037/1076-898X.8.2.75">https://doi.org/10.1037/1076-898X.8.2.75</a>.
+</div>
+<div id="ref-leonestrada2011r" class="csl-entry" role="listitem">
+León Estrada, Irene, Juan García García, and Lola Roldán Tapia. 2011.
+<span>“Construcción de la escala de reserva cognitiva en población
+española: estudio piloto.”</span> <em>Revista de Neurología</em> 52
+(11): 653. <a href="https://doi.org/10.33588/rn.5211.2010704">https://doi.org/10.33588/rn.5211.2010704</a>.
+</div>
+<div id="ref-leon2014po" class="csl-entry" role="listitem">
+León, Irene, Juan García-García, and Lola Roldán-Tapia. 2014.
+<span>“Estimating <span>Cognitive Reserve</span> in <span>Healthy Adults
+Using</span> the <span>Cognitive Reserve Scale</span>.”</span> Edited by
+Sonia Brucki. <em>PLoS ONE</em> 9 (7): e102632. <a href="https://doi.org/10.1371/journal.pone.0102632">https://doi.org/10.1371/journal.pone.0102632</a>.
+</div>
+<div id="ref-leon2015ap" class="csl-entry" role="listitem">
+———. 2015. <span>“Escala de <span>Reserva Cognitiva</span> y
+Envejecimiento.”</span> <em>Anales de Psicología</em> 32 (1): 218. <a href="https://doi.org/10.6018/analesps.32.1.182331">https://doi.org/10.6018/analesps.32.1.182331</a>.
+</div>
+<div id="ref-levenson" class="csl-entry" role="listitem">
+Levenson, Hanna. n.d. <span>“Activism and <span>Powerful Others</span>:
+<span>Distinctions</span> Within the <span>Concept</span> of
+<span>Internal-External Control</span>,”</span> 9. <a href="https://doi.org/10.1080/00223891.1974.10119988">https://doi.org/10.1080/00223891.1974.10119988</a>.
+</div>
+<div id="ref-lindsay2023m" class="csl-entry" role="listitem">
+Lindsay, D. Stephen. 2023. <span>“A <span>Plea</span> to
+<span>Psychology Professional Societies</span> That <span>Publish
+Journals</span>: <span>Assess Computational
+Reproducibility</span>.”</span> <em>Meta-Psychology</em> 7 (September).
+<a href="https://doi.org/10.15626/MP.2023.4020">https://doi.org/10.15626/MP.2023.4020</a>.
+</div>
+<div id="ref-lins" class="csl-entry" role="listitem">
+Lins, Samuel, Ezra Bottequin, Ádám Dóka, Agata Golasa, Frida Hylander,
+Ana Merchán, Ana Odabaši, and Sara Pavlovi. n.d. <span>“To
+<span>Think</span>, to <span>Feel</span>, to <span>Have</span>:
+<span>The Effects</span> of <span>Need</span> for
+<span>Cognition</span>, <span>Hedonism</span> and
+<span>Materialism</span> on <span>Impulse Buying Tendencies</span> in
+<span>Adolescents</span>.”</span> <a href="https://doi.org/10.5334/jeps.bh">https://doi.org/10.5334/jeps.bh</a>.
+</div>
+<div id="ref-lipkus2001mdm" class="csl-entry" role="listitem">
+Lipkus, Isaac M., Greg Samsa, and Barbara K. Rimer. 2001. <span>“General
+<span>Performance</span> on a <span>Numeracy Scale</span> Among
+<span>Highly Educated Samples</span>.”</span> <em>Medical Decision
+Making</em> 21 (1): 37–44. <a href="https://doi.org/10.1177/0272989X0102100105">https://doi.org/10.1177/0272989X0102100105</a>.
+</div>
+<div id="ref-lovibond1995brat" class="csl-entry" role="listitem">
+Lovibond, P. F., and S. H. Lovibond. 1995. <span>“The Structure of
+Negative Emotional States: <span>Comparison</span> of the
+<span>Depression Anxiety Stress Scales</span> (<span>DASS</span>) with
+the <span>Beck Depression</span> and <span>Anxiety
+Inventories</span>.”</span> <em>Behaviour Research and Therapy</em> 33
+(3): 335–43. <a href="https://doi.org/10.1016/0005-7967(94)00075-U">https://doi.org/10.1016/0005-7967(94)00075-U</a>.
+</div>
+<div id="ref-lyon2022is" class="csl-entry" role="listitem">
+Lyon, Aaron R., Catherine M. Corbin, Eric C. Brown, Mark G. Ehrhart,
+Jill Locke, Chayna Davis, Elissa Picozzi, Gregory A. Aarons, and Clayton
+R. Cook. 2022. <span>“Leading the Charge in the Education Sector:
+Development and Validation of the <span>School Implementation Leadership
+Scale</span> (<span>SILS</span>).”</span> <em>Implementation
+Science</em> 17 (1): 48. <a href="https://doi.org/10.1186/s13012-022-01222-7">https://doi.org/10.1186/s13012-022-01222-7</a>.
+</div>
+<div id="ref-mann1997jbdm" class="csl-entry" role="listitem">
+Mann, Leon, Paul Burnett, Mark Radford, and Steve Ford. 1997. <span>“The
+<span>Melbourne</span> Decision Making Questionnaire: An Instrument for
+Measuring Patterns for Coping with Decisional Conflict.”</span>
+<em>Journal of Behavioral Decision Making</em> 10 (1): 1–19. <a href="https://doi.org/10.1002/(SICI)1099-0771(199703)10:1<1::AID-BDM242>3.0.CO;2-X">https://doi.org/10.1002/(SICI)1099-0771(199703)10:1&lt;1::AID-BDM242&gt;3.0.CO;2-X</a>.
+</div>
+<div id="ref-zotero-17801" class="csl-entry" role="listitem">
+<span>“MANUAL PARA LA UTILIZACIÓN DEL CUESTIONARIO.”</span> n.d.
+</div>
+<div id="ref-maria" class="csl-entry" role="listitem">
+María, Ana, Celis Atenas, and Vera Villarroel. n.d. <span>“Propiedades
+psicométricas de la Escala de Autoestima de Rosenberg en universitarios
+chilenos.”</span>
+</div>
+<div id="ref-shinybusy" class="csl-entry" role="listitem">
+Meyer, Fanny, and Victor Perrier. 2022. <em><span class="nocase">shinybusy</span>: Busy Indicators and Notifications for
+<span>“<span>Shiny</span>”</span> Applications</em>. <a href="https://github.com/dreamRs/shinybusy">https://github.com/dreamRs/shinybusy</a>.
+</div>
+<div id="ref-mezzadra2017" class="csl-entry" role="listitem">
+Mezzadra, Joaquín, and Hugo Simkin. 2017. <span>“Validación de la Escala
+Abreviada de Afrontamiento Religioso Brief-RCOPE en el Contexto
+Argentino en estudiantes de confesión católica,”</span> 11. <a href="https://doi.org/10.35670/1667-4545.v17.n1.17071">https://doi.org/10.35670/1667-4545.v17.n1.17071</a>.
+</div>
+<div id="ref-moodley2012rt" class="csl-entry" role="listitem">
+Moodley, Trevor, Karel G. F. Esterhuyse, and Roelf B. I. Beukes. 2012.
+<span>“Factor <span>Analysis</span> of the <span class="nocase">Spiritual Well-being Questionnaire Using</span> a
+<span>Sample</span> of <span>South African Adolescents</span>.”</span>
+<em>Religion &amp; Theology</em> 19 (1-2): 122–51. <a href="https://doi.org/10.1163/157430112X650339">https://doi.org/10.1163/157430112X650339</a>.
+</div>
+<div id="ref-morejon2004" class="csl-entry" role="listitem">
+Morejón, Antonio J VÁZQUEZ, Rosa JIMÉNEZ García-Bóveda, and Raquel
+VÁZQUEZ-MOREJÓN Jiménez. 2004. <span>“Escala de autoestima de Rosenberg:
+fiabilidad y validez en población clínica española”</span> 22.
+</div>
+<div id="ref-here" class="csl-entry" role="listitem">
+Müller, Kirill. 2020. <em><span class="nocase">here</span>: A Simpler
+Way to Find Your Files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
+</div>
+<div id="ref-tibble" class="csl-entry" role="listitem">
+Müller, Kirill, and Hadley Wickham. 2023. <em><span class="nocase">tibble</span>: Simple Data Frames</em>.
+</div>
+<div id="ref-jsPsychAdmin" class="csl-entry" role="listitem">
+Navarrete, Gorka. 2023a. <em><span class="nocase">jsPsychAdmin</span>:
+Admin Tasks for jsPsychR Packages</em>. <a href="https://github.com/gorkang/jsPsychAdmin">https://github.com/gorkang/jsPsychAdmin</a>.
+</div>
+<div id="ref-jsPsychHelpeR" class="csl-entry" role="listitem">
+———. 2023b. <em><span class="nocase">jsPsychHelpeR</span>: Standardize
+and Automatize Data Preparation and Analysis of jsPsych Experiments
+Created with jsPsychMaker</em>. <a href="https://github.com/gorkang/jsPsychHelpeR">https://github.com/gorkang/jsPsychHelpeR</a>.
+</div>
+<div id="ref-jsPsychMonkeys" class="csl-entry" role="listitem">
+———. 2023c. <em><span class="nocase">jsPsychMonkeys</span>: Release
+Monkeys to a jsPsych Experiment Using the r Package <span class="nocase">targets</span>, Docker and <span>RSelenium</span></em>.
+<a href="https://github.com/gorkang/jsPsychMonkeys">https://github.com/gorkang/jsPsychMonkeys</a>.
+</div>
+<div id="ref-jsPsychMaker" class="csl-entry" role="listitem">
+Navarrete, Gorka, and Herman Valencia. 2023. <em><span class="nocase">jsPsychMaker</span>: Create Behavioral Experiments and
+Surveys Using jsPsych and r</em>. <a href="https://github.com/gorkang/jsPsychMaker">https://github.com/gorkang/jsPsychMaker</a>.
+</div>
+<div id="ref-obels2020ampps" class="csl-entry" role="listitem">
+Obels, Pepijn, Daniël Lakens, Nicholas A Coles, Jaroslav Gottfried, and
+Seth A Green. 2020. <span>“Analysis of <span>Open Data</span> and
+<span>Computational Reproducibility</span> in <span>Registered
+Reports</span> in <span>Psychology</span>.”</span> <em>Advances in
+Methods and Practices in Psychological Science</em> 3 (2). <a href="https://doi.org/10.1177/2515245920918872">https://doi.org/10.1177/2515245920918872</a>.
+</div>
+<div id="ref-V8" class="csl-entry" role="listitem">
+Ooms, Jeroen. 2023a. <em>V8: Embedded JavaScript and WebAssembly Engine
+for r</em>. <a href="https://jeroen.r-universe.dev/V8">https://jeroen.r-universe.dev/V8</a>.
+</div>
+<div id="ref-writexl" class="csl-entry" role="listitem">
+———. 2023b. <em><span class="nocase">writexl</span>: Export Data Frames
+to Excel <span>“<span class="nocase">xlsx</span>”</span> Format</em>.
+</div>
+<div id="ref-pargament1998jssr" class="csl-entry" role="listitem">
+Pargament, Kenneth I., Bruce W. Smith, Harold G. Koenig, and Lisa Perez.
+1998. <span>“Patterns of <span>Positive</span> and <span>Negative
+Religious Coping</span> with <span>Major Life Stressors</span>.”</span>
+<em>Journal for the Scientific Study of Religion</em> 37 (4): 710–24. <a href="https://doi.org/10.2307/1388152">https://doi.org/10.2307/1388152</a>.
+</div>
+<div id="ref-patchwork" class="csl-entry" role="listitem">
+Pedersen, Thomas Lin. 2023. <em><span class="nocase">patchwork</span>:
+The Composer of Plots</em>.
+</div>
+<div id="ref-perez-albeniz" class="csl-entry" role="listitem">
+Pérez-Albéniz, Alicia, Joaquín de Paúl, and Juan Etxeberría. n.d.
+<span>“Adaptación de Interpersonal Reactivity Index (IRI) al
+español.”</span>
+</div>
+<div id="ref-shinyWidgets" class="csl-entry" role="listitem">
+Perrier, Victor, Fanny Meyer, and David Granjon. 2023. <em><span class="nocase">shinyWidgets</span>: Custom Inputs Widgets for
+Shiny</em>.
+</div>
+<div id="ref-plante1997pp" class="csl-entry" role="listitem">
+Plante, Thomas G., and Marcus T. Boccaccini. 1997. <span>“The
+<span>Santa Clara Strength</span> of <span>Religious Faith
+Questionnaire</span>.”</span> <em>Pastoral Psychology</em> 45 (5):
+375–87. <a href="https://doi.org/10.1007/BF02230993">https://doi.org/10.1007/BF02230993</a>.
+</div>
+<div id="ref-pommier2020a" class="csl-entry" role="listitem">
+Pommier, Elizabeth, Kristin D. Neff, and István Tóth-Király. 2020.
+<span>“The <span>Development</span> and <span>Validation</span> of the
+<span>Compassion Scale</span>.”</span> <em>Assessment</em> 27 (1):
+21–39. <a href="https://doi.org/10.1177/1073191119874108">https://doi.org/10.1177/1073191119874108</a>.
+</div>
+<div id="ref-pons" class="csl-entry" role="listitem">
+Pons, Gonzalo Brito. n.d. <span>“<span>CULTIVATING HEALTHY MINDS AND
+OPEN HEARTS</span>: <span>A MIXED-METHOD CONTROLLED STUDY ON THE
+PSYCHOLOGICAL AND RELATIONAL EFFECTS OF COMPASSION CULTIVATION TRAINING
+IN CHILE</span>.”</span>
+</div>
+<div id="ref-psoteg" class="csl-entry" role="listitem">
+Psoteg, Coden. n.d. <span>“Decision-Making Patterns, Conflict Sytles,
+and Self-Esteem.”</span>
+</div>
+<div id="ref-utils" class="csl-entry" role="listitem">
+R Core Team. 2023c. <em><span>R</span>: A Language and Environment for
+Statistical Computing</em>. Vienna, Austria: R Foundation for
+Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-stats" class="csl-entry" role="listitem">
+———. 2023a. <em><span>R</span>: A Language and Environment for
+Statistical Computing</em>. Vienna, Austria: R Foundation for
+Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-tools" class="csl-entry" role="listitem">
+———. 2023b. <em><span>R</span>: A Language and Environment for
+Statistical Computing</em>. Vienna, Austria: R Foundation for
+Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-reyna2016rp" class="csl-entry" role="listitem">
+Reyna, Cecilia. 2016. <span>“Psychometric Study of the <span>Rational
+Experiential Inventory</span> Among Undergraduate
+<span>Argentinean</span> Students.”</span> <em>Revista de
+Psicología</em> 34: 19. <a href="https://doi.org/10.18800/psico.201602.005">https://doi.org/10.18800/psico.201602.005</a>.
+</div>
+<div id="ref-rojas-barahona2009rmc" class="csl-entry" role="listitem">
+Rojas-Barahona, Cristian A, Beatriz Zegers P, and Carla E Förster M.
+2009. <span>“La escala de autoestima de Rosenberg: Validación para Chile
+en una muestra de jóvenes adultos, adultos y adultos mayores.”</span>
+<em>Revista médica de Chile</em> 137 (6). <a href="https://doi.org/10.4067/S0034-98872009000600009">https://doi.org/10.4067/S0034-98872009000600009</a>.
+</div>
+<div id="ref-ruiz2017pr" class="csl-entry" role="listitem">
+Ruiz, Francisco J., Diana M. García-Beltrán, and Juan C. Suárez-Falcón.
+2017. <span>“General <span>Health Questionnaire-12</span> Validity in
+<span>Colombia</span> and Factorial Equivalence Between Clinical and
+Nonclinical Participants.”</span> <em>Psychiatry Research</em> 256
+(October): 53–58. <a href="https://doi.org/10.1016/j.psychres.2017.06.020">https://doi.org/10.1016/j.psychres.2017.06.020</a>.
+</div>
+<div id="ref-ryff" class="csl-entry" role="listitem">
+Ryff, Carol D, and Corey Lee M Keyes. n.d. <span>“The
+<span>Structure</span> of <span>Psychological Well-Being
+Revisited</span>.”</span> <a href="https://doi.org/10.1037/0022-3514.69.4.719">https://doi.org/10.1037/0022-3514.69.4.719</a>.
+</div>
+<div id="ref-sala2012ejodp" class="csl-entry" role="listitem">
+Sala, Maria Nives, Paola Molina, Birgit Abler, Henrik Kessler, Leonard
+Vanbrabant, and Rens Van De Schoot. 2012. <span>“Measurement Invariance
+of the <span>Emotion Regulation Questionnaire</span> (<span>ERQ</span>).
+<span>A</span> Cross-National Validity Study.”</span> <em>European
+Journal of Developmental Psychology</em> 9 (6): 751–57. <a href="https://doi.org/10.1080/17405629.2012.690604">https://doi.org/10.1080/17405629.2012.690604</a>.
+</div>
+<div id="ref-sanchez-lopez2008p" class="csl-entry" role="listitem">
+Sánchez-López, María del Pilar, and Virginia Dresch. 2008. <span>“The
+12-<span>Item General Health Questionnaire</span> (<span>GHQ-12</span>):
+Reliability, External Validity and Factor Structure in the
+<span>Spanish</span> Population.”</span> <em>Psicothema</em> 20 (4):
+839–43.
+</div>
+<div id="ref-silva2020cp" class="csl-entry" role="listitem">
+Silva, Washington Allysson Dantas, Tátila Rayane de Sampaio Brito, and
+Cicero Roberto Pereira. 2020. <span>“<span>COVID-19</span> Anxiety Scale
+(<span>CAS</span>): <span>Development</span> and Psychometric
+Properties.”</span> <em>Current Psychology</em>, November. <a href="https://doi.org/10.1007/s12144-020-01195-0">https://doi.org/10.1007/s12144-020-01195-0</a>.
+</div>
+<div id="ref-sirota2020jbdm" class="csl-entry" role="listitem">
+Sirota, Miroslav, Chris Dewberry, Marie Juanchich, Lenka Valuš, and
+Amanda C. Marshall. 2020. <span>“Measuring Cognitive Reflection Without
+Maths: <span>Development</span> and Validation of the Verbal Cognitive
+Reflection Test.”</span> <em>Journal of Behavioral Decision Making</em>,
+October. <a href="https://doi.org/10.1002/bdm.2213">https://doi.org/10.1002/bdm.2213</a>.
+</div>
+<div id="ref-sirota2018brm" class="csl-entry" role="listitem">
+Sirota, Miroslav, and Marie Juanchich. 2018. <span>“Effect of Response
+Format on Cognitive Reflection: <span>Validating</span> a Two- and
+Four-Option Multiple Choice Question Version of the <span>Cognitive
+Reflection Test</span>.”</span> <em>Behavior Research Methods</em> 50
+(6): 2511–22. <a href="https://doi.org/10.3758/s13428-018-1029-4">https://doi.org/10.3758/s13428-018-1029-4</a>.
+</div>
+<div id="ref-stahl2016po" class="csl-entry" role="listitem">
+Ståhl, Tomas, Maarten P. Zaal, and Linda J. Skitka. 2016.
+<span>“Moralized <span>Rationality</span>: <span>Relying</span> on
+<span>Logic</span> and <span>Evidence</span> in the
+<span>Formation</span> and <span>Evaluation</span> of <span>Belief Can
+Be Seen</span> as a <span>Moral Issue</span>.”</span> Edited by Brock
+Bastian. <em>PLOS ONE</em> 11 (11): e0166332. <a href="https://doi.org/10.1371/journal.pone.0166332">https://doi.org/10.1371/journal.pone.0166332</a>.
+</div>
+<div id="ref-stamm" class="csl-entry" role="listitem">
+Stamm, B Hudnall. n.d. <span>“Self-scoring directions Research
+Information on the ProQOL – CSF-vIV: Professional Quality of Life:
+Compassion Satisfaction and Fatigue Subscales.”</span>
+</div>
+<div id="ref-stoll2016srh" class="csl-entry" role="listitem">
+Stoll, Kathrin, Yvonne Hauck, Soo Downe, Joyce Edmonds, Mechthild M.
+Gross, Anne Malott, Patricia McNiven, Emma Swift, Gillian Thomson, and
+Wendy A. Hall. 2016. <span>“Cross-Cultural Development and Psychometric
+Evaluation of a Measure to Assess Fear of Childbirth Prior to
+Pregnancy.”</span> <em>Sexual &amp; Reproductive Healthcare</em> 8
+(June): 49–54. <a href="https://doi.org/10.1016/j.srhc.2016.02.004">https://doi.org/10.1016/j.srhc.2016.02.004</a>.
+</div>
+<div id="ref-stone1998jocn" class="csl-entry" role="listitem">
+Stone, Valerie E., Simon Baron-Cohen, and Robert T. Knight. 1998.
+<span>“Frontal <span>Lobe Contributions</span> to <span>Theory</span> of
+<span>Mind</span>.”</span> <em>Journal of Cognitive Neuroscience</em> 10
+(5): 640–56. <a href="https://doi.org/10.1162/089892998562942">https://doi.org/10.1162/089892998562942</a>.
+</div>
+<div id="ref-XML" class="csl-entry" role="listitem">
+Temple Lang, Duncan. 2023. <em><span>XML</span>: Tools for Parsing and
+Generating XML Within r and s-Plus</em>. <a href="https://www.omegahat.net/RSXML/">https://www.omegahat.net/RSXML/</a>.
+</div>
+<div id="ref-tobacyk" class="csl-entry" role="listitem">
+Tobacyk, Jerome J. n.d. <span>“A <span>Revised Paranormal Belief
+Scale</span>,”</span> 6.
+</div>
+<div id="ref-tobacyka" class="csl-entry" role="listitem">
+Tobacyk, Jerome, and Gary Milford. n.d. <span>“Belief in
+<span>Paranormal Phenomena</span>: <span>Assessment Instrument
+Development</span> and <span>Implications</span> for <span>Personality
+Functioning</span>.”</span> <a href="https://doi.org/10.1037/0022-3514.44.5.1029">https://doi.org/10.1037/0022-3514.44.5.1029</a>.
+</div>
+<div id="ref-toplak2013tr" class="csl-entry" role="listitem">
+Toplak, Maggie E., Richard F. West, and Keith E. Stanovich. 2013.
+<span>“Assessing Miserly Information Processing: <span>An</span>
+Expansion of the <span>Cognitive Reflection Test</span>.”</span>
+<em>Thinking &amp; Reasoning</em> 20 (2): 147–68. <a href="https://doi.org/10.1080/13546783.2013.844729">https://doi.org/10.1080/13546783.2013.844729</a>.
+</div>
+<div id="ref-rstudioapi" class="csl-entry" role="listitem">
+Ushey, Kevin, JJ Allaire, Hadley Wickham, and Gary Ritchie. 2023.
+<em><span class="nocase">rstudioapi</span>: Safely Access the RStudio
+API</em>. <a href="https://CRAN.R-project.org/package=rstudioapi">https://CRAN.R-project.org/package=rstudioapi</a>.
+</div>
+<div id="ref-renv" class="csl-entry" role="listitem">
+Ushey, Kevin, and Hadley Wickham. 2023. <em><span class="nocase">renv</span>: Project Environments</em>.
+</div>
+<div id="ref-vale2012dn" class="csl-entry" role="listitem">
+Vale, Francisco A. C., Ari P. Balieiro-Jr, and José Humberto
+Silva-Filho. 2012. <span>“Memory Complaint Scale (<span>MCS</span>):
+<span>Proposed</span> Tool for Active Systematic Search.”</span>
+<em>Dementia &amp; Neuropsychologia</em> 6 (4): 212–18. <a href="https://doi.org/10.1590/S1980-57642012DN06040004">https://doi.org/10.1590/S1980-57642012DN06040004</a>.
+</div>
+<div id="ref-furrr" class="csl-entry" role="listitem">
+Vaughan, Davis, and Matt Dancho. 2022. <em><span class="nocase">furrr</span>: Apply Mapping Functions in Parallel Using
+Futures</em>.
+</div>
+<div id="ref-skimr" class="csl-entry" role="listitem">
+Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia,
+Hao Zhu, and Shannon Ellis. 2022. <em><span class="nocase">skimr</span>:
+Compact and Flexible Summaries of Data</em>.
+</div>
+<div id="ref-weeks2019" class="csl-entry" role="listitem">
+Weeks, Fiona H. 2019. <span>“Preference for Caesarean Attitudes Toward
+Birth in a <span>Chilean</span> Sample of Young Adults,”</span> 7.
+</div>
+<div id="ref-weeks2020wab" class="csl-entry" role="listitem">
+Weeks, Fiona H., Michelle Sadler, and Kathrin Stoll. 2020.
+<span>“Preference for Caesarean and Attitudes Toward Birth in a
+<span>Chilean</span> Sample of Young Adults.”</span> <em>Women and
+Birth</em> 33 (2): e159–65. <a href="https://doi.org/10.1016/j.wombi.2019.03.012">https://doi.org/10.1016/j.wombi.2019.03.012</a>.
+</div>
+<div id="ref-rvest" class="csl-entry" role="listitem">
+Wickham, Hadley. 2022a. <em><span class="nocase">rvest</span>: Easily
+Harvest (Scrape) Web Pages</em>.
+</div>
+<div id="ref-stringr" class="csl-entry" role="listitem">
+———. 2022b. <em><span class="nocase">stringr</span>: Simple, Consistent
+Wrappers for Common String Operations</em>.
+</div>
+<div id="ref-forcats" class="csl-entry" role="listitem">
+———. 2023a. <em><span class="nocase">forcats</span>: Tools for Working
+with Categorical Variables (Factors)</em>.
+</div>
+<div id="ref-httr" class="csl-entry" role="listitem">
+———. 2023b. <em><span class="nocase">httr</span>: Tools for Working with
+URLs and HTTP</em>.
+</div>
+<div id="ref-readxl" class="csl-entry" role="listitem">
+Wickham, Hadley, and Jennifer Bryan. 2023. <em><span class="nocase">readxl</span>: Read Excel Files</em>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
+Vaughan. 2023. <em><span class="nocase">dplyr</span>: A Grammar of Data
+Manipulation</em>.
+</div>
+<div id="ref-dtplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Maximilian Girlich, Mark Fairbanks, and Ryan Dickerson.
+2023. <em><span class="nocase">dtplyr</span>: Data Table Back-End for
+<span>“<span class="nocase">dplyr</span>”</span></em>.
+</div>
+<div id="ref-purrr" class="csl-entry" role="listitem">
+Wickham, Hadley, and Lionel Henry. 2023. <em><span class="nocase">purrr</span>: Functional Programming Tools</em>.
+</div>
+<div id="ref-pkgdown" class="csl-entry" role="listitem">
+Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <em><span class="nocase">pkgdown</span>: Make Static HTML Documentation for a
+Package</em>.
+</div>
+<div id="ref-readr" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em><span class="nocase">readr</span>: Read Rectangular Text Data</em>.
+</div>
+<div id="ref-devtools" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2022.
+<em><span class="nocase">devtools</span>: Tools to Make Developing r
+Packages Easier</em>.
+</div>
+<div id="ref-tidyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em><span class="nocase">tidyr</span>: Tidy Messy Data</em>.
+</div>
+<div id="ref-ggridges" class="csl-entry" role="listitem">
+Wilke, Claus O. 2022. <em><span class="nocase">ggridges</span>:
+Ridgeline Plots in <span>“<span class="nocase">ggplot2</span>”</span></em>. <a href="https://wilkelab.org/ggridges/">https://wilkelab.org/ggridges/</a>.
+</div>
+<div id="ref-psych" class="csl-entry" role="listitem">
+William Revelle. 2023. <em><span class="nocase">psych</span>: Procedures
+for Psychological, Psychometric, and Personality Research</em>.
+Evanston, Illinois: Northwestern University. <a href="https://CRAN.R-project.org/package=psych">https://CRAN.R-project.org/package=psych</a>.
+</div>
+<div id="ref-wu2008paid" class="csl-entry" role="listitem">
+Wu, Chia-huei, and Grace Yao. 2008. <span>“Psychometric Analysis of the
+Short-Form <span>UCLA Loneliness Scale</span> (<span>ULS-8</span>) in
+<span>Taiwanese</span> Undergraduate Students.”</span> <em>Personality
+and Individual Differences</em> 44 (8): 1762–71. <a href="https://doi.org/10.1016/j.paid.2008.02.003">https://doi.org/10.1016/j.paid.2008.02.003</a>.
+</div>
+<div id="ref-knitr2023" class="csl-entry" role="listitem">
+Xie, Yihui. 2023. <em><span class="nocase">knitr</span>: A
+General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-markdown" class="csl-entry" role="listitem">
+Xie, Yihui, JJ Allaire, and Jeffrey Horner. 2023. <em><span class="nocase">markdown</span>: Render Markdown with <span>“<span class="nocase">commonmark</span>”</span></em>. <a href="https://github.com/rstudio/markdown">https://github.com/rstudio/markdown</a>.
+</div>
+<div id="ref-DT" class="csl-entry" role="listitem">
+Xie, Yihui, Joe Cheng, and Xianying Tan. 2023. <em><span>DT</span>: A
+Wrapper of the JavaScript Library
+<span>“<span>DataTables</span>”</span></em>. <a href="https://github.com/rstudio/DT">https://github.com/rstudio/DT</a>.
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

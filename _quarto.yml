@@ -26,7 +26,7 @@ book:
     - qmd/09-CommonTasks.qmd
     - qmd/10-references.qmd
 
-bibliography: references.bib
+bibliography: [references.bib, tasks.bib, grateful-refs.bib]
 
 format:
   html:
