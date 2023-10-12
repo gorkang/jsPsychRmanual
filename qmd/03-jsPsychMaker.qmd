@@ -143,6 +143,9 @@ If you use the app, you will need to copy the generated config.js file to your p
   
   + Avoids randomization (e.g. order of items) so the `jsPsychMonkeys` can have a reproducible behavior
 
+- `language = "English";` Language to use for the protocol. Either Spanish or English
+
+
 ### Order of tasks
 
 ```{js eval=FALSE}
@@ -266,6 +269,90 @@ delete from protocol where id_protocol=@PID;
 ```
 
 You will most likely need help from the server admin to perform these steps.
+
+
+## Language
+
+We started implementing the basic blocks to be able to switch a protocol's language from Spanish to English with the parameter `language` in the `config.js` file.  
+
+This will change the protocol's hardwired messages (see `config_messages.js`), and will use the desired version of the task, if available. So far we only prepared a handful of tasks in multiple languages.  
+
+An example of a multilingual task would be `Consent.js`.
+
+We have a Translations block:  
+
+```{js}
+
+// Translations --------------------------------------------------------------
+
+switch (language) {
+
+  case "Spanish":
+
+    Consent_000 = ['<p><left><b><big>Consentimiento informado</big></b><br /></p>'];
+    Consent_001_choices = ['acepto participar', 'rechazo participar'];
+    Consent_001_end = 'Gracias por tu tiempo. Puedes cerrar esta página.';
+    break;
+
+  case "English":
+
+    Consent_000 = ['<p><left><b><big>Informed consent</big></b><br /></p>'];
+    Consent_001_choices = ['I agree to participate', 'I reject to participate'];
+    Consent_001_end = 'Thanks for your time. You can close this page.';
+    break;
+
+}
+
+```
+
+And then a Task block, where the logic of the experiment is unique, and we use the variables created in the Translation block for the things the users will see in their screens:  
+
+```{js}
+
+// Task -----------------------------------------------------------------------
+
+questions = ( typeof questions != 'undefined' && questions instanceof Array ) ? questions : [];
+questions.push( check_fullscreen('Consent') );
+Consent = [];    //temporal timeline
+
+
+var instruction_screen_experiment = {
+    type: 'instructions',
+    pages: Consent_000,
+    data: {trialid: 'Consent_000', procedure: 'Consent'},
+    show_clickable_nav: true,
+    on_trial_start: function(){
+        bloquear_enter = 0;
+    }
+};
+
+
+// Reads consent from media/consent/consent-placeholder.js
+var question01 = {
+  type: 'html-button-response',
+  stimulus: intro_CONSENT,
+  choices: Consent_001_choices,
+  prompt: "<BR><BR>",
+  // If 'rechazo participar' is pressed, end experiment
+  on_finish: function(data){
+    if(jsPsych.data.get().values().find(x => x.trialid === 'Consent_001').button_pressed == 1){
+      jsPsych.endExperiment(Consent_001_end);
+    }
+  },
+    data: {
+    trialid: 'Consent_001',
+    procedure: 'Consent'
+   }
+};
+Consent.push(question01);
+
+
+Consent.unshift(instruction_screen_experiment);
+Consent.push.apply(questions, Consent);
+call_function("Consent");
+```
+
+
 
 
 ## Need help implementing a task!
