@@ -21,6 +21,17 @@ And a package for the system admins:
 
 ------------------------------------------------------------------------
 
+## Everything in 3 minutes  
+
+jsPsychR creating a protocol with 3 tasks, running 10 simulated participants, and finally, data preparation... The whole process takes 3 minutes.  
+
+{{< video https://www.youtube.com/watch?v=wcGoFE4eT40 >}}
+
+
+------------------------------------------------------------------------
+
+
+
 **Contributors**
 
 -   [Gorka Navarrete](https://github.com/gorkang)
