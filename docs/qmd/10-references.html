@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.515">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -65,7 +66,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -98,12 +105,12 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd/10-references.html">References</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd/10-references.html">References</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -113,7 +120,7 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
@@ -199,7 +206,7 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -230,12 +237,14 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 
 <p>jsPsychR could not be possible without the amazing <a href="https://www.jspsych.org/">jsPsych</a> <span class="citation" data-cites="deleeuw2015br">(<a href="10-references.html#ref-deleeuw2015br" role="doc-biblioref">de Leeuw 2015</a>)</span>. We use {<a href="https://github.com/ropensci/targets">targets</a>} to create well-structured and reproducible pipelines <span class="citation" data-cites="targets">(<a href="10-references.html#ref-targets" role="doc-biblioref">Landau 2021b</a>)</span> for the jsPsychR tools.</p>
 <section id="jspsychr-implementation" class="level2">
 <h2 class="anchored" data-anchor-id="jspsychr-implementation">jsPsychR implementation</h2>
-<p>The following R packages are used in jsPsychR: <span class="citation" data-cites="jsPsychMaker">Navarrete and Valencia (<a href="10-references.html#ref-jsPsychMaker" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="jsPsychHelpeR">Navarrete (<a href="10-references.html#ref-jsPsychHelpeR" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="jsPsychMonkeys">Navarrete (<a href="10-references.html#ref-jsPsychMonkeys" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="pkgdown">Wickham, Hesselberth, and Salmon (<a href="10-references.html#ref-pkgdown" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="purrr">Wickham and Henry (<a href="10-references.html#ref-purrr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tarchetypes">Landau (<a href="10-references.html#ref-tarchetypes" role="doc-biblioref">2021a</a>)</span>, <span class="citation" data-cites="cli">Csárdi (<a href="10-references.html#ref-cli" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="dplyr">Wickham, François, et al. (<a href="10-references.html#ref-dplyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="DT">Xie, Cheng, and Tan (<a href="10-references.html#ref-DT" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="forcats">Wickham (<a href="10-references.html#ref-forcats" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="here">Müller (<a href="10-references.html#ref-here" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="janitor">Firke (<a href="10-references.html#ref-janitor" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="patchwork">Pedersen (<a href="10-references.html#ref-patchwork" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="psych">William Revelle (<a href="10-references.html#ref-psych" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="readr">Wickham, Hester, and Bryan (<a href="10-references.html#ref-readr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="renv">Ushey and Wickham (<a href="10-references.html#ref-renv" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rmarkdown2023">Allaire et al. (<a href="10-references.html#ref-rmarkdown2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rstudioapi">Ushey et al. (<a href="10-references.html#ref-rstudioapi" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="stringr">Wickham (<a href="10-references.html#ref-stringr" role="doc-biblioref">2022b</a>)</span>, <span class="citation" data-cites="tibble">Müller and Wickham (<a href="10-references.html#ref-tibble" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tidyr">Wickham, Vaughan, and Girlich (<a href="10-references.html#ref-tidyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="visNetwork">Almende B.V. and Contributors and Thieurmel (<a href="10-references.html#ref-visNetwork" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="covr">Hester (<a href="10-references.html#ref-covr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="devtools">Wickham et al. (<a href="10-references.html#ref-devtools" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="jsPsychAdmin">Navarrete (<a href="10-references.html#ref-jsPsychAdmin" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="jsPsychHelpeR">Navarrete (<a href="10-references.html#ref-jsPsychHelpeR" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="utils">R Core Team (<a href="10-references.html#ref-utils" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="jsPsychMaker">Navarrete and Valencia (<a href="10-references.html#ref-jsPsychMaker" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="callr">Csárdi and Chang (<a href="10-references.html#ref-callr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="datatable">Dowle and Srinivasan (<a href="10-references.html#ref-datatable" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="glue">Hester and Bryan (<a href="10-references.html#ref-glue" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="googlesheets4">Bryan (<a href="10-references.html#ref-googlesheets4" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="gtools">Bolker, Warnes, and Lumley (<a href="10-references.html#ref-gtools" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="magrittr">Bache and Wickham (<a href="10-references.html#ref-magrittr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="readxl">Wickham and Bryan (<a href="10-references.html#ref-readxl" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rlang">Henry and Wickham (<a href="10-references.html#ref-rlang" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="skimr">Waring et al. (<a href="10-references.html#ref-skimr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="stats">R Core Team (<a href="10-references.html#ref-stats" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="tools">R Core Team (<a href="10-references.html#ref-tools" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="writexl">Ooms (<a href="10-references.html#ref-writexl" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="ggridges">Wilke (<a href="10-references.html#ref-ggridges" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="shiny">Chang et al. (<a href="10-references.html#ref-shiny" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="knitr2023">Xie (<a href="10-references.html#ref-knitr2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="jsPsychMonkeys">Navarrete (<a href="10-references.html#ref-jsPsychMonkeys" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="rvest">Wickham (<a href="10-references.html#ref-rvest" role="doc-biblioref">2022a</a>)</span>, <span class="citation" data-cites="V8">Ooms (<a href="10-references.html#ref-V8" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="rsconnect">Atkins et al. (<a href="10-references.html#ref-rsconnect" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="htmltools">Cheng et al. (<a href="10-references.html#ref-htmltools" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="httr">Wickham (<a href="10-references.html#ref-httr" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="shinyjs">Attali (<a href="10-references.html#ref-shinyjs" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="shinyWidgets">Perrier, Meyer, and Granjon (<a href="10-references.html#ref-shinyWidgets" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="dtplyr">Wickham, Girlich, et al. (<a href="10-references.html#ref-dtplyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="gt">Iannone et al. (<a href="10-references.html#ref-gt" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="markdown">Xie, Allaire, and Horner (<a href="10-references.html#ref-markdown" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="pingr">Csárdi (<a href="10-references.html#ref-pingr" role="doc-biblioref">2022b</a>)</span>, <span class="citation" data-cites="RSelenium">Harrison (<a href="10-references.html#ref-RSelenium" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="shinybusy">Meyer and Perrier (<a href="10-references.html#ref-shinybusy" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="remotes">Csárdi et al. (<a href="10-references.html#ref-remotes" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tictoc">Izrailev (<a href="10-references.html#ref-tictoc" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="crayon">Csárdi (<a href="10-references.html#ref-crayon" role="doc-biblioref">2022a</a>)</span>, <span class="citation" data-cites="fs">Hester, Wickham, and Csárdi (<a href="10-references.html#ref-fs" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="furrr">Vaughan and Dancho (<a href="10-references.html#ref-furrr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="withr">Hester et al. (<a href="10-references.html#ref-withr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="XML">Temple Lang (<a href="10-references.html#ref-XML" role="doc-biblioref">2023</a>)</span></p>
+<p>The following R packages are used in jsPsychR: <span class="citation" data-cites="jsPsychMaker">Navarrete and Valencia (<a href="10-references.html#ref-jsPsychMaker" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="jsPsychHelpeR">Navarrete (<a href="10-references.html#ref-jsPsychHelpeR" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="jsPsychMonkeys">Navarrete (<a href="10-references.html#ref-jsPsychMonkeys" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="pkgdown">Wickham, Hesselberth, and Salmon (<a href="10-references.html#ref-pkgdown" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="purrr">Wickham and Henry (<a href="10-references.html#ref-purrr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tarchetypes">Landau (<a href="10-references.html#ref-tarchetypes" role="doc-biblioref">2021a</a>)</span>, <span class="citation" data-cites="cli">Csárdi (<a href="10-references.html#ref-cli" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="dplyr">Wickham, François, et al. (<a href="10-references.html#ref-dplyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="DT">Xie, Cheng, and Tan (<a href="10-references.html#ref-DT" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="forcats">Wickham (<a href="10-references.html#ref-forcats" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="here">Müller (<a href="10-references.html#ref-here" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="janitor">Firke (<a href="10-references.html#ref-janitor" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="patchwork">Pedersen (<a href="10-references.html#ref-patchwork" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="psych">William Revelle (<a href="10-references.html#ref-psych" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="readr">Wickham, Hester, and Bryan (<a href="10-references.html#ref-readr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="renv">Ushey and Wickham (<a href="10-references.html#ref-renv" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rmarkdown2023">Allaire et al. (<a href="10-references.html#ref-rmarkdown2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rstudioapi">Ushey et al. (<a href="10-references.html#ref-rstudioapi" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="stringr">Wickham (<a href="10-references.html#ref-stringr" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="tibble">Müller and Wickham (<a href="10-references.html#ref-tibble" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tidyr">Wickham, Vaughan, and Girlich (<a href="10-references.html#ref-tidyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="visNetwork">Almende B.V. and Contributors and Thieurmel (<a href="10-references.html#ref-visNetwork" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="covr">Hester (<a href="10-references.html#ref-covr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="devtools">Wickham et al. (<a href="10-references.html#ref-devtools" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="jsPsychAdmin">Navarrete (<a href="10-references.html#ref-jsPsychAdmin" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="jsPsychHelpeR">Navarrete (<a href="10-references.html#ref-jsPsychHelpeR" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="utils">R Core Team (<a href="10-references.html#ref-utils" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="jsPsychMaker">Navarrete and Valencia (<a href="10-references.html#ref-jsPsychMaker" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="callr">Csárdi and Chang (<a href="10-references.html#ref-callr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="datatable">Dowle and Srinivasan (<a href="10-references.html#ref-datatable" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="glue">Hester and Bryan (<a href="10-references.html#ref-glue" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="googlesheets4">Bryan (<a href="10-references.html#ref-googlesheets4" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="gtools">Warnes et al. (<a href="10-references.html#ref-gtools" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="magrittr">Bache and Wickham (<a href="10-references.html#ref-magrittr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="readxl">Wickham and Bryan (<a href="10-references.html#ref-readxl" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="rlang">Henry and Wickham (<a href="10-references.html#ref-rlang" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="skimr">Waring et al. (<a href="10-references.html#ref-skimr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="stats">R Core Team (<a href="10-references.html#ref-stats" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="tools">R Core Team (<a href="10-references.html#ref-tools" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="writexl">Ooms (<a href="10-references.html#ref-writexl" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="ggridges">Wilke (<a href="10-references.html#ref-ggridges" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="shiny">Chang et al. (<a href="10-references.html#ref-shiny" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="knitr2023">Xie (<a href="10-references.html#ref-knitr2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="jsPsychMonkeys">Navarrete (<a href="10-references.html#ref-jsPsychMonkeys" role="doc-biblioref">2023c</a>)</span>, <span class="citation" data-cites="rvest">Wickham (<a href="10-references.html#ref-rvest" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="V8">Ooms (<a href="10-references.html#ref-V8" role="doc-biblioref">2023a</a>)</span>, <span class="citation" data-cites="rsconnect">Atkins et al. (<a href="10-references.html#ref-rsconnect" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="htmltools">Cheng et al. (<a href="10-references.html#ref-htmltools" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="httr">Wickham (<a href="10-references.html#ref-httr" role="doc-biblioref">2023b</a>)</span>, <span class="citation" data-cites="shinyjs">Attali (<a href="10-references.html#ref-shinyjs" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="shinyWidgets">Perrier, Meyer, and Granjon (<a href="10-references.html#ref-shinyWidgets" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="processx">Csárdi and Chang (<a href="10-references.html#ref-processx" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="dtplyr">Wickham, Girlich, et al. (<a href="10-references.html#ref-dtplyr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="gt">Iannone et al. (<a href="10-references.html#ref-gt" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="markdown">Xie, Allaire, and Horner (<a href="10-references.html#ref-markdown" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="pingr">Csárdi (<a href="10-references.html#ref-pingr" role="doc-biblioref">2022b</a>)</span>, <span class="citation" data-cites="RSelenium">Harrison (<a href="10-references.html#ref-RSelenium" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="shinybusy">Meyer and Perrier (<a href="10-references.html#ref-shinybusy" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="remotes">Csárdi et al. (<a href="10-references.html#ref-remotes" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="tictoc">Izrailev (<a href="10-references.html#ref-tictoc" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="crayon">Csárdi (<a href="10-references.html#ref-crayon" role="doc-biblioref">2022a</a>)</span>, <span class="citation" data-cites="fs">Hester, Wickham, and Csárdi (<a href="10-references.html#ref-fs" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="furrr">Vaughan and Dancho (<a href="10-references.html#ref-furrr" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="withr">Hester et al. (<a href="10-references.html#ref-withr" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="XML">Temple Lang (<a href="10-references.html#ref-XML" role="doc-biblioref">2023</a>)</span></p>
 </section>
 <section id="tasks-implementation" class="level2">
 <h2 class="anchored" data-anchor-id="tasks-implementation">Tasks implementation</h2>
@@ -243,7 +252,7 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 </section>
 <section id="bibliography" class="level2">
 <h2 class="anchored" data-anchor-id="bibliography">Bibliography</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-rmarkdown2023" class="csl-entry" role="listitem">
 Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier
 Luraschi, Kevin Ushey, Aron Atkins, et al. 2023. <em><span class="nocase">rmarkdown</span>: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
@@ -270,7 +279,7 @@ Attali, Dean. 2021. <em><span class="nocase">shinyjs</span>: Easily
 Improve the User Experience of Your Shiny Apps in Seconds</em>. <a href="https://deanattali.com/shinyjs/">https://deanattali.com/shinyjs/</a>.
 </div>
 <div id="ref-magrittr" class="csl-entry" role="listitem">
-Bache, Stefan Milton, and Hadley Wickham. 2022. <em><span class="nocase">magrittr</span>: A Forward-Pipe Operator for r</em>.
+Bache, Stefan Milton, and Hadley Wickham. 2022. <em><span class="nocase">magrittr</span>: A Forward-Pipe Operator for r</em>. <a href="https://magrittr.tidyverse.org">https://magrittr.tidyverse.org</a>.
 </div>
 <div id="ref-badosa" class="csl-entry" role="listitem">
 Bados, Arturo, Antonio Solanas, and Raquel Andrés. n.d.
@@ -299,9 +308,6 @@ and <span>Parents</span> of <span>Individuals With Intellectual
 Disability</span>.”</span> <em>Intellectual and Developmental
 Disabilities</em> 57 (6): 512–26. <a href="https://doi.org/10.1352/1934-9556-57.6.512">https://doi.org/10.1352/1934-9556-57.6.512</a>.
 </div>
-<div id="ref-gtools" class="csl-entry" role="listitem">
-Bolker, Ben, Gregory R. Warnes, and Thomas Lumley. 2022. <em><span class="nocase">gtools</span>: Various r Programming Tools</em>. <a href="https://github.com/r-gregmisc/gtools">https://github.com/r-gregmisc/gtools</a>.
-</div>
 <div id="ref-bosc1997en" class="csl-entry" role="listitem">
 Bosc, M., A. Dubini, and V. Polin. 1997. <span>“Development and
 Validation of a Social Functioning Scale, the <span class="nocase">Social Adaptation Self-evaluation Scale</span>.”</span>
@@ -321,7 +327,7 @@ abreviada.”</span> <em>Revista médica de Chile</em> 137 (5). <a href="https:/
 </div>
 <div id="ref-googlesheets4" class="csl-entry" role="listitem">
 Bryan, Jennifer. 2023. <em>Googlesheets4: Access Google Sheets Using the
-Sheets API V4</em>. <a href="https://CRAN.R-project.org/package=googlesheets4">https://CRAN.R-project.org/package=googlesheets4</a>.
+Sheets API V4</em>. <a href="https://googlesheets4.tidyverse.org">https://googlesheets4.tidyverse.org</a>.
 </div>
 <div id="ref-buchanan" class="csl-entry" role="listitem">
 Buchanan, Tom, Thomas M Heffernan, Andrew C Parrott, Jonathan Ling,
@@ -351,12 +357,12 @@ soledad UCLA en cuidadores de pacientes crónicos en Colombia.”</span>
 Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke,
 Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara
 Borges. 2023. <em><span class="nocase">shiny</span>: Web Application
-Framework for r</em>. <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.
+Framework for r</em>. <a href="https://shiny.posit.co/">https://shiny.posit.co/</a>.
 </div>
 <div id="ref-htmltools" class="csl-entry" role="listitem">
 Cheng, Joe, Carson Sievert, Barret Schloerke, Winston Chang, Yihui Xie,
 and Jeff Allen. 2023. <em><span class="nocase">htmltools</span>: Tools
-for HTML</em>.
+for HTML</em>. <a href="https://github.com/rstudio/htmltools">https://github.com/rstudio/htmltools</a>.
 </div>
 <div id="ref-zotero-17671" class="csl-entry" role="listitem">
 <span>“Coeficiente de Empatía.”</span> n.d.
@@ -382,16 +388,20 @@ Computer Is up</em>. <a href="https://github.com/r-lib/pingr#readme">https://git
 </div>
 <div id="ref-cli" class="csl-entry" role="listitem">
 ———. 2023. <em><span class="nocase">cli</span>: Helpers for Developing
-Command Line Interfaces</em>.
+Command Line Interfaces</em>. <a href="https://cli.r-lib.org">https://cli.r-lib.org</a>.
 </div>
 <div id="ref-callr" class="csl-entry" role="listitem">
-Csárdi, Gábor, and Winston Chang. 2022. <em><span class="nocase">callr</span>: Call r from r</em>.
+Csárdi, Gábor, and Winston Chang. 2022. <em><span class="nocase">callr</span>: Call r from r</em>. <a href="https://callr.r-lib.org">https://callr.r-lib.org</a>.
+</div>
+<div id="ref-processx" class="csl-entry" role="listitem">
+———. 2023. <em><span class="nocase">processx</span>: Execute and Control
+System Processes</em>. <a href="https://processx.r-lib.org">https://processx.r-lib.org</a>.
 </div>
 <div id="ref-remotes" class="csl-entry" role="listitem">
 Csárdi, Gábor, Jim Hester, Hadley Wickham, Winston Chang, Martin Morgan,
 and Dan Tenenbaum. 2023. <em><span class="nocase">remotes</span>: R
 Package Installation from Remote Repositories, Including
-<span>“<span>GitHub</span>”</span></em>.
+<span>“<span>GitHub</span>”</span></em>. <a href="https://remotes.r-lib.org">https://remotes.r-lib.org</a>.
 </div>
 <div id="ref-davis" class="csl-entry" role="listitem">
 Davis, Mark H. n.d. <span>“Measuring <span>Individual Differences</span>
@@ -425,7 +435,7 @@ FROM A SPANISH ADAPTATION OF TOBACYK</span>’<span>S RPBS</span>.”</span>
 <em>The Journal of Parapsychology</em>.
 </div>
 <div id="ref-datatable" class="csl-entry" role="listitem">
-Dowle, Matt, and Arun Srinivasan. 2023. <em><span class="nocase">data.table</span>: Extension of <span>“<span class="nocase">data.frame</span>”</span></em>.
+Dowle, Matt, and Arun Srinivasan. 2023. <em><span class="nocase">data.table</span>: Extension of <span>“<span class="nocase">data.frame</span>”</span></em>. <a href="https://r-datatable.com">https://r-datatable.com</a>.
 </div>
 <div id="ref-eckblad" class="csl-entry" role="listitem">
 Eckblad, Mark, and Loren J Chapman. n.d. <span>“Magical
@@ -441,7 +451,7 @@ Beneficence.”</span> <em>Journal of Experimental Social Psychology</em>
 </div>
 <div id="ref-janitor" class="csl-entry" role="listitem">
 Firke, Sam. 2023. <em><span class="nocase">janitor</span>: Simple Tools
-for Examining and Cleaning Dirty Data</em>.
+for Examining and Cleaning Dirty Data</em>. <a href="https://github.com/sfirke/janitor">https://github.com/sfirke/janitor</a>.
 </div>
 <div id="ref-fonseca-pedreroa" class="csl-entry" role="listitem">
 Fonseca-Pedrero, Eduardo, Mercedes Paino, Serafín Lemos-Giráldez,
@@ -492,23 +502,24 @@ Personality Assessment</em> 51 (1): 69–81. <a href="https://doi.org/10.1207/s1
 </div>
 <div id="ref-rlang" class="csl-entry" role="listitem">
 Henry, Lionel, and Hadley Wickham. 2023. <em><span class="nocase">rlang</span>: Functions for Base Types and Core r and
-<span>“<span>Tidyverse</span>”</span> Features</em>. <a href="https://CRAN.R-project.org/package=rlang">https://CRAN.R-project.org/package=rlang</a>.
+<span>“<span>Tidyverse</span>”</span> Features</em>. <a href="https://rlang.r-lib.org">https://rlang.r-lib.org</a>.
 </div>
 <div id="ref-covr" class="csl-entry" role="listitem">
 Hester, Jim. 2023. <em><span class="nocase">covr</span>: Test Coverage
-for Packages</em>. <a href="https://CRAN.R-project.org/package=covr">https://CRAN.R-project.org/package=covr</a>.
+for Packages</em>. <a href="https://covr.r-lib.org">https://covr.r-lib.org</a>.
 </div>
 <div id="ref-glue" class="csl-entry" role="listitem">
-Hester, Jim, and Jennifer Bryan. 2022. <em><span class="nocase">glue</span>: Interpreted String Literals</em>.
+Hester, Jim, and Jennifer Bryan. 2022. <em><span class="nocase">glue</span>: Interpreted String Literals</em>. <a href="https://github.com/tidyverse/glue">https://github.com/tidyverse/glue</a>.
 </div>
 <div id="ref-withr" class="csl-entry" role="listitem">
 Hester, Jim, Lionel Henry, Kirill Müller, Kevin Ushey, Hadley Wickham,
 and Winston Chang. 2023. <em><span class="nocase">withr</span>: Run Code
 <span>“<span>With</span>”</span> Temporarily Modified Global State</em>.
+<a href="https://withr.r-lib.org">https://withr.r-lib.org</a>.
 </div>
 <div id="ref-fs" class="csl-entry" role="listitem">
 Hester, Jim, Hadley Wickham, and Gábor Csárdi. 2023. <em><span class="nocase">fs</span>: Cross-Platform File System Operations Based on
-<span>“<span class="nocase">libuv</span>”</span></em>.
+<span>“<span class="nocase">libuv</span>”</span></em>. <a href="https://fs.r-lib.org">https://fs.r-lib.org</a>.
 </div>
 <div id="ref-hetts2000pm" class="csl-entry" role="listitem">
 Hetts, John J., David S. Boninger, David A. Armor, Faith Gleicher, and
@@ -542,13 +553,13 @@ Huber, Stefan, and Odilo W Huber. 2012. <span>“The
 <div id="ref-gt" class="csl-entry" role="listitem">
 Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra
 Lauer, and JooYoung Seo. 2023. <em><span class="nocase">gt</span>:
-Easily Create Presentation-Ready Display Tables</em>.
+Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
 </div>
 <div id="ref-tictoc" class="csl-entry" role="listitem">
 Izrailev, Sergei. 2023. <em><span class="nocase">tictoc</span>:
 Functions for Timing r Scripts, as Well as Implementations of
 <span>“<span>Stack</span>”</span> and
-<span>“<span>StackList</span>”</span> Structures</em>. <a href="https://CRAN.R-project.org/package=tictoc">https://CRAN.R-project.org/package=tictoc</a>.
+<span>“<span>StackList</span>”</span> Structures</em>. <a href="https://github.com/jabiru/tictoc">https://github.com/jabiru/tictoc</a>.
 </div>
 <div id="ref-jong2013ejp" class="csl-entry" role="listitem">
 Jong, Jonathan, Matthias Bluemke, and Jamin Halberstadt. 2013.
@@ -673,7 +684,7 @@ psicométricas de la Escala de Autoestima de Rosenberg en universitarios
 chilenos.”</span>
 </div>
 <div id="ref-shinybusy" class="csl-entry" role="listitem">
-Meyer, Fanny, and Victor Perrier. 2022. <em><span class="nocase">shinybusy</span>: Busy Indicators and Notifications for
+Meyer, Fanny, and Victor Perrier. 2023. <em><span class="nocase">shinybusy</span>: Busy Indicators and Notifications for
 <span>“<span>Shiny</span>”</span> Applications</em>. <a href="https://github.com/dreamRs/shinybusy">https://github.com/dreamRs/shinybusy</a>.
 </div>
 <div id="ref-mezzadra2017" class="csl-entry" role="listitem">
@@ -694,10 +705,10 @@ fiabilidad y validez en población clínica española”</span> 22.
 </div>
 <div id="ref-here" class="csl-entry" role="listitem">
 Müller, Kirill. 2020. <em><span class="nocase">here</span>: A Simpler
-Way to Find Your Files</em>.
+Way to Find Your Files</em>. <a href="https://here.r-lib.org/">https://here.r-lib.org/</a>.
 </div>
 <div id="ref-tibble" class="csl-entry" role="listitem">
-Müller, Kirill, and Hadley Wickham. 2023. <em><span class="nocase">tibble</span>: Simple Data Frames</em>.
+Müller, Kirill, and Hadley Wickham. 2023. <em><span class="nocase">tibble</span>: Simple Data Frames</em>. <a href="https://tibble.tidyverse.org/">https://tibble.tidyverse.org/</a>.
 </div>
 <div id="ref-jsPsychAdmin" class="csl-entry" role="listitem">
 Navarrete, Gorka. 2023a. <em><span class="nocase">jsPsychAdmin</span>:
@@ -730,7 +741,11 @@ for r</em>. <a href="https://jeroen.r-universe.dev/V8">https://jeroen.r-universe
 </div>
 <div id="ref-writexl" class="csl-entry" role="listitem">
 ———. 2023b. <em><span class="nocase">writexl</span>: Export Data Frames
-to Excel <span>“<span class="nocase">xlsx</span>”</span> Format</em>.
+to Excel <span>“<span class="nocase">xlsx</span>”</span> Format</em>. <a href="https://docs.ropensci.org/writexl/ (website)
+https://github.com/ropensci/writexl (devel)
+https://libxlsxwriter.github.io (upstream)">https://docs.ropensci.org/writexl/
+(website) https://github.com/ropensci/writexl (devel)
+https://libxlsxwriter.github.io (upstream)</a>.
 </div>
 <div id="ref-pargament1998jssr" class="csl-entry" role="listitem">
 Pargament, Kenneth I., Bruce W. Smith, Harold G. Koenig, and Lisa Perez.
@@ -740,7 +755,7 @@ Religious Coping</span> with <span>Major Life Stressors</span>.”</span>
 </div>
 <div id="ref-patchwork" class="csl-entry" role="listitem">
 Pedersen, Thomas Lin. 2023. <em><span class="nocase">patchwork</span>:
-The Composer of Plots</em>.
+The Composer of Plots</em>. <a href="https://patchwork.data-imaginist.com">https://patchwork.data-imaginist.com</a>.
 </div>
 <div id="ref-perez-albeniz" class="csl-entry" role="listitem">
 Pérez-Albéniz, Alicia, Joaquín de Paúl, and Juan Etxeberría. n.d.
@@ -749,7 +764,7 @@ español.”</span>
 </div>
 <div id="ref-shinyWidgets" class="csl-entry" role="listitem">
 Perrier, Victor, Fanny Meyer, and David Granjon. 2023. <em><span class="nocase">shinyWidgets</span>: Custom Inputs Widgets for
-Shiny</em>.
+Shiny</em>. <a href="https://github.com/dreamRs/shinyWidgets">https://github.com/dreamRs/shinyWidgets</a>.
 </div>
 <div id="ref-plante1997pp" class="csl-entry" role="listitem">
 Plante, Thomas G., and Marcus T. Boccaccini. 1997. <span>“The
@@ -896,10 +911,10 @@ Expansion of the <span>Cognitive Reflection Test</span>.”</span>
 <div id="ref-rstudioapi" class="csl-entry" role="listitem">
 Ushey, Kevin, JJ Allaire, Hadley Wickham, and Gary Ritchie. 2023.
 <em><span class="nocase">rstudioapi</span>: Safely Access the RStudio
-API</em>. <a href="https://CRAN.R-project.org/package=rstudioapi">https://CRAN.R-project.org/package=rstudioapi</a>.
+API</em>. <a href="https://rstudio.github.io/rstudioapi/">https://rstudio.github.io/rstudioapi/</a>.
 </div>
 <div id="ref-renv" class="csl-entry" role="listitem">
-Ushey, Kevin, and Hadley Wickham. 2023. <em><span class="nocase">renv</span>: Project Environments</em>.
+Ushey, Kevin, and Hadley Wickham. 2023. <em><span class="nocase">renv</span>: Project Environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>.
 </div>
 <div id="ref-vale2012dn" class="csl-entry" role="listitem">
 Vale, Francisco A. C., Ari P. Balieiro-Jr, and José Humberto
@@ -909,12 +924,17 @@ Silva-Filho. 2012. <span>“Memory Complaint Scale (<span>MCS</span>):
 </div>
 <div id="ref-furrr" class="csl-entry" role="listitem">
 Vaughan, Davis, and Matt Dancho. 2022. <em><span class="nocase">furrr</span>: Apply Mapping Functions in Parallel Using
-Futures</em>.
+Futures</em>. <a href="https://github.com/DavisVaughan/furrr">https://github.com/DavisVaughan/furrr</a>.
 </div>
 <div id="ref-skimr" class="csl-entry" role="listitem">
 Waring, Elin, Michael Quinn, Amelia McNamara, Eduardo Arino de la Rubia,
 Hao Zhu, and Shannon Ellis. 2022. <em><span class="nocase">skimr</span>:
-Compact and Flexible Summaries of Data</em>.
+Compact and Flexible Summaries of Data</em>. <a href="https://docs.ropensci.org/skimr/ (website)">https://docs.ropensci.org/skimr/
+(website)</a>.
+</div>
+<div id="ref-gtools" class="csl-entry" role="listitem">
+Warnes, Gregory R., Ben Bolker, Thomas Lumley, Arni Magnusson, Bill
+Venables, Genei Ryodan, and Steffen Moeller. 2023. <em><span class="nocase">gtools</span>: Various r Programming Tools</em>. <a href="https://github.com/r-gregmisc/gtools">https://github.com/r-gregmisc/gtools</a>.
 </div>
 <div id="ref-weeks2019" class="csl-entry" role="listitem">
 Weeks, Fiona H. 2019. <span>“Preference for Caesarean Attitudes Toward
@@ -927,51 +947,51 @@ Weeks, Fiona H., Michelle Sadler, and Kathrin Stoll. 2020.
 Birth</em> 33 (2): e159–65. <a href="https://doi.org/10.1016/j.wombi.2019.03.012">https://doi.org/10.1016/j.wombi.2019.03.012</a>.
 </div>
 <div id="ref-rvest" class="csl-entry" role="listitem">
-Wickham, Hadley. 2022a. <em><span class="nocase">rvest</span>: Easily
-Harvest (Scrape) Web Pages</em>.
-</div>
-<div id="ref-stringr" class="csl-entry" role="listitem">
-———. 2022b. <em><span class="nocase">stringr</span>: Simple, Consistent
-Wrappers for Common String Operations</em>.
+Wickham, Hadley. 2022. <em><span class="nocase">rvest</span>: Easily
+Harvest (Scrape) Web Pages</em>. <a href="https://rvest.tidyverse.org/">https://rvest.tidyverse.org/</a>.
 </div>
 <div id="ref-forcats" class="csl-entry" role="listitem">
 ———. 2023a. <em><span class="nocase">forcats</span>: Tools for Working
-with Categorical Variables (Factors)</em>.
+with Categorical Variables (Factors)</em>. <a href="https://forcats.tidyverse.org/">https://forcats.tidyverse.org/</a>.
 </div>
 <div id="ref-httr" class="csl-entry" role="listitem">
 ———. 2023b. <em><span class="nocase">httr</span>: Tools for Working with
-URLs and HTTP</em>.
+URLs and HTTP</em>. <a href="https://httr.r-lib.org/">https://httr.r-lib.org/</a>.
+</div>
+<div id="ref-stringr" class="csl-entry" role="listitem">
+———. 2023c. <em><span class="nocase">stringr</span>: Simple, Consistent
+Wrappers for Common String Operations</em>. <a href="https://stringr.tidyverse.org">https://stringr.tidyverse.org</a>.
 </div>
 <div id="ref-readxl" class="csl-entry" role="listitem">
-Wickham, Hadley, and Jennifer Bryan. 2023. <em><span class="nocase">readxl</span>: Read Excel Files</em>.
+Wickham, Hadley, and Jennifer Bryan. 2023. <em><span class="nocase">readxl</span>: Read Excel Files</em>. <a href="https://readxl.tidyverse.org">https://readxl.tidyverse.org</a>.
 </div>
 <div id="ref-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
 Vaughan. 2023. <em><span class="nocase">dplyr</span>: A Grammar of Data
-Manipulation</em>.
+Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
 </div>
 <div id="ref-dtplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Maximilian Girlich, Mark Fairbanks, and Ryan Dickerson.
 2023. <em><span class="nocase">dtplyr</span>: Data Table Back-End for
-<span>“<span class="nocase">dplyr</span>”</span></em>.
+<span>“<span class="nocase">dplyr</span>”</span></em>. <a href="https://dtplyr.tidyverse.org">https://dtplyr.tidyverse.org</a>.
 </div>
 <div id="ref-purrr" class="csl-entry" role="listitem">
-Wickham, Hadley, and Lionel Henry. 2023. <em><span class="nocase">purrr</span>: Functional Programming Tools</em>.
+Wickham, Hadley, and Lionel Henry. 2023. <em><span class="nocase">purrr</span>: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
 </div>
 <div id="ref-pkgdown" class="csl-entry" role="listitem">
 Wickham, Hadley, Jay Hesselberth, and Maëlle Salmon. 2022. <em><span class="nocase">pkgdown</span>: Make Static HTML Documentation for a
-Package</em>.
+Package</em>. <a href="https://pkgdown.r-lib.org">https://pkgdown.r-lib.org</a>.
 </div>
 <div id="ref-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em><span class="nocase">readr</span>: Read Rectangular Text Data</em>.
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em><span class="nocase">readr</span>: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
 </div>
 <div id="ref-devtools" class="csl-entry" role="listitem">
 Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2022.
 <em><span class="nocase">devtools</span>: Tools to Make Developing r
-Packages Easier</em>.
+Packages Easier</em>. <a href="https://devtools.r-lib.org/">https://devtools.r-lib.org/</a>.
 </div>
 <div id="ref-tidyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em><span class="nocase">tidyr</span>: Tidy Messy Data</em>.
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em><span class="nocase">tidyr</span>: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
 </div>
 <div id="ref-ggridges" class="csl-entry" role="listitem">
 Wilke, Claus O. 2022. <em><span class="nocase">ggridges</span>:
@@ -993,7 +1013,7 @@ Xie, Yihui. 2023. <em><span class="nocase">knitr</span>: A
 General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
 </div>
 <div id="ref-markdown" class="csl-entry" role="listitem">
-Xie, Yihui, JJ Allaire, and Jeffrey Horner. 2023. <em><span class="nocase">markdown</span>: Render Markdown with <span>“<span class="nocase">commonmark</span>”</span></em>. <a href="https://CRAN.R-project.org/package=markdown">https://CRAN.R-project.org/package=markdown</a>.
+Xie, Yihui, JJ Allaire, and Jeffrey Horner. 2023. <em><span class="nocase">markdown</span>: Render Markdown with <span>“<span class="nocase">commonmark</span>”</span></em>. <a href="https://github.com/rstudio/markdown">https://github.com/rstudio/markdown</a>.
 </div>
 <div id="ref-DT" class="csl-entry" role="listitem">
 Xie, Yihui, Joe Cheng, and Xianying Tan. 2023. <em><span>DT</span>: A
@@ -1085,10 +1105,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1098,8 +1117,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1112,6 +1140,135 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1155,6 +1312,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1180,6 +1338,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1241,7 +1425,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd/09-CommonTasks.html" class="pagination-link">
+      <a href="../qmd/09-CommonTasks.html" class="pagination-link  aria-label=" &lt;span="" tasks&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Common Tasks</span></span>
       </a>          
   </div>
@@ -1249,6 +1433,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

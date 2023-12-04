@@ -10,7 +10,7 @@
 
 ```{r, eval=FALSE}
 
-# if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychAdmin")
+if (!require('pak')) utils::install.packages('pak'); pak::pkg_install("gorkang/jsPsychAdmin")
 
 ```
 
@@ -25,7 +25,8 @@ Prints usage and examples, shows help, and loads usage parameters to Global envi
 
 ```{r, eval=FALSE}
 
-get_parameters_of_function(name_function = "jsPsychMaker::create_protocol()", load_parameters = TRUE)
+get_parameters_of_function(name_function = "jsPsychMaker::create_protocol()", 
+                           load_parameters = TRUE)
 
 
 ```
@@ -37,7 +38,8 @@ get_parameters_of_function(name_function = "jsPsychMaker::create_protocol()", lo
 
   # Syncs and checks all
   jsPsychAdmin::download_check_all_protocols(gmail_account = "XYZ@gmail.com",
-                                             ignore_existing = FALSE, # Overwrites existing files that changed
+                                             # Overwrites existing files that changed
+                                             ignore_existing = FALSE, 
                                              dont_ask = TRUE,
                                              show_all_messages = TRUE)
 
@@ -49,7 +51,8 @@ get_parameters_of_function(name_function = "jsPsychMaker::create_protocol()", lo
                                    only_test = FALSE,
                                    exclude_csv = TRUE, # DO NOT INCLUDE DATA
                                    delete_nonexistent = TRUE,
-                                   ignore_existing = FALSE, # If a file already exists, ignore it. Good for data, bad for protocols.
+                                   # If a file already exists, ignore it. Good for data, bad for protocols.
+                                   ignore_existing = FALSE, 
                                    dont_ask = TRUE
                                    )
 ```
@@ -70,7 +73,8 @@ get_parameters_of_function(name_function = "jsPsychMaker::create_protocol()", lo
 
   # Clean up DB and csv files for a test/protocols_DEV/ protocol # Useful when testing
   # rstudioapi::navigateToFile(".vault/.credentials")
-  jsPsychAdmin::clean_up_dev_protocol(protocol_id = "test/protocols_DEV/31") # Asks for server password
+  # Asks for server password
+  jsPsychAdmin::clean_up_dev_protocol(protocol_id = "test/protocols_DEV/31") 
 
 ```
 
@@ -85,7 +89,10 @@ get_parameters_of_function(name_function = "jsPsychMaker::create_protocol()", lo
   # + https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0
   # + https://docs.google.com/spreadsheets/d/1LAsyTZ2ZRP_xLiUBkqmawwnKWgy8OCwq4mmWrrc_rpQ/edit#gid=0
 
-  jsPsychAdmin::check_missing_prepare_TASK(sync_protocols = TRUE, check_trialids = TRUE, check_new_task_tabs = TRUE, delete_nonexistent = FALSE,
+  jsPsychAdmin::check_missing_prepare_TASK(sync_protocols = TRUE, 
+                                           check_trialids = TRUE, 
+                                           check_new_task_tabs = TRUE, 
+                                           delete_nonexistent = FALSE,
                                            gmail_account = "myemail@gmail.com")
 
   # Will sync all protocols on server to the LOCAL folder ../CSCN-server
@@ -152,13 +159,18 @@ jsPsychAdmin::create_jsPsychMonkeys_zip()
   # AUTOMATICALLY run Monkeys and prepare data
 
   # Only prints in console the code
-  jsPsychAdmin::simulate_prepare(folder_protocol = "~/Downloads/protocolALL999", n_participants = 3, print_watch_run = "print")
+  jsPsychAdmin::simulate_prepare(folder_protocol = "~/Downloads/protocolALL999", 
+                                 n_participants = 3, 
+                                 print_watch_run = "print")
 
   # Runs everything
-  jsPsychAdmin::simulate_prepare(folder_protocol = "~/Downloads/protocolALL999", n_participants = 3, print_watch_run = "run")
+  jsPsychAdmin::simulate_prepare(folder_protocol = "~/Downloads/protocolALL999", 
+                                 n_participants = 3, 
+                                 print_watch_run = "run")
 
   # Run a single Monkey and open VNC to see how it goes
-  jsPsychAdmin::simulate_prepare(folder_protocol = "~/Downloads/protocolALL999", print_watch_run = "watch")
+  jsPsychAdmin::simulate_prepare(folder_protocol = "~/Downloads/protocolALL999", 
+                                 print_watch_run = "watch")
 
 ```
 

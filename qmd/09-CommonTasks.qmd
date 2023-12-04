@@ -3,9 +3,14 @@
 
 ## Install dependencies
 
+Install the last versions of all the packages:  
+
 ```{r, eval=FALSE}
 
-# if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychAdmin")
+if (!require('pak')) install.packages('pak'); pak::pkg_install("gorkang/jsPsychAdmin")
+if (!require('pak')) install.packages('pak'); pak::pkg_install("gorkang/jsPsychMaker")
+if (!require('pak')) install.packages('pak'); pak::pkg_install("gorkang/jsPsychMonkeys")
+if (!require('pak')) install.packages('pak'); pak::pkg_install("gorkang/jsPsychHelpeR")
 
 ```
 
@@ -13,41 +18,92 @@
 
 ## Developing a protocol
 
-### Creating a protocol
-
-```{r, eval=FALSE}
-
-# if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychMaker")
-
-```
-
-
 ### Adding new tasks
 
+Copy example tasks to a local folder, and adapt with the information of the new task. For example:  
 
 ```{r, eval=FALSE}
 
-# TODO
+jsPsychMaker::copy_example_tasks(
+  destination_folder = "~/Downloads/ExampleTasks", 
+  which_tasks = "MultiChoice")
+```
+
+### Creating a protocol
+
+You can choose any of the canonical tasks (`jsPsychMaker::list_available_tasks()$tasks`), and/or a folder with the new tasks (`~/Downloads/ExampleTasks`).  
+
+```{r, eval=FALSE}
+
+jsPsychMaker::create_protocol(
+  canonical_tasks = c("BNT"), # Berlin Numeracy Test
+  folder_tasks = "~/Downloads/ExampleTasks/",
+  folder_output = "~/Downloads/protocol9996",
+  launch_browser = TRUE
+)
 
 ```
 
 
 ### Piloting the protocol
 
+Use `local_folder_tasks` to test local protocols.  
+
+```{r, eval=FALSE}
+jsPsychMonkeys::release_the_monkeys(
+  uid = 1:10,
+  sequential_parallel = "parallel",
+  number_of_cores = 10,
+  local_folder_tasks = "~/Downloads/protocol9996/",
+  open_VNC = FALSE
+)
+```
+
+
+If your protocol is on a server, use `server_folder_tasks`. You will need a `credentials_folder` with the server access credentials.  
+
 ```{r, eval=FALSE}
 
-# if (!require('renv')) utils::install.packages('renv'); renv::install('gorkang/jsPsychMonkeys')
-
-jsPsychMonkeys::release_the_monkeys(uid = "1:100",
-                    sequential_parallel = "parallel",
-                    number_of_cores = 10,
-                    server_folder_tasks = "test/protocols_DEV/999",
-                    DEBUG = FALSE,
-                    credentials_folder = "/home/emrys/gorkang@gmail.com/RESEARCH/PROYECTOS-Code/jsPsychR/jsPsychMonkeys/.vault/", 
-                    open_VNC = FALSE)
+jsPsychMonkeys::release_the_monkeys(
+  uid = "1:10",
+  sequential_parallel = "parallel",
+  number_of_cores = 10,
+  server_folder_tasks = "test/protocols_DEV/999",
+  DEBUG = FALSE,
+  credentials_folder = "~/my_location/.vault/", 
+  open_VNC = FALSE
+  )
 
 ```
 
+### Creating helper project
+
+If it is a local protocol:  
+
+```{r, eval=FALSE}
+
+jsPsychHelpeR::run_initial_setup(
+  pid = 9996,
+  data_location = "~/Downloads/protocol9996/.data/",
+  folder = "~/Downloads/jsPsychHelpeR9996", 
+  dont_ask = TRUE
+  )
+
+```
+
+If it is an online protocol:  
+
+```{r, eval=FALSE}
+
+jsPsychHelpeR::run_initial_setup(
+  pid = 9996,
+  download_files = TRUE,
+  credentials_file = "/path_to_credentials/.credentials",
+  folder = "~/Downloads/jsPsychHelpeR9996", 
+  dont_ask = TRUE
+  )
+
+```
 
 
 ### Deleting pilot data
@@ -81,23 +137,18 @@ Will download a zip file with the data.
 # if (!require('renv')) utils::install.packages('renv'); renv::install('gorkang/jsPsychHelpeR')
 
 # Developing protocol
-jsPsychHelpeR::get_zip(pid = "test/protocols_DEV/31", what = "data",  where = "data/")
+jsPsychHelpeR::get_zip(pid = "test/protocols_DEV/31", 
+                       what = "data", 
+                       where = "data/")
 
 # Production protocol
-jsPsychHelpeR::get_zip(pid = "999", what = "data",  where = "data/")
+jsPsychHelpeR::get_zip(pid = "999",
+                       what = "data", 
+                       where = "data/")
 
 
 ```
 
-### Prepare new task correction project
-
-```{r, eval=FALSE}
-
-  jsPsychHelpeR::run_initial_setup(pid = 999,
-                                   download_files = TRUE,
-                                   folder = "~/Downloads/jsPsychR_MYPROJECT")
-
-```
 
 
 ## Protocol to production
@@ -135,7 +186,9 @@ From `admin/000_PREPARE_protocol_for_production.R` in jsPsychAdmin
                                       sequential_parallel = "parallel",
                                       number_of_cores = 10,
                                       big_container = TRUE,
-                                      keep_alive = FALSE, open_VNC = FALSE, screenshot = FALSE,
+                                      keep_alive = FALSE, 
+                                      open_VNC = FALSE, 
+                                      screenshot = FALSE,
                                       credentials_folder = here::here(".vault/"))
 
 

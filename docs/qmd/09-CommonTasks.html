@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.515">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -114,12 +120,12 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd/09-CommonTasks.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Common Tasks</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd/09-CommonTasks.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Common Tasks</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -129,7 +135,7 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">jsPsychR manual</a> 
@@ -215,7 +221,7 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -225,12 +231,12 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
   <li><a href="#install-dependencies" id="toc-install-dependencies" class="nav-link active" data-scroll-target="#install-dependencies"><span class="header-section-number">9.1</span> Install dependencies</a></li>
   <li><a href="#developing-a-protocol" id="toc-developing-a-protocol" class="nav-link" data-scroll-target="#developing-a-protocol"><span class="header-section-number">9.2</span> Developing a protocol</a>
   <ul class="collapse">
-  <li><a href="#creating-a-protocol" id="toc-creating-a-protocol" class="nav-link" data-scroll-target="#creating-a-protocol"><span class="header-section-number">9.2.1</span> Creating a protocol</a></li>
-  <li><a href="#adding-new-tasks" id="toc-adding-new-tasks" class="nav-link" data-scroll-target="#adding-new-tasks"><span class="header-section-number">9.2.2</span> Adding new tasks</a></li>
+  <li><a href="#adding-new-tasks" id="toc-adding-new-tasks" class="nav-link" data-scroll-target="#adding-new-tasks"><span class="header-section-number">9.2.1</span> Adding new tasks</a></li>
+  <li><a href="#creating-a-protocol" id="toc-creating-a-protocol" class="nav-link" data-scroll-target="#creating-a-protocol"><span class="header-section-number">9.2.2</span> Creating a protocol</a></li>
   <li><a href="#piloting-the-protocol" id="toc-piloting-the-protocol" class="nav-link" data-scroll-target="#piloting-the-protocol"><span class="header-section-number">9.2.3</span> Piloting the protocol</a></li>
-  <li><a href="#deleting-pilot-data" id="toc-deleting-pilot-data" class="nav-link" data-scroll-target="#deleting-pilot-data"><span class="header-section-number">9.2.4</span> Deleting pilot data</a></li>
-  <li><a href="#preparing-helper-project" id="toc-preparing-helper-project" class="nav-link" data-scroll-target="#preparing-helper-project"><span class="header-section-number">9.2.5</span> Preparing Helper project</a></li>
-  <li><a href="#prepare-new-task-correction-project" id="toc-prepare-new-task-correction-project" class="nav-link" data-scroll-target="#prepare-new-task-correction-project"><span class="header-section-number">9.2.6</span> Prepare new task correction project</a></li>
+  <li><a href="#creating-helper-project" id="toc-creating-helper-project" class="nav-link" data-scroll-target="#creating-helper-project"><span class="header-section-number">9.2.4</span> Creating helper project</a></li>
+  <li><a href="#deleting-pilot-data" id="toc-deleting-pilot-data" class="nav-link" data-scroll-target="#deleting-pilot-data"><span class="header-section-number">9.2.5</span> Deleting pilot data</a></li>
+  <li><a href="#preparing-helper-project" id="toc-preparing-helper-project" class="nav-link" data-scroll-target="#preparing-helper-project"><span class="header-section-number">9.2.6</span> Preparing Helper project</a></li>
   </ul></li>
   <li><a href="#protocol-to-production" id="toc-protocol-to-production" class="nav-link" data-scroll-target="#protocol-to-production"><span class="header-section-number">9.3</span> Protocol to production</a></li>
   </ul>
@@ -254,156 +260,202 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 
 <section id="install-dependencies" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="install-dependencies"><span class="header-section-number">9.1</span> Install dependencies</h2>
+<p>Install the last versions of all the packages:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychAdmin")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'pak'</span>)) <span class="fu">install.packages</span>(<span class="st">'pak'</span>); pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"gorkang/jsPsychAdmin"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'pak'</span>)) <span class="fu">install.packages</span>(<span class="st">'pak'</span>); pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"gorkang/jsPsychMaker"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'pak'</span>)) <span class="fu">install.packages</span>(<span class="st">'pak'</span>); pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"gorkang/jsPsychMonkeys"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">'pak'</span>)) <span class="fu">install.packages</span>(<span class="st">'pak'</span>); pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"gorkang/jsPsychHelpeR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="developing-a-protocol" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="developing-a-protocol"><span class="header-section-number">9.2</span> Developing a protocol</h2>
-<section id="creating-a-protocol" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="creating-a-protocol"><span class="header-section-number">9.2.1</span> Creating a protocol</h3>
+<section id="adding-new-tasks" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="adding-new-tasks"><span class="header-section-number">9.2.1</span> Adding new tasks</h3>
+<p>Copy example tasks to a local folder, and adapt with the information of the new task. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require('renv')) utils::install.packages('renv'); renv::install("gorkang/jsPsychMaker")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>jsPsychMaker<span class="sc">::</span><span class="fu">copy_example_tasks</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">destination_folder =</span> <span class="st">"~/Downloads/ExampleTasks"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">which_tasks =</span> <span class="st">"MultiChoice"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="adding-new-tasks" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="adding-new-tasks"><span class="header-section-number">9.2.2</span> Adding new tasks</h3>
+<section id="creating-a-protocol" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="creating-a-protocol"><span class="header-section-number">9.2.2</span> Creating a protocol</h3>
+<p>You can choose any of the canonical tasks (<code>jsPsychMaker::list_available_tasks()$tasks</code>), and/or a folder with the new tasks (<code>~/Downloads/ExampleTasks</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>jsPsychMaker<span class="sc">::</span><span class="fu">create_protocol</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">canonical_tasks =</span> <span class="fu">c</span>(<span class="st">"BNT"</span>), <span class="co"># Berlin Numeracy Test</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder_tasks =</span> <span class="st">"~/Downloads/ExampleTasks/"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder_output =</span> <span class="st">"~/Downloads/protocol9996"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">launch_browser =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="piloting-the-protocol" class="level3" data-number="9.2.3">
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="piloting-the-protocol"><span class="header-section-number">9.2.3</span> Piloting the protocol</h3>
+<p>Use <code>local_folder_tasks</code> to test local protocols.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require('renv')) utils::install.packages('renv'); renv::install('gorkang/jsPsychMonkeys')</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> <span class="st">"1:100"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">sequential_parallel =</span> <span class="st">"parallel"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">number_of_cores =</span> <span class="dv">10</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">server_folder_tasks =</span> <span class="st">"test/protocols_DEV/999"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">DEBUG =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">credentials_folder =</span> <span class="st">"/home/emrys/gorkang@gmail.com/RESEARCH/PROYECTOS-Code/jsPsychR/jsPsychMonkeys/.vault/"</span>, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">open_VNC =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">uid =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sequential_parallel =</span> <span class="st">"parallel"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">number_of_cores =</span> <span class="dv">10</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">local_folder_tasks =</span> <span class="st">"~/Downloads/protocol9996/"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">open_VNC =</span> <span class="cn">FALSE</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If your protocol is on a server, use <code>server_folder_tasks</code>. You will need a <code>credentials_folder</code> with the server access credentials.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">uid =</span> <span class="st">"1:10"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sequential_parallel =</span> <span class="st">"parallel"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">number_of_cores =</span> <span class="dv">10</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">server_folder_tasks =</span> <span class="st">"test/protocols_DEV/999"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">DEBUG =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">credentials_folder =</span> <span class="st">"~/my_location/.vault/"</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">open_VNC =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="deleting-pilot-data" class="level3" data-number="9.2.4">
-<h3 data-number="9.2.4" class="anchored" data-anchor-id="deleting-pilot-data"><span class="header-section-number">9.2.4</span> Deleting pilot data</h3>
+<section id="creating-helper-project" class="level3" data-number="9.2.4">
+<h3 data-number="9.2.4" class="anchored" data-anchor-id="creating-helper-project"><span class="header-section-number">9.2.4</span> Creating helper project</h3>
+<p>If it is a local protocol:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Delete the XYZ protocol rows in all the MYSQL tables</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source</span>(<span class="st">"admin/mysql_helper_functions.R"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list_credentials = decrypt_data(key_public = readLines(".vault/data_public_key.txt"), data_encrypted = ".vault/data_encrypted.rds", mysupersecretpassword = rstudioapi::askForPassword())</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">delete_MySQL_tables_pid</span>(pid)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3) Limpiar los archivos de resultados de Monkeys -----------------------</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Delete csv files in .data/</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rstudioapi::navigateToFile(".vault/.credentials") </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">DELETE_data_server</span>(<span class="at">pid =</span> PROTOCOLID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">pid =</span> <span class="dv">9996</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_location =</span> <span class="st">"~/Downloads/protocol9996/.data/"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder =</span> <span class="st">"~/Downloads/jsPsychHelpeR9996"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dont_ask =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If it is an online protocol:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">pid =</span> <span class="dv">9996</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">download_files =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">credentials_file =</span> <span class="st">"/path_to_credentials/.credentials"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder =</span> <span class="st">"~/Downloads/jsPsychHelpeR9996"</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dont_ask =</span> <span class="cn">TRUE</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="preparing-helper-project" class="level3" data-number="9.2.5">
-<h3 data-number="9.2.5" class="anchored" data-anchor-id="preparing-helper-project"><span class="header-section-number">9.2.5</span> Preparing Helper project</h3>
-<section id="GetData" class="level4" data-number="9.2.5.1">
-<h4 data-number="9.2.5.1" class="anchored" data-anchor-id="GetData"><span class="header-section-number">9.2.5.1</span> Get data</h4>
+<section id="deleting-pilot-data" class="level3" data-number="9.2.5">
+<h3 data-number="9.2.5" class="anchored" data-anchor-id="deleting-pilot-data"><span class="header-section-number">9.2.5</span> Deleting pilot data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Delete the XYZ protocol rows in all the MYSQL tables</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source</span>(<span class="st">"admin/mysql_helper_functions.R"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># list_credentials = decrypt_data(key_public = readLines(".vault/data_public_key.txt"), data_encrypted = ".vault/data_encrypted.rds", mysupersecretpassword = rstudioapi::askForPassword())</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">delete_MySQL_tables_pid</span>(pid)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3) Limpiar los archivos de resultados de Monkeys -----------------------</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Delete csv files in .data/</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rstudioapi::navigateToFile(".vault/.credentials") </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">DELETE_data_server</span>(<span class="at">pid =</span> PROTOCOLID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="preparing-helper-project" class="level3" data-number="9.2.6">
+<h3 data-number="9.2.6" class="anchored" data-anchor-id="preparing-helper-project"><span class="header-section-number">9.2.6</span> Preparing Helper project</h3>
+<section id="GetData" class="level4" data-number="9.2.6.1">
+<h4 data-number="9.2.6.1" class="anchored" data-anchor-id="GetData"><span class="header-section-number">9.2.6.1</span> Get data</h4>
 <p>Will download a zip file with the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require('renv')) utils::install.packages('renv'); renv::install('gorkang/jsPsychHelpeR')</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Developing protocol</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">get_zip</span>(<span class="at">pid =</span> <span class="st">"test/protocols_DEV/31"</span>, <span class="at">what =</span> <span class="st">"data"</span>,  <span class="at">where =</span> <span class="st">"data/"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Production protocol</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">get_zip</span>(<span class="at">pid =</span> <span class="st">"999"</span>, <span class="at">what =</span> <span class="st">"data"</span>,  <span class="at">where =</span> <span class="st">"data/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if (!require('renv')) utils::install.packages('renv'); renv::install('gorkang/jsPsychHelpeR')</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Developing protocol</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">get_zip</span>(<span class="at">pid =</span> <span class="st">"test/protocols_DEV/31"</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">what =</span> <span class="st">"data"</span>, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">where =</span> <span class="st">"data/"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Production protocol</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>jsPsychHelpeR<span class="sc">::</span><span class="fu">get_zip</span>(<span class="at">pid =</span> <span class="st">"999"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">what =</span> <span class="st">"data"</span>, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">where =</span> <span class="st">"data/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="prepare-new-task-correction-project" class="level3" data-number="9.2.6">
-<h3 data-number="9.2.6" class="anchored" data-anchor-id="prepare-new-task-correction-project"><span class="header-section-number">9.2.6</span> Prepare new task correction project</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> <span class="dv">999</span>,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">download_files =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">folder =</span> <span class="st">"~/Downloads/jsPsychR_MYPROJECT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 </section>
 <section id="protocol-to-production" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="protocol-to-production"><span class="header-section-number">9.3</span> Protocol to production</h2>
 <p>From <code>admin/000_PREPARE_protocol_for_production.R</code> in jsPsychAdmin</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checklist para pasar protocolos de test/protocols_DEV/ a produccion</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># PARAMETERS --------------------------------</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  PROTOCOLID <span class="ot">=</span> <span class="st">"test/protocols_DEV/31"</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  number_of_monkeys <span class="ot">=</span> <span class="st">"1:100"</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># -------------------------------------------</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Automatic parameters</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  pid <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">"test/protocols_DEV/"</span>, <span class="st">""</span>, PROTOCOLID)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>   cli<span class="sc">::</span><span class="fu">cli_h1</span>(<span class="st">"PROTOCOL {pid}"</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1) Pilotaje final on Monkeys! -------------------------------------------</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean data and MySQL DB</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rstudioapi::navigateToFile(".vault/.credentials")</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">clean_up_dev_protocol</span>(<span class="at">protocol_id =</span> PROTOCOLID) <span class="co"># Will ask for server password</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># LAUNCH MONKEYS</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> number_of_monkeys,</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">server_folder_tasks =</span> PROTOCOLID,</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sequential_parallel =</span> <span class="st">"parallel"</span>,</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">number_of_cores =</span> <span class="dv">10</span>,</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">big_container =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">keep_alive =</span> <span class="cn">FALSE</span>, <span class="at">open_VNC =</span> <span class="cn">FALSE</span>, <span class="at">screenshot =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">credentials_folder =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">".vault/"</span>))</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># CHECK jsPsychHelpeR runs OK</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># || THIS WILL take a while, as all the renv packages need to update</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create NEW jsPsychHelpeR project, downloading the files from the server</span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> PROTOCOLID,</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">download_files =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">folder =</span> <span class="st">"~/Downloads/jsPsychR_TESTING_for_PRODUCTION"</span>)</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># REMEMBER TO DO targets::tar_make() in jsPsychHelpeR project!</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2) Clean data and  MySQL DB --------------------------------------------</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rstudioapi::navigateToFile(".vault/.credentials")</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    jsPsychAdmin<span class="sc">::</span><span class="fu">clean_up_dev_protocol</span>(<span class="at">protocol_id =</span> pid) <span class="co"># Will ask for server password</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3) Revisar el config.js para pasar el experiment a produccion ----------</span></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -[] online = true</span></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -[] pid OK?</span></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -[] debug_mode = false</span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># - ETC...</span></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 4) Copiar protocolo ZIPeado a test/protocols_DEV/OLD_TESTS/ -------------</span></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: automatico!</span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 5) Copiar protocolo a protocols/ ----------------------------------------</span></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: automatico!</span></span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 6) BORRAR protocolo de test/protocols_DEV/OLD_TESTS/ --------------------</span></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: automatico!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checklist para pasar protocolos de test/protocols_DEV/ a produccion</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># PARAMETERS --------------------------------</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  PROTOCOLID <span class="ot">=</span> <span class="st">"test/protocols_DEV/31"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  number_of_monkeys <span class="ot">=</span> <span class="st">"1:100"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># -------------------------------------------</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Automatic parameters</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  pid <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">"test/protocols_DEV/"</span>, <span class="st">""</span>, PROTOCOLID)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>   cli<span class="sc">::</span><span class="fu">cli_h1</span>(<span class="st">"PROTOCOL {pid}"</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1) Pilotaje final on Monkeys! -------------------------------------------</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean data and MySQL DB</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rstudioapi::navigateToFile(".vault/.credentials")</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  jsPsychAdmin<span class="sc">::</span><span class="fu">clean_up_dev_protocol</span>(<span class="at">protocol_id =</span> PROTOCOLID) <span class="co"># Will ask for server password</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># LAUNCH MONKEYS</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  jsPsychMonkeys<span class="sc">::</span><span class="fu">release_the_monkeys</span>(<span class="at">uid =</span> number_of_monkeys,</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">server_folder_tasks =</span> PROTOCOLID,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sequential_parallel =</span> <span class="st">"parallel"</span>,</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">number_of_cores =</span> <span class="dv">10</span>,</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">big_container =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">keep_alive =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">open_VNC =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">screenshot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">credentials_folder =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">".vault/"</span>))</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># CHECK jsPsychHelpeR runs OK</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># || THIS WILL take a while, as all the renv packages need to update</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create NEW jsPsychHelpeR project, downloading the files from the server</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>  jsPsychHelpeR<span class="sc">::</span><span class="fu">run_initial_setup</span>(<span class="at">pid =</span> PROTOCOLID,</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">download_files =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">folder =</span> <span class="st">"~/Downloads/jsPsychR_TESTING_for_PRODUCTION"</span>)</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># REMEMBER TO DO targets::tar_make() in jsPsychHelpeR project!</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2) Clean data and  MySQL DB --------------------------------------------</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rstudioapi::navigateToFile(".vault/.credentials")</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    jsPsychAdmin<span class="sc">::</span><span class="fu">clean_up_dev_protocol</span>(<span class="at">protocol_id =</span> pid) <span class="co"># Will ask for server password</span></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3) Revisar el config.js para pasar el experiment a produccion ----------</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -[] online = true</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -[] pid OK?</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># -[] debug_mode = false</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># - ETC...</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 4) Copiar protocolo ZIPeado a test/protocols_DEV/OLD_TESTS/ -------------</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: automatico!</span></span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 5) Copiar protocolo a protocols/ ----------------------------------------</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: automatico!</span></span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 6) BORRAR protocolo de test/protocols_DEV/OLD_TESTS/ --------------------</span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: automatico!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -489,10 +541,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -502,8 +553,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -516,6 +576,135 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -559,6 +748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -584,6 +774,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -645,17 +861,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd/08-CreateSimulatePrepare.html" class="pagination-link">
+      <a href="../qmd/08-CreateSimulatePrepare.html" class="pagination-link  aria-label=" &lt;span="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd/10-references.html" class="pagination-link">
+      <a href="../qmd/10-references.html" class="pagination-link" aria-label="References">
         <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

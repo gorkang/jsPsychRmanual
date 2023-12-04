@@ -188,10 +188,16 @@ You will need two files for the configuration in the hidden and NOT SHARED `.vau
 
 - `.vault/SERVER_PATH.R`:  contains the path where the protocols are located in your server: `server_path = "http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/"`  
 
-- `.vault/.credentials`: contains a list with the user and password for the server: `list(user = "", password = "")`
+- `.vault/.credentials`: contains a list with the user and password for the server: 
 
+```
+list(IP = "IP ADDRESS OF SERVER",
+     main_FOLDER = "/MAIN/FOLDER/AND/PATH/TO/FILES/IN/THE/SERVER/",
+     user = "YOUR SERVER USERNAME",
+     password = "YOUR VERY STRONG SERVER PASSWORD")
+```
 
-With the `server_folder_tasks` you will set the subfolder where the protocol is located. In the example below the Monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
+With the `server_folder_tasks` you will set the sub-folder where the protocol is located. In the example below the Monkeys would go to, `http://URL_OF_YOUR_SERVER/PROTOCOLS_GENERAL_FOLDER/999`
 
 
 ### Alternatives  

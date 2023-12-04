@@ -46,8 +46,8 @@ Make sure you have the last version of jsPsychMaker, installing from Github:
 
 ```{r, eval=FALSE}
 
-if (!require('remotes')) install.packages('remotes'); library('remotes')
-remotes::install_github("gorkang/jsPsychMaker")
+if (!require('pak')) install.packages('pak'); pak::pkg_install("gorkang/jsPsychMaker")
+
 
 ```
 
@@ -120,8 +120,7 @@ You can run the fully reproducible example included in jsPsychMaker:
 
 ```{r, eval=FALSE}
 
-if (!require('remotes')) install.packages('remotes'); library('remotes')
-if (!require('jsPsychMaker')) remotes::install_github("gorkang/jsPsychMaker"); library('jsPsychMaker')
+if (!require('pak')) install.packages('pak'); pak::pkg_install("gorkang/jsPsychMaker")
 
 ```
 

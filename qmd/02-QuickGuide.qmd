@@ -40,7 +40,7 @@ Open RStudio and run the following line in the console. This will install the js
 
 ```{r, eval=FALSE}
 
-if (!require('remotes')) install.packages('remotes'); remotes::install_github("gorkang/jsPsychMaker")
+if (!require('pak')) utils::install.packages('pak'); pak::pkg_install("gorkang/jsPsychMaker")
 
 # If you are on Ubuntu and you get an igraph error, try: sudo apt install build-essential gfortran
 ```
@@ -97,7 +97,7 @@ jsPsychMonkeys uses [Selenium](https://www.selenium.dev/) inside a [Docker](http
 
 ```{r, eval=FALSE}
 
-if (!require('remotes')) utils::install.packages('remotes'); remotes::install_github('gorkang/jsPsychMonkeys')
+if (!require('pak')) utils::install.packages('pak'); pak::pkg_install("gorkang/jsPsychMonkeys")
 
 # If you are on Ubuntu and you get an igraph error, try: sudo apt install build-essential gfortran
 
@@ -153,7 +153,7 @@ If the protocol was running from a local folder, the Monkey's responses will be 
 
 ```{r, eval=FALSE}
 
-if (!require('remotes')) utils::install.packages('remotes'); remotes::install_github('gorkang/jsPsychHelpeR')
+if (!require('pak')) utils::install.packages('pak'); pak::pkg_install("gorkang/jsPsychHelpeR")
 
 # If you are on Ubuntu and you get an igraph error, try: sudo apt install build-essential gfortran
 

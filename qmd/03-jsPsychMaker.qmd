@@ -98,11 +98,12 @@ Below, a table with an overview of the available tasks in the [Google Sheet](htt
 if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") {
   DT::datatable(DF_raw, filter = 'top', options = list(pageLength = 25, dom = 'tlp')) #
 } else {
-  knitr::kable(DF_raw, format = "latex", booktabs = TRUE, longtable = TRUE, caption = "Test")  |> 
-    kableExtra::kable_styling(latex_options = c("hold_position", "repeat_header")) |> 
-    kableExtra::column_spec(column = c(2), width = "10em") |> 
-    kableExtra::column_spec(column = c(3), width = "20em") |>  
-    kableExtra::kable_styling(latex_options = "striped")
+  knitr::kable(DF_raw, format = "latex", booktabs = TRUE, longtable = TRUE, caption = "Test") |> 
+    kableExtra::kable_styling(latex_options = c("hold_position", "repeat_header"))
+    # Quarto error when using this
+    # kableExtra::column_spec(column = c(2), width = "10em") |>
+    # kableExtra::column_spec(column = c(3), width = "20em")
+    # kableExtra::kable_styling(latex_options = "striped")
 }
 
 ```
