@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.515">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -317,70 +318,76 @@ gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>(<span class="at">jsPsych_version =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$tasks
- [1] "AIM"                 "AntiBots"            "Bank"               
- [4] "BART"                "BDI"                 "BNT"                
- [7] "bRCOPE"              "CAS"                 "CEL"                
-[10] "CIT"                 "CMApost"             "CMApre"             
-[13] "Consent"             "ConsentAudio"        "ConsentHTML"        
-[16] "Cov19Q"              "COVIDCONTROL"        "CRQ"                
-[19] "CRS"                 "CRT7"                "CRTMCQ4"            
-[22] "CRTv"                "CS"                  "CTT"                
-[25] "DASS21"              "DEBRIEF"             "DEMOGR"             
-[28] "DMW"                 "EAR"                 "EmpaTom"            
-[31] "EQ"                  "ERQ"                 "ESM"                
-[34] "ESV"                 "ESZ"                 "fauxPasEv"          
-[37] "FDMQ"                "FKEA"                "GBS"                
-[40] "GHQ12"               "Goodbye"             "HRPVB"              
-[43] "HRPVBpost"           "IBT"                 "ICvsID"             
-[46] "IDQ"                 "IEC"                 "INFCONS"            
-[49] "IRI"                 "IRS"                 "LoB"                
-[52] "LOT"                 "LSNS"                "MCQ30"              
-[55] "MDDF"                "MDMQ"                "MIS"                
-[58] "NARS"                "OBJNUM"              "OTRASRELIG"         
-[61] "PBSr"                "PERMA"               "PPD"                
-[64] "PRFBM"               "PRFBMpost"           "PSC"                
-[67] "PSETPP"              "PSPPC"               "PSS"                
-[70] "PVC"                 "PWb"                 "REI40"              
-[73] "Report"              "RMET"                "RobToM"             
-[76] "RSS"                 "RTS"                 "SASS"               
-[79] "SBS"                 "SCGT"                "SCSORF"             
-[82] "SDG"                 "SILS"                "sProQOL"            
-[85] "SRA"                 "SRBQP"               "SRSav"              
-[88] "STAI"                "SWBQ"                "UCLA"               
-[91] "WaisMatricesES"      "WaisWorkingMemoryES" "WEBEXEC"            
+  [1] "AIM"                 "AntiBots"            "APrioriDiagnostic"  
+  [4] "APrioriScreening"    "Bank"                "BART"               
+  [7] "Bayesian39"          "Bayesian40"          "BDI"                
+ [10] "BNT"                 "bRCOPE"              "CAS"                
+ [13] "CEL"                 "CIT"                 "CMApost"            
+ [16] "CMApre"              "Consent"             "ConsentAudio"       
+ [19] "ConsentHTML"         "Cov19Q"              "COVIDCONTROL"       
+ [22] "CRQ"                 "CRS"                 "CRT7"               
+ [25] "CRTMCQ4_ES-es"       "CRTMCQ4"             "CRTv"               
+ [28] "CS"                  "CTT"                 "DASS21"             
+ [31] "DEBRIEF"             "DEBRIEF39"           "DEMOGR"             
+ [34] "DMW"                 "EAR"                 "EmpaTom"            
+ [37] "EQ"                  "ERQ"                 "ESM"                
+ [40] "ESV"                 "ESZ"                 "fauxPasEv"          
+ [43] "FDMQ"                "FKEA"                "GBS"                
+ [46] "GHQ12"               "Goodbye"             "HRPVB"              
+ [49] "HRPVBpost"           "IBT"                 "ICvsID"             
+ [52] "IDQ"                 "IEC"                 "INFCONS"            
+ [55] "IRI"                 "IRS"                 "LoB"                
+ [58] "LOT"                 "LSNS"                "MCQ30"              
+ [61] "MDDF"                "MDMQ"                "MIS"                
+ [64] "NARS"                "OBJNUM"              "OTRASRELIG"         
+ [67] "PBSr"                "PERMA"               "PPD"                
+ [70] "PRFBM"               "PRFBMpost"           "PSC"                
+ [73] "PSETPP"              "PSPPC"               "PSS"                
+ [76] "PVC"                 "PWb"                 "REI40"              
+ [79] "Report"              "RMET"                "RobToM"             
+ [82] "RSS"                 "RTS"                 "SASS"               
+ [85] "SBS"                 "SCGT"                "SCSORF"             
+ [88] "SDG"                 "SILS"                "sProQOL"            
+ [91] "SRA"                 "SRBQP"               "SRSav"              
+ [94] "STAI"                "SWBQ"                "UCLA"               
+ [97] "WaisMatrices"        "WaisMatricesES"      "WaisWorkingMemory"  
+[100] "WaisWorkingMemoryES" "WEBEXEC"            
 
 $tasks_js
- [1] "AIM.js"                 "AntiBots.js"            "Bank.js"               
- [4] "BART.js"                "BDI.js"                 "BNT.js"                
- [7] "bRCOPE.js"              "CAS.js"                 "CEL.js"                
-[10] "CIT.js"                 "CMApost.js"             "CMApre.js"             
-[13] "Consent.js"             "ConsentAudio.js"        "ConsentHTML.js"        
-[16] "Cov19Q.js"              "COVIDCONTROL.js"        "CRQ.js"                
-[19] "CRS.js"                 "CRT7.js"                "CRTMCQ4.js"            
-[22] "CRTv.js"                "CS.js"                  "CTT.js"                
-[25] "DASS21.js"              "DEBRIEF.js"             "DEMOGR.js"             
-[28] "DMW.js"                 "EAR.js"                 "EmpaTom.js"            
-[31] "EQ.js"                  "ERQ.js"                 "ESM.js"                
-[34] "ESV.js"                 "ESZ.js"                 "fauxPasEv.js"          
-[37] "FDMQ.js"                "FKEA.js"                "GBS.js"                
-[40] "GHQ12.js"               "Goodbye.js"             "HRPVB.js"              
-[43] "HRPVBpost.js"           "IBT.js"                 "ICvsID.js"             
-[46] "IDQ.js"                 "IEC.js"                 "INFCONS.js"            
-[49] "IRI.js"                 "IRS.js"                 "LoB.js"                
-[52] "LOT.js"                 "LSNS.js"                "MCQ30.js"              
-[55] "MDDF.js"                "MDMQ.js"                "MIS.js"                
-[58] "NARS.js"                "OBJNUM.js"              "OTRASRELIG.js"         
-[61] "PBSr.js"                "PERMA.js"               "PPD.js"                
-[64] "PRFBM.js"               "PRFBMpost.js"           "PSC.js"                
-[67] "PSETPP.js"              "PSPPC.js"               "PSS.js"                
-[70] "PVC.js"                 "PWb.js"                 "REI40.js"              
-[73] "Report.js"              "RMET.js"                "RobToM.js"             
-[76] "RSS.js"                 "RTS.js"                 "SASS.js"               
-[79] "SBS.js"                 "SCGT.js"                "SCSORF.js"             
-[82] "SDG.js"                 "SILS.js"                "sProQOL.js"            
-[85] "SRA.js"                 "SRBQP.js"               "SRSav.js"              
-[88] "STAI.js"                "SWBQ.js"                "UCLA.js"               
-[91] "WaisMatricesES.js"      "WaisWorkingMemoryES.js" "WEBEXEC.js"            </code></pre>
+  [1] "AIM.js"                 "AntiBots.js"            "APrioriDiagnostic.js"  
+  [4] "APrioriScreening.js"    "Bank.js"                "BART.js"               
+  [7] "Bayesian39.js"          "Bayesian40.js"          "BDI.js"                
+ [10] "BNT.js"                 "bRCOPE.js"              "CAS.js"                
+ [13] "CEL.js"                 "CIT.js"                 "CMApost.js"            
+ [16] "CMApre.js"              "Consent.js"             "ConsentAudio.js"       
+ [19] "ConsentHTML.js"         "Cov19Q.js"              "COVIDCONTROL.js"       
+ [22] "CRQ.js"                 "CRS.js"                 "CRT7.js"               
+ [25] "CRTMCQ4_ES-es.js"       "CRTMCQ4.js"             "CRTv.js"               
+ [28] "CS.js"                  "CTT.js"                 "DASS21.js"             
+ [31] "DEBRIEF.js"             "DEBRIEF39.js"           "DEMOGR.js"             
+ [34] "DMW.js"                 "EAR.js"                 "EmpaTom.js"            
+ [37] "EQ.js"                  "ERQ.js"                 "ESM.js"                
+ [40] "ESV.js"                 "ESZ.js"                 "fauxPasEv.js"          
+ [43] "FDMQ.js"                "FKEA.js"                "GBS.js"                
+ [46] "GHQ12.js"               "Goodbye.js"             "HRPVB.js"              
+ [49] "HRPVBpost.js"           "IBT.js"                 "ICvsID.js"             
+ [52] "IDQ.js"                 "IEC.js"                 "INFCONS.js"            
+ [55] "IRI.js"                 "IRS.js"                 "LoB.js"                
+ [58] "LOT.js"                 "LSNS.js"                "MCQ30.js"              
+ [61] "MDDF.js"                "MDMQ.js"                "MIS.js"                
+ [64] "NARS.js"                "OBJNUM.js"              "OTRASRELIG.js"         
+ [67] "PBSr.js"                "PERMA.js"               "PPD.js"                
+ [70] "PRFBM.js"               "PRFBMpost.js"           "PSC.js"                
+ [73] "PSETPP.js"              "PSPPC.js"               "PSS.js"                
+ [76] "PVC.js"                 "PWb.js"                 "REI40.js"              
+ [79] "Report.js"              "RMET.js"                "RobToM.js"             
+ [82] "RSS.js"                 "RTS.js"                 "SASS.js"               
+ [85] "SBS.js"                 "SCGT.js"                "SCSORF.js"             
+ [88] "SDG.js"                 "SILS.js"                "sProQOL.js"            
+ [91] "SRA.js"                 "SRBQP.js"               "SRSav.js"              
+ [94] "STAI.js"                "SWBQ.js"                "UCLA.js"               
+ [97] "WaisMatrices.js"        "WaisMatricesES.js"      "WaisWorkingMemory.js"  
+[100] "WaisWorkingMemoryES.js" "WEBEXEC.js"            </code></pre>
 </div>
 </div>
 </section>
@@ -559,6 +566,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -593,7 +618,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -608,27 +637,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -643,10 +651,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -655,8 +667,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -879,12 +898,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd/06-jsPsychRadmins.html" class="pagination-link  aria-label=" &lt;span="" admins&lt;="" span&gt;"="">
+      <a href="../qmd/06-jsPsychRadmins.html" class="pagination-link" aria-label="jsPsychR Admins">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">jsPsychR Admins</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd/08-CreateSimulatePrepare.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>CreateSimulatePrepare</span>">
+      <a href="../qmd/08-CreateSimulatePrepare.html" class="pagination-link" aria-label="CreateSimulatePrepare">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">CreateSimulatePrepare</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

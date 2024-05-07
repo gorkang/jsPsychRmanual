@@ -54,4 +54,4 @@ So far, the following papers using jsPsychR have been published or submitted:
 
 - Neely-Prado, A., van Elk, M., Navarrete, G., Hola, F., & Huepe, D. (2021). Social Adaptation in Context: The Differential Role of Religiosity and Self-Esteem in Vulnerable vs. Non-vulnerable Populations–A Registered Report Study. Frontiers in Psychology, 12, 5257. [https://doi.org/10.3389/fpsyg.2021.519623](https://doi.org/10.3389/fpsyg.2021.519623)  
 
-- Juan-Pablo Morales, Brenda E. Ryan, Vince Polito, Gorka Navarrete, Mayte Vergara, David Huepe. (Submitted). Can beliefs improve mental health? A dive into resilience during pandemic times in South America
+- Morales, Juan Pablo and Ryan, Brenda and Polito, Vince and Vergara, Mayte and Navarrete, Gorka and Huepe, David, Can Beliefs Improve Mental Health? A Dive into Resilience During Pandemic Times in South America. [http://dx.doi.org/10.2139/ssrn.4634882](http://dx.doi.org/10.2139/ssrn.4634882) 

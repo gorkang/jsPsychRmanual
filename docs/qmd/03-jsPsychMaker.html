@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.515">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -110,13 +111,14 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-WTTG1W9SNG', { 'anonymize_ip': true});
 </script>
-<script src="../site_libs/htmlwidgets-1.6.3/htmlwidgets.js"></script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="../site_libs/datatables-binding-0.30/datatables.js"></script>
+<script src="../site_libs/datatables-binding-0.33/datatables.js"></script>
 <script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="../site_libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="../site_libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="../site_libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
 <link href="../site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
 <script src="../site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
 <link href="../site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
@@ -331,42 +333,45 @@ In brief
 <p><img src="../img/jsPsychMaker.png" class="img-fluid"></p>
 <section id="available-tasks" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="available-tasks"><span class="header-section-number">3.1</span> Available tasks</h2>
-<p>In 2023-12-04 we have 68 tasks implemented, and 20 in development. The full details about the available tasks can be checked in <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">this document</a>. You can always check <a href="https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks">the full list of tasks in the Github repo</a>.</p>
+<p>In 2024-05-01 we have 68 tasks implemented, and 34 in development. The full details about the available tasks can be checked in <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">this document</a>. You can always check <a href="https://github.com/gorkang/jsPsychMaker/tree/main/canonical_protocol/tasks">the full list of tasks in the Github repo</a>.</p>
 <p>To list the available tasks in the jsPsychMaker R package in you console, you can use the <code>list_available_tasks()</code> function. If you don’t have the <code>jsPsychMaker</code> package, <a href="02-QuickGuide.html#install-jspsychmaker">install it first</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>jsPsychMaker<span class="sc">::</span><span class="fu">list_available_tasks</span>()<span class="sc">$</span>tasks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "AIM"                 "AntiBots"            "Bank"               
- [4] "BART"                "BDI"                 "BNT"                
- [7] "bRCOPE"              "CAS"                 "CEL"                
-[10] "CIT"                 "CMApost"             "CMApre"             
-[13] "Consent"             "ConsentAudio"        "ConsentHTML"        
-[16] "Cov19Q"              "COVIDCONTROL"        "CRQ"                
-[19] "CRS"                 "CRT7"                "CRTMCQ4"            
-[22] "CRTv"                "CS"                  "CTT"                
-[25] "DASS21"              "DEBRIEF"             "DEMOGR"             
-[28] "DMW"                 "EAR"                 "EmpaTom"            
-[31] "EQ"                  "ERQ"                 "ESM"                
-[34] "ESV"                 "ESZ"                 "fauxPasEv"          
-[37] "FDMQ"                "FKEA"                "GBS"                
-[40] "GHQ12"               "Goodbye"             "HRPVB"              
-[43] "HRPVBpost"           "IBT"                 "ICvsID"             
-[46] "IDQ"                 "IEC"                 "INFCONS"            
-[49] "IRI"                 "IRS"                 "LoB"                
-[52] "LOT"                 "LSNS"                "MCQ30"              
-[55] "MDDF"                "MDMQ"                "MIS"                
-[58] "NARS"                "OBJNUM"              "OTRASRELIG"         
-[61] "PBSr"                "PERMA"               "PPD"                
-[64] "PRFBM"               "PRFBMpost"           "PSC"                
-[67] "PSETPP"              "PSPPC"               "PSS"                
-[70] "PVC"                 "PWb"                 "REI40"              
-[73] "Report"              "RMET"                "RobToM"             
-[76] "RSS"                 "RTS"                 "SASS"               
-[79] "SBS"                 "SCGT"                "SCSORF"             
-[82] "SDG"                 "SILS"                "sProQOL"            
-[85] "SRA"                 "SRBQP"               "SRSav"              
-[88] "STAI"                "SWBQ"                "UCLA"               
-[91] "WaisMatricesES"      "WaisWorkingMemoryES" "WEBEXEC"            </code></pre>
+<pre><code>  [1] "AIM"                 "AntiBots"            "APrioriDiagnostic"  
+  [4] "APrioriScreening"    "Bank"                "BART"               
+  [7] "Bayesian39"          "Bayesian40"          "BDI"                
+ [10] "BNT"                 "bRCOPE"              "CAS"                
+ [13] "CEL"                 "CIT"                 "CMApost"            
+ [16] "CMApre"              "Consent"             "ConsentAudio"       
+ [19] "ConsentHTML"         "Cov19Q"              "COVIDCONTROL"       
+ [22] "CRQ"                 "CRS"                 "CRT7"               
+ [25] "CRTMCQ4_ES-es"       "CRTMCQ4"             "CRTv"               
+ [28] "CS"                  "CTT"                 "DASS21"             
+ [31] "DEBRIEF"             "DEBRIEF39"           "DEMOGR"             
+ [34] "DMW"                 "EAR"                 "EmpaTom"            
+ [37] "EQ"                  "ERQ"                 "ESM"                
+ [40] "ESV"                 "ESZ"                 "fauxPasEv"          
+ [43] "FDMQ"                "FKEA"                "GBS"                
+ [46] "GHQ12"               "Goodbye"             "HRPVB"              
+ [49] "HRPVBpost"           "IBT"                 "ICvsID"             
+ [52] "IDQ"                 "IEC"                 "INFCONS"            
+ [55] "IRI"                 "IRS"                 "LoB"                
+ [58] "LOT"                 "LSNS"                "MCQ30"              
+ [61] "MDDF"                "MDMQ"                "MIS"                
+ [64] "NARS"                "OBJNUM"              "OTRASRELIG"         
+ [67] "PBSr"                "PERMA"               "PPD"                
+ [70] "PRFBM"               "PRFBMpost"           "PSC"                
+ [73] "PSETPP"              "PSPPC"               "PSS"                
+ [76] "PVC"                 "PWb"                 "REI40"              
+ [79] "Report"              "RMET"                "RobToM"             
+ [82] "RSS"                 "RTS"                 "SASS"               
+ [85] "SBS"                 "SCGT"                "SCSORF"             
+ [88] "SDG"                 "SILS"                "sProQOL"            
+ [91] "SRA"                 "SRBQP"               "SRSav"              
+ [94] "STAI"                "SWBQ"                "UCLA"               
+ [97] "WaisMatrices"        "WaisMatricesES"      "WaisWorkingMemory"  
+[100] "WaisWorkingMemoryES" "WEBEXEC"            </code></pre>
 </div>
 </div>
 <p>If you need help creating a NEW task, see the section <a href="07-NEWtasks.html#Newtasks">help creating a new task</a>.</p>
@@ -374,8 +379,8 @@ In brief
 <p>Below, a table with an overview of the available tasks in the <a href="https://docs.google.com/spreadsheets/d/1Eo0F4GcmqWZ1cghTpQlA4aHsc8kTABss-HAeimE2IqA/edit#gid=0">Google Sheet</a>. If a task is here but not in the R package, you can <a href="https://github.com/gorkang/jsPsychMaker/issues">open an issue to let us know</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-52685e6cdc415834397f" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-52685e6cdc415834397f">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68"],["AIM","BART","BNT","Bank","CAS","CEL","CIT","COVIDCONTROL","CRS","CRT7","CRTMCQ4","CRTv","CS","Consent","ConsentHTML","Cov19Q","DASS21","DEBRIEF","DEMOGR","EAR","ERQ","ESM","ESV","ESZ","EmpaTom","GBS","GHQ12","Goodbye","HRPVB","HRPVBpost","IBT","ICvsID","IDQ","IEC","INFCONS","IRI","IRS","MDDF","MDMQ","MIS","OBJNUM","OTRASRELIG","PBSr","PERMA","PRFBM","PRFBMpost","PSC","PSETPP","PSPPC","PSS","PVC","PWb","REI40","RTS","Report","SASS","SBS","SCSORF","SDG","SILS","SRA","SRBQP","SRSav","STAI","SWBQ","WEBEXEC","bRCOPE","sProQOL"],["Grupos Socieeconómicos","Balloon Analogue Risk Task","Berlin Numeracy test","Detalles bancarios","COVID-19 anxiety scale","Cuestionario Estilos de Liderazgo","Test de inferencia contrafactual","Covid related Questions","The Centrality of Religiosity Scale","Cognitive reflection test","Cognitive reflection test - 4 alternatives","Verbal Cognitive Reflection Test","Escala de Compasión","Consentimiento Informado de Participación","Consentimiento Informado de Participación","Cuestionario Covid 19","Escalas de depresión ansiedad y estrés","Debrief at end of experiment","Demographic scale","Escala de Autoestima de Rosenberg","Emotion Regulation Questionnaire","Escala Subjetiva de Memoria","Empathy Stimulus Validation","Escala abreviada de Sobrecarga del Cuidador de Zarit","Empatia, Teoria de la mente y Compasión","Global Beliefs Screening","12-item General health questionnaire","Goodbye task","High risk perception of vaginal birth","High risk perception of vaginal birth (POST)","Impulsive buying Tendency","Impartial Charity vs. Instrumental Damage","Cuestionario de Identificación","Rotters internal-External control scale","Cesarean information brochures","Interpersonal reactivity index","Importance of Rationality Scale","MORAL DISGUST DUMBFOUNDING","Melbourne Decision Making Questionnaire","Magical ideation scale","Lipkus numeracy Test","Varias preguntas sobre creencias religiosas","Paranormal Belief Scale","Perma Profiler","Preferencia of birth mode in normal pregnancy","Preferencia of birth mode in normal pregnancy (post)","Prosociality","Percepciones sobre el embarazo, trabajo de parto y parto (Fear of birth scale)","Percepciones sobre el parto por cesárea","Perceived Stress Scale","Preguntas vacuna COVID-19","Psychological well being-scale","Rational-Experiential intentory-40","The Revised Transliminality Scale","Tarea para solicitar autorización y detalles para enviar reporte automatizado con resultados de participantes","Social Adaptation Self-evaluation Scale","Supernatural Belief Scale","Santa Clara Strength of Religious Faith Questionnaire","Socio Demográfico General","School Implementation Leadership Scale","Self-Reported Altruism Scale","Self-regulation and belief questionnaire in pandemic","Springfield Religiosity Scale (Abbreviated Version)","State-Trait Anxiety Inventory","Spiritual wellbeing questionnaire","Web based executive funtion questionnaire","Escala de afrontamiento religioso Brief-RCOPE","Short Professional Quality of Life Scale"],["Modelo que permite segmentar y clasificar socioeconómicamente a los individuos.","Medida de riesgo individual mediante el análisis de las condultas del individuo","Breve, flexible y de fácil aplicación. Mide habilidades numéricas","Detalles bancarios para realizar transferencia a participante por su participación en experimento","Evalúa las fluctuaciones en los niveles de ansiedad causados ​​​​por COVID-19","Mide los estilos de liderazgo según tres criterios: Directivo, Democratico y Derivativo","Prueba de selección múltiple que evalúa inferencia contrafactual.","Busca conocer los cambios que han ocurrido en la vida del entrevistado desde la aparición del COVID-19.","Mide la intensidad general de cinco dimensiones básicas de la religiosidad.","Mide la tendencia a anular una alternativa de respuesta prepotente que es incorrecta y participar en una reflexión adicional que conduce a la respuesta correcta.","Mide la tendencia a anular una alternativa de respuesta prepotente que es incorrecta y participar en una reflexión adicional que conduce a la respuesta correcta.","Mide la capacidad de suprimir una intuición inicial (incorrecta) y reflexionar cognitivamente.","Mide la Compasión hacia otros","Consentimiento informado estandard","Consentimiento informado estandard","Evalúa dimensiones relacionadas al covid-19","Mide escala de ansiedad, estrés y depresión (autoinforme)","Informe presentado al final del experimento","Ejemplo de tarea donde se recoje información demográfica del encuestado","Instrumento unidimensional que mide la autoestima.","Evalua dos estrategias de regulación emocional (autoinforme)","Evalúa la memoria del paciente directamente con él/ella","Evalúa la interacción entre 2 individuos (uno con Alzeimer)","Mide la sobrecarga de los cuidadores de personas con Demencia (Autoinforme)","Tarea de video social que permite la manipulación y evaluación independiente de la empatía y compasión","Evalúa las creencias del entrevistado","Detecta personas con trastorno psiquiátrico diagnosticable","Despedida del experimento. Entrega el código aleatorio de participación","Preguntas para evaluar el nivel de riesgo percibido antes de ver la información de la prueba INFCONS","Preguntas para evaluar el nivel de riesgo percibido después de ver la información de la prueba INFCONS","Mide impulsividad de compra","Evalua las actitudes de las personas hacia el daño instrumental, es decir, el sacrificio de un individuo para salvar a un número mayor.","Cuestionario que permite identificar a los individuos y además contiene preguntas sobre diagnósticos psiquiatricos.","Mide el grado en que las personas creen que ejercen control sobre sus vidas (controladas internamente) o el grado a los que sienten que sus destinos están más allá de su propio control y están determinados por el destino (controladas externamente)","Entrega información sobre las cesáreas (consentimiento informado)","Es una medida de empatía de diferencia individual con un enfoque multidimensional. (Medida de autoinforme)","Mide la importancia personal (no verbal) que los individuos asignan a la formación y evaluación de la creencia sobre bases racionales","Evalua el juicio moral, la toma de perspectiva y la valoración de daño percibido en cuatro tipos de casos:de un dilema con fuerte controversia moral (moral dumbfounding), dilemas morales sin fuerte controversia moral, situaciones no morales y situaciones control.","Mide patrones de afrontamiento de decisiones","Mide el nivel de pensamiento mágico del individuo","Mide el rendimiento en preguntas de resolución numérica","Escala con multiples preguntas sobre religión. Creada a partir de preguntas propias y multiples escalas.","Proporciona una medida del grado de creencia en siete dimensiones","Medida de prosperidad o bienestar",null,null,"Variación del juego de la donación caritativa donde la persona decide, en el caso de una ganancia ocasional, cuanto dinero se queda y cuanto reparte a una entidad social que apoya a personas de su propio país (in-group) y cuanto a una entidad social que apoya a personas de otras partes del mundo (out-group).","Evalúa las actitudes y sentimientos del individuo hacia el embarazo, trabajo de parto y parto.",null,"Mide el grado en que las situaciones en la vida de uno son valoradas como estresantes.","Entrega información respecto al estado de vacunación contra covid19","Mide el bienestar psicológico","Mide las diferencias individuales de dos dimensiones independientes del procesamiento humano: racional y experiencial.","Mide el nivel de transliminalidad del entrevistado.","La tarea Report solicita autorización y detalles para enviar reporte automatizado. Existe un archivo Rmd en jsPsychHelpeR que trabaja con el input de esta tarea para generar reportes automatizados para los participantes.","Estudia la motivación y el comportamiento del paciente en distintas áreas","Evalua la medida de la creencia en agentes religiosos sobrenaturales, lugares y eventos.","Evalúa la fuerza de la fe religiosa.","Recolecta información demográfica del individio","Evalúa estilos de liderazgo en el contexto educacional (directivos y profesores de institiuciones educacionales).","Mide el altruismo del individuo",null,"Refleja una perspectiva judeocristiana conservadora o tradicional","Entrega una medida empírica del nivel de ansiedad “normal” en adultos, mediante la medición de 2 conceptos independientes.","Mide el bienestar personal, bienestar comunitario, bienestar ambiental y bienestar trascendental.","Refleja la experiencia general de los participantes sobre los problemas ejecutivos en lugar de cualquier aspecto específico de los mismos.","Evalúa dos patrones de afrontamiento religioso en población adolescente y adulta","Mide la Calidad de vida de trabajadores de la salud"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>short_name<\/th>\n      <th>Nombre<\/th>\n      <th>Descripcion<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":25,"dom":"tlp","columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-46cb4f060167e1cb7300" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-46cb4f060167e1cb7300">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68"],["AIM","BART","BNT","Bank","CAS","CEL","CIT","COVIDCONTROL","CRS","CRT7","CRTMCQ4","CRTv","CS","Consent","ConsentHTML","Cov19Q","DASS21","DEBRIEF","DEMOGR","EAR","ERQ","ESM","ESV","ESZ","EmpaTom","GBS","GHQ12","Goodbye","HRPVB","HRPVBpost","IBT","ICvsID","IDQ","IEC","INFCONS","IRI","IRS","MDDF","MDMQ","MIS","OBJNUM","OTRASRELIG","PBSr","PERMA","PRFBM","PRFBMpost","PSC","PSETPP","PSPPC","PSS","PVC","PWb","REI40","RTS","Report","SASS","SBS","SCSORF","SDG","SILS","SRA","SRBQP","SRSav","STAI","SWBQ","WEBEXEC","bRCOPE","sProQOL"],["Grupos Socieeconómicos","Balloon Analogue Risk Task","Berlin Numeracy test","Detalles bancarios","COVID-19 anxiety scale","Cuestionario Estilos de Liderazgo","Test de inferencia contrafactual","Covid related Questions","The Centrality of Religiosity Scale","Cognitive reflection test","Cognitive reflection test - 4 alternatives","Verbal Cognitive Reflection Test","Escala de Compasión","Consentimiento Informado de Participación","Consentimiento Informado de Participación","Cuestionario Covid 19","Escalas de depresión ansiedad y estrés","Debrief at end of experiment","Demographic scale","Escala de Autoestima de Rosenberg","Emotion Regulation Questionnaire","Escala Subjetiva de Memoria","Empathy Stimulus Validation","Escala abreviada de Sobrecarga del Cuidador de Zarit","Empatia, Teoria de la mente y Compasión","Global Beliefs Screening","12-item General health questionnaire","Goodbye task","High risk perception of vaginal birth","High risk perception of vaginal birth (POST)","Impulsive buying Tendency","Impartial Charity vs. Instrumental Damage","Cuestionario de Identificación","Rotters internal-External control scale","Cesarean information brochures","Interpersonal reactivity index","Importance of Rationality Scale","MORAL DISGUST DUMBFOUNDING","Melbourne Decision Making Questionnaire","Magical ideation scale","Lipkus numeracy Test","Varias preguntas sobre creencias religiosas","Paranormal Belief Scale","Perma Profiler","Preferencia of birth mode in normal pregnancy","Preferencia of birth mode in normal pregnancy (post)","Prosociality","Percepciones sobre el embarazo, trabajo de parto y parto (Fear of birth scale)","Percepciones sobre el parto por cesárea","Perceived Stress Scale","Preguntas vacuna COVID-19","Psychological well being-scale","Rational-Experiential intentory-40","The Revised Transliminality Scale","Tarea para solicitar autorización y detalles para enviar reporte automatizado con resultados de participantes","Social Adaptation Self-evaluation Scale","Supernatural Belief Scale","Santa Clara Strength of Religious Faith Questionnaire","Socio Demográfico General","School Implementation Leadership Scale","Self-Reported Altruism Scale","Self-regulation and belief questionnaire in pandemic","Springfield Religiosity Scale (Abbreviated Version)","State-Trait Anxiety Inventory","Spiritual wellbeing questionnaire","Web based executive funtion questionnaire","Escala de afrontamiento religioso Brief-RCOPE","Short Professional Quality of Life Scale"],["Modelo que permite segmentar y clasificar socioeconómicamente a los individuos.","Medida de riesgo individual mediante el análisis de las condultas del individuo","Breve, flexible y de fácil aplicación. Mide habilidades numéricas","Detalles bancarios para realizar transferencia a participante por su participación en experimento","Evalúa las fluctuaciones en los niveles de ansiedad causados ​​​​por COVID-19","Mide los estilos de liderazgo según tres criterios: Directivo, Democratico y Derivativo","Prueba de selección múltiple que evalúa inferencia contrafactual.","Busca conocer los cambios que han ocurrido en la vida del entrevistado desde la aparición del COVID-19.","Mide la intensidad general de cinco dimensiones básicas de la religiosidad.","Mide la tendencia a anular una alternativa de respuesta prepotente que es incorrecta y participar en una reflexión adicional que conduce a la respuesta correcta.","Mide la tendencia a anular una alternativa de respuesta prepotente que es incorrecta y participar en una reflexión adicional que conduce a la respuesta correcta.","Mide la capacidad de suprimir una intuición inicial (incorrecta) y reflexionar cognitivamente.","Mide la Compasión hacia otros","Consentimiento informado estandard","Consentimiento informado estandard","Evalúa dimensiones relacionadas al covid-19","Mide escala de ansiedad, estrés y depresión (autoinforme)","Informe presentado al final del experimento","Ejemplo de tarea donde se recoje información demográfica del encuestado","Instrumento unidimensional que mide la autoestima.","Evalua dos estrategias de regulación emocional (autoinforme)","Evalúa la memoria del paciente directamente con él/ella","Evalúa la interacción entre 2 individuos (uno con Alzeimer)","Mide la sobrecarga de los cuidadores de personas con Demencia (Autoinforme)","Tarea de video social que permite la manipulación y evaluación independiente de la empatía y compasión","Evalúa las creencias del entrevistado","Detecta personas con trastorno psiquiátrico diagnosticable","Despedida del experimento. Entrega el código aleatorio de participación","Preguntas para evaluar el nivel de riesgo percibido antes de ver la información de la prueba INFCONS","Preguntas para evaluar el nivel de riesgo percibido después de ver la información de la prueba INFCONS","Mide impulsividad de compra","Evalua las actitudes de las personas hacia el daño instrumental, es decir, el sacrificio de un individuo para salvar a un número mayor.","Cuestionario que permite identificar a los individuos y además contiene preguntas sobre diagnósticos psiquiatricos.","Mide el grado en que las personas creen que ejercen control sobre sus vidas (controladas internamente) o el grado a los que sienten que sus destinos están más allá de su propio control y están determinados por el destino (controladas externamente)","Entrega información sobre las cesáreas (consentimiento informado)","Es una medida de empatía de diferencia individual con un enfoque multidimensional. (Medida de autoinforme)","Mide la importancia personal (no verbal) que los individuos asignan a la formación y evaluación de la creencia sobre bases racionales","Evalua el juicio moral, la toma de perspectiva y la valoración de daño percibido en cuatro tipos de casos:de un dilema con fuerte controversia moral (moral dumbfounding), dilemas morales sin fuerte controversia moral, situaciones no morales y situaciones control.","Mide patrones de afrontamiento de decisiones","Mide el nivel de pensamiento mágico del individuo","Mide el rendimiento en preguntas de resolución numérica","Escala con multiples preguntas sobre religión. Creada a partir de preguntas propias y multiples escalas.","Proporciona una medida del grado de creencia en siete dimensiones","Medida de prosperidad o bienestar",null,null,"Variación del juego de la donación caritativa donde la persona decide, en el caso de una ganancia ocasional, cuanto dinero se queda y cuanto reparte a una entidad social que apoya a personas de su propio país (in-group) y cuanto a una entidad social que apoya a personas de otras partes del mundo (out-group).","Evalúa las actitudes y sentimientos del individuo hacia el embarazo, trabajo de parto y parto.",null,"Mide el grado en que las situaciones en la vida de uno son valoradas como estresantes.","Entrega información respecto al estado de vacunación contra covid19","Mide el bienestar psicológico","Mide las diferencias individuales de dos dimensiones independientes del procesamiento humano: racional y experiencial.","Mide el nivel de transliminalidad del entrevistado.","La tarea Report solicita autorización y detalles para enviar reporte automatizado. Existe un archivo Rmd en jsPsychHelpeR que trabaja con el input de esta tarea para generar reportes automatizados para los participantes.","Estudia la motivación y el comportamiento del paciente en distintas áreas","Evalua la medida de la creencia en agentes religiosos sobrenaturales, lugares y eventos.","Evalúa la fuerza de la fe religiosa.","Recolecta información demográfica del individio","Evalúa estilos de liderazgo en el contexto educacional (directivos y profesores de institiuciones educacionales).","Mide el altruismo del individuo",null,"Refleja una perspectiva judeocristiana conservadora o tradicional","Entrega una medida empírica del nivel de ansiedad “normal” en adultos, mediante la medición de 2 conceptos independientes.","Mide el bienestar personal, bienestar comunitario, bienestar ambiental y bienestar trascendental.","Refleja la experiencia general de los participantes sobre los problemas ejecutivos en lugar de cualquier aspecto específico de los mismos.","Evalúa dos patrones de afrontamiento religioso en población adolescente y adulta","Mide la Calidad de vida de trabajadores de la salud"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>short_name<\/th>\n      <th>Nombre<\/th>\n      <th>Descripcion<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":25,"dom":"tlp","columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"short_name","targets":1},{"name":"Nombre","targets":2},{"name":"Descripcion","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -690,6 +695,7 @@ call_function("Consent");
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">:</span> {<span class="dt">trialid</span><span class="op">:</span> <span class="st">'NameTask_001'</span><span class="op">,</span> <span class="dt">procedure</span><span class="op">:</span> <span class="st">'NameTask'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>trialid</code> identifies the trial, and the <code>procedure</code> makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in MySQL if online, IndexedDB if offline.</p>
+<p>When running online tasks with between-participants variables, the system that balances conditions can change between-participants condition after the participants accept the consent form. If any of the items is not in a timeline (e.g.&nbsp;Instructions) and stores the <code>condition_between</code>, it may not be up to date. See Bayesian39 task for an example.</p>
 <p><code>trialid</code>’s need to have a standardized structure, which generally conforms with <code>NameTask_3DigitNumber</code>. When using conditional items the structure can be a bit more complex, but not much. We use the following rules to check for non-complying trialid’s:</p>
 <pre><code>^[a-zA-Z0-9]{1,100}_[0-9]{2,3}$ -&gt; `NameTask_2or3DigitNumber`, for example `BNT_001`  
 ^[a-zA-Z0-9]{1,100}_[0-9]{2,3}_[0-9]{1,3}$ -&gt; `NameTask_2or3DigitNumber_1to3DigitsSuffix`, for example `BNT_002_1`  
@@ -864,6 +870,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -898,7 +922,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -913,27 +941,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -948,10 +955,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -960,8 +971,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1184,12 +1202,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd/02-QuickGuide.html" class="pagination-link  aria-label=" &lt;span="" guide&lt;="" span&gt;"="">
+      <a href="../qmd/02-QuickGuide.html" class="pagination-link" aria-label="Quick Guide">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick Guide</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd/04-jsPsychMonkeys.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>jsPsychMonkeys</span>">
+      <a href="../qmd/04-jsPsychMonkeys.html" class="pagination-link" aria-label="jsPsychMonkeys">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">jsPsychMonkeys</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

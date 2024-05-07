@@ -396,6 +396,9 @@ data: {trialid: 'NameTask_001', procedure: 'NameTask'}
 
 The `trialid` identifies the trial, and the `procedure` makes possible to find that trial so participants can continue the tasks where they left, know when participants finished the tasks, etc. This is done in MySQL if online, IndexedDB if offline.
 
+When running online tasks with between-participants variables, the system that balances conditions can change between-participants condition after the participants accept the consent form. If any of the items is not in a timeline (e.g. Instructions) and stores the `condition_between`, it may not be up to date. See Bayesian39 task for an example.
+
+
 `trialid`'s need to have a standardized structure, which generally conforms with `NameTask_3DigitNumber`. When using conditional items the structure can be a bit more complex, but not much. We use the following rules to check for non-complying trialid's:
 
     ^[a-zA-Z0-9]{1,100}_[0-9]{2,3}$ -> `NameTask_2or3DigitNumber`, for example `BNT_001`  

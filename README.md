@@ -13,3 +13,8 @@ We have three main tools:
 -   [jsPsychHelpeR](https://github.com/gorkang/jsPsychHelpeR): Standardize and automatize data preparation, analysis and reporting of [jsPsych](https://www.jspsych.org/) experiments created with [jsPsychMaker](#jsPsychMaker)
 
 ![](img/jsPsych-trinity.png)
+
+
+## How to cite jsPSychR
+
+Navarrete, G., & Valencia, H. (2023). Create experimental paradigms with jsPsych: Simulate Participants and Standardize the Data Preparation and Analysis, 1, 73. https://gorkang.github.io/jsPsychRmanual/, 10.5281/zenodo.8296995
